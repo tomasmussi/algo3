@@ -7,7 +7,8 @@ public class Policia {
 	private int horasRestantes;
 	private int cantidadArrestos;
 	Grado grado;
-
+	
+	//TODO: faltaria agregar una orden de arresto con las caracteristicas del ladron a atrapar. 
 	public Policia(){
 		horasRestantes = HORAS_INICIALES;
 		cantidadArrestos = 0;
