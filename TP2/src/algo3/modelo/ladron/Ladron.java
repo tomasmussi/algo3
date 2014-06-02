@@ -1,8 +1,12 @@
 package algo3.modelo.ladron;
 
-import java.util.List;
 
 public class Ladron {
+	
+	//TODO: Lo que haria yo es construir el ladron con parametros desde el constructor, porque en realidad no
+	//necesitamos consultarle todo el tiempo sus propiedades, hacemos un metodo que diga: 
+	//sosVos("masculino", "alpinismo", "negro", "anillo", "descapotable") y devuelva true o false si es o no es
+	// Asi encapsulamos la comparacion en ladron
 
 	//Sexo: Femenino-Masculino
 	private String sexo;
