@@ -29,6 +29,8 @@ public class Ladron {
 	// Yo creo que este si tiene sentido hacerlo por jerarquía de clases porque tienen distintos comportamientos,
 	// a diferencia de el vehiculo, o "senia" que solo deberían ser una información.  Igualmente TBD.
 	private ObjetoRobado objetoRobado;
+	
+	private Integer anios;
 
 	
 	
@@ -79,5 +81,6 @@ public class Ladron {
 	public void setObjetoRobado(ObjetoRobado objetoRobado) {
 		this.objetoRobado = objetoRobado;
 	}
+	
 	
 }
