@@ -10,7 +10,12 @@ public class Ladron {
 
 	//Sexo: Femenino-Masculino
 	private String nombre;
-	private String sexo;
+	//Estoy testeando
+	private String sexo;     
+	
+	
+	
+	
 
 	//Hobby: Tenis-Música-Alpinismo-Paracaidismo-Natación-Croquet
 	private String hobby;
