@@ -34,7 +34,7 @@ public class PoliciaTest {
 	@Test
 	public void testAcuchillarPoliciaRestaDosHoras(){
 		Policia policia = new Policia();
-		policia.auchillado();
+		policia.acuchillado();
 		assertEquals(policia.getHorasRestantes(), Policia.HORAS_INICIALES - 2);
 	}
 

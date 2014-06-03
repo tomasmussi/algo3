@@ -33,7 +33,7 @@ public class Policia {
 		this.restarHoras(8);
 	}
 
-	public void auchillado() {
+	public void acuchillado() {
 		this.restarHoras(2);
 	}
 
