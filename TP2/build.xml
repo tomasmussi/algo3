@@ -15,6 +15,7 @@
 	<path id="classpath">
 		<fileset dir="${libs}">
 			<include name="*.jar" />
+			<include name="/xstream/*.jar"/>
 		</fileset>
 		<pathelement location="${build}" />
 		<pathelement location="${instrumented.dir}" />
@@ -37,6 +38,7 @@
 
 	<target name="compilar.aplicacion" depends="setup">
 		<javac srcdir="src" destdir="${build}" includeantruntime="false" debug="yes" target="1.7">
+			<classpath refid="classpath"/>
 		</javac>
 	</target>
 	

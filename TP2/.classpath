@@ -19,6 +19,6 @@
 	<classpathentry kind="lib" path="libs/xstream/xmlpull-1.1.3.1.jar"/>
 	<classpathentry kind="lib" path="libs/xstream/xom-1.1.jar"/>
 	<classpathentry kind="lib" path="libs/xstream/xpp3_min-1.1.4c.jar"/>
-	<classpathentry kind="lib" path="libs/xstream/xstream-1.4.7.jar"/>
+	<classpathentry kind="lib" path="libs/xstream/xstream-1.4.7.jar" sourcepath="libs/sources/src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
