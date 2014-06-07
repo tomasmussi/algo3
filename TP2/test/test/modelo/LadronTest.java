@@ -1,92 +1,72 @@
 package test.modelo;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import junit.framework.Assert;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
+import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.ladron.ObjetoComun;
 import algo3.modelo.ladron.ObjetoMuyValioso;
-import algo3.modelo.ladron.ObjetoRobado;
-import algo3.modelo.ladron.ObjetoValioso;
 
 public class LadronTest {
 
-	@Test
-	public void testCrearLadron(){
-		Ladron ladron = new Ladron();
-		assertTrue(ladron != null);
+	private Ladron ladron;
+	private CaracteristicaLadron caracteristicaCorrecta;
+	private CaracteristicaLadron caracteristicaIncorrecta;
+
+
+	@Before
+	public void crearCaracteristicaDefault(){
+		caracteristicaCorrecta = new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Rojo", "Tenis", "Descapotable");
+		caracteristicaIncorrecta = new CaracteristicaLadron("Carmen Sandiego", "Masculino", "Rojo", "Tenis", "Descapotable");
+		//Importante crear el Ladron con la referencia de caracteristicaCorrecta instanciada, sino rompe por NullPointerException (referencia nula)
+		ladron = new Ladron(caracteristicaCorrecta, new ObjetoMuyValioso("Anillo del Papa", "Roma"));
 	}
-	
+
+	@After
+	public void eliminarReferencia(){
+		ladron = null;
+	}
+
+
+	@Test
+	public void testCrearLadronConCaracteristicas(){
+		assertTrue(ladron.coincideCon(caracteristicaCorrecta));
+	}
+
+	@Test
+	public void testCrearLadronConCaracteristicasComparaConCaracteristicasIncorrectas() {
+		assertFalse(ladron.coincideCon(caracteristicaIncorrecta));
+	}
+
 	@Test
 	public void testCrearObjetoRobadoComun(){
-		ObjetoRobado objeto = new ObjetoComun("Pope Ring", "Rome");
-		boolean isOK = objeto.getNombre().equals("Pope Ring")
-						&& objeto.getPaisOrigen().equals("Rome")
-						&& objeto.getCantidadDePaises().equals(4);
-		assertTrue(isOK);
+		assertTrue(ladron.seRobo(new ObjetoComun("Anillo del Papa", "Roma")));
 	}
-	
-	@Test
-	public void testCrearObjetoRobadoValioso(){
-		ObjetoRobado objeto = new ObjetoValioso("Pope Ring", "Rome");
-		boolean isOK = objeto.getNombre().equals("Pope Ring")
-						&& objeto.getPaisOrigen().equals("Rome")
-						&& objeto.getCantidadDePaises().equals(5);
-		assertTrue(isOK);
-	}
-	
-	@Test
-	public void testCrearObjetoRobadoMuyValioso(){
-		ObjetoRobado objeto = new ObjetoMuyValioso("Pope Ring", "Rome");
-		boolean isOK = objeto.getNombre().equals("Pope Ring")
-						&& objeto.getPaisOrigen().equals("Rome")
-						&& objeto.getCantidadDePaises().equals(7);
-		assertTrue(isOK);
-	}
-	
-	@Test
-	public void testCrearLadronConInformacion(){
-		Ladron ladron = new Ladron();
-		ObjetoRobado objeto = new ObjetoMuyValioso("Pope Ring", "Rome");
-		
-		ladron.setSexo("Masculino");
-		ladron.setColorCabello("Negro");
-		ladron.setHobby("Croquet");
-		ladron.setCaracteristica("Joyas");
-		ladron.setVehiculo("Convertible");
-		ladron.setObjetoRobado(objeto);
-		
-		boolean isOK = ladron.getObjetoRobado().getNombre().equals("Pope Ring")
-						&& ladron.getVehiculo().equals("Convertible")
-						&& ladron.getCaracteristica().equals("Joyas")
-						&& ladron.getHobby().equals("Croquet")
-						&& ladron.getColorCabello().equals("Negro")
-						&& ladron.getSexo().equals("Masculino");
-		assertTrue(isOK);
-	}
-	
-	@Test
-	public void test() {
-		Ladron ladron = new Ladron();
-		ObjetoRobado objeto = new ObjetoMuyValioso("Pope Ring", "Rome");
-		
-		ladron.setSexo("Masculino");
-		ladron.setColorCabello("Negro");
-		ladron.setHobby("Croquet");
-		ladron.setCaracteristica("Joyas");
-		ladron.setVehiculo("Convertible");
-		ladron.setObjetoRobado(objeto);
-		
-		boolean isNotOK = ladron.getObjetoRobado().getNombre().equals("Painting from the Kremlin")
-						&& ladron.getVehiculo().equals("Convertible")
-						&& ladron.getCaracteristica().equals("Joyas")
-						&& ladron.getHobby().equals("Croquet")
-						&& ladron.getColorCabello().equals("Negro")
-						&& ladron.getSexo().equals("Masculino");
-		
-		Assert.assertFalse(isNotOK);
-	}
-	
+
+	//TODO Esto es test puramente de Objeto, no de Ladron, pasar a ObjetoTest
+	//	@Test
+	//	public void testCrearObjetoRobadoValioso(){
+	//		Objeto objeto = new ObjetoValioso("Pope Ring", "Rome");
+	//		boolean isOK = objeto.getNombre().equals("Pope Ring")
+	//				&& objeto.getCiudadOrigen().equals("Rome")
+	//				&& objeto.getCantidadDeCiudades().equals(5);
+	//		assertTrue(isOK);
+	//	}
+	//
+	//	@Test
+	//	public void testCrearObjetoRobadoMuyValioso(){
+	//		Objeto objeto = new ObjetoMuyValioso("Pope Ring", "Rome");
+	//		boolean isOK = objeto.getNombre().equals("Pope Ring")
+	//				&& objeto.getCiudadOrigen().equals("Rome")
+	//				&& objeto.getCantidadDeCiudades().equals(7);
+	//		assertTrue(isOK);
+	//	}
+
+
+
 }

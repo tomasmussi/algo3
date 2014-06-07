@@ -3,93 +3,30 @@ package algo3.modelo.ladron;
 
 public class Ladron {
 
-	//TODO: Lo que haria yo es construir el ladron con parametros desde el constructor, porque en realidad no
-	//necesitamos consultarle todo el tiempo sus propiedades, hacemos un metodo que diga:
-	//sosVos("masculino", "alpinismo", "negro", "anillo", "descapotable") y devuelva true o false si es o no es
-	// Asi encapsulamos la comparacion en ladron
+	private CaracteristicaLadron caracteristicas;
+	private Objeto objetoRobado;
 
-	//Sexo: Femenino-Masculino
-	private String nombre;
-	private String sexo;
-
-	//Hobby: Tenis-Musica-Alpinismo-Paracaidismo-Natacion-Croquet
-	private String hobby;
-
-	//Cabello: Castanio - Rubio - Rojo - Negro
-	private String colorCabello;
-
-	//Senia: Anillo - Tatuaje - Cicatriz - Joyas
-	private String caracteristica; // senia queda horrible
-
-	// Vehiculo: Descapotable - Limusina - Deportivo - Moto
-	private String vehiculo;
-
-	//Comunes: 4 paises.
-	//Valiosos: 5 paises.
-	//Muy Valiosos: 7 paises.
-	// Yo creo que este si tiene sentido hacerlo por jerarquia de clases porque tienen distintos comportamientos,
-	// a diferencia de el vehiculo, o "senia" que solo deberian ser una informacion.  Igualmente TBD.
-	private ObjetoRobado objetoRobado;
-
-	public String getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
-	public String getHobby() {
-		return hobby;
-	}
-
-	public void setHobby(String hobby) {
-		this.hobby = hobby;
-	}
-
-	public String getColorCabello() {
-		return colorCabello;
-	}
-
-	public void setColorCabello(String colorCabello) {
-		this.colorCabello = colorCabello;
-	}
-
-	public String getCaracteristica() {
-		return caracteristica;
-	}
-
-	public void setCaracteristica(String caracteristica) {
-		this.caracteristica = caracteristica;
-	}
-
-	public String getVehiculo() {
-		return vehiculo;
-	}
-
-	public void setVehiculo(String vehiculo) {
-		this.vehiculo = vehiculo;
-	}
-
-	public ObjetoRobado getObjetoRobado() {
-		return objetoRobado;
-	}
-
-	public void setObjetoRobado(ObjetoRobado objetoRobado) {
+	public Ladron(CaracteristicaLadron caracteristicas, Objeto objetoRobado){
+		this.caracteristicas = caracteristicas;
 		this.objetoRobado = objetoRobado;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(nombre + '\n');
-		sb.append(sexo + '\n');
-		sb.append(hobby + '\n');
-		sb.append(colorCabello + '\n');
-		sb.append(caracteristica + '\n');
-		sb.append(vehiculo + '\n');
-		return sb.toString();
+	/**
+	 * Este metodo compara que un conjunto de caracteristicas lo describen a el/ella
+	 * @param unaCaracteristica
+	 * @return Si sus caracteristicas coinciden, univocamente es el ladron, entonces devuelve true, devuelve false en caso contrario
+	 */
+	public boolean coincideCon(CaracteristicaLadron unaCaracteristica) {
+		//TODO En realidad esto deberia chequear los expedientes actuales.
+		// Si hay mas de un expediente, devuelve false (hay que ser mas especifico)
+		// Si no hay, tambien devolver false
+		// Si hay un solo expediente, comparar por ciertas caracteristicas, es decir si falto especificar color de pelo pero todo lo demas matchea,
+		// hay que devolver true
+		return caracteristicas.equals(unaCaracteristica);
 	}
 
+	public boolean seRobo(Objeto objeto){
+		return this.objetoRobado.compareTo(objeto) == 0;
+	}
 
 }

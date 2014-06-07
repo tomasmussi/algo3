@@ -1,17 +1,17 @@
 package algo3.modelo.ladron;
 
 
-public class ObjetoMuyValioso extends ObjetoRobado {
+public class ObjetoMuyValioso extends Objeto {
 
-	private static final Integer PAISES = 7;
+	private static final Integer CIUDADES = 7;
 	
 	public ObjetoMuyValioso(String nombre, String paisOrigen) {
 		super(nombre, paisOrigen);
 	}
 	
 	@Override
-	public Integer getCantidadDePaises() {
-		return PAISES;
+	public Integer getCantidadDeCiudades() {
+		return CIUDADES;
 	}
 
 }

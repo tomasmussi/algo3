@@ -1,16 +1,16 @@
 package algo3.modelo.ladron;
 
-public class ObjetoComun extends ObjetoRobado {
+public class ObjetoComun extends Objeto {
 
-	private static final Integer PAISES = 4;
+	private static final Integer CIUDADES = 4;
 	
 	public ObjetoComun(String nombre, String paisOrigen){
 		super(nombre, paisOrigen);
 	}
 	
 	@Override
-	public Integer getCantidadDePaises() {
-		return PAISES;
+	public Integer getCantidadDeCiudades() {
+		return CIUDADES;
 	}
 
 }
