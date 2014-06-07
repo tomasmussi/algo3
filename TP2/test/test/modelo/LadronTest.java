@@ -49,24 +49,21 @@ public class LadronTest {
 	}
 
 	//TODO Esto es test puramente de Objeto, no de Ladron, pasar a ObjetoTest
-	//	@Test
-	//	public void testCrearObjetoRobadoValioso(){
-	//		Objeto objeto = new ObjetoValioso("Pope Ring", "Rome");
-	//		boolean isOK = objeto.getNombre().equals("Pope Ring")
-	//				&& objeto.getCiudadOrigen().equals("Rome")
-	//				&& objeto.getCantidadDeCiudades().equals(5);
-	//		assertTrue(isOK);
-	//	}
-	//
-	//	@Test
-	//	public void testCrearObjetoRobadoMuyValioso(){
-	//		Objeto objeto = new ObjetoMuyValioso("Pope Ring", "Rome");
-	//		boolean isOK = objeto.getNombre().equals("Pope Ring")
-	//				&& objeto.getCiudadOrigen().equals("Rome")
-	//				&& objeto.getCantidadDeCiudades().equals(7);
-	//		assertTrue(isOK);
-	//	}
-
-
-
+		//	@Test
+		//	public void testCrearObjetoRobadoValioso(){
+		//		Objeto objeto = new ObjetoValioso("Pope Ring", "Rome");
+		//		boolean isOK = objeto.getNombre().equals("Pope Ring")
+		//				&& objeto.getCiudadOrigen().equals("Rome")
+		//				&& objeto.getCantidadDeCiudades().equals(5);
+		//		assertTrue(isOK);
+		//	}
+		//
+		//	@Test
+		//	public void testCrearObjetoRobadoMuyValioso(){
+		//		Objeto objeto = new ObjetoMuyValioso("Pope Ring", "Rome");
+		//		boolean isOK = objeto.getNombre().equals("Pope Ring")
+		//				&& objeto.getCiudadOrigen().equals("Rome")
+		//				&& objeto.getCantidadDeCiudades().equals(7);
+		//		assertTrue(isOK);
+		//	}
 }
