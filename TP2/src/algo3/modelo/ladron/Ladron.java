@@ -12,23 +12,23 @@ public class Ladron {
 	private String nombre;
 	private String sexo;
 
-	//Hobby: Tenis-Música-Alpinismo-Paracaidismo-Natación-Croquet
+	//Hobby: Tenis-Musica-Alpinismo-Paracaidismo-Natacion-Croquet
 	private String hobby;
 
-	//Cabello: Castaño - Rubio - Rojo - Negro
+	//Cabello: Castanio - Rubio - Rojo - Negro
 	private String colorCabello;
 
 	//Senia: Anillo - Tatuaje - Cicatriz - Joyas
-	private String caracteristica; // senia? queda horrible
+	private String caracteristica; // senia queda horrible
 
-	// Vehículo: Descapotable - Limusina - Deportivo - Moto
+	// Vehiculo: Descapotable - Limusina - Deportivo - Moto
 	private String vehiculo;
 
 	//Comunes: 4 paises.
 	//Valiosos: 5 paises.
 	//Muy Valiosos: 7 paises.
-	// Yo creo que este si tiene sentido hacerlo por jerarquía de clases porque tienen distintos comportamientos,
-	// a diferencia de el vehiculo, o "senia" que solo deberían ser una información.  Igualmente TBD.
+	// Yo creo que este si tiene sentido hacerlo por jerarquia de clases porque tienen distintos comportamientos,
+	// a diferencia de el vehiculo, o "senia" que solo deberian ser una informacion.  Igualmente TBD.
 	private ObjetoRobado objetoRobado;
 
 	public String getSexo() {

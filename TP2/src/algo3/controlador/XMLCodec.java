@@ -20,6 +20,7 @@ public class XMLCodec {
 
 	private static final XStream xmlReader = new XStream();
 
+	@SuppressWarnings("unchecked")
 	private static void leerLadrones() throws IOException {
 		InputStream in = Properties.class.getResourceAsStream("/algo3/controlador/ladrones.xml");
 		List<Ladron> ladrones = (List<Ladron>)xmlReader.fromXML(in);
