@@ -11,8 +11,6 @@ import algo3.modelo.policia.Policia;
 
 public class PoliciaTest {
 	
-	//TODO Hacer test para policia aumenta de rango, resta menos horas
-
 	@Test
 	public void testCrearPolicia(){
 		Policia policia = new Policia();
@@ -156,6 +154,21 @@ public class PoliciaTest {
 		policia.emitirOrdenDeArresto(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Rojo", "Tenis", "Descapotable"));
 		assertEquals(policia.getHorasRestantes(), Policia.HORAS_INICIALES - 3);
 	}
-
+	
+	@Test
+	public void testPoliciaNovatoRecorreKilometrosAsciendeTardaMenosHoras(){
+		Policia policia = new Policia();
+		policia.viajar(1300);
+		assertEquals(policia.getHorasRestantes(), Policia.HORAS_INICIALES - 2);	
+		assertEquals(policia.getGrado(), "Novato");
+		for (int i = 1; i <= 10; i++){
+			policia.aumentarArrestos();
+		}
+		assertEquals(policia.getGrado(), "Investigador");
+		assertEquals(policia.getHorasRestantes(), Policia.HORAS_INICIALES - 2);
+		//Resta solo 1 hora
+		policia.viajar(1300);
+		assertEquals(policia.getHorasRestantes(), Policia.HORAS_INICIALES - 3);
+	}
 
 }
