@@ -20,6 +20,10 @@ public class Ciudad {
 		this.informacion = informacion;
 	}
 
+	public Ciudad(InformacionCiudad informacion) {
+		this.informacion = informacion;
+	}
+
 	public int calcularDistanciaCon(Ciudad estaCiudad) {
 		return (int) (Math.pow((Math.pow(this.coordenadaX - estaCiudad.coordenadaX, 2) + Math.pow(this.coordenadaY - estaCiudad.coordenadaY, 2)), 0.5));
 	}

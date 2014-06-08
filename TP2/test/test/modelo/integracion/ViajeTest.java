@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import algo3.modelo.policia.Policia;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.Aeropuerto;
@@ -19,10 +18,12 @@ import algo3.modelo.mapa.mundi.Embajada;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.objeto.Objeto;
 import algo3.modelo.objeto.ObjetoComun;
+import algo3.modelo.policia.Policia;
 import algo3.modelo.viaje.Recorrido;
 
 public class ViajeTest {
 
+	
 	/* ************** Métodos auxiliares ************** */
 	private Policia crearPolicia() {
 		return new Policia();
@@ -107,7 +108,7 @@ public class ViajeTest {
 		// Ambos deberían estar en la misma ciudad.
 		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Crear Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
-		policia.crearOrdenDeArresto(new CaracteristicaLadron("Nick Brunch", "Masculino", "Negro", "Anillo", "Moto"));
+		policia.emitirOrdenDeArresto(new CaracteristicaLadron("Nick Brunch", "Masculino", "Negro", "Anillo", "Moto"));
 		// Arrestar ladron.
 		assertTrue(policia.arrestar(ladron));
 	}
@@ -137,7 +138,7 @@ public class ViajeTest {
 		// Ambos deberían estar en la misma ciudad.
 		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Crear Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
-		policia.crearOrdenDeArresto(new CaracteristicaLadron("Merey Laroc", "Femenino", "Marron", "Joyas", "Limusina"));
+		policia.emitirOrdenDeArresto(new CaracteristicaLadron("Merey Laroc", "Femenino", "Marron", "Joyas", "Limusina"));
 		// Arrestar ladron.
 		assertFalse(policia.arrestar(ladron));
 	}

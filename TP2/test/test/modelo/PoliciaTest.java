@@ -6,9 +6,12 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.policia.Policia;
 
 public class PoliciaTest {
+	
+	//TODO Hacer test para policia aumenta de rango, resta menos horas
 
 	@Test
 	public void testCrearPolicia(){
@@ -67,6 +70,8 @@ public class PoliciaTest {
 		policia.viajar(1900);
 		assertEquals(policia.getHorasRestantes(), Policia.HORAS_INICIALES - 3);
 	}
+	
+
 
 	@Test
 	public void testPoliciaNoTieneHorasNegativas(){
@@ -145,7 +150,12 @@ public class PoliciaTest {
 		assertEquals(policia.getGrado(), "Sargento");
 	}
 
-
+	@Test
+	public void testEmitirOrdenRestaTresHoras(){
+		Policia policia = new Policia();
+		policia.emitirOrdenDeArresto(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Rojo", "Tenis", "Descapotable"));
+		assertEquals(policia.getHorasRestantes(), Policia.HORAS_INICIALES - 3);
+	}
 
 
 }

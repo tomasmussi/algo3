@@ -13,7 +13,6 @@ import algo3.modelo.policia.grado.GradoNovato;
 public class Policia {
 
 	public static final int HORAS_INICIALES = 154;
-	
 	private int horasRestantes;
 	private int cantidadArrestos;
 	private int cantidadDeVisitas;
@@ -131,10 +130,11 @@ public class Policia {
 		return true;
 	}
 
-	public void crearOrdenDeArresto(CaracteristicaLadron caracteristica) {
+	public void emitirOrdenDeArresto(CaracteristicaLadron caracteristica) {
 		if (caracteristica != null) {
 			this.ordenDeArresto = new OrdenDeArresto(caracteristica);
 		}
+		this.restarHoras(3);		
 	}
 
 	public void setGrado(Grado gradoSiguiente) {
