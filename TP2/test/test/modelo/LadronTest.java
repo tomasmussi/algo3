@@ -9,8 +9,8 @@ import org.junit.Test;
 
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
-import algo3.modelo.ladron.ObjetoComun;
-import algo3.modelo.ladron.ObjetoMuyValioso;
+import algo3.modelo.objeto.ObjetoComun;
+import algo3.modelo.objeto.ObjetoMuyValioso;
 
 public class LadronTest {
 

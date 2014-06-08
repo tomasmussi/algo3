@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import algo3.modelo.caracteres.policia.Policia;
+import algo3.modelo.policia.Policia;
 
 public class PoliciaTest {
 

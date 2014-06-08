@@ -1,4 +1,4 @@
-package algo3.modelo.ladron;
+package algo3.modelo.objeto;
 
 public class ObjetoValioso extends Objeto {
 

@@ -1,6 +1,7 @@
 package algo3.modelo.ladron;
 
 import algo3.modelo.mapa.mundi.Ciudad;
+import algo3.modelo.objeto.Objeto;
 import algo3.modelo.viaje.Recorrido;
 
 public class Ladron {

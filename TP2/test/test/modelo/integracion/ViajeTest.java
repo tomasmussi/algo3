@@ -8,17 +8,17 @@ import java.util.List;
 
 import org.junit.Test;
 
-import algo3.modelo.caracteres.policia.Policia;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
-import algo3.modelo.ladron.Objeto;
-import algo3.modelo.ladron.ObjetoComun;
 import algo3.modelo.mapa.mundi.Aeropuerto;
 import algo3.modelo.mapa.mundi.Banco;
 import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.Edificio;
 import algo3.modelo.mapa.mundi.Embajada;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
+import algo3.modelo.objeto.Objeto;
+import algo3.modelo.objeto.ObjetoComun;
+import algo3.modelo.policia.Policia;
 import algo3.modelo.viaje.Recorrido;
 
 public class ViajeTest {
@@ -28,7 +28,10 @@ public class ViajeTest {
 		return new Policia();
 	}
 
-	/** Crea un ladrón con una ciudad de origen dada y crea otra ciudad para escapar. */
+	/** 
+	 * Crea un ladrón con una ciudad de origen dada 
+	 * y crea otra ciudad para escapar. 
+	 * */
 	private Ladron crearLadronConObjetoComunYRecorrido(Ciudad ciudadInicial) {
 		CaracteristicaLadron caracteristica = new CaracteristicaLadron("Nick Brunch", "Masculino", "Negro", "Anillo", "Moto");
 		Objeto objeto = new ObjetoComun("Buda dorado", "Bangkok");
@@ -106,11 +109,11 @@ public class ViajeTest {
 		// Crear Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
 		policia.crearOrdenDeArresto(new CaracteristicaLadron("Nick Brunch", "Masculino", "Negro", "Anillo", "Moto"));
 		// Arrestar ladron.
-		policia.arrestar(ladron);
+		assertTrue(policia.arrestar(ladron));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
-	public void testPoliciaAtrapaLadronConOrdenDeArrestoIncorrecta() {
+	@Test
+	public void testPoliciaNoAtrapaLadronConOrdenDeArrestoIncorrecta() {
 		// Caso con 2 ciudades. Ejemplo facil.
 		Ciudad ciudadInicial = crearCiudadPrueba("Rio de Janeiro", "Verde y Amarillo", "Reales", "Presidente");
 		// Creo ladrón en una ciudad inicial.
@@ -136,11 +139,11 @@ public class ViajeTest {
 		// Crear Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
 		policia.crearOrdenDeArresto(new CaracteristicaLadron("Merey Laroc", "Femenino", "Marron", "Joyas", "Limusina"));
 		// Arrestar ladron.
-		policia.arrestar(ladron);
+		assertFalse(policia.arrestar(ladron));
 	}
 
-	@Test(expected = IllegalArgumentException.class)
-	public void testPoliciaAtrapaLadronSinOrdenDeArresto() {
+	@Test
+	public void testPoliciaNoAtrapaLadronSinOrdenDeArresto() {
 		// Caso con 2 ciudades. Ejemplo facil.
 		Ciudad ciudadInicial = crearCiudadPrueba("Rio de Janeiro", "Verde y Amarillo", "Reales", "Presidente");
 		// Creo ladrón en una ciudad inicial.
@@ -164,7 +167,7 @@ public class ViajeTest {
 		// Ambos deberían estar en la misma ciudad.
 		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Arrestar ladron.
-		policia.arrestar(ladron);
+		assertFalse(policia.arrestar(ladron));
 	}
 
 	// @Test
