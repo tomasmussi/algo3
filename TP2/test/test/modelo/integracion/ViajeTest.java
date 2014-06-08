@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import algo3.modelo.policia.Policia;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.Aeropuerto;
@@ -18,7 +19,6 @@ import algo3.modelo.mapa.mundi.Embajada;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.objeto.Objeto;
 import algo3.modelo.objeto.ObjetoComun;
-import algo3.modelo.policia.Policia;
 import algo3.modelo.viaje.Recorrido;
 
 public class ViajeTest {
@@ -206,9 +206,23 @@ public class ViajeTest {
 		Policia policia = crearPolicia();
 		int horasIniciales = policia.getHorasRestantes();
 		Edificio banco = new Banco("Pesos");
+		Edificio aeropuerto = new Aeropuerto("verde y azul");
+		policia.visitarEdificioYObtenerPista(banco);
+		policia.visitarEdificioYObtenerPista(aeropuerto);
+		int horasDespuesDeVisitarEdificioUnaVez = policia.getHorasRestantes();
+		assertTrue((horasIniciales - 3) == horasDespuesDeVisitarEdificioUnaVez);
+	}
+	
+	@Test
+	public void testEdificioRestaSoloUnaHoraPorEdificioSinImportarCantidadDeEntradas(){
+		Policia policia = crearPolicia();
+		int horasIniciales = policia.getHorasRestantes();
+		Edificio banco = new Banco("Pesos");
+		policia.visitarEdificioYObtenerPista(banco);
+		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(banco);
 		int horasDespuesDeVisitarEdificioUnaVez = policia.getHorasRestantes();
-		assertTrue((horasIniciales - 3) == horasDespuesDeVisitarEdificioUnaVez);
+		assertTrue((horasIniciales - 1) == horasDespuesDeVisitarEdificioUnaVez);
 	}
 }

@@ -1,7 +1,7 @@
 package algo3.modelo.policia;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
@@ -13,9 +13,11 @@ import algo3.modelo.policia.grado.GradoNovato;
 public class Policia {
 
 	public static final int HORAS_INICIALES = 154;
+	
 	private int horasRestantes;
 	private int cantidadArrestos;
-	private Map<Edificio, Integer> contadorDeVisitas = new HashMap<Edificio, Integer>();
+	private int cantidadDeVisitas;
+	private List<Edificio> edificiosVisitados = new ArrayList<Edificio>();
 	private Ciudad ciudadActual;
 	private OrdenDeArresto ordenDeArresto;
 	private Grado grado;
@@ -23,12 +25,14 @@ public class Policia {
 	public Policia() {
 		horasRestantes = HORAS_INICIALES;
 		cantidadArrestos = 0;
+		cantidadDeVisitas = 0;
 		grado = new GradoNovato();
 	}
 
 	public Policia(Ciudad ciudadInicial) {
 		horasRestantes = HORAS_INICIALES;
 		cantidadArrestos = 0;
+		cantidadDeVisitas = 0;
 		grado = new GradoNovato();
 		this.ciudadActual = ciudadInicial;
 	}
@@ -81,28 +85,23 @@ public class Policia {
 	}
 
 	/**
-	 * Aumenta el numero de visitas al edificio suministrado y
-	 * devuelve la cantidad de visitas que lleva el edificio.
-	 * 
-	 * @return Cantidad de visitas al edificio
+	 * Aumenta el numero de visitas a edificios.
+	 * Agrega el edificio a lista de edificios visitados.
+	 * @return Horas a restar.
 	 */
 	private int aumentarVisitas(Edificio edificio) {
-		Integer nroVisitas = Integer.valueOf(1);
-		if (contadorDeVisitas.containsKey(edificio)) {
-			nroVisitas = contadorDeVisitas.get(edificio);
-			nroVisitas++;
+		int horasARestar = 0;
+		if (!edificiosVisitados.contains(edificio)){
+			edificiosVisitados.add(edificio);
+			cantidadDeVisitas++;
+			horasARestar = cantidadDeVisitas;
 		}
-		contadorDeVisitas.put(edificio, nroVisitas);
-		return nroVisitas.intValue();
+		return horasARestar;
 	}
 
 	public String visitarEdificioYObtenerPista(Edificio edificio) {
-		int nroVisitas = aumentarVisitas(edificio);
-		if (nroVisitas >= 3) {
-			// Si entro 3 o más veces restará siempre 3 hs.
-			nroVisitas = 3;
-		}
-		restarHoras(nroVisitas);
+		int horasARestar = aumentarVisitas(edificio);
+		restarHoras(horasARestar);
 		return edificio.darPista();
 	}
 
