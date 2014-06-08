@@ -21,6 +21,7 @@ public class Ciudad {
 	}
 
 	public Ciudad(InformacionCiudad informacion) {
+		this.nombre = informacion.getNombreCiudad();
 		this.informacion = informacion;
 	}
 
@@ -64,6 +65,13 @@ public class Ciudad {
 	@Override
 	public String toString() {
 		return "Ciudad: " + this.nombre;
+	}
+
+	public void agregarInformacionProximaCiudad(InformacionCiudad infoCiudad) {
+		this.edificio1 = EdificioFactory.crearEdificioFinanciero(infoCiudad);
+		this.edificio2 = EdificioFactory.crearEdificioCultural(infoCiudad);
+		this.edificio3 = EdificioFactory.crearEdificioDeViaje(infoCiudad);
+		
 	}
 
 }

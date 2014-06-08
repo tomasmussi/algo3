@@ -1,7 +1,7 @@
 package algo3.modelo.objeto;
 
-public interface Robable {
-
+public interface Robable extends Comparable<Robable> {
+	
 	public abstract Integer getCantidadDeCiudades();
 
 	public abstract String getNombre();

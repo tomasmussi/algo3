@@ -1,6 +1,6 @@
 package algo3.modelo.objeto;
 
-public abstract class Objeto implements Robable, Comparable<Objeto> {
+public abstract class Objeto implements Robable {
 
 	private String nombre;
 
@@ -25,8 +25,8 @@ public abstract class Objeto implements Robable, Comparable<Objeto> {
 	}
 
 	@Override
-	public int compareTo(Objeto o) {
-		return nombre.compareTo(o.nombre);
+	public int compareTo(Robable o) {
+		return nombre.compareTo(o.getNombre());
 	}
 
 }

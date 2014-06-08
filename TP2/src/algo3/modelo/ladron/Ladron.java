@@ -2,21 +2,22 @@ package algo3.modelo.ladron;
 
 import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.objeto.Objeto;
+import algo3.modelo.objeto.Robable;
 import algo3.modelo.viaje.Recorrido;
 
 public class Ladron {
 
 	private CaracteristicaLadron caracteristicas;
-	private Objeto objetoRobado;
+	private Robable objetoRobado;
 	private Recorrido recorrido;
 	private Ciudad ciudadActual;
 
-	public Ladron(CaracteristicaLadron caracteristicas, Objeto objetoRobado) {
+	public Ladron(CaracteristicaLadron caracteristicas, Robable objetoRobado) {
 		this.caracteristicas = caracteristicas;
 		this.objetoRobado = objetoRobado;
 	}
 
-	public Ladron(CaracteristicaLadron caracteristicas, Objeto objetoRobado, Recorrido recorrido) {
+	public Ladron(CaracteristicaLadron caracteristicas, Robable objetoRobado, Recorrido recorrido) {
 		this.caracteristicas = caracteristicas;
 		this.objetoRobado = objetoRobado;
 		this.recorrido = recorrido;

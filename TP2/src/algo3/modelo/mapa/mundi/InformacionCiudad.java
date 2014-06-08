@@ -2,8 +2,8 @@ package algo3.modelo.mapa.mundi;
 
 import java.util.List;
 
-public class InformacionCiudad {
-
+public class InformacionCiudad implements InformacionFinanciera, InformacionCultural, InformacionDeViaje {
+	
 	private String nombreCiudad;
 	private String coloresBandera;
 	private String moneda;
@@ -24,8 +24,8 @@ public class InformacionCiudad {
 		this.nombreCiudad = nombreCiudad;
 	}
 
-	public List<String> getGeografia() {
-		return geografia;
+	public String getGeografia() {
+		return geografia.get(0);
 	}
 
 	public void setGeografia(List<String> geografia) {
@@ -40,8 +40,11 @@ public class InformacionCiudad {
 		this.lugaresDeReferencia = lugaresDeReferencia;
 	}
 
-	public List<String> getIndustria() {
-		return industria;
+	@Override
+	public String getIndustria() {
+		//TODO: Hacer un random y que devuelva lo que sea de la lista que tenga, si es que
+		// tiene
+		return industria.get(0);
 	}
 
 	public void setIndustria(List<String> industria) {
@@ -125,13 +128,15 @@ public class InformacionCiudad {
 	}
 	
 	/** Crea una Informacion con los valores que le sean proporcionados */
-	public InformacionCiudad(String coloresBandera, String moneda, String gobierno){
+	public InformacionCiudad(String nombreCiudad, String coloresBandera, String moneda, String gobierno){
 		super();
+		this.nombreCiudad = nombreCiudad;
 		this.coloresBandera = coloresBandera;
 		this.moneda = moneda;
 		this.gobierno = gobierno;
 	}
 	
+	@Override
 	public String getColoresBandera(){
 		return coloresBandera;
 	}
