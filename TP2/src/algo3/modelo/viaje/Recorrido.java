@@ -13,6 +13,8 @@ public class Recorrido {
 	private Integer posicion;
 
 	public Recorrido(List<InformacionCiudad> listaInformacion, Robable objeto) {
+		// TODO: el recorrido no debería recibir una lista de informacionCiudad porque no debería depender de esta informacion, si no
+		// que deberia generarse sola segun la cantidad de paises a recorrer determinada por el objeto robado.
 		this.ciudades = this.crearRecorridoDeCiudades(listaInformacion, objeto.getCantidadDeCiudades());
 		posicion = Integer.valueOf(0);
 	}
@@ -33,8 +35,8 @@ public class Recorrido {
 	}
 
 	// Devolver la longitud de la lista de paises del recorrido.
-	public static int longitudEnPaises() {
-		return 0;
+	public int longitudEnPaises() {
+		return ciudades.size();
 	}
 
 	public Ciudad siguienteCiudad() {
