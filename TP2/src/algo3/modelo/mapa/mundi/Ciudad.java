@@ -10,8 +10,8 @@ public class Ciudad {
 	private String nombre;
 	private InformacionCiudad informacion;
 
-	public Ciudad(int coordenadaX, int coordenadaY, String nombre, Edificio edificio1, Edificio edificio2, Edificio edificio3, InformacionCiudad informacion) {
-		this.nombre = nombre;
+	public Ciudad(int coordenadaX, int coordenadaY, Edificio edificio1, Edificio edificio2, Edificio edificio3, InformacionCiudad informacion) {
+		this.nombre = informacion.getNombreCiudad();
 		this.coordenadaX = coordenadaX;
 		this.coordenadaY = coordenadaY;
 		this.edificio1 = edificio1;
@@ -71,7 +71,7 @@ public class Ciudad {
 		this.edificio1 = EdificioFactory.crearEdificioFinanciero(infoCiudad);
 		this.edificio2 = EdificioFactory.crearEdificioCultural(infoCiudad);
 		this.edificio3 = EdificioFactory.crearEdificioDeViaje(infoCiudad);
-		
+
 	}
 
 }

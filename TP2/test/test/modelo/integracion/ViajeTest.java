@@ -16,7 +16,6 @@ import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.Edificio;
 import algo3.modelo.mapa.mundi.Embajada;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
-import algo3.modelo.objeto.Objeto;
 import algo3.modelo.objeto.ObjetoComun;
 import algo3.modelo.objeto.Robable;
 import algo3.modelo.policia.Policia;
@@ -24,15 +23,14 @@ import algo3.modelo.viaje.Recorrido;
 
 public class ViajeTest {
 
-	
 	/* ************** Métodos auxiliares ************** */
 	private Policia crearPolicia() {
 		return new Policia();
 	}
 
-	/** 
-	 * Crea un ladrón con una ciudad de origen dada 
-	 * y crea otra ciudad para escapar. 
+	/**
+	 * Crea un ladrón con una ciudad de origen dada
+	 * y crea otra ciudad para escapar.
 	 * */
 	private Ladron crearLadronConObjetoComunYRecorrido(InformacionCiudad ciudadInicial) {
 		CaracteristicaLadron caracteristica = new CaracteristicaLadron("Nick Brunch", "Masculino", "Negro", "Anillo", "Moto");
@@ -48,8 +46,8 @@ public class ViajeTest {
 
 		return new Ladron(caracteristica, objeto, recorrido);
 	}
-	
-	private InformacionCiudad crearInformacionCiudad(String nombre, String bandera, String moneda, String gobierno){
+
+	private InformacionCiudad crearInformacionCiudad(String nombre, String bandera, String moneda, String gobierno) {
 		return new InformacionCiudad(nombre, bandera, moneda, gobierno);
 	}
 
@@ -58,7 +56,7 @@ public class ViajeTest {
 	 */
 	private Ciudad crearCiudadPrueba(String nombre, String bandera, String moneda, String gobierno) {
 		InformacionCiudad informacion = new InformacionCiudad(nombre, bandera, moneda, gobierno);
-		return new Ciudad(0, 0, nombre, null, null, null, informacion);
+		return new Ciudad(0, 0, null, null, null, informacion);
 	}
 
 	/**
@@ -68,7 +66,7 @@ public class ViajeTest {
 		Edificio edificio1 = new Aeropuerto(siguienteCiudad.getColoresBandera());
 		Edificio edificio2 = new Banco(siguienteCiudad.getMoneda());
 		Edificio edificio3 = new Embajada(siguienteCiudad.getGobierno());
-		return new Ciudad(1, 1, nombre, edificio1, edificio2, edificio3, new InformacionCiudad());
+		return new Ciudad(1, 1, edificio1, edificio2, edificio3, new InformacionCiudad());
 	}
 
 	/* ********************************************************** */
@@ -268,9 +266,9 @@ public class ViajeTest {
 		int horasDespuesDeVisitarEdificioUnaVez = policia.getHorasRestantes();
 		assertTrue((horasIniciales - 3) == horasDespuesDeVisitarEdificioUnaVez);
 	}
-	
+
 	@Test
-	public void testEdificioRestaSoloUnaHoraPorEdificioSinImportarCantidadDeEntradas(){
+	public void testEdificioRestaSoloUnaHoraPorEdificioSinImportarCantidadDeEntradas() {
 		Policia policia = crearPolicia();
 		int horasIniciales = policia.getHorasRestantes();
 		Edificio banco = new Banco("Pesos");

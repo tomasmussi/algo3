@@ -1,21 +1,35 @@
 package algo3.modelo.mapa.mundi;
 
-import java.util.List;
-
 public class InformacionCiudad implements InformacionFinanciera, InformacionCultural, InformacionDeViaje {
-	
+
 	private String nombreCiudad;
 	private String coloresBandera;
 	private String moneda;
-	private List<String> geografia;
-	private List<String> lugaresDeReferencia;
-	private List<String> industria;
-	private List<String> animales;
-	private List<String> gente;
-	private List<String> idiomas;
-	private List<String> arte;
-	private List<String> religion;
-	private List<String> lider;
+	private String[] geografia;
+	private String[] lugaresDeReferencia;
+	private String[] industria;
+	private String[] animales;
+	private String[] gente;
+	private String[] idiomas;
+	private String[] arte;
+	private String[] religion;
+	private String gobierno;
+	private String[] miscelaneo;
+
+	/** Crea una Informacion completamente vacia */
+	public InformacionCiudad() {
+		super();
+	}
+
+	/** Crea una Informacion con los valores que le sean proporcionados */
+	public InformacionCiudad(String nombreCiudad, String coloresBandera, String moneda, String gobierno) {
+		super();
+		this.nombreCiudad = nombreCiudad;
+		this.coloresBandera = coloresBandera;
+		this.moneda = moneda;
+		this.gobierno = gobierno;
+	}
+
 	public String getNombreCiudad() {
 		return nombreCiudad;
 	}
@@ -24,86 +38,79 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 		this.nombreCiudad = nombreCiudad;
 	}
 
+	@Override
 	public String getGeografia() {
-		return geografia.get(0);
+		return geografia[0];
 	}
 
-	public void setGeografia(List<String> geografia) {
+	public void setGeografia(String[] geografia) {
 		this.geografia = geografia;
 	}
 
-	public List<String> getLugaresDeReferencia() {
+	public String[] getLugaresDeReferencia() {
 		return lugaresDeReferencia;
 	}
 
-	public void setLugaresDeReferencia(List<String> lugaresDeReferencia) {
+	public void setLugaresDeReferencia(String[] lugaresDeReferencia) {
 		this.lugaresDeReferencia = lugaresDeReferencia;
 	}
 
 	@Override
 	public String getIndustria() {
-		//TODO: Hacer un random y que devuelva lo que sea de la lista que tenga, si es que
+		// TODO: Hacer un random y que devuelva lo que sea de la lista que tenga, si es que
 		// tiene
-		return industria.get(0);
+		return industria[0];
 	}
 
-	public void setIndustria(List<String> industria) {
+	public void setIndustria(String[] industria) {
 		this.industria = industria;
 	}
 
-	public List<String> getAnimales() {
+	public String[] getAnimales() {
 		return animales;
 	}
 
-	public void setAnimales(List<String> animales) {
+	public void setAnimales(String[] animales) {
 		this.animales = animales;
 	}
 
-	public List<String> getGente() {
+	public String[] getGente() {
 		return gente;
 	}
 
-	public void setGente(List<String> gente) {
+	public void setGente(String[] gente) {
 		this.gente = gente;
 	}
 
-	public List<String> getIdiomas() {
+	public String[] getIdiomas() {
 		return idiomas;
 	}
 
-	public void setIdiomas(List<String> idiomas) {
+	public void setIdiomas(String[] idiomas) {
 		this.idiomas = idiomas;
 	}
 
-	public List<String> getArte() {
+	public String[] getArte() {
 		return arte;
 	}
 
-	public void setArte(List<String> arte) {
+	public void setArte(String[] arte) {
 		this.arte = arte;
 	}
 
-	public List<String> getReligion() {
+	public String[] getReligion() {
 		return religion;
 	}
 
-	public void setReligion(List<String> religion) {
+	public void setReligion(String[] religion) {
 		this.religion = religion;
 	}
 
-	public List<String> getLider() {
-		return lider;
-	}
-
-	public void setLider(List<String> lider) {
-		this.lider = lider;
-	}
-
-	public List<String> getMiscelaneo() {
+	public String[] getMiscelaneo() {
 		return miscelaneo;
 	}
 
-	public void setMiscelaneo(List<String> miscelaneo) {
+	public void setMiscelaneo(String[] miscelaneo) {
 		this.miscelaneo = miscelaneo;
 	}
 
@@ -119,34 +126,19 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 		this.gobierno = gobierno;
 	}
 
-	private List<String> miscelaneo;
-	private String gobierno;
-
-	/** Crea una Informacion completamente vacia */
-	public InformacionCiudad(){
-		super();
-	}
-	
-	/** Crea una Informacion con los valores que le sean proporcionados */
-	public InformacionCiudad(String nombreCiudad, String coloresBandera, String moneda, String gobierno){
-		super();
-		this.nombreCiudad = nombreCiudad;
-		this.coloresBandera = coloresBandera;
-		this.moneda = moneda;
-		this.gobierno = gobierno;
-	}
-	
 	@Override
-	public String getColoresBandera(){
+	public String getColoresBandera() {
 		return coloresBandera;
 	}
-	
-	public String getMoneda(){
+
+	@Override
+	public String getMoneda() {
 		return moneda;
 	}
-	
-	public String getGobierno(){
+
+	@Override
+	public String getGobierno() {
 		return gobierno;
 	}
-	
+
 }
