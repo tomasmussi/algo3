@@ -37,14 +37,32 @@ public class RoboTest {
 	@Test
 	public void testObjetoValiosoRobadoSonCincoPaises(){
 		ObjetoValioso esteObjeto = new ObjetoValioso("Anillo del Papa", "Roma");
-		Ladron ladron = new Ladron(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Rojo", "Tenis", "Descapotable"), esteObjeto);
-		assertTrue(0 == 5);
+		List<InformacionCiudad> lista = new ArrayList<InformacionCiudad>();
+		InformacionCiudad info = new InformacionCiudad("Rio de Janeiro", "Verde y Amarillo", "Reales", "Presidente");
+		InformacionCiudad info2 = new InformacionCiudad("New York", "Azul, Roja y Blanca", "Dolar", "Presidente");
+		lista.add(info);
+		lista.add(info2);
+		lista.add(info);
+		lista.add(info2);
+		lista.add(info);
+		Recorrido recorrido = new Recorrido(lista, esteObjeto);
+		assertTrue(recorrido.longitudEnPaises() == 5);
 	}
 	
 	@Test
 	public void testObjetoMuyValiosoRobadoSonSietePaises(){
 		ObjetoMuyValioso esteObjeto = new ObjetoMuyValioso("Anillo del Papa", "Roma");
-		Ladron ladron = new Ladron(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Rojo", "Tenis", "Descapotable"), esteObjeto);
-		assertTrue(1 == 7);
+		List<InformacionCiudad> lista = new ArrayList<InformacionCiudad>();
+		InformacionCiudad info = new InformacionCiudad("Rio de Janeiro", "Verde y Amarillo", "Reales", "Presidente");
+		InformacionCiudad info2 = new InformacionCiudad("New York", "Azul, Roja y Blanca", "Dolar", "Presidente");
+		lista.add(info);
+		lista.add(info2);
+		lista.add(info);
+		lista.add(info2);
+		lista.add(info);
+		lista.add(info2);
+		lista.add(info);
+		Recorrido recorrido = new Recorrido(lista, esteObjeto);
+		assertTrue(recorrido.longitudEnPaises() == 7);
 	}
 }
