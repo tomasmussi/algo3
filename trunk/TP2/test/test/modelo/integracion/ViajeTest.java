@@ -42,9 +42,9 @@ public class ViajeTest {
 		ciudadesARecorrer.add(segundaCiudad);
 		ciudadesARecorrer.add(ciudadInicial);
 		ciudadesARecorrer.add(segundaCiudad);
-		Recorrido recorrido = new Recorrido(ciudadesARecorrer, objeto);
+		Recorrido recorrido = new Recorrido(ciudadesARecorrer, objeto.getCantidadDeCiudades());
 
-		return new Ladron(caracteristica, objeto, recorrido);
+		return new Ladron(caracteristica, objeto, recorrido.getCiudadesRecorrido().iterator());
 	}
 
 	private InformacionCiudad crearInformacionCiudad(String nombre, String bandera, String moneda, String gobierno) {

@@ -7,8 +7,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import algo3.modelo.ladron.CaracteristicaLadron;
-import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.objeto.ObjetoComun;
 import algo3.modelo.objeto.ObjetoMuyValioso;
@@ -29,11 +27,11 @@ public class RoboTest {
 		lista.add(info2);
 		lista.add(info);
 		lista.add(info2);
-		Recorrido recorrido = new Recorrido(lista, esteObjeto);
-		
+		Recorrido recorrido = new Recorrido(lista, esteObjeto.getCantidadDeCiudades());
+
 		assertTrue(recorrido.longitudEnPaises() == 4);
 	}
-	
+
 	@Test
 	public void testObjetoValiosoRobadoSonCincoPaises(){
 		ObjetoValioso esteObjeto = new ObjetoValioso("Anillo del Papa", "Roma");
@@ -45,10 +43,10 @@ public class RoboTest {
 		lista.add(info);
 		lista.add(info2);
 		lista.add(info);
-		Recorrido recorrido = new Recorrido(lista, esteObjeto);
+		Recorrido recorrido = new Recorrido(lista, esteObjeto.getCantidadDeCiudades());
 		assertTrue(recorrido.longitudEnPaises() == 5);
 	}
-	
+
 	@Test
 	public void testObjetoMuyValiosoRobadoSonSietePaises(){
 		ObjetoMuyValioso esteObjeto = new ObjetoMuyValioso("Anillo del Papa", "Roma");
@@ -62,7 +60,7 @@ public class RoboTest {
 		lista.add(info);
 		lista.add(info2);
 		lista.add(info);
-		Recorrido recorrido = new Recorrido(lista, esteObjeto);
+		Recorrido recorrido = new Recorrido(lista, esteObjeto.getCantidadDeCiudades());
 		assertTrue(recorrido.longitudEnPaises() == 7);
 	}
 }
