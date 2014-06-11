@@ -1,27 +1,28 @@
 package algo3.modelo.ladron;
 
+import java.util.Iterator;
+
 import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.objeto.Objeto;
 import algo3.modelo.objeto.Robable;
-import algo3.modelo.viaje.Recorrido;
 
 public class Ladron {
 
 	private CaracteristicaLadron caracteristicas;
 	private Robable objetoRobado;
-	private Recorrido recorrido;
 	private Ciudad ciudadActual;
+	private Iterator<Ciudad> iterador;
 
 	public Ladron(CaracteristicaLadron caracteristicas, Robable objetoRobado) {
 		this.caracteristicas = caracteristicas;
 		this.objetoRobado = objetoRobado;
 	}
 
-	public Ladron(CaracteristicaLadron caracteristicas, Robable objetoRobado, Recorrido recorrido) {
+	public Ladron(CaracteristicaLadron caracteristicas, Robable objetoRobado, Iterator<Ciudad> recorrido) {
 		this.caracteristicas = caracteristicas;
 		this.objetoRobado = objetoRobado;
-		this.recorrido = recorrido;
-		ciudadActual = recorrido.siguienteCiudad();
+		this.iterador = recorrido;
+		this.moverAlSiguientePais();
 	}
 
 	/**
@@ -44,7 +45,9 @@ public class Ladron {
 	}
 
 	public void moverAlSiguientePais() {
-		ciudadActual = recorrido.siguienteCiudad();
+		if (iterador.hasNext()){
+			this.ciudadActual = iterador.next();
+		}
 	}
 
 	public Ciudad getCiudadActual() {
