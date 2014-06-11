@@ -1,0 +1,91 @@
+<list>
+  <algo3.modelo.ladron.Ladron>
+	<nombre>Nick Brunch</nombre>
+	<sexo>Masculino</sexo>
+	<hobby>Mountain Climbing</hobby>
+    <colorCabello>Negro</colorCabello>
+	<caracteristica>Anillo</caracteristica>
+	<vehiculo>Motocicleta</vehiculo>
+  </algo3.modelo.ladron.Ladron>
+
+  <algo3.modelo.ladron.Ladron>
+	<nombre>Len Bulk</nombre>
+	<sexo>Masculino</sexo>
+	<hobby>Mountain Climbing</hobby>
+    <colorCabello>Rojo</colorCabello>
+	<caracteristica>Tatuaje</caracteristica>
+	<vehiculo>Descapotable</vehiculo>
+  </algo3.modelo.ladron.Ladron>
+
+  <algo3.modelo.ladron.Ladron>
+	<nombre>Ihor Ihorovitch</nombre>
+	<sexo>Masculino</sexo>
+	<hobby>Croquet</hobby>
+    <colorCabello>Rubio</colorCabello>
+	<caracteristica>Tatuaje</caracteristica>
+	<vehiculo>Limousina</vehiculo>
+  </algo3.modelo.ladron.Ladron>
+
+  <algo3.modelo.ladron.Ladron>
+	<nombre>Fast Eddie B</nombre>
+	<sexo>Masculino</sexo>
+	<hobby>Croquet</hobby>
+    <colorCabello>Negro</colorCabello>
+	<caracteristica>Joyeria</caracteristica>
+	<vehiculo>Descapotable</vehiculo>
+  </algo3.modelo.ladron.Ladron>
+
+  <algo3.modelo.ladron.Ladron>
+	<nombre>Scar Graynolt</nombre>
+	<sexo>Masculino</sexo>
+	<hobby>Croquet</hobby>
+    <colorCabello>Rojo</colorCabello>
+	<caracteristica>Anillo</caracteristica>
+	<vehiculo>Limousina</vehiculo>
+  </algo3.modelo.ladron.Ladron>
+
+  <algo3.modelo.ladron.Ladron>
+	<nombre>Merey Laroc</nombre>
+	<sexo>Femenino</sexo>
+	<hobby>Mountain Climbing</hobby>
+    <colorCabello>Castaño</colorCabello>
+	<caracteristica>Joyeria</caracteristica>
+	<vehiculo>Limousina</vehiculo>
+  </algo3.modelo.ladron.Ladron>
+
+  <algo3.modelo.ladron.Ladron>
+	<nombre>Lady Agatha</nombre>
+	<sexo>Femenino</sexo>
+	<hobby>Tenis</hobby>
+    <colorCabello>Rojo</colorCabello>
+	<caracteristica>Anillo</caracteristica>
+	<vehiculo>Descapotable</vehiculo>
+  </algo3.modelo.ladron.Ladron>
+
+  <algo3.modelo.ladron.Ladron>
+	<nombre>Katherine Drib</nombre>
+	<sexo>Femenino</sexo>
+	<hobby>Mountain Climbing</hobby>
+    <colorCabello>Castaño</colorCabello>
+	<caracteristica>Tatuaje</caracteristica>
+	<vehiculo>Motocicleta</vehiculo>
+  </algo3.modelo.ladron.Ladron>
+
+  <algo3.modelo.ladron.Ladron>
+	<nombre>Dazzle Annie</nombre>
+	<sexo>Femenino</sexo>
+	<hobby>Tenis</hobby>
+    <colorCabello>Rubio</colorCabello>
+	<caracteristica>Tatuaje</caracteristica>
+	<vehiculo>Limousina</vehiculo>
+  </algo3.modelo.ladron.Ladron>
+
+  <algo3.modelo.ladron.Ladron>
+	<nombre>Carmen Sandiego</nombre>
+	<sexo>Femenino</sexo>
+	<hobby>Tenis</hobby>
+    <colorCabello>Castaño</colorCabello>
+	<caracteristica>Joyeria</caracteristica>
+	<vehiculo>Descapotable</vehiculo>
+  </algo3.modelo.ladron.Ladron>
+</list>
