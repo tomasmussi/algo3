@@ -1,8 +1,11 @@
 package algo3.modelo.ladron;
 
-public class CaracteristicaLadron  {
+import java.util.ArrayList;
+import java.util.List;
 
+public class CaracteristicaLadron implements Cloneable {
 
+	private List <String> caracteristicas;
 	private String nombre;
 	private String sexo;
 
@@ -25,6 +28,21 @@ public class CaracteristicaLadron  {
 		this.colorCabello = colorCabello;
 		this.caracteristica = caracteristica;
 		this.vehiculo = vehiculo;
+		
+		List<String> caracteristicas = new ArrayList<String>();
+		caracteristicas.add(nombre);
+		caracteristicas.add(sexo);
+		caracteristicas.add(hobby);
+		caracteristicas.add(colorCabello);
+		caracteristicas.add(caracteristica);
+		caracteristicas.add(vehiculo);
+		this.caracteristicas = caracteristicas;
+		
+	}
+
+
+	public List<String> getCaracteristicas() {
+		return caracteristicas;
 	}
 
 
@@ -99,7 +117,12 @@ public class CaracteristicaLadron  {
 
 	}
 
-
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		
+		return super.clone();
+	}
+	
 
 
 }
