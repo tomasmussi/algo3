@@ -18,9 +18,10 @@ public class CaracteristicaLadron  {
 	// Vehiculo: Descapotable - Limusina - Deportivo - Moto
 	private String vehiculo;
 
-	public CaracteristicaLadron(String nombre, String sexo, String colorCabello, String caracteristica, String vehiculo){
+	public CaracteristicaLadron(String nombre, String sexo, String hobby, String colorCabello, String caracteristica, String vehiculo){
 		this.nombre = nombre;
 		this.sexo = sexo;
+		this.hobby = hobby;
 		this.colorCabello = colorCabello;
 		this.caracteristica = caracteristica;
 		this.vehiculo = vehiculo;

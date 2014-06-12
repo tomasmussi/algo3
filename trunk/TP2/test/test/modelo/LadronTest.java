@@ -21,8 +21,8 @@ public class LadronTest {
 
 	@Before
 	public void crearCaracteristicaDefault(){
-		caracteristicaCorrecta = new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Rojo", "Tenis", "Descapotable");
-		caracteristicaIncorrecta = new CaracteristicaLadron("Carmen Sandiego", "Masculino", "Rojo", "Tenis", "Descapotable");
+		caracteristicaCorrecta = new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable");
+		caracteristicaIncorrecta = new CaracteristicaLadron("Carmen Sandiego", "Masculino", "Croquet", "Rojo", "Anillo", "Descapotable");
 		//Importante crear el Ladron con la referencia de caracteristicaCorrecta instanciada, sino rompe por NullPointerException (referencia nula)
 		ladron = new Ladron(caracteristicaCorrecta, new ObjetoMuyValioso("Anillo del Papa", "Roma"));
 	}
