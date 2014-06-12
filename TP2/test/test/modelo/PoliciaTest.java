@@ -151,7 +151,7 @@ public class PoliciaTest {
 	@Test
 	public void testEmitirOrdenRestaTresHoras(){
 		Policia policia = new Policia();
-		policia.emitirOrdenDeArresto(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Rojo", "Tenis", "Descapotable"));
+		policia.emitirOrdenDeArresto(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Croquet", "Rojo", "Anillo", "Descapotable"));
 		assertEquals(policia.getHorasRestantes(), Policia.HORAS_INICIALES - 3);
 	}
 	
