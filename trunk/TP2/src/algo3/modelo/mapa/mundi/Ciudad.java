@@ -39,15 +39,15 @@ public class Ciudad {
 	}
 
 	public String getColoresBandera() {
-		return informacion.getColoresBandera();
+		return informacion.getInformacionViaje();
 	}
 
 	public String getMoneda() {
-		return informacion.getMoneda();
+		return informacion.getInformacionFinanciera();
 	}
 
 	public String getGobierno() {
-		return informacion.getMoneda();
+		return informacion.getInformacionFinanciera();
 	}
 
 	public Edificio[] getTodosLosEdificios() {

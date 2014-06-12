@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class InformacionCiudadProvider {
-	
+
 	// TODO: Falta traducir la informacion.
 
 	private static final String SEPARADOR = ";";
@@ -42,6 +42,9 @@ public class InformacionCiudadProvider {
 	 */
 	public InformacionCiudad getInformacionPara(String nombreCiudad) {
 		String propiedades = prop.getProperty(nombreCiudad);
+		if (propiedades == null){
+			return null;
+		}
 		return crearInformacionCiudad(nombreCiudad, propiedades);
 	}
 
