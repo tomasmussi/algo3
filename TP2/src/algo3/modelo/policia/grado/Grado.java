@@ -14,7 +14,6 @@ public abstract class Grado {
 	protected abstract Grado getGradoSiguiente();
 
 	public void evaluarGrado(Policia policia){
-		// TODO: No se si poner los atributos como package o private y como accederlos desde aca
 		if (policia.getCantidadArrestos() == getTopeArrestos()){
 			policia.setGrado(getGradoSiguiente());
 		}

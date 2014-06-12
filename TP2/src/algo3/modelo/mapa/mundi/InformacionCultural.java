@@ -1,9 +1,10 @@
 package algo3.modelo.mapa.mundi;
 
 public interface InformacionCultural {
-	
-	public String getGeografia();
-	
-	public String getGobierno();
+
+	public String getInformacionGeografica();
+
+	public String getInformacionHistorica();
+
 
 }
