@@ -1,10 +1,9 @@
 package algo3.modelo.policia;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import algo3.modelo.caso.Caso;
-import algo3.modelo.estacionPolicia.EstacionDePolicia;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.Ciudad;
@@ -113,9 +112,7 @@ public class Policia {
 	}
 
 	public void viajarA(Ciudad ciudad) {
-		// TODO: restar kilometros.
-		// kms = calcularDistanciaDesdeCiudadActualA(ciudad);
-		// viajar(kms);
+		this.viajar(ciudadActual.getDistanciaCon(ciudad));
 		this.ciudadActual = ciudad;
 	}
 
@@ -136,15 +133,15 @@ public class Policia {
 
 	public void emitirOrdenDeArresto(CaracteristicaLadron caracteristica) {
 		if (caracteristica != null) {
-			
+
 			boolean seGenero = this.caso.generarOrdenDeArresto(caracteristica);
-			if (seGenero) this.restarHoras(3);		
+			if (seGenero) this.restarHoras(3);
 
 		}
 	}
 
 	public void setGrado(Grado gradoSiguiente) {
-		this.grado = gradoSiguiente;		
+		this.grado = gradoSiguiente;
 	}
 
 }
