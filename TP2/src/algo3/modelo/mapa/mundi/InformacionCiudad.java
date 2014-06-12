@@ -85,11 +85,14 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	}
 
 	private Collection<String> transformarEnColeccion(String[] array){
-		Set<String> lista = new HashSet<String>();
-		for (int i = 0; i < array.length; i++){
-			lista.add(array[i]);
+		Set<String> conjunto = new HashSet<String>();
+		if (array == null){
+			return conjunto;
 		}
-		return lista;
+		for (int i = 0; i < array.length; i++){
+			conjunto.add(array[i]);
+		}
+		return conjunto;
 	}
 
 	private String seleccionarAleatorioDeLista(List<String> lista){
