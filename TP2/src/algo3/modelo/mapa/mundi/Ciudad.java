@@ -99,4 +99,8 @@ public class Ciudad {
 		return true;
 	}
 
+	public int getDistanciaCon(Ciudad ciudad) {
+		return 0;
+	}
+
 }
