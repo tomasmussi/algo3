@@ -3,6 +3,8 @@ package algo3.modelo.policia;
 import java.util.List;
 import java.util.ArrayList;
 
+import algo3.modelo.caso.Caso;
+import algo3.modelo.estacionPolicia.EstacionDePolicia;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.Ciudad;
@@ -20,12 +22,14 @@ public class Policia {
 	private Ciudad ciudadActual;
 	private OrdenDeArresto ordenDeArresto;
 	private Grado grado;
+	private Caso caso;
 
 	public Policia() {
 		horasRestantes = HORAS_INICIALES;
 		cantidadArrestos = 0;
 		cantidadDeVisitas = 0;
 		grado = new GradoNovato();
+		caso = new Caso();
 	}
 
 	public Policia(Ciudad ciudadInicial) {
@@ -132,9 +136,11 @@ public class Policia {
 
 	public void emitirOrdenDeArresto(CaracteristicaLadron caracteristica) {
 		if (caracteristica != null) {
-			this.ordenDeArresto = new OrdenDeArresto(caracteristica);
+			
+			boolean seGenero = this.caso.generarOrdenDeArresto(caracteristica);
+			if (seGenero) this.restarHoras(3);		
+
 		}
-		this.restarHoras(3);		
 	}
 
 	public void setGrado(Grado gradoSiguiente) {
