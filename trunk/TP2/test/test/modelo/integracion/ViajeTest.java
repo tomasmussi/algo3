@@ -33,7 +33,7 @@ public class ViajeTest {
 	 * y crea otra ciudad para escapar.
 	 * */
 	private Ladron crearLadronConObjetoComunYRecorrido(InformacionCiudad ciudadInicial) {
-		CaracteristicaLadron caracteristica = new CaracteristicaLadron("Nick Brunch", "Masculino", "Croquet", "Negro", "Anillo", "Moto");
+		CaracteristicaLadron caracteristica = new CaracteristicaLadron("Nick Brunch","Masculino","Mountain Climbing","Negro","Anillo","Motocicleta");
 		Robable objeto = new ObjetoComun("Buda dorado", "Bangkok");
 
 		List<InformacionCiudad> ciudadesARecorrer = new ArrayList<InformacionCiudad>();
@@ -129,7 +129,7 @@ public class ViajeTest {
 		ladron.moverAlSiguientePais();
 		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Crear Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
-		policia.emitirOrdenDeArresto(new CaracteristicaLadron("Nick Brunch", "Masculino", "Croquet", "Negro", "Anillo", "Moto"));
+		policia.emitirOrdenDeArresto(new CaracteristicaLadron("Nick Brunch","Masculino","Mountain Climbing","Negro","Anillo","Motocicleta"));
 		// Arrestar ladron.
 		assertTrue(policia.arrestar(ladron));
 	}

@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import algo3.modelo.caso.EstacionDePolicia;
+import algo3.modelo.estacionPolicia.EstacionDePolicia;
 import algo3.modelo.ladron.CaracteristicaLadron;
 
 public class EstacionDePoliciaTest {
