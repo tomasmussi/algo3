@@ -35,11 +35,6 @@ public class Caso {
 	 */
 
 	
-	/*
-	 * 
-	 * 
-	 * 
-	 * */
 	private OrdenDeArresto ordenDeArresto;
 	private Ladron ladron;
 	private Objeto objeto;
