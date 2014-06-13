@@ -11,6 +11,7 @@ import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.objeto.ObjetoComun;
 import algo3.modelo.objeto.ObjetoMuyValioso;
 import algo3.modelo.objeto.ObjetoValioso;
+import algo3.modelo.objeto.Robable;
 import algo3.modelo.viaje.Recorrido;
 
 
@@ -49,7 +50,7 @@ public class RoboTest {
 
 	@Test
 	public void testObjetoMuyValiosoRobadoSonSietePaises(){
-		ObjetoMuyValioso esteObjeto = new ObjetoMuyValioso("Anillo del Papa", "Roma");
+		Robable esteObjeto = new ObjetoMuyValioso("Anillo del Papa", "Roma");
 		List<InformacionCiudad> lista = new ArrayList<InformacionCiudad>();
 		InformacionCiudad info = new InformacionCiudad("Rio de Janeiro", "Verde y Amarillo", "Reales", "Presidente");
 		InformacionCiudad info2 = new InformacionCiudad("New York", "Azul, Roja y Blanca", "Dolar", "Presidente");
