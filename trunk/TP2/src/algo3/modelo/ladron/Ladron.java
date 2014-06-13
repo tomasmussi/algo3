@@ -6,6 +6,18 @@ import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.objeto.Objeto;
 import algo3.modelo.objeto.Robable;
 
+
+/**
+ * Ladron, cuando roba un objeto, le pide al objeto la ciudad de origen y la posiciona como
+ * Primera en la lista de informacion ciudad. El ladron crea el recorrido y saca de la
+ * informacion disponible las ciudades usadas en el recorrido.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * */
 public class Ladron {
 
 	private CaracteristicaLadron caracteristicas;

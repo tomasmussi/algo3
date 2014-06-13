@@ -2,11 +2,24 @@ package algo3.modelo.caso;
 
 import java.util.List;
 
+import algo3.modelo.estacionPolicia.EstacionDePolicia;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
+import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.objeto.Objeto;
 import algo3.modelo.policia.OrdenDeArresto;
 
+
+
+/**
+ * El caso es el nivel de juego actual de policia
+ * Crea un objeto robado a partir del grado del policia
+ * Tambien crea un Ladron que se debe robar el objeto
+ * A partir del objeto robado, se crea una ciudad, que es la ciudad
+ * origen del recorrido, el ladron comienza escapandose a la siguiente ciudad.
+ * El ladron necesita una 
+ * 
+ * */
 public class Caso {
 
 	/*
@@ -21,26 +34,32 @@ public class Caso {
 	 * 
 	 */
 
+	
+	/*
+	 * 
+	 * 
+	 * 
+	 * */
 	private OrdenDeArresto ordenDeArresto;
 	private Ladron ladron;
 	private Objeto objeto;
 
 
 
-	public boolean generarOrdenDeArresto(CaracteristicaLadron caracteristica  ){
+	public OrdenDeArresto generarOrdenDeArresto(CaracteristicaLadron caracteristica  ){
 
 		List<CaracteristicaLadron> expedientes = EstacionDePolicia.getInstance().buscarExpediente(caracteristica);
 		if (expedientes.size()==1){
 			try {
 				this.ordenDeArresto = new OrdenDeArresto((CaracteristicaLadron)expedientes.get(0).clone());
-				return true;
+				return ordenDeArresto;
 			}catch (CloneNotSupportedException e){
-				System.out.println("Hubo un error inesperado en el programa\n");
+				System.out.println("Hubo un error inesperado en el programa");
 
 			}
 
 		}
-		return false;
+		return null;
 	}
 
 	public void asignarCiudades(){
@@ -65,6 +84,10 @@ public class Caso {
 	}
 	public void setObjeto(Objeto objeto) {
 		this.objeto = objeto;
+	}
+
+	public List<Ciudad> getRecorrido() {
+		return null;
 	}
 
 

@@ -112,7 +112,9 @@ public class Policia {
 	}
 
 	public void viajarA(Ciudad ciudad) {
-		this.viajar(ciudadActual.getDistanciaCon(ciudad));
+		if (ciudadActual != null){
+			this.viajar(ciudadActual.getDistanciaCon(ciudad));
+		}
 		this.ciudadActual = ciudad;
 	}
 
@@ -134,10 +136,10 @@ public class Policia {
 	public void emitirOrdenDeArresto(CaracteristicaLadron caracteristica) {
 		if (caracteristica != null) {
 
-			boolean seGenero = this.caso.generarOrdenDeArresto(caracteristica);
-			if (seGenero) this.restarHoras(3);
+			ordenDeArresto = this.caso.generarOrdenDeArresto(caracteristica);
 
 		}
+		this.restarHoras(3);
 	}
 
 	public void setGrado(Grado gradoSiguiente) {

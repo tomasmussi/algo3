@@ -119,7 +119,7 @@ public class CaracteristicaLadron implements Cloneable {
 
 	@Override
 	public Object clone() throws CloneNotSupportedException {
-		
+		//CaracteristicaLadron caracteristicaLadron = new CaracteristicaLadron(this.nombre, this.sexo, hobby, colorCabello, caracteristica, vehiculo);
 		return super.clone();
 	}
 	
