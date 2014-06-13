@@ -1,6 +1,7 @@
 package algo3.modelo.estacionPolicia;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import algo3.modelo.ladron.CaracteristicaLadron;
@@ -42,10 +43,11 @@ public class EstacionDePolicia {
 		for(CaracteristicaLadron expediente : this.expedientes){
 			caracteristicasExpediente = expediente.getCaracteristicas();
 			
-			for (String caracteristica : caracteristicasSolicitadas){
+			Iterator<String> iter = caracteristicasSolicitadas.iterator();
+			while (iter.hasNext() && contiene){
+				String caracteristica = iter.next();
 				if(caracteristica!=null){
 					contiene = caracteristicasExpediente.contains(caracteristica);
-					if(!contiene) break;
 				}
 				
 			}
