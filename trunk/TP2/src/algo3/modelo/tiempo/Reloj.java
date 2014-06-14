@@ -49,7 +49,7 @@ public class Reloj {
 	}
 
 	private boolean esDeNoche(){
-		return horaDia >= 23 || horaDia <= 7;
+		return horaDia >= 23 || horaDia <= 8;
 	}
 
 

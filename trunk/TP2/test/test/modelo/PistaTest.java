@@ -9,6 +9,7 @@ import algo3.modelo.edificio.EdificioFactory;
 import algo3.modelo.mapa.mundi.InformacionCiudadProvider;
 import algo3.modelo.mapa.mundi.NombresCiudades;
 import algo3.modelo.policia.Policia;
+import algo3.modelo.tiempo.Reloj;
 
 public class PistaTest {
 
@@ -33,7 +34,7 @@ public class PistaTest {
 	}
 
 	private Policia crearPolicia(int arrestos) {
-		Policia policia = new Policia();
+		Policia policia = new Policia(new Reloj());
 		for (int i = 1; i <= arrestos; i++) {
 			policia.aumentarArrestos();
 		}
