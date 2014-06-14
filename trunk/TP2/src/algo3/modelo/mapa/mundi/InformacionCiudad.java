@@ -41,31 +41,25 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 		this.gobierno = gobierno;
 	}
 
-
-	/** Devuelve informacion relevante para utilizar desde un
+	/**
+	 * Devuelve informacion relevante para utilizar desde un
 	 * Aeropuerto, Puerto o algun otro edificio que utilice informacion
 	 * sobre bandera o moneda del pais
 	 * 
 	 */
 	@Override
 	public String getInformacionViaje() {
-		List<String> informacion = new ArrayList<String>(2);
-		informacion.add(moneda);
-		informacion.add(coloresBandera);
-		return seleccionarAleatorioDeLista(informacion);
+		return coloresBandera;
 	}
 
 	@Override
 	public String getInformacionFinanciera() {
-		List<String> informacion = new ArrayList<String>(1);
-		informacion.add(moneda);
-		return seleccionarAleatorioDeLista(informacion);
+		return moneda;
 	}
 
 	@Override
 	public String getInformacionGeografica() {
 		List<String> informacion = new ArrayList<String>();
-		informacion.add(moneda);
 		informacion.addAll(transformarEnColeccion(geografia));
 		informacion.addAll(transformarEnColeccion(lugaresDeReferencia));
 		return seleccionarAleatorioDeLista(informacion);
@@ -74,39 +68,39 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	@Override
 	public String getInformacionHistorica() {
 		List<String> informacion = new ArrayList<String>();
-		informacion.add(moneda);
-		informacion.addAll(transformarEnColeccion(industria));
-		informacion.addAll(transformarEnColeccion(animales));
-		informacion.addAll(transformarEnColeccion(gente));
-		informacion.addAll(transformarEnColeccion(idiomas));
-		informacion.addAll(transformarEnColeccion(arte));
-		informacion.addAll(transformarEnColeccion(religion));
+		// informacion.addAll(transformarEnColeccion(industria));
+		// informacion.addAll(transformarEnColeccion(animales));
+		// informacion.addAll(transformarEnColeccion(gente));
+		// informacion.addAll(transformarEnColeccion(idiomas));
+		// informacion.addAll(transformarEnColeccion(arte));
+		// informacion.addAll(transformarEnColeccion(religion));
+		informacion.add(gobierno);
 		return seleccionarAleatorioDeLista(informacion);
 	}
 
-	private Collection<String> transformarEnColeccion(String[] array){
+	private Collection<String> transformarEnColeccion(String[] array) {
 		Set<String> conjunto = new HashSet<String>();
-		if (array == null){
+		if (array == null) {
 			return conjunto;
 		}
-		for (int i = 0; i < array.length; i++){
-			conjunto.add(array[i]);
+		for (String element : array) {
+			conjunto.add(element);
 		}
 		return conjunto;
 	}
 
-	private String seleccionarAleatorioDeLista(List<String> lista){
+	private String seleccionarAleatorioDeLista(List<String> lista) {
 		// Desordeno un poco la lista para darle aleatoriedad
-		for (int i = 0; i < lista.size(); i++){
+		for (int i = 0; i < lista.size(); i++) {
 			int posicionRandom = ((int) Math.random() * 10) % lista.size();
 			String elemento = lista.get(i);
 			lista.set(i, lista.get(posicionRandom));
 			lista.set(posicionRandom, elemento);
 		}
 		Iterator<String> it = lista.iterator();
-		while (it.hasNext()){
+		while (it.hasNext()) {
 			String next = it.next();
-			if (next != null && !next.isEmpty()){
+			if ((next != null) && !next.isEmpty()) {
 				return next;
 			}
 		}
@@ -128,7 +122,6 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	public void setLugaresDeReferencia(String[] lugaresDeReferencia) {
 		this.lugaresDeReferencia = lugaresDeReferencia;
 	}
-
 
 	public void setIndustria(String[] industria) {
 		this.industria = industria;
@@ -164,6 +157,10 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 
 	public void setMoneda(String moneda) {
 		this.moneda = moneda;
+	}
+
+	public String getGobierno() {
+		return gobierno;
 	}
 
 	public void setGobierno(String gobierno) {

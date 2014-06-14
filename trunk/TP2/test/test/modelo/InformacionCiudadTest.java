@@ -9,35 +9,30 @@ import algo3.modelo.mapa.mundi.InformacionCiudadProvider;
 import algo3.modelo.mapa.mundi.InformacionCultural;
 import algo3.modelo.mapa.mundi.InformacionDeViaje;
 import algo3.modelo.mapa.mundi.InformacionFinanciera;
+import algo3.modelo.mapa.mundi.NombresCiudades;
 
 public class InformacionCiudadTest {
 
 	@Test
-	public void testCrearInformacionDeViajeSeleccionaPropiedadNoNula(){
-		InformacionCiudadProvider.getInstance().cargarInformacion();
+	public void testCrearInformacionDeViajeSeleccionaPropiedadNoNula() {
 		// Cargada desde el properties, SanMarino no tiene moneda
-		InformacionDeViaje informacion = InformacionCiudadProvider.getInstance().getInformacionPara("SanMarino");
-		assertEquals("Blue and White",informacion.getInformacionViaje());
-		InformacionCiudad info = (InformacionCiudad)informacion;
-		info.setColoresBandera("");
-		info.setMoneda("Lira");
-		assertEquals("Lira",informacion.getInformacionViaje());
+		InformacionDeViaje informacion = InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.SAN_MARINO);
+		assertEquals("Azul y blanco", informacion.getInformacionViaje());
+		assertEquals("", ((InformacionCiudad) informacion).getInformacionFinanciera());
 	}
 
 	@Test
-	public void testCrearInformacionFinancieraSeleccionaPropiedadNoNula(){
-		InformacionCiudadProvider.getInstance().cargarInformacion();
-		// Cargada desde el properties, SanMarino no tiene moneda
-		InformacionFinanciera informacion = InformacionCiudadProvider.getInstance().getInformacionPara("NewYork");
-		assertEquals("Dollars",informacion.getInformacionFinanciera());
+	public void testCrearInformacionFinancieraSeleccionaPropiedadNoNula() {
+		// Cargada desde el properties, NewYork tiene Dolares
+		InformacionFinanciera informacion = InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.NEW_YORK);
+		assertEquals("Dolares", informacion.getInformacionFinanciera());
 	}
 
 	@Test
-	public void testCrearInformacionGeograficaSeleccionaPropiedadNoNula(){
-		InformacionCiudadProvider.getInstance().cargarInformacion();
-		// Cargada desde el properties, SanMarino no tiene moneda
-		InformacionCultural informacion = InformacionCiudadProvider.getInstance().getInformacionPara("Tokyo");
-		assertEquals("Mount Huascaran",informacion.getInformacionGeografica());
+	public void testCrearInformacionGeograficaSeleccionaPropiedadNoNula() {
+		// Cargada desde el properties, Tokio tiene Monte Fuji
+		InformacionCultural informacion = InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.TOKIO);
+		assertEquals("Monte Fuji", informacion.getInformacionGeografica());
 	}
 
 }

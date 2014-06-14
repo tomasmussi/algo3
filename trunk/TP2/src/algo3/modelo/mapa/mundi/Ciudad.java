@@ -1,5 +1,7 @@
 package algo3.modelo.mapa.mundi;
 
+import algo3.modelo.edificio.Edificio;
+import algo3.modelo.edificio.EdificioFactory;
 
 public class Ciudad {
 
@@ -47,7 +49,7 @@ public class Ciudad {
 	}
 
 	public String getGobierno() {
-		return informacion.getInformacionFinanciera();
+		return informacion.getGobierno();
 	}
 
 	public Edificio[] getTodosLosEdificios() {
@@ -78,24 +80,29 @@ public class Ciudad {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = (prime * result) + ((nombre == null) ? 0 : nombre.hashCode());
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
+		}
 		Ciudad other = (Ciudad) obj;
 		if (nombre == null) {
-			if (other.nombre != null)
+			if (other.nombre != null) {
 				return false;
-		} else if (!nombre.equals(other.nombre))
+			}
+		} else if (!nombre.equals(other.nombre)) {
 			return false;
+		}
 		return true;
 	}
 

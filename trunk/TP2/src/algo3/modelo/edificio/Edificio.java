@@ -1,4 +1,6 @@
-package algo3.modelo.mapa.mundi;
+package algo3.modelo.edificio;
+
+import algo3.modelo.entidad.Entidad;
 
 public abstract class Edificio {
 
@@ -6,4 +8,5 @@ public abstract class Edificio {
 
 	public abstract String darPista();
 
+	public abstract Entidad getElemento();
 }
