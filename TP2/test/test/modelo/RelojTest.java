@@ -27,11 +27,20 @@ public class RelojTest {
 	@Test
 	public void testAumentarHorasCambiaDia(){
 		Reloj reloj = new Reloj();
-		reloj.transcurrir(16); //Son las 23 horas
-		assertEquals("Lunes 23:00 horas", reloj.tiempoActual());
-		reloj.transcurrir(1); // Martes 0 horas
-		assertEquals("Martes 00:00 horas", reloj.tiempoActual());
+		reloj.transcurrir(15); //Son las 22 horas
+		assertEquals("Lunes 22:00 horas", reloj.tiempoActual());
+		reloj.transcurrir(1); // Lunes 23 horas, es de noche -> Martes 7 horas
+		assertEquals("Martes 07:00 horas", reloj.tiempoActual());
 	}
+
+	@Test
+	public void testAccionAumentaRelojHastaTresAMPasaDiezAM(){
+		Reloj reloj = new Reloj();
+		reloj.transcurrir(15); // 22 horas
+		reloj.transcurrir(5); // 3 am, dormir => 10 am
+		assertEquals("Martes 11:00 horas", reloj.tiempoActual());
+	}
+
 
 	@Test
 	public void testAumentarCienHorasEsViernesOnceHoras(){
