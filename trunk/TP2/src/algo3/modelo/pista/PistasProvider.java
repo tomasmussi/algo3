@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import algo3.controlador.Logger;
+
 import com.thoughtworks.xstream.XStream;
 
 public class PistasProvider {
@@ -37,7 +39,7 @@ public class PistasProvider {
 			}
 			in.close();
 		} catch (IOException e) {
-			System.out.println(e.toString());
+			Logger.loguearError(e);
 		}
 	}
 
