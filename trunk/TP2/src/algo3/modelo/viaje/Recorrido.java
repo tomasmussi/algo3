@@ -15,6 +15,8 @@ public class Recorrido {
 	private List<InformacionCiudad> listaInformacion;
 	private Map<Ciudad, List<Ciudad>> ciudadesUsadas;
 
+	// TODO Agregar que a recorrido le llegue String ciudadInicial.
+	
 	public Recorrido(List<InformacionCiudad> listaInformacion, int cantidadCiudades) {
 		this.ciudadesUsadas = new HashMap<Ciudad, List<Ciudad>>();
 		this.listaInformacion = new ArrayList<InformacionCiudad>();
