@@ -1,11 +1,13 @@
 package test.modelo.integracion;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import algo3.modelo.edificio.Aeropuerto;
@@ -22,13 +24,19 @@ import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.objeto.ObjetoComun;
 import algo3.modelo.objeto.Robable;
 import algo3.modelo.policia.Policia;
+import algo3.modelo.tiempo.Reloj;
 import algo3.modelo.viaje.Recorrido;
 
 public class ViajeTest {
 
 	/* ************** Métodos auxiliares ************** */
-	private Policia crearPolicia() {
-		return new Policia();
+	private Policia policia;
+	private Reloj reloj;
+
+	@Before
+	public void crearPolicia(){
+		this.reloj = new Reloj();
+		this.policia = new Policia(reloj);
 	}
 
 	/**
@@ -80,8 +88,6 @@ public class ViajeTest {
 		// Creo ladrón en una ciudad inicial.
 		Ladron ladron = crearLadronConObjetoComunYRecorrido(ciudadInicial);
 		Ciudad inicial = ladron.getCiudadActual();
-		// Creo policia sin ciudad inicial.
-		Policia policia = crearPolicia();
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. En este caso a la ciudad inicial.
 		policia.viajarA(inicial);
 		// En esta situación deberían estar en la misma ciudad.
@@ -100,7 +106,6 @@ public class ViajeTest {
 		Ladron ladron = crearLadronConObjetoComunYRecorrido(ciudadInicial);
 		Ciudad inicial = ladron.getCiudadActual();
 		// Creo policia sin ciudad inicial.
-		Policia policia = crearPolicia();
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. En este caso a la ciudad inicial.
 		policia.viajarA(inicial);
 		// En esta situación deberían estar en la misma ciudad.
@@ -144,7 +149,6 @@ public class ViajeTest {
 		// Creo ladrón en una ciudad inicial.
 		Ladron ladron = crearLadronConObjetoComunYRecorrido(ciudadInicial);
 		// Creo policia sin ciudad inicial.
-		Policia policia = crearPolicia();
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. En este caso a la ciudad inicial.
 		policia.viajarA(ladron.getCiudadActual());
 		// En esta situación deberían estar en la misma ciudad.
@@ -190,7 +194,6 @@ public class ViajeTest {
 		// Creo ladrón en una ciudad inicial.
 		Ladron ladron = crearLadronConObjetoComunYRecorrido(ciudadInicial);
 		// Creo policia sin ciudad inicial.
-		Policia policia = crearPolicia();
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. En este caso a la ciudad inicial.
 		policia.viajarA(ladron.getCiudadActual());
 		// En esta situación deberían estar en la misma ciudad.
@@ -234,7 +237,6 @@ public class ViajeTest {
 
 	@Test
 	public void testEdificioDaPistaSiguienteCiudad() {
-		Policia policia = crearPolicia();
 		Ciudad siguienteCiudad = crearCiudadPrueba("Buenos Aires", "Celeste y Blanca", "Australes", "Presidente");
 		Ciudad bangkok = crearCiudad("Bangkok", siguienteCiudad);
 		Edificio[] edificiosPosibles = bangkok.getTodosLosEdificios();
@@ -245,36 +247,27 @@ public class ViajeTest {
 	// Entrar a un edificio (1hr la primera vez , 2 hs 2da vez, 3hs 3ra vez).
 	@Test
 	public void testEdificioRestaUnaHoraPorPrimerEdifico() {
-		Policia policia = crearPolicia();
-		int horasIniciales = policia.getHorasRestantes();
 		Edificio banco = new Banco(new Moneda("Peso"));
 		policia.visitarEdificioYObtenerPista(banco);
-		int horasDespuesDeVisitarEdificioUnaVez = policia.getHorasRestantes();
-		assertTrue((horasIniciales - 1) == horasDespuesDeVisitarEdificioUnaVez);
+		assertEquals("Lunes 08:00 horas",reloj.tiempoActual());
 	}
 
 	@Test
 	public void testEdificioRestaDosHorasPorSegundoEdificio() {
-		Policia policia = crearPolicia();
-		int horasIniciales = policia.getHorasRestantes();
 		Edificio banco = new Banco(new Moneda("Peso"));
 		Edificio aeropuerto = new Aeropuerto(new Bandera("Verde y azul"));
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(aeropuerto);
-		int horasDespuesDeVisitarEdificioUnaVez = policia.getHorasRestantes();
-		assertTrue((horasIniciales - 3) == horasDespuesDeVisitarEdificioUnaVez);
+		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
 	}
 
 	@Test
 	public void testEdificioRestaSoloUnaHoraPorEdificioSinImportarCantidadDeEntradas() {
-		Policia policia = crearPolicia();
-		int horasIniciales = policia.getHorasRestantes();
 		Edificio banco = new Banco(new Moneda("Peso"));
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(banco);
-		int horasDespuesDeVisitarEdificioUnaVez = policia.getHorasRestantes();
-		assertTrue((horasIniciales - 1) == horasDespuesDeVisitarEdificioUnaVez);
+		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
 	}
 }

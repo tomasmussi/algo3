@@ -10,11 +10,12 @@ import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.policia.grado.Grado;
 import algo3.modelo.policia.grado.GradoNovato;
+import algo3.modelo.tiempo.Reloj;
 
 public class Policia {
 
 	public static final int HORAS_INICIALES = 154;
-	private int horasRestantes;
+	private Reloj reloj;
 	private int cantidadArrestos;
 	private int cantidadDeVisitas;
 	private List<Edificio> edificiosVisitados = new ArrayList<Edificio>();
@@ -23,8 +24,8 @@ public class Policia {
 	private Grado grado;
 	private Caso caso;
 
-	public Policia() {
-		horasRestantes = HORAS_INICIALES;
+	public Policia(Reloj reloj) {
+		this.reloj = reloj;
 		cantidadArrestos = 0;
 		cantidadDeVisitas = 0;
 		grado = new GradoNovato();
@@ -32,26 +33,14 @@ public class Policia {
 	}
 
 	public Policia(Ciudad ciudadInicial) {
-		horasRestantes = HORAS_INICIALES;
 		cantidadArrestos = 0;
 		cantidadDeVisitas = 0;
 		grado = new GradoNovato();
 		this.ciudadActual = ciudadInicial;
 	}
 
-	public int getHorasRestantes() {
-		return horasRestantes;
-	}
-
-	public void restarHoras(int horas) {
-		this.horasRestantes -= horas;
-		if (horasRestantes < 0) {
-			this.horasRestantes = 0; // Si llega a 0 debería pasar algo igual...
-		}
-	}
-
-	public void dormir() {
-		this.restarHoras(8);
+	private void restarHoras(int horas) {
+		reloj.transcurrir(horas);
 	}
 
 	public void acuchillado() {
@@ -62,15 +51,21 @@ public class Policia {
 		this.restarHoras(4);
 	}
 
+	/**
+	 * Viajar recibe la cantidad de kilometros a viajar por parte del policia
+	 * y devuelve la cantidad de horas que le consume el viaje de acuerdo a la cantidad de kilometros
+	 * que puede viajar
+	 * 
+	 * */
 	public void viajar(int kilometros) {
 		// Calculo de cuantas horas tengo que restar
 		int horas = kilometros / grado.getKilometrosPorHora();
 		horas += (kilometros % grado.getKilometrosPorHora()) != 0 ? 1 : 0;
-		this.restarHoras(horas);
+		reloj.transcurrir(horas);
 	}
 
 	public boolean puedeArrestar() {
-		return horasRestantes != 0;
+		return reloj.hayTiempoRestante();
 	}
 
 	public String getGrado() {
@@ -104,7 +99,7 @@ public class Policia {
 
 	public String visitarEdificioYObtenerPista(Edificio edificio) {
 		int horasARestar = aumentarVisitas(edificio);
-		restarHoras(horasARestar);
+		reloj.transcurrir(horasARestar);
 		return grado.getPista(edificio);
 	}
 
@@ -137,11 +132,9 @@ public class Policia {
 
 	public void emitirOrdenDeArresto(CaracteristicaLadron caracteristica) {
 		if (caracteristica != null) {
-
 			ordenDeArresto = this.caso.generarOrdenDeArresto(caracteristica);
-
 		}
-		this.restarHoras(3);
+		reloj.transcurrir(3);
 	}
 
 	public void setGrado(Grado gradoSiguiente) {
