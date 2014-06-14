@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import algo3.modelo.caso.Caso;
+import algo3.modelo.edificio.Edificio;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.Ciudad;
-import algo3.modelo.mapa.mundi.Edificio;
 import algo3.modelo.policia.grado.Grado;
 import algo3.modelo.policia.grado.GradoNovato;
 
@@ -89,11 +89,12 @@ public class Policia {
 	/**
 	 * Aumenta el numero de visitas a edificios.
 	 * Agrega el edificio a lista de edificios visitados.
+	 * 
 	 * @return Horas a restar.
 	 */
 	private int aumentarVisitas(Edificio edificio) {
 		int horasARestar = 0;
-		if (!edificiosVisitados.contains(edificio)){
+		if (!edificiosVisitados.contains(edificio)) {
 			edificiosVisitados.add(edificio);
 			cantidadDeVisitas++;
 			horasARestar = cantidadDeVisitas;
@@ -104,7 +105,7 @@ public class Policia {
 	public String visitarEdificioYObtenerPista(Edificio edificio) {
 		int horasARestar = aumentarVisitas(edificio);
 		restarHoras(horasARestar);
-		return edificio.darPista();
+		return grado.getPista(edificio);
 	}
 
 	public Ciudad getCiudadActual() {
@@ -112,7 +113,7 @@ public class Policia {
 	}
 
 	public void viajarA(Ciudad ciudad) {
-		if (ciudadActual != null){
+		if (ciudadActual != null) {
 			this.viajar(ciudadActual.getDistanciaCon(ciudad));
 		}
 		this.ciudadActual = ciudad;
@@ -123,11 +124,12 @@ public class Policia {
 	 * Devuelve true, si y solo si, el policia tiene una orden de arresto para el ladron
 	 * y misma coincide con el ladron que esta siendo perseguido.
 	 * Devuelve false en caso contrario
+	 * 
 	 * @param ladron
 	 * @return true si atrapo al ladron, false de lo contrario
 	 */
 	public boolean arrestar(Ladron ladron) {
-		if (ordenDeArresto == null || !ladron.coincideCon(ordenDeArresto.getCaracteristicaLadron())) {
+		if ((ordenDeArresto == null) || !ladron.coincideCon(ordenDeArresto.getCaracteristicaLadron())) {
 			return false;
 		}
 		return true;

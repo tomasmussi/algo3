@@ -8,13 +8,16 @@ import java.util.List;
 
 import org.junit.Test;
 
+import algo3.modelo.edificio.Aeropuerto;
+import algo3.modelo.edificio.Banco;
+import algo3.modelo.edificio.Edificio;
+import algo3.modelo.edificio.Embajada;
+import algo3.modelo.entidad.Bandera;
+import algo3.modelo.entidad.Gobierno;
+import algo3.modelo.entidad.Moneda;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
-import algo3.modelo.mapa.mundi.Aeropuerto;
-import algo3.modelo.mapa.mundi.Banco;
 import algo3.modelo.mapa.mundi.Ciudad;
-import algo3.modelo.mapa.mundi.Edificio;
-import algo3.modelo.mapa.mundi.Embajada;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.objeto.ObjetoComun;
 import algo3.modelo.objeto.Robable;
@@ -33,7 +36,7 @@ public class ViajeTest {
 	 * y crea otra ciudad para escapar.
 	 * */
 	private Ladron crearLadronConObjetoComunYRecorrido(InformacionCiudad ciudadInicial) {
-		CaracteristicaLadron caracteristica = new CaracteristicaLadron("Nick Brunch","Masculino","Mountain Climbing","Negro","Anillo","Motocicleta");
+		CaracteristicaLadron caracteristica = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
 		Robable objeto = new ObjetoComun("Buda dorado", "Bangkok");
 
 		List<InformacionCiudad> ciudadesARecorrer = new ArrayList<InformacionCiudad>();
@@ -63,9 +66,9 @@ public class ViajeTest {
 	 * Devuelve una Ciudad con Edificios Fijos {Aeropuerto, Banco, Embajada} pero sin informacion de si misma.
 	 */
 	private Ciudad crearCiudad(String nombre, Ciudad siguienteCiudad) {
-		Edificio edificio1 = new Aeropuerto(siguienteCiudad.getColoresBandera());
-		Edificio edificio2 = new Banco(siguienteCiudad.getMoneda());
-		Edificio edificio3 = new Embajada(siguienteCiudad.getGobierno());
+		Edificio edificio1 = new Aeropuerto(new Bandera(siguienteCiudad.getColoresBandera()));
+		Edificio edificio2 = new Banco(new Moneda(siguienteCiudad.getMoneda()));
+		Edificio edificio3 = new Embajada(new Gobierno(siguienteCiudad.getGobierno()));
 		return new Ciudad(1, 1, edificio1, edificio2, edificio3, new InformacionCiudad());
 	}
 
@@ -129,7 +132,7 @@ public class ViajeTest {
 		ladron.moverAlSiguientePais();
 		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Crear Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
-		policia.emitirOrdenDeArresto(new CaracteristicaLadron("Nick Brunch","Masculino","Mountain Climbing","Negro","Anillo","Motocicleta"));
+		policia.emitirOrdenDeArresto(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
 		// Arrestar ladron.
 		assertTrue(policia.arrestar(ladron));
 	}
@@ -234,14 +237,9 @@ public class ViajeTest {
 		Policia policia = crearPolicia();
 		Ciudad siguienteCiudad = crearCiudadPrueba("Buenos Aires", "Celeste y Blanca", "Australes", "Presidente");
 		Ciudad bangkok = crearCiudad("Bangkok", siguienteCiudad);
-		/*
-		 * TODO: Analizar la posibilidad de que una ciudad entregue una lista de sus edificios o que se los pueda
-		 * acceder mediante una clave. Ej getEdificio("Aeropuerto"). NOTA: puede o no devolver algo. TBD
-		 */
 		Edificio[] edificiosPosibles = bangkok.getTodosLosEdificios();
-		String pista = policia.visitarEdificioYObtenerPista(edificiosPosibles[0]); // 0 = aeropuerto. Solo para prueba. Corregir!
-
-		assertTrue(pista.equals("Me dicen mis fuentes que se fue en un avion con una bandera Celeste y Blanca en sus alas."));
+		String pista = policia.visitarEdificioYObtenerPista(edificiosPosibles[0]); // 0 = aeropuerto.
+		assertTrue(pista.equals("Me dicen mis fuentes que se fue en un avion con Celeste y Blanca en sus alas."));
 	}
 
 	// Entrar a un edificio (1hr la primera vez , 2 hs 2da vez, 3hs 3ra vez).
@@ -249,7 +247,7 @@ public class ViajeTest {
 	public void testEdificioRestaUnaHoraPorPrimerEdifico() {
 		Policia policia = crearPolicia();
 		int horasIniciales = policia.getHorasRestantes();
-		Edificio banco = new Banco("Pesos");
+		Edificio banco = new Banco(new Moneda("Peso"));
 		policia.visitarEdificioYObtenerPista(banco);
 		int horasDespuesDeVisitarEdificioUnaVez = policia.getHorasRestantes();
 		assertTrue((horasIniciales - 1) == horasDespuesDeVisitarEdificioUnaVez);
@@ -259,8 +257,8 @@ public class ViajeTest {
 	public void testEdificioRestaDosHorasPorSegundoEdificio() {
 		Policia policia = crearPolicia();
 		int horasIniciales = policia.getHorasRestantes();
-		Edificio banco = new Banco("Pesos");
-		Edificio aeropuerto = new Aeropuerto("verde y azul");
+		Edificio banco = new Banco(new Moneda("Peso"));
+		Edificio aeropuerto = new Aeropuerto(new Bandera("Verde y azul"));
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(aeropuerto);
 		int horasDespuesDeVisitarEdificioUnaVez = policia.getHorasRestantes();
@@ -271,7 +269,7 @@ public class ViajeTest {
 	public void testEdificioRestaSoloUnaHoraPorEdificioSinImportarCantidadDeEntradas() {
 		Policia policia = crearPolicia();
 		int horasIniciales = policia.getHorasRestantes();
-		Edificio banco = new Banco("Pesos");
+		Edificio banco = new Banco(new Moneda("Peso"));
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(banco);

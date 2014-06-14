@@ -27,7 +27,7 @@ public class InformacionCiudadProvider {
 	/**
 	 * Crea la informacion a partir de un archivo properties con toda las informacion de las ciudades.
 	 */
-	public void cargarInformacion() {
+	private void cargarInformacion() {
 		try {
 			prop = new Properties();
 			prop.load(Properties.class.getResourceAsStream("/ciudades.properties"));
@@ -38,11 +38,12 @@ public class InformacionCiudadProvider {
 
 	/**
 	 * Devuelve una InformacionCiudad a partir del nombre de una ciudad. Ver NombresCiudad por nombre correto.
+	 * 
 	 * @returns una InformacionCiudad.
 	 */
 	public InformacionCiudad getInformacionPara(String nombreCiudad) {
 		String propiedades = prop.getProperty(nombreCiudad);
-		if (propiedades == null){
+		if (propiedades == null) {
 			return null;
 		}
 		return crearInformacionCiudad(nombreCiudad, propiedades);

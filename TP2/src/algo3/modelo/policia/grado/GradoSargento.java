@@ -1,8 +1,18 @@
 package algo3.modelo.policia.grado;
 
-public class GradoSargento extends Grado{
+import algo3.modelo.edificio.Edificio;
+import algo3.modelo.pista.DificultadPista;
+import algo3.modelo.pista.PistaDificil;
+
+public class GradoSargento extends Grado {
 
 	private static final String GRADO = "Sargento";
+	private DificultadPista dificultadDePista;
+
+	public GradoSargento() {
+		super();
+		dificultadDePista = new PistaDificil();
+	}
 
 	@Override
 	public String getGrado() {
@@ -26,4 +36,8 @@ public class GradoSargento extends Grado{
 		return this;
 	}
 
+	@Override
+	public String getPista(Edificio edificio) {
+		return dificultadDePista.darPista(edificio.getElemento());
+	}
 }

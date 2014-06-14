@@ -1,5 +1,8 @@
 package algo3.modelo.mapa.mundi;
 
+import algo3.modelo.edificio.Edificio;
+import algo3.modelo.edificio.EdificioFactory;
+
 public class CiudadFactory {
 
 	/**
