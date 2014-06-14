@@ -1,13 +1,20 @@
 package algo3.modelo.caso;
 
 import java.util.List;
+import java.util.Random;
 
 import algo3.modelo.estacionPolicia.EstacionDePolicia;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.Ciudad;
+import algo3.modelo.mapa.mundi.InformacionCiudad;
+import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.Objeto;
+import algo3.modelo.objeto.ObjetoComun;
+import algo3.modelo.objeto.ObjetoMuyValioso;
+import algo3.modelo.objeto.ObjetoValioso;
 import algo3.modelo.policia.OrdenDeArresto;
+import algo3.modelo.policia.grado.Grado;
 
 
 
@@ -39,7 +46,27 @@ public class Caso {
 	private Ladron ladron;
 	private Objeto objeto;
 
+	public Caso(List<InformacionCiudad> ciudades, List<CaracteristicaLadron> ladrones, List<CaracteristicaObjeto> objetos, Grado gradoPolicia){
+		Objeto esteObjeto;
+		Random rand = new Random();
+		int posicion = rand.nextInt(objetos.size() -1);
+		// No me gusta mucho como esta aca, pero por ahora lo dejo asi.. Escucho ideas!!
+		if (gradoPolicia.getGrado() == "Novato")
+			esteObjeto = new ObjetoComun((objetos.get(posicion)).getNombre(), (objetos.get(posicion)).getCiudadOrigen());
+		else if (gradoPolicia.getGrado() == "Detective" || gradoPolicia.getGrado() == "Investigador")
+			esteObjeto = new ObjetoValioso((objetos.get(posicion)).getNombre(), (objetos.get(posicion)).getCiudadOrigen());
+		else 
+		// (gradoPolicia.getGrado() == "Sargento")
+			esteObjeto = new ObjetoMuyValioso((objetos.get(posicion)).getNombre(), (objetos.get(posicion)).getCiudadOrigen());
 
+		int longitudRecorrido = esteObjeto.getCantidadDeCiudades();
+		
+		posicion = rand.nextInt(ladrones.size() -1);
+		Ladron esteLadron = new Ladron(ladrones.get(posicion), esteObjeto);
+		
+		this.ladron = esteLadron;
+		this.objeto = esteObjeto;		
+	}
 
 	public OrdenDeArresto generarOrdenDeArresto(CaracteristicaLadron caracteristica  ){
 

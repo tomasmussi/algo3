@@ -13,7 +13,7 @@ import algo3.modelo.policia.Policia;
 import algo3.modelo.tiempo.Reloj;
 
 public class CasoTest {
-
+/*
 	private Policia policia;
 	private Reloj reloj;
 
@@ -47,6 +47,6 @@ public class CasoTest {
 
 
 
-
+*/
 
 }

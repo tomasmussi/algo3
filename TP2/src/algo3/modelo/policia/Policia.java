@@ -29,7 +29,11 @@ public class Policia {
 		cantidadArrestos = 0;
 		cantidadDeVisitas = 0;
 		grado = new GradoNovato();
-		caso = new Caso();
+		
+		// (Elisa) Esto me parece que no va aca: 
+		// caso = new Caso();
+		// El juego le asigna el caso, o no??. 
+		// TODO: Implementar el juego.asignarCasoAJugador(jugador);
 	}
 
 	public Policia(Ciudad ciudadInicial) {
