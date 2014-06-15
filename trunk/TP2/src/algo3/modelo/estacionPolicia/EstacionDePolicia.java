@@ -18,10 +18,12 @@ public class EstacionDePolicia {
 		CaracteristicaLadron expediente1 = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
 		CaracteristicaLadron expediente2 = new CaracteristicaLadron("Len Bulk", "Masculino", "Mountain Climbing", "Rojo", "Tatuaje", "Motocicleta");
 		CaracteristicaLadron expediente3 = new CaracteristicaLadron("Ihor Ihorovitch", "Masculino", "Croquet", "Rubio", "Tatuaje", "Limousina");
-
+		CaracteristicaLadron expediente4 = new CaracteristicaLadron("Merey Laroc", "Femenino", "Croquet", "Marron", "Joyas", "Limusina");
+		
 		expedientes.add(expediente1);
 		expedientes.add(expediente2);
 		expedientes.add(expediente3);
+		expedientes.add(expediente4);
 		this.expedientes = expedientes;
 	}
 

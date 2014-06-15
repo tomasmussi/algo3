@@ -13,40 +13,41 @@ import algo3.modelo.policia.Policia;
 import algo3.modelo.tiempo.Reloj;
 
 public class CasoTest {
-/*
+	
 	private Policia policia;
 	private Reloj reloj;
-
+	
 	@Before
 	public void test(){
 		reloj = new Reloj();
 		policia = new Policia(reloj);
 	}
-
+	
+	
 	@Test
 	public void NoPudoGenerarOrdenArrestoPorTenerVariasCoincidencias(){
-
+		
 		Caso caso= new Caso();
-		OrdenDeArresto orden = caso.generarOrdenDeArresto(new CaracteristicaLadron( null, "Masculino", "Mountain Climbing", null, null, "Motocicleta"));
-		assertEquals(null, orden);
+		caso.generarOrdenDeArresto(new CaracteristicaLadron( null, "Masculino", "Mountain Climbing", null, null, "Motocicleta"));
+		assertEquals(null, caso.getOrdenDeArresto());
 	}
-
+	
 	@Test
 	public void generarOrdenDeArrestoSiHayUnaSolaCoincidencia(){
-
+		
 		Caso caso= new Caso();
-		OrdenDeArresto orden = caso.generarOrdenDeArresto(new CaracteristicaLadron("Nick Brunch","Masculino","Mountain Climbing","Negro","Anillo","Motocicleta"));
-		assertTrue(orden != null);
+		caso.generarOrdenDeArresto(new CaracteristicaLadron("Nick Brunch","Masculino","Mountain Climbing","Negro","Anillo","Motocicleta"));
+		assertTrue(caso.getOrdenDeArresto() != null);
 	}
-
-
+	
+	
 	public void testCrearCasoConPoliciaNovato(){
 		Caso caso = new Caso();
 		assertTrue(caso.getRecorrido().size() == 4);
 	}
-
-
-
-*/
+	
+	
+	
+	
 
 }

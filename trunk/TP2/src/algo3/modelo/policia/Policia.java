@@ -20,7 +20,6 @@ public class Policia {
 	private int cantidadDeVisitas;
 	private List<Edificio> edificiosVisitados = new ArrayList<Edificio>();
 	private Ciudad ciudadActual;
-	private OrdenDeArresto ordenDeArresto;
 	private Grado grado;
 	private Caso caso;
 
@@ -29,7 +28,8 @@ public class Policia {
 		cantidadArrestos = 0;
 		cantidadDeVisitas = 0;
 		grado = new GradoNovato();
-		
+		caso = new Caso();
+
 		// (Elisa) Esto me parece que no va aca: 
 		// caso = new Caso();
 		// El juego le asigna el caso, o no??. 
@@ -43,7 +43,7 @@ public class Policia {
 		this.ciudadActual = ciudadInicial;
 	}
 
-	private void restarHoras(int horas) {
+	public void restarHoras(int horas) {
 		reloj.transcurrir(horas);
 	}
 
@@ -128,17 +128,21 @@ public class Policia {
 	 * @return true si atrapo al ladron, false de lo contrario
 	 */
 	public boolean arrestar(Ladron ladron) {
-		if ((ordenDeArresto == null) || !ladron.coincideCon(ordenDeArresto.getCaracteristicaLadron())) {
+		if ((caso.getOrdenDeArresto() == null) || !ladron.coincideCon(caso.getOrdenDeArresto().getCaracteristicaLadron())) {
 			return false;
 		}
 		return true;
 	}
 
-	public void emitirOrdenDeArresto(CaracteristicaLadron caracteristica) {
-		if (caracteristica != null) {
-			ordenDeArresto = this.caso.generarOrdenDeArresto(caracteristica);
+	public boolean emitirOrdenDeArresto(CaracteristicaLadron caracteristica) {
+		reloj.transcurrir(3);	
+		if (caracteristica != null && reloj.hayTiempoRestante()) {
+		//TODO:algo de si la pudo emitir o no
+			caso.generarOrdenDeArresto(caracteristica);
+			return true;
+
 		}
-		reloj.transcurrir(3);
+		return false;
 	}
 
 	public void setGrado(Grado gradoSiguiente) {
