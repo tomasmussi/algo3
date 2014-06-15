@@ -23,6 +23,7 @@ public class RecorridoTest {
 	@Before
 	public void crearListaDeInformacion() {
 		listaCiudadesRecorrido = new ArrayList<InformacionCiudad>();
+
 		listaCiudadesRecorrido.add(new InformacionCiudad("Rio de Janeiro", "Verde y amarilla", "Real", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva York", "Azul, roja y blanca", "Dolar", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Oslo", "Roja y azul", "Corona", "Rey"));

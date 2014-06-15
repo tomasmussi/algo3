@@ -1,6 +1,8 @@
 package algo3.modelo.policia.grado;
 
 import algo3.modelo.edificio.Edificio;
+import algo3.modelo.objeto.CaracteristicaObjeto;
+import algo3.modelo.objeto.Robable;
 import algo3.modelo.policia.Policia;
 
 public abstract class Grado {
@@ -20,5 +22,7 @@ public abstract class Grado {
 			policia.setGrado(getGradoSiguiente());
 		}
 	}
+
+	public abstract Robable getObjetoRobado(CaracteristicaObjeto unaCaracteristica);
 
 }

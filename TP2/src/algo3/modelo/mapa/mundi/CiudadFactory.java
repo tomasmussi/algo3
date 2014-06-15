@@ -6,7 +6,7 @@ import algo3.modelo.edificio.EdificioFactory;
 public class CiudadFactory {
 
 	/**
-	 * Crea una ciudad a partir de un nombre. Ver NombresCiudad para información de nombres.
+	 * Crea una ciudad a partir de un nombre. Ver NombresCiudad para informacion de nombres.
 	 * @return Ciudad.
 	 */
 	public static Ciudad crearCiudadSinEdificios(String nombreCiudad) {
@@ -16,7 +16,7 @@ public class CiudadFactory {
 
 	/**
 	 * Crea una ciudad a partir de un nombre y le agrega informacion a sus edificios de de la siguiente ciudad.
-	 * Ver NombresCiudad para información de nombres.
+	 * Ver NombresCiudad para informacion de nombres.
 	 * @return Ciudad.
 	 */
 	public static Ciudad crearCiudadConEdificiosSiguienteCiudad(String nombreCiudad, String nombreSiguienteCiudad) {

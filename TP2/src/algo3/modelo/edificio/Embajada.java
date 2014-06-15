@@ -29,7 +29,7 @@ public class Embajada extends Edificio {
 		if (gobierno == null) {
 			return Edificio.MSJ_LADRON_NO_ESTUVO_AQUI;
 		}
-		return "Un sospechoso estuvo aquí averiguando sobre el tipo de gobierno de un " + this.gobierno;
+		return "Un sospechoso estuvo aqui averiguando sobre el tipo de gobierno de un " + this.gobierno;
 	}
 
 	@Override

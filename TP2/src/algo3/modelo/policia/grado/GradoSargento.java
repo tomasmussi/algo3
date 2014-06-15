@@ -1,6 +1,9 @@
 package algo3.modelo.policia.grado;
 
 import algo3.modelo.edificio.Edificio;
+import algo3.modelo.objeto.CaracteristicaObjeto;
+import algo3.modelo.objeto.ObjetoMuyValioso;
+import algo3.modelo.objeto.Robable;
 import algo3.modelo.pista.DificultadPista;
 import algo3.modelo.pista.PistaDificil;
 
@@ -39,5 +42,10 @@ public class GradoSargento extends Grado {
 	@Override
 	public String getPista(Edificio edificio) {
 		return dificultadDePista.darPista(edificio.getElemento());
+	}
+
+	@Override
+	public Robable getObjetoRobado(CaracteristicaObjeto unaCaracteristica) {
+		return new ObjetoMuyValioso(unaCaracteristica.getNombre(), unaCaracteristica.getCiudadOrigen());
 	}
 }
