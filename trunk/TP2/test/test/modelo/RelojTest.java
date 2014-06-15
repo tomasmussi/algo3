@@ -21,37 +21,37 @@ public class RelojTest {
 
 
 	@Test
-	public void testCrearRelojEsLunesNueveHoras(){
-		assertEquals("Lunes 09:00 horas", reloj.tiempoActual());
+	public void testCrearRelojEsLunesSieteHoras(){
+		assertEquals("Lunes 07:00 horas", reloj.tiempoActual());
 	}
 
 	@Test
 	public void testAumentarHorasCambiaHora(){
 		reloj.transcurrir(3);
-		assertEquals("Lunes 12:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
 	}
 
 	@Test
 	public void testAumentarHorasCambiaDia(){
-		reloj.transcurrir(13); //Son las 22 horas
+		reloj.transcurrir(15); //Son las 22 horas
 		assertEquals("Lunes 22:00 horas", reloj.tiempoActual());
-		reloj.transcurrir(1); // Lunes 23 horas, es de noche -> Martes 8 horas
-		assertEquals("Martes 08:00 horas", reloj.tiempoActual());
+		reloj.transcurrir(1); // Lunes 23 horas, es de noche -> Martes 7 horas
+		assertEquals("Martes 07:00 horas", reloj.tiempoActual());
 
 	}
 
 	@Test
-	public void testAccionAumentaRelojHastaTresAMPasaDoceAM(){
-		reloj.transcurrir(13); // 22 horas
-		reloj.transcurrir(5); // 3 am, dormir => 12 am
-		assertEquals("Martes 12:00 horas", reloj.tiempoActual());
+	public void testAccionAumentaRelojHastaTresAMPasaOnceAM(){
+		reloj.transcurrir(15); // 22 horas
+		reloj.transcurrir(5); // 3 am, dormir => 11 am
+		assertEquals("Martes 11:00 horas", reloj.tiempoActual());
 	}
 
 
 	@Test
-	public void testAumentarCienHorasEsViernesTreceHoras(){
+	public void testAumentarCienHorasEsViernesOnceHoras(){
 		reloj.transcurrir(100);
-		assertEquals("Viernes 13:00 horas", reloj.tiempoActual());
+		assertEquals("Viernes 11:00 horas", reloj.tiempoActual());
 	}
 
 	@Test
@@ -66,7 +66,7 @@ public class RelojTest {
 
 	@Test
 	public void testAumentarHoraLimiteNoHayTiempoRestante(){
-		reloj.transcurrir(151);
+		reloj.transcurrir(153);
 		assertTrue(reloj.hayTiempoRestante());
 		reloj.transcurrir(1);
 		assertFalse(reloj.hayTiempoRestante());

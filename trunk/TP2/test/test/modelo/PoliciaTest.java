@@ -26,7 +26,7 @@ public class PoliciaTest {
 	public void testDispararPoliciaRestaCuatroHoras(){
 		Policia policia = new Policia(reloj);
 		policia.disparado();
-		assertEquals("Lunes 13:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 11:00 horas", reloj.tiempoActual());
 	}
 
 	@Test
@@ -34,27 +34,27 @@ public class PoliciaTest {
 		reloj = new Reloj();
 		policia = new Policia(reloj);
 		policia.viajar(900);
-		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
 
 		reloj = new Reloj();
 		policia = new Policia(reloj);
 		policia.viajar(700);
-		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
 
 		reloj = new Reloj();
 		policia = new Policia(reloj);
 		policia.viajar(1100);
-		assertEquals("Lunes 11:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 09:00 horas", reloj.tiempoActual());
 
 		reloj = new Reloj();
 		policia = new Policia(reloj);
 		policia.viajar(1800);
-		assertEquals("Lunes 11:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 09:00 horas", reloj.tiempoActual());
 
 		reloj = new Reloj();
 		policia = new Policia(reloj);
 		policia.viajar(1900);
-		assertEquals("Lunes 12:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
 	}
 	
 	@Test
@@ -115,14 +115,14 @@ public class PoliciaTest {
 	@Test
 	public void testEmitirOrdenRestaTresHoras(){
 		policia.emitirOrdenDeArresto(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Croquet", "Rojo", "Anillo", "Descapotable"));
-		assertEquals("Lunes 12:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
 	}
 	
 	@Test
 	public void testPoliciaNovatoRecorreKilometrosAsciendeTardaMenosHoras(){
 
 		policia.viajar(1300);
-		assertEquals("Lunes 11:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 09:00 horas", reloj.tiempoActual());
 		assertEquals(policia.getGrado(), "Novato");
 		for (int i = 1; i <= 10; i++){
 			policia.aumentarArrestos();
@@ -130,7 +130,7 @@ public class PoliciaTest {
 		assertEquals(policia.getGrado(), "Investigador");
 		//Resta solo 1 hora
 		policia.viajar(1300);
-		assertEquals("Lunes 12:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
 	}
 
 }
