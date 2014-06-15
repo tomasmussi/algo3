@@ -248,7 +248,7 @@ public class ViajeTest {
 	public void testEdificioRestaUnaHoraPorPrimerEdifico() {
 		Edificio banco = new Banco(new Moneda("Peso"));
 		policia.visitarEdificioYObtenerPista(banco);
-		assertEquals("Lunes 10:00 horas",reloj.tiempoActual());
+		assertEquals("Lunes 08:00 horas",reloj.tiempoActual());
 	}
 
 	@Test
@@ -257,7 +257,7 @@ public class ViajeTest {
 		Edificio aeropuerto = new Aeropuerto(new Bandera("Verde y azul"));
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(aeropuerto);
-		assertEquals("Lunes 12:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
 	}
 
 	@Test
@@ -267,6 +267,6 @@ public class ViajeTest {
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(banco);
-		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
 	}
 }
