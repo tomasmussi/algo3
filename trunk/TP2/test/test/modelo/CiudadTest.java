@@ -48,7 +48,7 @@ public class CiudadTest {
 		// Creo una ciudad (Bangkok) que me de informacion sobre la siguiente ciudad (Buenos Aires)
 		Ciudad ciudad = CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(NombresCiudades.BANGKOK, NombresCiudades.BUENOS_AIRES);
 		List<String> pistasPosibles = new ArrayList<String>();
-		pistasPosibles.add("Un sospechoso estuvo aquí averiguando sobre el tipo de gobierno de un Presidente");
+		pistasPosibles.add("Un sospechoso estuvo aqui averiguando sobre el tipo de gobierno de un Presidente");
 		pistasPosibles.add("Me dicen mis fuentes que se fue en un avion con Bandera de sol en sus alas.");
 		pistasPosibles.add("Segun mis fuentes estuvo averiguando sobre el valor de Australes");
 		Edificio[] edificios = ciudad.getTodosLosEdificios();

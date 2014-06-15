@@ -17,4 +17,9 @@ public class Logger {
 
 	}
 
+	public static void loguearError(String string) {
+		// TODO Auto-generated method stub
+
+	}
+
 }

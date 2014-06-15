@@ -5,8 +5,8 @@ public class ObjetoMuyValioso extends Objeto {
 
 	private static final Integer CIUDADES = 7;
 	
-	public ObjetoMuyValioso(String nombre, String paisOrigen) {
-		super(nombre, paisOrigen);
+	public ObjetoMuyValioso(String nombre, String ciudadOrigen) {
+		super(nombre, ciudadOrigen);
 	}
 	
 	@Override

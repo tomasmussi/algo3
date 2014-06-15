@@ -49,7 +49,7 @@ public class PistaTest {
 	public void testPoliciaNovatoIngresaEdificioDeViajeObtienePista() {
 		Policia policia = crearPoliciaNovato();
 		Edificio edificio = EdificioFactory.crearEdificioDeViajeConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.ATENAS));
-		// Edificio de viaje debería tener información acerca de la bandera del siguiente país. En este caso "Azul y blanco"
+		// Edificio de viaje deberia tener informacion acerca de la bandera del siguiente pais. En este caso "Azul y blanco"
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
 		assertEquals("Me dicen mis fuentes que se fue en un avion con Azul y blanco en sus alas.", pista);
 	}
@@ -58,7 +58,7 @@ public class PistaTest {
 	public void testPoliciaNovatoIngresaEdificioFinancieroObtienePista() {
 		Policia policia = crearPoliciaNovato();
 		Edificio edificio = EdificioFactory.crearEdificioFinancieroConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.BUENOS_AIRES));
-		// Edificio financiero debería devolverme información acerca de la moneda del pais. En este caso "Australes".
+		// Edificio financiero deberia devolverme informacion acerca de la moneda del pais. En este caso "Australes".
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
 		assertEquals("Solo se que cambio todo su dinero a Australes.", pista);
 	}
@@ -67,9 +67,9 @@ public class PistaTest {
 	public void testPoliciaNovatoIngresaEdificioCulturalObtienePista() {
 		Policia policia = crearPoliciaNovato();
 		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.PORT_MORESBY));
-		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del país. En este caso "Primer Ministro".
+		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del pais. En este caso "Primer Ministro".
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
-		assertEquals("Un sospechoso estuvo aquí averiguando sobre el tipo de gobierno de un Primer Ministro.", pista);
+		assertEquals("Un sospechoso estuvo aqui averiguando sobre el tipo de gobierno de un Primer Ministro.", pista);
 	}
 
 	/* ************************************************* */
@@ -80,7 +80,7 @@ public class PistaTest {
 	public void testPoliciaDetectiveIngresaEdificioDeViajeObtienePista() {
 		Policia policia = crearPoliciaDetective();
 		Edificio edificio = EdificioFactory.crearEdificioDeViajeConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.ATENAS));
-		// Edificio de viaje debería tener información acerca de la bandera del siguiente país. En este caso "Azul y blanco"
+		// Edificio de viaje deberia tener informacion acerca de la bandera del siguiente pais. En este caso "Azul y blanco"
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
 		assertEquals("Me dicen mis fuentes que se fue en un vehiculo con Azul y blanco en sus banderines.", pista);
 	}
@@ -89,7 +89,7 @@ public class PistaTest {
 	public void testPoliciaDetectiveIngresaEdificioFinancieroObtienePista() {
 		Policia policia = crearPoliciaDetective();
 		Edificio edificio = EdificioFactory.crearEdificioFinancieroConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.BUENOS_AIRES));
-		// Edificio financiero debería devolverme información acerca de la moneda del pais. En este caso "Australes".
+		// Edificio financiero deberia devolverme informacion acerca de la moneda del pais. En este caso "Australes".
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
 		assertEquals("Segun mis fuentes estuvo averiguando sobre el valor de Australes.", pista);
 	}
@@ -98,7 +98,7 @@ public class PistaTest {
 	public void testPoliciaDetectiveIngresaEdificioCulturalObtienePista() {
 		Policia policia = crearPoliciaDetective();
 		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.PORT_MORESBY));
-		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del país. En este caso "Primer Ministro".
+		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del pais. En este caso "Primer Ministro".
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
 		assertEquals("Dijo algo acerca de tomar el te con el Primer Ministro.", pista);
 	}
@@ -111,7 +111,7 @@ public class PistaTest {
 	public void testPoliciaInvestigadorIngresaEdificioDeViajeObtienePista() {
 		Policia policia = crearPoliciaInvestigador();
 		Edificio edificio = EdificioFactory.crearEdificioDeViajeConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.ATENAS));
-		// Edificio de viaje debería tener información acerca de la bandera del siguiente país. En este caso "Azul y blanco"
+		// Edificio de viaje deberia tener informacion acerca de la bandera del siguiente pais. En este caso "Azul y blanco"
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
 		assertEquals("Me dicen mis fuentes que se fue en un vehiculo con Azul y blanco en sus banderines.", pista);
 	}
@@ -120,7 +120,7 @@ public class PistaTest {
 	public void testPoliciaInvestigadorIngresaEdificioFinancieroObtienePista() {
 		Policia policia = crearPoliciaInvestigador();
 		Edificio edificio = EdificioFactory.crearEdificioFinancieroConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.BUENOS_AIRES));
-		// Edificio financiero debería devolverme información acerca de la moneda del pais. En este caso "Australes".
+		// Edificio financiero deberia devolverme informacion acerca de la moneda del pais. En este caso "Australes".
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
 		assertEquals("Segun mis fuentes estuvo averiguando sobre el valor de Australes.", pista);
 	}
@@ -129,7 +129,7 @@ public class PistaTest {
 	public void testPoliciaInvestigadorIngresaEdificioCulturalObtienePista() {
 		Policia policia = crearPoliciaInvestigador();
 		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.PORT_MORESBY));
-		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del país. En este caso "Primer Ministro".
+		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del pais. En este caso "Primer Ministro".
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
 		assertEquals("Dijo algo acerca de tomar el te con el Primer Ministro.", pista);
 	}
@@ -142,7 +142,7 @@ public class PistaTest {
 	public void testPoliciaSargentoIngresaEdificioDeViajeObtienePista() {
 		Policia policia = crearPoliciaSargento();
 		Edificio edificio = EdificioFactory.crearEdificioDeViajeConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.ATENAS));
-		// Edificio de viaje debería tener información acerca de la bandera del siguiente país. En este caso "Azul y blanco"
+		// Edificio de viaje deberia tener informacion acerca de la bandera del siguiente pais. En este caso "Azul y blanco"
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
 		assertEquals("Segun escuche, estaba mostrando una foto del hotel donde se hospedaria, tenia Azul y blanco en su puerta.", pista);
 	}
@@ -151,7 +151,7 @@ public class PistaTest {
 	public void testPoliciaSargentoIngresaEdificioFinancieroObtienePista() {
 		Policia policia = crearPoliciaSargento();
 		Edificio edificio = EdificioFactory.crearEdificioFinancieroConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.BUENOS_AIRES));
-		// Edificio financiero debería devolverme información acerca de la moneda del pais. En este caso "Australes".
+		// Edificio financiero deberia devolverme informacion acerca de la moneda del pais. En este caso "Australes".
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
 		assertEquals("Estuvo consultando sobre el indice devaluatorio de Australes.", pista);
 	}
@@ -160,7 +160,7 @@ public class PistaTest {
 	public void testPoliciaSargentoIngresaEdificioCulturalObtienePista() {
 		Policia policia = crearPoliciaSargento();
 		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.PORT_MORESBY));
-		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del país. En este caso "Primer Ministro".
+		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del pais. En este caso "Primer Ministro".
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
 		assertEquals("Mostro interes en aprender sobre el gobierno de un Primer Ministro.", pista);
 	}

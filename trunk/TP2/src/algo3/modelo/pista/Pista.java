@@ -4,7 +4,7 @@ public class Pista {
 
 	// Moneda-Bandera-Gobierno (por el momento)
 	private String entidad;
-	// Lo que se mostrará por pantlla
+	// Lo que se mostrara por pantlla
 	private String contenido;
 	// facil - media - dificil
 	private String dificultad;
