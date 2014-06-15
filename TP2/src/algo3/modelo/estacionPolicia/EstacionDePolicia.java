@@ -39,12 +39,11 @@ public class EstacionDePolicia {
 		List<String> caracteristicasSolicitadas = caracteristicaLadron.getCaracteristicas();
 		List<CaracteristicaLadron> coincidenciaLadrones = new ArrayList<CaracteristicaLadron>();
 		List<String> caracteristicasExpediente;
-		boolean contiene = true;
-
 		for (CaracteristicaLadron expediente : this.expedientes) {
 			caracteristicasExpediente = expediente.getCaracteristicas();
 
 			Iterator<String> iter = caracteristicasSolicitadas.iterator();
+			boolean contiene = true;
 			while (iter.hasNext() && contiene) {
 				String caracteristica = iter.next();
 				if (caracteristica != null) {
