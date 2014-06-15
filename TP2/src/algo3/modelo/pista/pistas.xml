@@ -11,7 +11,7 @@
 	</algo3.modelo.pista.Pista>
 	<algo3.modelo.pista.Pista>
 		<entidad>Gobierno</entidad>
-		<contenido>Un sospechoso estuvo aquí averiguando sobre el tipo de gobierno de un %variable%.</contenido>
+		<contenido>Un sospechoso estuvo aqui averiguando sobre el tipo de gobierno de un %variable%.</contenido>
 		<dificultad>Facil</dificultad>
 	</algo3.modelo.pista.Pista>
 	

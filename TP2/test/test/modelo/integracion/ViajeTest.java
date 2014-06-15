@@ -99,13 +99,12 @@ public class ViajeTest {
 	}
 
 	@Test
-	public void testPoliciaAtrapaLadronConOrdenDeArrestoCorrecta() {
+	public void testPoliciaAtrapaLadronConOrdenDeArrestoCorrectayTiempo() {
 		// Caso con 2 ciudades. Ejemplo facil.
 		InformacionCiudad ciudadInicial = crearInformacionCiudad("Rio de Janeiro", "Verde y Amarillo", "Reales", "Presidente");
 		// Creo ladron en una ciudad inicial.
 		Ladron ladron = crearLadronConObjetoComunYRecorrido(ciudadInicial);
 		Ciudad inicial = ladron.getCiudadActual();
-		// Creo policia sin ciudad inicial.
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. En este caso a la ciudad inicial.
 		policia.viajarA(inicial);
 		// En esta situacion deberian estar en la misma ciudad.
@@ -136,9 +135,10 @@ public class ViajeTest {
 		// El ladron se escapa (No se puede seguir escapando)
 		ladron.moverAlSiguientePais();
 		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
-		// Crear Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
-		policia.emitirOrdenDeArresto(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
-		// Arrestar ladron.
+		//Se fija que le quede tiempo para poder emitir la orden.
+		// Crea Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
+		assertTrue(policia.emitirOrdenDeArresto(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta")));
+		// Arresta ladron.
 		assertTrue(policia.arrestar(ladron));
 	}
 
@@ -148,7 +148,6 @@ public class ViajeTest {
 		InformacionCiudad ciudadInicial = crearInformacionCiudad("Rio de Janeiro", "Verde y Amarillo", "Reales", "Presidente");
 		// Creo ladron en una ciudad inicial.
 		Ladron ladron = crearLadronConObjetoComunYRecorrido(ciudadInicial);
-		// Creo policia sin ciudad inicial.
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. En este caso a la ciudad inicial.
 		policia.viajarA(ladron.getCiudadActual());
 		// En esta situacion deberian estar en la misma ciudad.
@@ -181,9 +180,10 @@ public class ViajeTest {
 		ladron.moverAlSiguientePais();
 		// Ambos deberian estar en la misma ciudad.
 		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
-		// Crear Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
-		policia.emitirOrdenDeArresto(new CaracteristicaLadron("Merey Laroc", "Femenino", "Croquet", "Marron", "Joyas", "Limusina"));
-		// Arrestar ladron.
+		//Se fija que le quede tiempo para poder hacer la orden.
+		// Crea Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
+		assertTrue(policia.emitirOrdenDeArresto(new CaracteristicaLadron("Merey Laroc", "Femenino", "Croquet", "Marron", "Joyas", "Limusina")));
+		// Arresta ladron.
 		assertFalse(policia.arrestar(ladron));
 	}
 
@@ -193,7 +193,6 @@ public class ViajeTest {
 		InformacionCiudad ciudadInicial = crearInformacionCiudad("Rio de Janeiro", "Verde y Amarillo", "Reales", "Presidente");
 		// Creo ladron en una ciudad inicial.
 		Ladron ladron = crearLadronConObjetoComunYRecorrido(ciudadInicial);
-		// Creo policia sin ciudad inicial.
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. En este caso a la ciudad inicial.
 		policia.viajarA(ladron.getCiudadActual());
 		// En esta situacion deberian estar en la misma ciudad.
@@ -249,7 +248,7 @@ public class ViajeTest {
 	public void testEdificioRestaUnaHoraPorPrimerEdifico() {
 		Edificio banco = new Banco(new Moneda("Peso"));
 		policia.visitarEdificioYObtenerPista(banco);
-		assertEquals("Lunes 08:00 horas",reloj.tiempoActual());
+		assertEquals("Lunes 10:00 horas",reloj.tiempoActual());
 	}
 
 	@Test
@@ -258,7 +257,7 @@ public class ViajeTest {
 		Edificio aeropuerto = new Aeropuerto(new Bandera("Verde y azul"));
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(aeropuerto);
-		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 12:00 horas", reloj.tiempoActual());
 	}
 
 	@Test
@@ -268,6 +267,6 @@ public class ViajeTest {
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(banco);
-		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
 	}
 }

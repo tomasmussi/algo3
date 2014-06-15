@@ -5,14 +5,14 @@ import java.text.DecimalFormat;
 public class Reloj {
 
 	private static final DecimalFormat formato = new DecimalFormat("00");
-	private static final int HORAS_A_DORMIR = 8;
+	private static final int HORAS_A_DORMIR = 9;
 	private String[] dias = {"Lunes", "Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"};
 	private int numeroDia;
 	private int horaDia;
 
 	public Reloj() {
 		numeroDia = 0;
-		horaDia = 7;
+		horaDia = 9;
 	}
 
 	public String tiempoActual() {
@@ -50,6 +50,7 @@ public class Reloj {
 
 	private boolean esDeNoche(){
 		return horaDia >= 23 || horaDia <= 8;
+	
 	}
 
 

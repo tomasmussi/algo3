@@ -16,13 +16,17 @@ import algo3.modelo.policia.grado.Grado;
 
 
 
+
+
+
+
 /**
  * El caso es el nivel de juego actual de policia
  * Crea un objeto robado a partir del grado del policia
  * Tambien crea un Ladron que se debe robar el objeto
  * A partir del objeto robado, se crea una ciudad, que es la ciudad
  * origen del recorrido, el ladron comienza escapandose a la siguiente ciudad.
- * El ladron necesita una
+ * El ladron necesita una 
  * 
  * */
 public class Caso {
@@ -39,7 +43,7 @@ public class Caso {
 	 * 
 	 */
 
-
+	
 	private OrdenDeArresto ordenDeArresto;
 	private Ladron ladron;
 	private Robable objeto;
@@ -59,19 +63,24 @@ public class Caso {
 		this.ladron = esteLadron;
 		this.objeto = objetoRobado;
 	}
+	
+	public Caso(){
+		
+	}
 
-	public OrdenDeArresto generarOrdenDeArresto(CaracteristicaLadron caracteristica  ){
+
+	public void generarOrdenDeArresto(CaracteristicaLadron caracteristica  ){
 
 		List<CaracteristicaLadron> expedientes = EstacionDePolicia.getInstance().buscarExpediente(caracteristica);
 		if (expedientes.size()==1){
 			try {
 				this.ordenDeArresto = new OrdenDeArresto((CaracteristicaLadron)expedientes.get(0).clone());
-				return ordenDeArresto;
 			}catch (CloneNotSupportedException e){
 				Logger.loguearError("Hubo un error inesperado en el programa");
 			}
+
 		}
-		return null;
+		
 	}
 
 	public void asignarCiudades(){
