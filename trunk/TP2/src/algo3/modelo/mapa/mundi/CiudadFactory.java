@@ -23,9 +23,9 @@ public class CiudadFactory {
 		InformacionCiudad infoCiudad = InformacionCiudadProvider.getInstance().getInformacionPara(nombreCiudad);
 		InformacionCiudad infoSiguienteCiudad = InformacionCiudadProvider.getInstance().getInformacionPara(nombreSiguienteCiudad);
 
-		Edificio edificio1 = EdificioFactory.crearEdificioCultural(infoSiguienteCiudad);
-		Edificio edificio2 = EdificioFactory.crearEdificioFinanciero(infoSiguienteCiudad);
-		Edificio edificio3 = EdificioFactory.crearEdificioDeViaje(infoSiguienteCiudad);
+		Edificio edificio1 = EdificioFactory.crearEdificioCulturalConEntidad(infoSiguienteCiudad);
+		Edificio edificio2 = EdificioFactory.crearEdificioFinancieroConEntidad(infoSiguienteCiudad);
+		Edificio edificio3 = EdificioFactory.crearEdificioDeViajeConEntidad(infoSiguienteCiudad);
 		// TODO: meter coordenadas en el properties/informacion.
 		return new Ciudad(0, 0, edificio1, edificio2, edificio3, infoCiudad);
 	}

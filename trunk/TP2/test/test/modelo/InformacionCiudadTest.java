@@ -32,7 +32,7 @@ public class InformacionCiudadTest {
 	public void testCrearInformacionGeograficaSeleccionaPropiedadNoNula() {
 		// Cargada desde el properties, Tokio tiene Monte Fuji
 		InformacionCultural informacion = InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.TOKIO);
-		assertEquals("Monte Fuji", informacion.getInformacionGeografica());
+		assertEquals("LugaresDeReferencia|Monte Fuji", informacion.getInformacionGeografica());
 	}
 
 }

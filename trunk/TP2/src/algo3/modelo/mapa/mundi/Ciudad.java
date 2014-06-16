@@ -71,9 +71,9 @@ public class Ciudad {
 	}
 
 	public void agregarInformacionProximaCiudad(InformacionCiudad infoCiudad) {
-		this.edificio1 = EdificioFactory.crearEdificioFinanciero(infoCiudad);
-		this.edificio2 = EdificioFactory.crearEdificioCultural(infoCiudad);
-		this.edificio3 = EdificioFactory.crearEdificioDeViaje(infoCiudad);
+		this.edificio1 = EdificioFactory.crearEdificioFinancieroConEntidad(infoCiudad);
+		this.edificio2 = EdificioFactory.crearEdificioCulturalConEntidad(infoCiudad);
+		this.edificio3 = EdificioFactory.crearEdificioDeViajeConEntidad(infoCiudad);
 	}
 
 	@Override
