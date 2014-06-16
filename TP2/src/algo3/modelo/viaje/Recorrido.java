@@ -2,21 +2,19 @@ package algo3.modelo.viaje;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 import algo3.modelo.mapa.mundi.Ciudad;
-import algo3.modelo.mapa.mundi.InformacionCiudad;
 
 public class Recorrido {
 	private Map<Ciudad, List<Ciudad>> ciudadesUsadas;
 	private List<Ciudad> ciudadesLibres;
 
-// Recorrido NO distingue entre las ciudades por las que debe pasar el ladron. Solo las recibe para armar 
-// los planes de destinos, pero no guarda el recorrido en si. Solo el ladron lo sabe.
-	
+	// Recorrido NO distingue entre las ciudades por las que debe pasar el ladron. Solo las recibe para armar
+	// los planes de destinos, pero no guarda el recorrido en si. Solo el ladron lo sabe.
+
 	public Recorrido (List<Ciudad> escapatoria, List<Ciudad> todasLasCiudades) {
 		this.ciudadesUsadas = new HashMap<Ciudad, List<Ciudad>>();
 		this.ciudadesLibres = new ArrayList<Ciudad>();
@@ -28,18 +26,18 @@ public class Recorrido {
 		for (int i = 0; i < escapatoria.size(); i++){
 			Ciudad unaCiudad = escapatoria.get(i);
 			List<Ciudad> posibles = new ArrayList<Ciudad>();
-	
+
 			if (i != escapatoria.size() - 1){
 				posibles.add(escapatoria.get(i+1));}
 			if (i != 0){
 				posibles.add(escapatoria.get(i-1));}
-			
+
 			ciudadesUsadas.put(unaCiudad, posibles);
 			ciudadesLibres.remove(unaCiudad);
 		}
 	}
-	
-	
+
+
 	public void actualizarNexoEntre(Ciudad ciudad1, Ciudad ciudad2) {
 		if (!ciudadesUsadas.containsKey(ciudad2)) {
 			List<Ciudad> posibles = new ArrayList<Ciudad>();
@@ -49,15 +47,15 @@ public class Recorrido {
 		}
 	}
 
-// Devuelve las posibles ciudades, donde siempre estaran de la que viene y a la que tiene que ir + otra(s) elegida(s) Randomly.
+	// Devuelve las posibles ciudades, donde siempre estaran de la que viene y a la que tiene que ir + otra(s) elegida(s) Randomly.
 	public List<Ciudad> getCiudadesPosibles(Ciudad origen){
 
 		List<Ciudad> ciudadesPosibles = new ArrayList<Ciudad>();
 		ciudadesPosibles.addAll(ciudadesUsadas.get(origen));
-	
+
 		Random rand = new Random();
 		int posicion = rand.nextInt(ciudadesLibres.size() -1);
-	
+
 		while (ciudadesPosibles.size() < 3) {
 			ciudadesPosibles.add(ciudadesLibres.get(posicion));
 			posicion += 1;
@@ -65,15 +63,15 @@ public class Recorrido {
 		return ciudadesPosibles;
 	}
 
-public boolean sonConsecutivas(Ciudad ciudadPrevia, Ciudad ciudadPosterior) {
-	List <Ciudad> ciudadesPosibles = ciudadesUsadas.get(ciudadPrevia);
+	public boolean sonConsecutivas(Ciudad ciudadPrevia, Ciudad ciudadPosterior) {
+		List <Ciudad> ciudadesPosibles = ciudadesUsadas.get(ciudadPrevia);
 		return (ciudadesPosibles.contains(ciudadPosterior));
 	}
-}	
-	/*	
+}
+/*
 	private List<InformacionCiudad> listaInformacion;
 	private List<Ciudad> ciudades;
-	
+
 
 	public Recorrido(List<InformacionCiudad> listaInformacion, int cantidadCiudades) {
 		this.ciudadesUsadas = new HashMap<Ciudad, List<Ciudad>>();
@@ -84,7 +82,7 @@ public boolean sonConsecutivas(Ciudad ciudadPrevia, Ciudad ciudadPosterior) {
 
 	public List<Ciudad> crearRecorridoDeCiudades(int cantidadCiudades){
 		if (cantidadCiudades > listaInformacion.size()){
-			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: " 
+			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: "
 					+ cantidadCiudades + " ciudades");
 		}
 		List<Ciudad> ciudades = new ArrayList<Ciudad>();
@@ -153,8 +151,8 @@ public boolean sonConsecutivas(Ciudad ciudadPrevia, Ciudad ciudadPosterior) {
 		}
 		return posibles;
 	}
-	
-		
+
+
 	public boolean sonConsecutivas(Ciudad ciudadPrevia, Ciudad ciudadPosterior) {
 		int indicePrevio = ciudades.indexOf(ciudadPrevia);
 		int indicePosterior = ciudades.indexOf(ciudadPosterior);
@@ -167,6 +165,5 @@ public boolean sonConsecutivas(Ciudad ciudadPrevia, Ciudad ciudadPosterior) {
 
 
 // RENOVATION TIME!
-*/
-	
-	
+ */
+

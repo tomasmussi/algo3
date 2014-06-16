@@ -32,16 +32,16 @@ public class XMLParser {
 		}
 	}
 
-	private static void leerPaises() throws IOException {
-		//		InputStream in = Properties.class.getResourceAsStream("/algo3/controlador/paises.xml");
-		//		List<Pais> ladrones = (List<Pais>)xmlReader.fromXML(in);
-		//		in.close();
-		//		Iterator<Ladron> it = ladrones.iterator();
-		//		while (it.hasNext()){
-		//			Ladron ladron = it.next();
-		//			System.out.println(ladron);
-		//		}
-	}
+	//	private static void leerPaises() throws IOException {
+	//		InputStream in = Properties.class.getResourceAsStream("/algo3/controlador/paises.xml");
+	//		List<Pais> ladrones = (List<Pais>)xmlReader.fromXML(in);
+	//		in.close();
+	//		Iterator<Ladron> it = ladrones.iterator();
+	//		while (it.hasNext()){
+	//			Ladron ladron = it.next();
+	//			System.out.println(ladron);
+	//		}
+	//	}
 
 	public static void encode(Object objeto) throws IOException{
 		FileOutputStream out = new FileOutputStream(new File("C:\\Users\\Tomas\\Desktop\\objeto.xml"));

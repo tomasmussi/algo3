@@ -8,7 +8,6 @@ import algo3.modelo.estacionPolicia.EstacionDePolicia;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.Ciudad;
-import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.mapa.mundi.MapaMundi;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.Robable;
@@ -28,7 +27,7 @@ import algo3.modelo.viaje.Recorrido;
  * Tambien crea un Ladron que se debe robar el objeto
  * A partir del objeto robado, se crea una ciudad, que es la ciudad
  * origen del recorrido, el ladron comienza escapandose a la siguiente ciudad.
- * El ladron necesita una 
+ * El ladron necesita una
  * 
  * */
 public class Caso {
@@ -45,13 +44,13 @@ public class Caso {
 	 * 
 	 */
 
-	
+
 	private OrdenDeArresto ordenDeArresto;
 	private Ladron ladron;
 	private Robable objeto;
 	private Recorrido recorrido;
 
-	public Caso(MapaMundi mapa, List<CaracteristicaLadron> ladrones, 
+	public Caso(MapaMundi mapa, List<CaracteristicaLadron> ladrones,
 			List<CaracteristicaObjeto> objetos, Grado gradoPolicia){
 		Random rand = new Random();
 		int posicion = rand.nextInt(objetos.size() -1);
@@ -70,9 +69,9 @@ public class Caso {
 		this.objeto = objeto;
 		this.recorrido = recorrido;
 	}
-	
+
 	public Caso(){
-		
+
 	}
 
 
@@ -87,7 +86,7 @@ public class Caso {
 			}
 
 		}
-		
+
 	}
 
 	public void asignarCiudades(){

@@ -11,17 +11,15 @@ import org.junit.Test;
 import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.mapa.mundi.MapaMundi;
-import algo3.modelo.viaje.Recorrido;
 
 public class MapaMundiTest {
-	private static final int MAX_CIUDADES = 4;
 
 	private List<InformacionCiudad> listaDeInfo;
 
 	@Before
 	public void crearListaDeInformacion() {
 		listaDeInfo = new ArrayList<InformacionCiudad>();
-		
+
 		listaDeInfo.add(new InformacionCiudad("Rio de Janeiro", "Verde y amarilla", "Real", "Presidente"));
 		listaDeInfo.add(new InformacionCiudad("Nueva York", "Azul, roja y blanca", "Dolar", "Presidente"));
 		listaDeInfo.add(new InformacionCiudad("Oslo", "Roja y azul", "Corona", "Rey"));
