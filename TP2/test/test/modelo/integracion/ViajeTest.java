@@ -86,9 +86,10 @@ public class ViajeTest {
 		ObjetoComun esteObjeto = new ObjetoComun("Presidente", "Lima");
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
-		this.esteLadron = new Ladron(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"), esteObjeto);
+		this.esteLadron = new Ladron(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
 
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
+		esteLadron.robar(esteObjeto);
 		this.esteLadron.elegirEscapatoria(ciudades, estaCiudad);
 		Recorrido esteRecorrido = new Recorrido(esteLadron.getEscapatoria(), ciudades);
 		Caso esteCaso = new Caso(esteObjeto, esteLadron, esteRecorrido);
@@ -115,13 +116,15 @@ public class ViajeTest {
 		ObjetoComun esteObjeto = new ObjetoComun("Presidente", "Lima");
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
-		this.esteLadron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"), esteObjeto);
+		this.esteLadron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
 
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
-		this.esteLadron.elegirEscapatoria(ciudades, estaCiudad);
+
+		esteLadron.robar(esteObjeto);
+		esteLadron.elegirEscapatoria(ciudades, estaCiudad);
 		Recorrido esteRecorrido = new Recorrido(esteLadron.getEscapatoria(), ciudades);
 		Caso esteCaso = new Caso(esteObjeto, esteLadron, esteRecorrido);
-		this.policia.asignarCaso(esteCaso);
+		policia.asignarCaso(esteCaso);
 
 		Ciudad inicial = this.esteLadron.getCiudadActual();
 		policia.viajarA(inicial);
@@ -169,9 +172,10 @@ public class ViajeTest {
 		ObjetoComun esteObjeto = new ObjetoComun("Presidente", "Lima");
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
-		this.esteLadron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"), esteObjeto);
+		this.esteLadron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
 
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
+		esteLadron.robar(esteObjeto);
 		this.esteLadron.elegirEscapatoria(ciudades, estaCiudad);
 		Recorrido esteRecorrido = new Recorrido(esteLadron.getEscapatoria(), ciudades);
 		Caso esteCaso = new Caso(esteObjeto, esteLadron, esteRecorrido);
@@ -225,9 +229,10 @@ public class ViajeTest {
 		ObjetoComun esteObjeto = new ObjetoComun("Presidente", "Lima");
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
-		this.esteLadron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"), esteObjeto);
+		this.esteLadron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
 
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
+		esteLadron.robar(esteObjeto);
 		this.esteLadron.elegirEscapatoria(ciudades, estaCiudad);
 		Recorrido esteRecorrido = new Recorrido(esteLadron.getEscapatoria(), ciudades);
 		Caso esteCaso = new Caso(esteObjeto, esteLadron, esteRecorrido);
