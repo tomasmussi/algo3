@@ -1,0 +1,49 @@
+<list>
+	<algo3.modelo.pista.Pista>
+		<entidad>Moneda</entidad>
+		<contenido>Solo se que cambio todo su dinero a %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Bandera</entidad>
+		<contenido>Me dicen mis fuentes que se fue en un avion con %variable% en sus alas.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Gobierno</entidad>
+		<contenido>Un sospechoso estuvo aqui averiguando sobre el tipo de gobierno de un %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	
+	<algo3.modelo.pista.Pista>
+		<entidad>Moneda</entidad>
+		<contenido>Segun mis fuentes estuvo averiguando sobre el valor de %variable%.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Bandera</entidad>
+		<contenido>Me dicen mis fuentes que se fue en un vehiculo con %variable% en sus banderines.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Gobierno</entidad>
+		<contenido>Dijo algo acerca de tomar el te con el %variable%.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	
+	<algo3.modelo.pista.Pista>
+		<entidad>Moneda</entidad>
+		<contenido>Estuvo consultando sobre el indice devaluatorio de %variable%.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Bandera</entidad>
+		<contenido>Segun escuche, estaba mostrando una foto del hotel donde se hospedaria, tenia %variable% en su puerta.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Gobierno</entidad>
+		<contenido>Mostro interes en aprender sobre el gobierno de un %variable%.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+</list>
