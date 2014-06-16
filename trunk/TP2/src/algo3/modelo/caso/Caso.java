@@ -48,13 +48,11 @@ public class Caso {
 	private Ladron ladron;
 	private Robable objeto;
 
-	public Caso(List<InformacionCiudad> ciudades, List<CaracteristicaLadron> ladrones, List<CaracteristicaObjeto> objetos, Grado gradoPolicia){
+	public Caso(List<InformacionCiudad> ciudades, List<CaracteristicaLadron> ladrones, 
+			List<CaracteristicaObjeto> objetos, Grado gradoPolicia){
 		Random rand = new Random();
 		int posicion = rand.nextInt(objetos.size() -1);
-		// No me gusta mucho como esta aca, pero por ahora lo dejo asi.. Escucho ideas!!
 		Robable objetoRobado = gradoPolicia.getObjetoRobado(objetos.get(posicion));
-		//TODO El random me devuelve una posicion para la cantidad de objetos que hay. Si hay mas ladrones que objetos => IndexOutOfBoundsException
-
 		int longitudRecorrido = objetoRobado.getCantidadDeCiudades();
 
 		posicion = rand.nextInt(ladrones.size() -1);
@@ -69,7 +67,7 @@ public class Caso {
 	}
 
 
-	public void generarOrdenDeArresto(CaracteristicaLadron caracteristica  ){
+	public void generarOrdenDeArresto(CaracteristicaLadron caracteristica){
 
 		List<CaracteristicaLadron> expedientes = EstacionDePolicia.getInstance().buscarExpediente(caracteristica);
 		if (expedientes.size()==1){

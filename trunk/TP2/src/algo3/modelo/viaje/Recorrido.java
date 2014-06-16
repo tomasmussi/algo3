@@ -26,7 +26,8 @@ public class Recorrido {
 
 	public List<Ciudad> crearRecorridoDeCiudades(int cantidadCiudades){
 		if (cantidadCiudades > listaInformacion.size()){
-			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: " + cantidadCiudades + " ciudades");
+			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: " 
+					+ cantidadCiudades + " ciudades");
 		}
 		List<Ciudad> ciudades = new ArrayList<Ciudad>();
 		for (int i = 0; i < cantidadCiudades; i++){
@@ -94,7 +95,12 @@ public class Recorrido {
 		}
 		return posibles;
 	}
+	
+	
 
+	
+	
+	
 	public boolean sonConsecutivas(Ciudad ciudadPrevia, Ciudad ciudadPosterior) {
 		int indicePrevio = ciudades.indexOf(ciudadPrevia);
 		int indicePosterior = ciudades.indexOf(ciudadPosterior);
@@ -106,6 +112,17 @@ public class Recorrido {
 	}
 
 
+// RENOVATION TIME!
 
+
+
+public void actualizarNexoEntre(Ciudad ciudad1, Ciudad ciudad2) {
+	if (!ciudadesUsadas.containsKey(ciudad2)) {
+		List<Ciudad> posibles = new ArrayList<Ciudad>();
+		posibles.add(ciudad1);
+		ciudadesUsadas.put(ciudad2, posibles);
+	}
+}
 
 }
+
