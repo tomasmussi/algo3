@@ -114,6 +114,7 @@ public class Policia {
         public void viajarA(Ciudad ciudad) {
                 if (ciudadActual != null) {
                         this.viajar(ciudadActual.getDistanciaCon(ciudad));
+                        // (caso.getRecorrido()).actualizarNexoEntre(ciudadActual, ciudadSiguiente);
                 }
                 this.ciudadActual = ciudad;
         }
