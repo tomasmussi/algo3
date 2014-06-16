@@ -11,6 +11,7 @@ import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.policia.grado.Grado;
 import algo3.modelo.policia.grado.GradoNovato;
 import algo3.modelo.tiempo.Reloj;
+import algo3.modelo.viaje.Recorrido;
 
 public class Policia {
 
@@ -29,11 +30,12 @@ public class Policia {
                 cantidadDeVisitas = 0;
                 grado = new GradoNovato();
                 caso = new Caso();
+                ciudadActual = null;
 
                 // (Elisa) Esto me parece que no va aca: 
                 // caso = new Caso();
                 // El juego le asigna el caso, o no??. 
-                // TODO: Implementar el juego.asignarCasoAJugador(jugador);
+                // TODO: Implementar el juego.asignarCasoAJugador(jugador, todaLaInfoDeLosArchivos);
         }
 
         public Policia(Ciudad ciudadInicial) {
@@ -42,7 +44,10 @@ public class Policia {
                 grado = new GradoNovato();
                 this.ciudadActual = ciudadInicial;
         }
-
+        public void asignarCaso(Caso esteCaso){
+        	this.caso = esteCaso;
+        }
+        
         public void restarHoras(int horas) {
                 reloj.transcurrir(horas);
         }
@@ -114,7 +119,7 @@ public class Policia {
         public void viajarA(Ciudad ciudad) {
                 if (ciudadActual != null) {
                         this.viajar(ciudadActual.getDistanciaCon(ciudad));
-                        // (caso.getRecorrido()).actualizarNexoEntre(ciudadActual, ciudadSiguiente);
+                        (caso.getRecorrido()).actualizarNexoEntre(ciudadActual, ciudad);
                 }
                 this.ciudadActual = ciudad;
         }
@@ -148,6 +153,10 @@ public class Policia {
 
         public void setGrado(Grado gradoSiguiente) {
                 this.grado = gradoSiguiente;
+        }
+        
+        public void setRecorrido(Recorrido recorrido){
+        	this.caso.setRecorridoCaso(recorrido);
         }
 
 }

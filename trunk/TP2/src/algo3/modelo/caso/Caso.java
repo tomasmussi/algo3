@@ -65,6 +65,11 @@ public class Caso {
 		this.ladron = esteLadron;
 		this.objeto = objetoRobado;
 	}
+	public Caso(Robable objeto, Ladron ladron, Recorrido recorrido){
+		this.ladron = ladron;
+		this.objeto = objeto;
+		this.recorrido = recorrido;
+	}
 	
 	public Caso(){
 		
@@ -110,6 +115,9 @@ public class Caso {
 	}
 	public Recorrido getRecorrido() {
 		return this.recorrido;
+	}
+	public void setRecorridoCaso(Recorrido recorrido) {
+		this.recorrido = recorrido;
 	}
 
 

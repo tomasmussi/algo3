@@ -3,6 +3,7 @@ package algo3.modelo.ladron;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
@@ -14,11 +15,7 @@ import algo3.modelo.objeto.Robable;
  * Ladron, cuando roba un objeto, le pide al objeto la ciudad de origen y la posiciona como
  * Primera en la lista de informacion ciudad. El ladron crea el recorrido y saca de la
  * informacion disponible las ciudades usadas en el recorrido.
- * 
- * 
- * 
- * 
- * 
+
  * 
  * */
 public class Ladron {
@@ -27,19 +24,27 @@ public class Ladron {
 	private Robable objetoRobado;
 	private Ciudad ciudadActual;
 	private List <Ciudad> recorridoEscapatoria;
-	private Iterator<Ciudad> iterador;
+	//private Iterator<Ciudad> iterador;
 
 	public Ladron(CaracteristicaLadron caracteristicas, Robable objetoRobado) {
 		this.caracteristicas = caracteristicas;
 		this.objetoRobado = objetoRobado;
 	}
-
+	
+	public Ladron(CaracteristicaLadron caracteristicas, Robable objetoRobado, List<Ciudad> ciudades, Ciudad ciudadInicial) {
+		this.caracteristicas = caracteristicas;
+		this.objetoRobado = objetoRobado;
+		this.ciudadActual = ciudadInicial;
+		this.elegirEscapatoria(ciudades, ciudadInicial);
+		}
+/*
 	public Ladron(CaracteristicaLadron caracteristicas, Robable objetoRobado, Iterator<Ciudad> recorrido) {
 		this.caracteristicas = caracteristicas;
 		this.objetoRobado = objetoRobado;
-		this.iterador = recorrido;
-		this.moverAlSiguientePais();
-	}
+		
+		//this.iterador = recorrido;
+		//this.moverAlSiguientePais();
+	}*/
 
 	/**
 	 * Este metodo compara que un conjunto de caracteristicas lo describen a el/ella
@@ -60,37 +65,89 @@ public class Ladron {
 		return this.objetoRobado.compareTo(objeto) == 0;
 	}
 
-	public List<Ciudad> elegirEscapatoria(List<Ciudad> ciudadesDelMundo, Ciudad ciudadInicial, int cantidadCiudades){
+	
+	public List<Ciudad> elegirEscapatoria(List<Ciudad> ciudadesDelMundo, Ciudad ciudadInicial){
+		this.ciudadActual = ciudadInicial;
+		int cantidadCiudades = this.objetoRobado.getCantidadDeCiudades();
+		
 		if (cantidadCiudades > ciudadesDelMundo.size()){
 			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: " 
 					+ cantidadCiudades + " ciudades");
-		}
-		
-	// Desordeno un poco la lista:
-		for (int i = 0; i < ciudadesDelMundo.size(); i++) {
-			int posicionRandom = ((int) Math.random() * 10) % ciudadesDelMundo.size();
-			Ciudad elemento = ciudadesDelMundo.get(i);
-			ciudadesDelMundo.set(i, ciudadesDelMundo.get(posicionRandom));
-			ciudadesDelMundo.set(posicionRandom, elemento);
-		}
+		}	
+		List <Ciudad> ciudades = new ArrayList<Ciudad>();
+		ciudades.addAll(ciudadesDelMundo);
+		this.recorridoEscapatoria = new ArrayList<Ciudad>();
 		this.recorridoEscapatoria.add(ciudadInicial);
-		for (int i = 0; i < cantidadCiudades; i++) {
-			if (ciudadInicial != ciudadesDelMundo.get(i)) {
-				this.recorridoEscapatoria.add(ciudadesDelMundo.get(i));
+		for (int i = 0;( i < ciudades.size()) && (this.recorridoEscapatoria.size() < cantidadCiudades); i++) {
+			Ciudad estaCiudad = ciudades.get(i);
+			if (estaCiudad != ciudadInicial){
+				this.recorridoEscapatoria.add(estaCiudad);
 			}
 		}
-		
 		return this.recorridoEscapatoria;
 	}
+		
+		
+		
+	// Desordeno un poco la lista:
+		/*for (int i = cantidadCiudades-1; i < ciudades.size(); i++) {
+			ciudades.remove(i);
+		}	
+		this.recorridoEscapatoria = ciudades;
+		return this.recorridoEscapatoria;
+	}
+	
+	//TODO: Hacer pruebas positivas y negativas de este metodo!!
+	public List<Ciudad> elegirEscapatoria(List<Ciudad> ciudadesDelMundo, Ciudad ciudadInicial){
+		
+		int cantidadCiudades = this.objetoRobado.getCantidadDeCiudades();
+		Random rand = new Random();
+		List <Ciudad> ciudades = new ArrayList<Ciudad>();
+		ciudades.addAll(ciudadesDelMundo);
+		
+		if (cantidadCiudades > ciudadesDelMundo.size()){
+			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: " 
+					+ cantidadCiudades + " ciudades");
+		}	
+	// Desordeno un poco la lista:
+		for (int i = 0; i < ciudades.size(); i++) {
+			int posicionRandom = rand.nextInt(ciudades.size() -1);
+			Ciudad elemento = ciudades.get(i);
+			ciudades.set(i, ciudades.get(posicionRandom));
+			ciudades.set(posicionRandom, elemento);
+		}
+		ciudades.add(0,ciudadInicial);
+		//Falta chequear que no la duplique...
+		for (int i = cantidadCiudades; i < ciudades.size(); i++) {
+			ciudades.remove(i);
+		}	
+		this.recorridoEscapatoria = ciudades;
+	return this.recorridoEscapatoria;
+	}
+	
+	
 	
 	public void moverAlSiguientePais() {
 		if (iterador.hasNext()){
 			this.ciudadActual = iterador.next();
 		}
-	}
+	}*/
 
 	public Ciudad getCiudadActual() {
 		return ciudadActual;
 	}
 
+	public int getLongitudRecorridoEscapatoria() {
+		return (this.recorridoEscapatoria.size());
+	}
+	
+	public void moverAlSiguientePais() {
+		int i = this.recorridoEscapatoria.indexOf(this.ciudadActual);
+		if (i < this.getLongitudRecorridoEscapatoria()-1){
+			this.ciudadActual = this.recorridoEscapatoria.get(i+1);
+		}
+	}
+	public List<Ciudad> getEscapatoria(){
+		return this.recorridoEscapatoria;
+	}
 }
