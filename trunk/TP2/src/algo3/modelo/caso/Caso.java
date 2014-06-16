@@ -7,7 +7,6 @@ import algo3.controlador.Logger;
 import algo3.modelo.estacionPolicia.EstacionDePolicia;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
-import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.MapaMundi;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.Robable;
@@ -58,10 +57,12 @@ public class Caso {
 		int longitudRecorrido = objetoRobado.getCantidadDeCiudades();
 
 		posicion = rand.nextInt(ladrones.size() -1);
-		Ladron esteLadron = new Ladron(ladrones.get(posicion), objetoRobado);
-		Ciudad ciudadInicial = mapa.getCiudadDeNombre(objetoRobado.getCiudadOrigen());
+		Ladron esteLadron = new Ladron(ladrones.get(posicion));
 		//this.recorrido = new Recorrido(esteLadron.elegirEscapatoria(mapa.getListadoCiudades(), ciudadInicial, longitudRecorrido), mapa.getListadoCiudades());
 		this.ladron = esteLadron;
+		//TODO: (Tomas) Yo no se bien, pero la idea es que Ladron se robe un objeto.
+		// Por lo cual se deberia llamar al metodo ladron.robarObjeto(objetoRobado).
+		// No se si aca o en otro lado, chequear conmigo quien cambie esto
 		this.objeto = objetoRobado;
 	}
 	public Caso(Robable objeto, Ladron ladron, Recorrido recorrido){

@@ -12,7 +12,9 @@ import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
+import algo3.modelo.mapa.mundi.InformacionCiudadProvider;
 import algo3.modelo.mapa.mundi.MapaMundi;
+import algo3.modelo.mapa.mundi.NombresCiudades;
 import algo3.modelo.objeto.ObjetoComun;
 import algo3.modelo.objeto.ObjetoMuyValioso;
 import algo3.modelo.objeto.ObjetoValioso;
@@ -23,28 +25,30 @@ public class RoboTest {
 
 	private List<InformacionCiudad> listaCiudadesRecorrido;
 	private MapaMundi mapa;
+	private Ladron esteLadron;
 
 	@Before
 	public void crearListaDeInformacion() {
+		esteLadron = new Ladron (new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
 		mapa = new MapaMundi();
 		listaCiudadesRecorrido = new ArrayList<InformacionCiudad>();
-		listaCiudadesRecorrido.add(new InformacionCiudad("Rio de Janeiro", "Verde y amarilla", "Real", "Presidente"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva York", "Azul, roja y blanca", "Dolar", "Presidente"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Oslo", "Roja y azul", "Corona", "Rey"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Buenos Aires","Blanca y celeste", "Peso", "Presidente"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Tokyo","Blanca y roja", "Yen", "Presidente"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Paris","Blanca, roja y azul", "Franco", "Presidente"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
+		listaCiudadesRecorrido.add(InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.RIO_DE_JANEIRO));
+		listaCiudadesRecorrido.add(InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.NEW_YORK));
+		listaCiudadesRecorrido.add(InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.OSLO));
+		listaCiudadesRecorrido.add(InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.BUENOS_AIRES));
+		listaCiudadesRecorrido.add(InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.TOKIO));
+		listaCiudadesRecorrido.add(InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.PARIS));
+		listaCiudadesRecorrido.add(InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.NEW_DELHI));
+		listaCiudadesRecorrido.add(InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.LIMA));
 		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
 	}
 
 	@Test
 	public void testObjetoComunRobadoSonCuatroPaises(){
-		ObjetoComun esteObjeto = new ObjetoComun("Algo", "Buenos Aires");
-		Ladron esteLadron = new Ladron (new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"), esteObjeto);
+		Robable esteObjeto = new ObjetoComun("Algo", "Buenos Aires");
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
+		esteLadron.robar(esteObjeto);
 		esteLadron.elegirEscapatoria(ciudades, estaCiudad);
 		assertTrue(esteLadron.getLongitudRecorridoEscapatoria() == 4);
 	}
@@ -52,9 +56,9 @@ public class RoboTest {
 	@Test
 	public void testObjetoValiosoRobadoSonCincoPaises(){
 		ObjetoValioso esteObjeto = new ObjetoValioso("Anillo del Papa", "Roma");
-		Ladron esteLadron = new Ladron (new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"), esteObjeto);
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
+		esteLadron.robar(esteObjeto);
 		esteLadron.elegirEscapatoria(ciudades, estaCiudad);
 		assertTrue(esteLadron.getLongitudRecorridoEscapatoria() == 5);
 	}
@@ -62,9 +66,9 @@ public class RoboTest {
 	@Test
 	public void testObjetoMuyValiosoRobadoSonSietePaises(){
 		Robable esteObjeto = new ObjetoMuyValioso("Anillo del Papa", "Roma");
-		Ladron esteLadron = new Ladron (new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"), esteObjeto);
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
+		esteLadron.robar(esteObjeto);
 		esteLadron.elegirEscapatoria(ciudades, estaCiudad);
 		assertTrue(esteLadron.getLongitudRecorridoEscapatoria() == 7);
 	}
