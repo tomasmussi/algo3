@@ -17,7 +17,6 @@ import algo3.modelo.objeto.ObjetoComun;
 import algo3.modelo.objeto.ObjetoMuyValioso;
 import algo3.modelo.objeto.ObjetoValioso;
 import algo3.modelo.objeto.Robable;
-import algo3.modelo.viaje.Recorrido;
 
 
 public class RoboTest {
@@ -39,7 +38,7 @@ public class RoboTest {
 		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
 		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
 	}
-		
+
 	@Test
 	public void testObjetoComunRobadoSonCuatroPaises(){
 		ObjetoComun esteObjeto = new ObjetoComun("Algo", "Buenos Aires");
@@ -48,7 +47,7 @@ public class RoboTest {
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		esteLadron.elegirEscapatoria(ciudades, estaCiudad);
 		assertTrue(esteLadron.getLongitudRecorridoEscapatoria() == 4);
-		}
+	}
 
 	@Test
 	public void testObjetoValiosoRobadoSonCincoPaises(){
@@ -70,7 +69,7 @@ public class RoboTest {
 		assertTrue(esteLadron.getLongitudRecorridoEscapatoria() == 7);
 	}
 
-/*	@Test
+	/*	@Test
 	public void testObjetoComunRobadoSonCuatroPaises(){
 		ObjetoComun esteObjeto = new ObjetoComun("Anillo del Papa", "Roma");
 		List<InformacionCiudad> lista = new ArrayList<InformacionCiudad>();

@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.junit.Before;
@@ -19,7 +18,7 @@ public class RecorridoTest {
 
 	private List<Ciudad> listaCiudadesMundo;
 	private List<Ciudad> listaRecorrido;
-	
+
 
 	@Before
 	public void crearListaDeInformacion() {
@@ -38,15 +37,15 @@ public class RecorridoTest {
 		listaRecorrido.add(new Ciudad(new InformacionCiudad("Nueva York", "Azul, roja y blanca", "Dolar", "Presidente")));
 		listaRecorrido.add(new Ciudad(new InformacionCiudad("Oslo", "Roja y azul", "Corona", "Rey")));
 		listaRecorrido.add(new Ciudad(new InformacionCiudad("Buenos Aires","Blanca y celeste", "Peso", "Presidente")));
-		
+
 	}
 
 	@Test
 	public void testCantidadDeCiudadesARecorrer(){
 		assertTrue(listaRecorrido.size() == 4);
 	}
-	
-	
+
+
 	@Test
 	public void testCiudadesDelRecorridoTienenComoOpcionCiudadSiguiente(){
 		Recorrido recorrido = new Recorrido(listaRecorrido, listaCiudadesMundo);
@@ -65,7 +64,7 @@ public class RecorridoTest {
 		Ciudad origen = listaRecorrido.get(0);
 		assertEquals(3, recorrido.getCiudadesPosibles(origen).size());
 	}
-	
+
 	@Test
 	public void testCiudadesDelRecorridoTienenComoOpcionCiudadAnterior(){
 		Recorrido recorrido = new Recorrido(listaRecorrido, listaCiudadesMundo);
@@ -81,8 +80,8 @@ public class RecorridoTest {
 
 }
 
-	
-	
+
+
 /*	private static final int MAX_CIUDADES = 4;
 
 	private List<InformacionCiudad> listaCiudadesRecorrido;
@@ -179,5 +178,5 @@ public class RecorridoTest {
 		assertTrue(ok);
 	}
 
-*/
+ */
 

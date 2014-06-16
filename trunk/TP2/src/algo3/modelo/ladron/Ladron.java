@@ -1,12 +1,9 @@
 package algo3.modelo.ladron;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 
 import algo3.modelo.mapa.mundi.Ciudad;
-import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.objeto.Objeto;
 import algo3.modelo.objeto.Robable;
 
@@ -30,18 +27,18 @@ public class Ladron {
 		this.caracteristicas = caracteristicas;
 		this.objetoRobado = objetoRobado;
 	}
-	
+
 	public Ladron(CaracteristicaLadron caracteristicas, Robable objetoRobado, List<Ciudad> ciudades, Ciudad ciudadInicial) {
 		this.caracteristicas = caracteristicas;
 		this.objetoRobado = objetoRobado;
 		this.ciudadActual = ciudadInicial;
 		this.elegirEscapatoria(ciudades, ciudadInicial);
-		}
-/*
+	}
+	/*
 	public Ladron(CaracteristicaLadron caracteristicas, Robable objetoRobado, Iterator<Ciudad> recorrido) {
 		this.caracteristicas = caracteristicas;
 		this.objetoRobado = objetoRobado;
-		
+
 		//this.iterador = recorrido;
 		//this.moverAlSiguientePais();
 	}*/
@@ -65,15 +62,15 @@ public class Ladron {
 		return this.objetoRobado.compareTo(objeto) == 0;
 	}
 
-	
+
 	public List<Ciudad> elegirEscapatoria(List<Ciudad> ciudadesDelMundo, Ciudad ciudadInicial){
 		this.ciudadActual = ciudadInicial;
 		int cantidadCiudades = this.objetoRobado.getCantidadDeCiudades();
-		
+
 		if (cantidadCiudades > ciudadesDelMundo.size()){
-			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: " 
+			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: "
 					+ cantidadCiudades + " ciudades");
-		}	
+		}
 		List <Ciudad> ciudades = new ArrayList<Ciudad>();
 		ciudades.addAll(ciudadesDelMundo);
 		this.recorridoEscapatoria = new ArrayList<Ciudad>();
@@ -86,29 +83,29 @@ public class Ladron {
 		}
 		return this.recorridoEscapatoria;
 	}
-		
-		
-		
+
+
+
 	// Desordeno un poco la lista:
-		/*for (int i = cantidadCiudades-1; i < ciudades.size(); i++) {
+	/*for (int i = cantidadCiudades-1; i < ciudades.size(); i++) {
 			ciudades.remove(i);
-		}	
+		}
 		this.recorridoEscapatoria = ciudades;
 		return this.recorridoEscapatoria;
 	}
-	
+
 	//TODO: Hacer pruebas positivas y negativas de este metodo!!
 	public List<Ciudad> elegirEscapatoria(List<Ciudad> ciudadesDelMundo, Ciudad ciudadInicial){
-		
+
 		int cantidadCiudades = this.objetoRobado.getCantidadDeCiudades();
 		Random rand = new Random();
 		List <Ciudad> ciudades = new ArrayList<Ciudad>();
 		ciudades.addAll(ciudadesDelMundo);
-		
+
 		if (cantidadCiudades > ciudadesDelMundo.size()){
-			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: " 
+			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: "
 					+ cantidadCiudades + " ciudades");
-		}	
+		}
 	// Desordeno un poco la lista:
 		for (int i = 0; i < ciudades.size(); i++) {
 			int posicionRandom = rand.nextInt(ciudades.size() -1);
@@ -120,13 +117,13 @@ public class Ladron {
 		//Falta chequear que no la duplique...
 		for (int i = cantidadCiudades; i < ciudades.size(); i++) {
 			ciudades.remove(i);
-		}	
+		}
 		this.recorridoEscapatoria = ciudades;
 	return this.recorridoEscapatoria;
 	}
-	
-	
-	
+
+
+
 	public void moverAlSiguientePais() {
 		if (iterador.hasNext()){
 			this.ciudadActual = iterador.next();
@@ -140,7 +137,7 @@ public class Ladron {
 	public int getLongitudRecorridoEscapatoria() {
 		return (this.recorridoEscapatoria.size());
 	}
-	
+
 	public void moverAlSiguientePais() {
 		int i = this.recorridoEscapatoria.indexOf(this.ciudadActual);
 		if (i < this.getLongitudRecorridoEscapatoria()-1){
