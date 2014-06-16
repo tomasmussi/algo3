@@ -14,6 +14,44 @@
 		<contenido>Un sospechoso estuvo aqui averiguando sobre el tipo de gobierno de un %variable%.</contenido>
 		<dificultad>Facil</dificultad>
 	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Industria</entidad>
+		<contenido>Una persona estuvo aqui buscando informacion sobre %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>LugaresDeReferencia</entidad>
+		<contenido>Segun mis fuentes, estuvo mostrando fotos de %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Animales</entidad>
+		<contenido>Estuvo por aqui averiguando como criar %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Gente</entidad>
+		<contenido>Estuvo mostrando sus fotos con %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Idioma</entidad>
+		<contenido>Estuvo buscando diccionarios de %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Arte</entidad>
+		<contenido>Estaba buscando libros acerca de %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Religion</entidad>
+		<contenido>Estuvo buscando libros acerca de %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	
+	
+	
 	
 	<algo3.modelo.pista.Pista>
 		<entidad>Moneda</entidad>
@@ -30,6 +68,9 @@
 		<contenido>Dijo algo acerca de tomar el te con el %variable%.</contenido>
 		<dificultad>Media</dificultad>
 	</algo3.modelo.pista.Pista>
+	
+	
+	
 	
 	<algo3.modelo.pista.Pista>
 		<entidad>Moneda</entidad>

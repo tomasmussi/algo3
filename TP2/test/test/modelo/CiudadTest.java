@@ -15,6 +15,8 @@ import algo3.modelo.mapa.mundi.CiudadFactory;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.mapa.mundi.InformacionCiudadProvider;
 import algo3.modelo.mapa.mundi.NombresCiudades;
+import algo3.modelo.policia.Policia;
+import algo3.modelo.tiempo.Reloj;
 
 public class CiudadTest {
 
@@ -35,25 +37,27 @@ public class CiudadTest {
 
 	@Test
 	public void testCrearDosCiudadesRelacionaUnaConOtra() {
+		Policia policia = new Policia(new Reloj());
 		Ciudad ciudadOrigen = new Ciudad(infoCiudadOrigen);
 		ciudadOrigen.agregarInformacionProximaCiudad(infoCiudadDestino);
-		String infoBancaria = ciudadOrigen.getTodosLosEdificios()[0].darPista();
-		assertEquals(infoBancaria, "Segun mis fuentes estuvo averiguando sobre el valor de Cruzeiros");
-		String infoBandera = ciudadOrigen.getTodosLosEdificios()[2].darPista();
+		String infoBancaria = policia.visitarEdificioYObtenerPista(ciudadOrigen.getTodosLosEdificios()[0]);
+		assertEquals(infoBancaria, "Solo se que cambio todo su dinero a Cruzeiros.");
+		String infoBandera = policia.visitarEdificioYObtenerPista(ciudadOrigen.getTodosLosEdificios()[2]);
 		assertEquals(infoBandera, "Me dicen mis fuentes que se fue en un avion con Verde, Azul y Amarillo en sus alas.");
 	}
 
 	@Test
 	public void testCrearCiudadesRelacionadasConArchivoProperties() {
+		Policia policia = new Policia(new Reloj());
 		// Creo una ciudad (Bangkok) que me de informacion sobre la siguiente ciudad (Buenos Aires)
 		Ciudad ciudad = CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(NombresCiudades.BANGKOK, NombresCiudades.BUENOS_AIRES);
 		List<String> pistasPosibles = new ArrayList<String>();
-		pistasPosibles.add("Un sospechoso estuvo aqui averiguando sobre el tipo de gobierno de un Presidente");
+		pistasPosibles.add("Un sospechoso estuvo aqui averiguando sobre el tipo de gobierno de un Presidente.");
 		pistasPosibles.add("Me dicen mis fuentes que se fue en un avion con Bandera de sol en sus alas.");
-		pistasPosibles.add("Segun mis fuentes estuvo averiguando sobre el valor de Australes");
+		pistasPosibles.add("Solo se que cambio todo su dinero a Australes.");
 		Edificio[] edificios = ciudad.getTodosLosEdificios();
 		for (Edificio edificio : edificios) {
-			assertTrue(pistasPosibles.contains(edificio.darPista()));
+			assertTrue(pistasPosibles.contains(policia.visitarEdificioYObtenerPista(edificio)));
 		}
 	}
 

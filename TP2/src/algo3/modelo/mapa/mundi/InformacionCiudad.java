@@ -9,6 +9,7 @@ import java.util.Set;
 
 public class InformacionCiudad implements InformacionFinanciera, InformacionCultural, InformacionDeViaje {
 
+	private static final String SEPARATOR = "|";
 	private String nombreCiudad;
 	private String coloresBandera;
 	private String moneda;
@@ -60,22 +61,35 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	@Override
 	public String getInformacionGeografica() {
 		List<String> informacion = new ArrayList<String>();
-		informacion.addAll(transformarEnColeccion(geografia));
-		informacion.addAll(transformarEnColeccion(lugaresDeReferencia));
+		agregarInformación(informacion, "Geografia", geografia);
+		agregarInformación(informacion, "LugaresDeReferencia", lugaresDeReferencia);
 		return seleccionarAleatorioDeLista(informacion);
 	}
 
 	@Override
 	public String getInformacionHistorica() {
 		List<String> informacion = new ArrayList<String>();
-		// informacion.addAll(transformarEnColeccion(industria));
-		// informacion.addAll(transformarEnColeccion(animales));
-		// informacion.addAll(transformarEnColeccion(gente));
-		// informacion.addAll(transformarEnColeccion(idiomas));
-		// informacion.addAll(transformarEnColeccion(arte));
-		// informacion.addAll(transformarEnColeccion(religion));
-		informacion.add(gobierno);
+		agregarInformación(informacion, "Industria", industria);
+		agregarInformación(informacion, "Animales", animales);
+		agregarInformación(informacion, "Gente", gente);
+		agregarInformación(informacion, "Idioma", idiomas);
+		agregarInformación(informacion, "Arte", arte);
+		agregarInformación(informacion, "Religion", religion);
+		agregarInformación(informacion, "Gobierno", gobierno);
 		return seleccionarAleatorioDeLista(informacion);
+	}
+	
+	private void agregarInformación(List<String> informacion, String nombreEntidad, String entidad) {
+		if(!entidad.isEmpty()){
+			informacion.add(nombreEntidad + SEPARATOR + entidad);
+		}
+	}
+
+	private void agregarInformación(List<String> informacion, String nombreEntidad, String[] entidad) {
+		for (String valor : entidad){
+			if (!valor.isEmpty())
+				informacion.add(nombreEntidad + SEPARATOR + valor);
+		}
 	}
 
 	private Collection<String> transformarEnColeccion(String[] array) {
