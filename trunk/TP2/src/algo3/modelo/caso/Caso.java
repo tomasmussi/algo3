@@ -13,6 +13,7 @@ import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.Robable;
 import algo3.modelo.policia.OrdenDeArresto;
 import algo3.modelo.policia.grado.Grado;
+import algo3.modelo.viaje.Recorrido;
 
 
 
@@ -47,8 +48,9 @@ public class Caso {
 	private OrdenDeArresto ordenDeArresto;
 	private Ladron ladron;
 	private Robable objeto;
+	private Recorrido recorrido;
 
-	public Caso(List<InformacionCiudad> ciudades, List<CaracteristicaLadron> ladrones, 
+	public Caso(List<Ciudad> ciudades, List<CaracteristicaLadron> ladrones, 
 			List<CaracteristicaObjeto> objetos, Grado gradoPolicia){
 		Random rand = new Random();
 		int posicion = rand.nextInt(objetos.size() -1);
@@ -57,7 +59,8 @@ public class Caso {
 
 		posicion = rand.nextInt(ladrones.size() -1);
 		Ladron esteLadron = new Ladron(ladrones.get(posicion), objetoRobado);
-
+		//Ciudad ciudadInicial = mapaMundi.encontrarCiudad(objetoRobado.getCiudadOrigen());
+		//this.recorrido = new Recorrido(esteLadron.elegirEscapatoria(ciudades, ciudadInicial, longitudRecorrido), ciudades);
 		this.ladron = esteLadron;
 		this.objeto = objetoRobado;
 	}
