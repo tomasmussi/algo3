@@ -111,11 +111,14 @@ public class Policia {
 		return ciudadActual;
 	}
 
-	public void viajarA(Ciudad ciudad) {
+	
+	// Verificar si jugador va a tener ciudadActual distinta de null en algun momento. (Responderle a Eli).
+	public void viajarA(Ciudad ciudadSiguiente) {
 		if (ciudadActual != null) {
-			this.viajar(ciudadActual.getDistanciaCon(ciudad));
+			this.viajar(ciudadActual.getDistanciaCon(ciudadSiguiente));
+			// (this.getRecorrido()).actualizarNexoEntre(ciudadActual, ciudadSiguiente);
 		}
-		this.ciudadActual = ciudad;
+		this.ciudadActual = ciudadSiguiente;
 	}
 
 	/**
