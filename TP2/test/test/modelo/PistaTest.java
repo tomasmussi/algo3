@@ -72,6 +72,33 @@ public class PistaTest {
 		assertEquals("Un sospechoso estuvo aqui averiguando sobre el tipo de gobierno de un Primer Ministro.", pista);
 	}
 
+	@Test
+	public void testPoliciaNovatoIngresaEdificioCulturalObtienePistaDistintaInformacion() {
+		Policia policia = crearPoliciaNovato();
+		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.MEXICO_CITY));
+		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del pais. En este caso "Primer Ministro".
+		String pista = policia.visitarEdificioYObtenerPista(edificio);
+		assertEquals("Estaba buscando libros acerca de yucateca joyeria.", pista);
+	}
+
+	@Test
+	public void testPoliciaNovatoIngresaEdificioCulturalObtienePistaDistintaInformacionDos() {
+		Policia policia = crearPoliciaNovato();
+		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.COLOMBO));
+		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del pais. En este caso "Primer Ministro".
+		String pista = policia.visitarEdificioYObtenerPista(edificio);
+		assertEquals("Estaba buscando libros acerca de Artefactos Veddah.", pista);
+	}
+
+	@Test
+	public void testPoliciaNovatoIngresaEdificioCulturalObtienePistaDistintaInformacionTres() {
+		Policia policia = crearPoliciaNovato();
+		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(getInfoProvider().getInformacionPara(NombresCiudades.CAIRO));
+		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del pais. En este caso "Primer Ministro".
+		String pista = policia.visitarEdificioYObtenerPista(edificio);
+		assertEquals("Estuvo mostrando sus fotos con nubios.", pista);
+	}
+
 	/* ************************************************* */
 	/* ******* TEST PARA NIVEL MEDIO - DETECTIVE ******* */
 	/* ************************************************* */

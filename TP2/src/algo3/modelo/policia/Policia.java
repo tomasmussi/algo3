@@ -33,9 +33,9 @@ public class Policia {
 		ciudadActual = null;
 
 		// (Elisa) Esto me parece que no va aca:
-			// caso = new Caso();
+		// caso = new Caso();
 		// El juego le asigna el caso, o no??.
-				// TODO: Implementar el juego.asignarCasoAJugador(jugador, todaLaInfoDeLosArchivos);
+		// TODO: Implementar el juego.asignarCasoAJugador(jugador, todaLaInfoDeLosArchivos);
 	}
 
 	public Policia(Ciudad ciudadInicial) {
@@ -44,7 +44,8 @@ public class Policia {
 		grado = new GradoNovato();
 		this.ciudadActual = ciudadInicial;
 	}
-	public void asignarCaso(Caso esteCaso){
+
+	public void asignarCaso(Caso esteCaso) {
 		this.caso = esteCaso;
 	}
 
@@ -142,8 +143,8 @@ public class Policia {
 
 	public boolean emitirOrdenDeArresto(CaracteristicaLadron caracteristica) {
 		reloj.transcurrir(3);
-		if (caracteristica != null && reloj.hayTiempoRestante()) {
-			//TODO:algo de si la pudo emitir o no
+		if ((caracteristica != null) && reloj.hayTiempoRestante()) {
+			// TODO:algo de si la pudo emitir o no
 			caso.generarOrdenDeArresto(caracteristica);
 			return true;
 
@@ -155,7 +156,7 @@ public class Policia {
 		this.grado = gradoSiguiente;
 	}
 
-	public void setRecorrido(Recorrido recorrido){
+	public void setRecorrido(Recorrido recorrido) {
 		this.caso.setRecorridoCaso(recorrido);
 	}
 
