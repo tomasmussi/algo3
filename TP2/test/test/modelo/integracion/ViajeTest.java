@@ -56,10 +56,6 @@ public class ViajeTest {
 		this.policia = new Policia(reloj);
 	}
 
-	//	private InformacionCiudad crearInformacionCiudad(String nombre, String bandera, String moneda, String gobierno) {
-	//		return new InformacionCiudad(nombre, bandera, moneda, gobierno);
-	//	}
-
 	/**
 	 * Devuleve una ciudad sin edificios pero con informacion para pedirle: colores bandera, moneda, etc.
 	 */
@@ -311,45 +307,4 @@ public class ViajeTest {
 		policia.visitarEdificioYObtenerPista(banco);
 		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
 	}
-
-
-
-	/*
-
-
-	@Test
-	public void testEdificioDaPistaSiguienteCiudad() {
-		Ciudad siguienteCiudad = crearCiudadPrueba("Buenos Aires", "Celeste y Blanca", "Australes", "Presidente");
-		Ciudad bangkok = crearCiudad("Bangkok", siguienteCiudad);
-		Edificio[] edificiosPosibles = bangkok.getTodosLosEdificios();
-		String pista = policia.visitarEdificioYObtenerPista(edificiosPosibles[0]); // 0 = aeropuerto.
-		assertTrue(pista.equals("Me dicen mis fuentes que se fue en un avion con Celeste y Blanca en sus alas."));
-	}
-
-	// Entrar a un edificio (1hr la primera vez , 2 hs 2da vez, 3hs 3ra vez).
-	@Test
-	public void testEdificioRestaUnaHoraPorPrimerEdifico() {
-		Edificio banco = new Banco(new Moneda("Peso"));
-		policia.visitarEdificioYObtenerPista(banco);
-		assertEquals("Lunes 08:00 horas",reloj.tiempoActual());
-	}
-
-	@Test
-	public void testEdificioRestaDosHorasPorSegundoEdificio() {
-		Edificio banco = new Banco(new Moneda("Peso"));
-		Edificio aeropuerto = new Aeropuerto(new Bandera("Verde y azul"));
-		policia.visitarEdificioYObtenerPista(banco);
-		policia.visitarEdificioYObtenerPista(aeropuerto);
-		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
-	}
-
-	@Test
-	public void testEdificioRestaSoloUnaHoraPorEdificioSinImportarCantidadDeEntradas() {
-		Edificio banco = new Banco(new Moneda("Peso"));
-		policia.visitarEdificioYObtenerPista(banco);
-		policia.visitarEdificioYObtenerPista(banco);
-		policia.visitarEdificioYObtenerPista(banco);
-		policia.visitarEdificioYObtenerPista(banco);
-		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
-	}*/
 }

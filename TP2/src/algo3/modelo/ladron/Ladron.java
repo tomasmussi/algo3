@@ -64,10 +64,13 @@ public class Ladron {
 		return this.objetoRobado.compareTo(objeto) == 0;
 	}
 
+	// PreCondiciones: Se debe haber seteado el objeto que el ladron robo antes de llamar a este metodo, sino
+	// no va a funcionar.
 
 	public List<Ciudad> elegirEscapatoria(List<Ciudad> ciudadesDelMundo, Ciudad ciudadInicial){
 		//TODO(TOMAS) Para mi no deberia recibir la ciudadInicial, deberia construirla a partir de la ciudad
 		// del objeto robado
+		// RTA A TOMI: Me parece bien, pero en ese caso hay que hacer que mapa mundi sea visible por todos.
 		this.ciudadActual = ciudadInicial;
 		int cantidadCiudades = this.objetoRobado.getCantidadDeCiudades();
 
@@ -101,38 +104,6 @@ public class Ladron {
 	}
 
 
-
-	// Desordeno un poco la lista:
-	//TODO: Hacer pruebas positivas y negativas de este metodo!!
-	//TODO (TOMAS) Chequear con Eli para ver como armar esto
-	public List<Ciudad> elegirEscapatoriaVieja(List<Ciudad> ciudadesDelMundo, Ciudad ciudadInicial){
-
-		int cantidadCiudades = this.objetoRobado.getCantidadDeCiudades();
-		Random rand = new Random();
-		List <Ciudad> ciudades = new ArrayList<Ciudad>();
-		ciudades.addAll(ciudadesDelMundo);
-
-		if (cantidadCiudades > ciudadesDelMundo.size()){
-			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: "
-					+ cantidadCiudades + " ciudades");
-		}
-		// Desordeno un poco la lista:
-		for (int i = 0; i < ciudades.size(); i++) {
-			int posicionRandom = rand.nextInt(ciudades.size() -1);
-			Ciudad elemento = ciudades.get(i);
-			ciudades.set(i, ciudades.get(posicionRandom));
-			ciudades.set(posicionRandom, elemento);
-		}
-		ciudades.add(0,ciudadInicial);
-		//Falta chequear que no la duplique...
-		for (int i = cantidadCiudades; i < ciudades.size(); i++) {
-			ciudades.remove(i);
-		}
-		this.recorridoEscapatoria = ciudades;
-		iterador = recorridoEscapatoria.iterator();
-		return this.recorridoEscapatoria;
-	}
-
 	public Ciudad getCiudadActual() {
 		return ciudadActual;
 	}
@@ -145,11 +116,8 @@ public class Ladron {
 		if (iterador.hasNext()){
 			ciudadActual = iterador.next();
 		}
-		/*int i = this.recorridoEscapatoria.indexOf(this.ciudadActual);
-		if (i < this.getLongitudRecorridoEscapatoria()-1){
-			this.ciudadActual = this.recorridoEscapatoria.get(i+1);
-		}*/
 	}
+	
 	public List<Ciudad> getEscapatoria(){
 		return this.recorridoEscapatoria;
 	}
