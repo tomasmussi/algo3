@@ -15,11 +15,6 @@ import algo3.modelo.policia.grado.Grado;
 import algo3.modelo.viaje.Recorrido;
 
 
-
-
-
-
-
 /**
  * El caso es el nivel de juego actual de policia
  * Crea un objeto robado a partir del grado del policia
@@ -31,18 +26,8 @@ import algo3.modelo.viaje.Recorrido;
  * */
 public class Caso {
 
-	/*
-	 * Pre: Crear objeto robado a partir de la categoria del jugador
-	 * 		(novato->objetoComun; detective/investigador->objetoValioso; sargento->objetoMuyValioso).
-	 * 		Crear Ladron y asignarle dicho objeto.
-	 * 1ro: cantidad de ciudades a generar a partir del valor del objeto robado.TODO (TOMAS) FALSO Eso lo hace ladron
-	 * 2do: generar ciudades. TODO FALSO Lo hace ladron
-	 * 3ro: linkear ciudades (dar referencias a la ciudad sobre la siguiente - casos especiales: primera, ultima).
-	 * TODO Falso lo hace ladron
-	 * 4to: situar ladron en la primer ciudad. TODO (TOMAS) FALSO! El ladron se situa solo en la ciudad y sabe como ir
-	 * saltanto de ciudad en ciudad
-	 * 
-	 */
+	//	Crea un ladron random y lo hace robarse un objeto al azar de la lista de objetos.
+	// Depende del grado del policia el tipo de objeto.
 
 
 	private OrdenDeArresto ordenDeArresto;
@@ -55,12 +40,11 @@ public class Caso {
 		Random rand = new Random();
 		int posicion = rand.nextInt(objetos.size() -1);
 		Robable objetoRobado = gradoPolicia.getObjetoRobado(objetos.get(posicion));
-		int longitudRecorrido = objetoRobado.getCantidadDeCiudades();
-
+		
 		posicion = rand.nextInt(ladrones.size() -1);
 		Ladron esteLadron = new Ladron(ladrones.get(posicion));
 		//esteLadron.robar(objetoRobado);
-		//this.recorrido = new Recorrido(esteLadron.elegirEscapatoria(mapa.getListadoCiudades(), ciudadInicial, longitudRecorrido), mapa.getListadoCiudades());
+		//this.recorrido = new Recorrido(esteLadron.getRutaEscapatoria(), mapa.getListadoCiudades());
 		this.ladron = esteLadron;
 		//TODO: (Tomas) Yo no se bien, pero la idea es que Ladron se robe un objeto.
 		// Por lo cual se deberia llamar al metodo ladron.robarObjeto(objetoRobado).
