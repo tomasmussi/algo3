@@ -59,11 +59,15 @@ public class Caso {
 
 		posicion = rand.nextInt(ladrones.size() -1);
 		Ladron esteLadron = new Ladron(ladrones.get(posicion));
+		//esteLadron.robar(objetoRobado);
 		//this.recorrido = new Recorrido(esteLadron.elegirEscapatoria(mapa.getListadoCiudades(), ciudadInicial, longitudRecorrido), mapa.getListadoCiudades());
 		this.ladron = esteLadron;
 		//TODO: (Tomas) Yo no se bien, pero la idea es que Ladron se robe un objeto.
 		// Por lo cual se deberia llamar al metodo ladron.robarObjeto(objetoRobado).
 		// No se si aca o en otro lado, chequear conmigo quien cambie esto
+		// (Eli) Tomi, yo creo que tiene que ir aca, ya que pensandolo en la vida real, hay un caso cuando 
+		//hay un ladron que se robó un objeto, osea que el objeto ya esta robado y el ladron ya planeo su ruta de escape.
+		//Deje comentado lo que me parece que tiene que ir.
 		this.objeto = objetoRobado;
 	}
 	public Caso(Robable objeto, Ladron ladron, Recorrido recorrido){
