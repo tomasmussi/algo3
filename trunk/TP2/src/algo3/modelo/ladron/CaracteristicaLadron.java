@@ -29,6 +29,20 @@ public class CaracteristicaLadron implements Cloneable {
 		this.caracteristica = caracteristica;
 		this.vehiculo = vehiculo;
 		
+//		List<String> caracteristicas = new ArrayList<String>();
+//		caracteristicas.add(nombre);
+//		caracteristicas.add(sexo);
+//		caracteristicas.add(hobby);
+//		caracteristicas.add(colorCabello);
+//		caracteristicas.add(caracteristica);
+//		caracteristicas.add(vehiculo);
+//		this.caracteristicas = caracteristicas;
+		
+	}
+
+
+	public List<String> getCaracteristicas() {
+		//return caracteristicas;
 		List<String> caracteristicas = new ArrayList<String>();
 		caracteristicas.add(nombre);
 		caracteristicas.add(sexo);
@@ -36,13 +50,8 @@ public class CaracteristicaLadron implements Cloneable {
 		caracteristicas.add(colorCabello);
 		caracteristicas.add(caracteristica);
 		caracteristicas.add(vehiculo);
-		this.caracteristicas = caracteristicas;
-		
-	}
-
-
-	public List<String> getCaracteristicas() {
 		return caracteristicas;
+		
 	}
 
 
