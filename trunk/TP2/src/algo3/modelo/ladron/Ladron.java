@@ -22,7 +22,7 @@ public class Ladron {
 	private CaracteristicaLadron caracteristicas;
 	private Robable objetoRobado;
 	private Ciudad ciudadActual;
-	private List<Ciudad> recorridoEscapatoria;
+	private List<Ciudad> rutaEscape;
 	private Iterator<Ciudad> iterador;
 
 	/**
@@ -66,7 +66,7 @@ public class Ladron {
 
 	// PreCondiciones: Se debe haber seteado el objeto que el ladron robo antes de llamar a este metodo, sino
 	// no va a funcionar.
-
+	//PD: Lo hacemos privado y void te parece??
 	public List<Ciudad> elegirEscapatoria(List<Ciudad> ciudadesDelMundo, Ciudad ciudadInicial){
 		//TODO(TOMAS) Para mi no deberia recibir la ciudadInicial, deberia construirla a partir de la ciudad
 		// del objeto robado
@@ -80,27 +80,21 @@ public class Ladron {
 		}
 		List<Ciudad> ciudades = new ArrayList<Ciudad>();
 		ciudades.addAll(ciudadesDelMundo);
-		this.recorridoEscapatoria = new ArrayList<Ciudad>();
-		this.recorridoEscapatoria.add(ciudadInicial);
-		for (int i = 0;( i < ciudades.size()) && (this.recorridoEscapatoria.size() < cantidadCiudades); i++) {
-			Ciudad estaCiudad = ciudades.get(i);
-			if (!estaCiudad.equals(ciudadInicial)){
-				this.recorridoEscapatoria.add(estaCiudad);
-			}
-		}
-
-		/* TODO (TOMAS) Reescribi el metodo de arriba y lo reemplazaria por este. CHICOS! VALIDAR
+		this.rutaEscape = new ArrayList<Ciudad>();
+		this.rutaEscape.add(ciudadInicial);
+		// Para que no pueda volver a la ciudad inicial:
+		ciudades.remove(ciudadInicial);
+		
 		Iterator<Ciudad> ciudadIterator = ciudades.iterator();
-		while (ciudadIterator.hasNext() && this.recorridoEscapatoria.size() < cantidadCiudades){
+		while (ciudadIterator.hasNext() && this.rutaEscape.size() < cantidadCiudades){
 			Ciudad nuevaCiudad = ciudadIterator.next();
-			this.recorridoEscapatoria.add(nuevaCiudad);
+			this.rutaEscape.add(nuevaCiudad);
 			ciudadIterator.remove(); //NO esta mas disponible para utilizar
 		}
-		 */
-		// (TOMAS) Llamo al mover al siguiente porque deberia estar ya un paso adelante del policia
-		iterador = recorridoEscapatoria.iterator();
+		 
+		iterador = rutaEscape.iterator();
 		this.moverAlSiguientePais();
-		return this.recorridoEscapatoria;
+		return this.rutaEscape;
 	}
 
 
@@ -109,7 +103,7 @@ public class Ladron {
 	}
 
 	public int getLongitudRecorridoEscapatoria() {
-		return (this.recorridoEscapatoria.size());
+		return (this.rutaEscape.size());
 	}
 
 	public void moverAlSiguientePais() {
@@ -119,10 +113,18 @@ public class Ladron {
 	}
 	
 	public List<Ciudad> getEscapatoria(){
-		return this.recorridoEscapatoria;
+		return this.rutaEscape;
 	}
 
 	public void robar(Robable objetoRobado) {
+		// Aca deberia ir que el ladron se situe en la ciudad del objeto:
+		// this.ciudadActual = mapa.getCiudadDeNombre(objetoRobado.getCiudadOrigen);
 		this.objetoRobado = objetoRobado;
+		//this.elegirEscapatoria(mapa.getCiudades, this.ciudadActual);
+		//Dejando o sacando lo de pasarle la ciudad actual...
+	}
+	
+	public List<Ciudad> getRutaEscapatoria(){
+		return this.rutaEscape;
 	}
 }
