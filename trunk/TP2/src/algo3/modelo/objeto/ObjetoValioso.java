@@ -2,11 +2,11 @@ package algo3.modelo.objeto;
 
 public class ObjetoValioso extends Objeto {
 
-	private static final Integer CIUDADES = 5;
-	
-	public ObjetoValioso(String nombre, String paisOrigen) {
-		super(nombre, paisOrigen);
+	public ObjetoValioso(CaracteristicaObjeto caracteristica) {
+		super(caracteristica);
 	}
+
+	private static final Integer CIUDADES = 5;
 	
 	@Override
 	public Integer getCantidadDeCiudades() {

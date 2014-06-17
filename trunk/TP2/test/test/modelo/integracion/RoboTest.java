@@ -15,6 +15,7 @@ import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.mapa.mundi.InformacionCiudadProvider;
 import algo3.modelo.mapa.mundi.MapaMundi;
 import algo3.modelo.mapa.mundi.NombresCiudades;
+import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.ObjetoComun;
 import algo3.modelo.objeto.ObjetoMuyValioso;
 import algo3.modelo.objeto.ObjetoValioso;
@@ -45,7 +46,7 @@ public class RoboTest {
 
 	@Test
 	public void testObjetoComunRobadoSonCuatroPaises(){
-		Robable esteObjeto = new ObjetoComun("Algo", "Buenos Aires");
+		Robable esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Algo", "Buenos Aires"));
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		esteLadron.robar(esteObjeto);
@@ -55,7 +56,7 @@ public class RoboTest {
 
 	@Test
 	public void testObjetoValiosoRobadoSonCincoPaises(){
-		ObjetoValioso esteObjeto = new ObjetoValioso("Anillo del Papa", "Roma");
+		ObjetoValioso esteObjeto = new ObjetoValioso(new CaracteristicaObjeto("Anillo del Papa", "Roma"));
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		esteLadron.robar(esteObjeto);
@@ -65,7 +66,7 @@ public class RoboTest {
 
 	@Test
 	public void testObjetoMuyValiosoRobadoSonSietePaises(){
-		Robable esteObjeto = new ObjetoMuyValioso("Anillo del Papa", "Roma");
+		Robable esteObjeto = new ObjetoMuyValioso(new CaracteristicaObjeto("Anillo del Papa", "Roma"));
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		esteLadron.robar(esteObjeto);

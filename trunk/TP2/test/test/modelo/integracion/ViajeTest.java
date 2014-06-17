@@ -23,6 +23,7 @@ import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.mapa.mundi.MapaMundi;
+import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.ObjetoComun;
 import algo3.modelo.policia.Policia;
 import algo3.modelo.tiempo.Reloj;
@@ -83,7 +84,7 @@ public class ViajeTest {
 		this.mapa = new MapaMundi();
 		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
 
-		ObjetoComun esteObjeto = new ObjetoComun("Presidente", "Lima");
+		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
 		this.esteLadron = new Ladron(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
@@ -113,7 +114,7 @@ public class ViajeTest {
 		this.mapa = new MapaMundi();
 		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
 
-		ObjetoComun esteObjeto = new ObjetoComun("Presidente", "Lima");
+		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
 		this.esteLadron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
@@ -169,7 +170,7 @@ public class ViajeTest {
 		this.mapa = new MapaMundi();
 		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
 
-		ObjetoComun esteObjeto = new ObjetoComun("Presidente", "Lima");
+		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
 		this.esteLadron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
@@ -226,7 +227,7 @@ public class ViajeTest {
 		this.mapa = new MapaMundi();
 		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
 
-		ObjetoComun esteObjeto = new ObjetoComun("Presidente", "Lima");
+		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
 		this.esteLadron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));

@@ -43,7 +43,7 @@ public class GradoNovato extends Grado {
 
 	@Override
 	public Robable getObjetoRobado(CaracteristicaObjeto unaCaracteristica) {
-		return new ObjetoComun(unaCaracteristica.getNombre(), unaCaracteristica.getCiudadOrigen());
+		return new ObjetoComun(unaCaracteristica);
 	}
 
 }
