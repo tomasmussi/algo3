@@ -60,6 +60,8 @@ public class RecorridoTest {
 
 	@Test
 	public void testCiudadDevuelveTresOpcionesPosibles(){
+		//FIXME: ELI ESTA PRUEBA NO PASA FIJATE PORQUE DEVUELVE UN 4 EN VEZ DE UN 3
+		//NOSE SI EL METODO SE TIENE Q LLAMAR 4OPCPOSIBLES Y PONES UN 4 O ESTA MAL LA LOGICA
 		Recorrido recorrido = new Recorrido(listaRecorrido, listaCiudadesMundo);
 		Ciudad origen = listaRecorrido.get(0);
 		assertEquals(3, recorrido.getCiudadesPosibles(origen).size());

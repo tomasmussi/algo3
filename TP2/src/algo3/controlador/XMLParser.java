@@ -43,6 +43,21 @@ public class XMLParser {
 	//		}
 	//	}
 
+	public static List<CaracteristicaLadron> cargarExpedientes() {
+		try {
+			XStream xmlReader = new XStream();
+			InputStream in = Properties.class.getResourceAsStream("/algo3/modelo/estacionPolicia/ladrones.xml");
+			List<CaracteristicaLadron> expedientes = (List<CaracteristicaLadron>) xmlReader.fromXML(in);
+
+			in.close();
+			return expedientes;
+		} catch (IOException e) {
+			Logger.loguearError(e);
+		}
+		return null;
+
+	}
+
 	public static void encode(Object objeto) throws IOException{
 		FileOutputStream out = new FileOutputStream(new File("C:\\Users\\Tomas\\Desktop\\objeto.xml"));
 		xmlReader.toXML(objeto, out);
