@@ -5,10 +5,10 @@ public abstract class Objeto implements Robable {
 	private String nombre;
 
 	private String ciudadOrigen;
-
-	public Objeto(String nombre, String ciudadOrigen) {
-		this.nombre = nombre;
-		this.ciudadOrigen = ciudadOrigen;
+	
+	public Objeto(CaracteristicaObjeto caracteristica){
+		this.nombre = caracteristica.getNombre();
+		this.ciudadOrigen = caracteristica.getCiudadOrigen();
 	}
 
 	@Override

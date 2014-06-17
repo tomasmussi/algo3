@@ -46,6 +46,6 @@ public class GradoSargento extends Grado {
 
 	@Override
 	public Robable getObjetoRobado(CaracteristicaObjeto unaCaracteristica) {
-		return new ObjetoMuyValioso(unaCaracteristica.getNombre(), unaCaracteristica.getCiudadOrigen());
+		return new ObjetoMuyValioso(unaCaracteristica);
 	}
 }

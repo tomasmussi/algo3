@@ -40,8 +40,6 @@ public class Reloj {
 		if (esDeNoche() && !todaviaNoDurmio){
 			transcurrirRecursivo(HORAS_A_DORMIR, true);
 		}
-
-
 	}
 
 	public void transcurrir(int horas) {
@@ -49,11 +47,8 @@ public class Reloj {
 	}
 
 	private boolean esDeNoche(){
-		return horaDia >= 23 || horaDia <= 7;
-	
+		return horaDia >= 23 || horaDia <= 7;	
 	}
-
-
 
 	public boolean hayTiempoRestante(){
 		return ! (numeroDia == 6 && horaDia == 17);

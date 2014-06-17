@@ -44,7 +44,7 @@ public class GradoDetective extends Grado {
 
 	@Override
 	public Robable getObjetoRobado(CaracteristicaObjeto unaCaracteristica) {
-		return new ObjetoValioso(unaCaracteristica.getNombre(), unaCaracteristica.getCiudadOrigen());
+		return new ObjetoValioso(unaCaracteristica);
 	}
 
 }

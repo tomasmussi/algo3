@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
+import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.ObjetoComun;
 import algo3.modelo.objeto.Robable;
 
@@ -46,7 +47,7 @@ public class LadronTest {
 	@Test
 	public void testCrearObjetoRobadoComun(){
 		//TODO (TOMAS) Coordinar con eli porque no tengo bien idea de a quien le tengo que pedir ciudades para armar recorrido
-		Robable objetoRobado = new ObjetoComun("Anillo del Papa", "Roma");
+		Robable objetoRobado = new ObjetoComun(new CaracteristicaObjeto("Anillo del Papa", "Roma"));
 		ladron.robar(objetoRobado);
 		assertTrue(true);
 	}

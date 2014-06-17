@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
+import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.ObjetoComun;
 import algo3.modelo.objeto.Robable;
 import algo3.modelo.policia.Policia;
@@ -27,7 +28,7 @@ public class CapturaTest {
 	public void crearLadronConObjeto() {
 		caracteristica = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
 		ladron = new Ladron(caracteristica);
-		objeto = new ObjetoComun("Buda dorado", "Bangkok");
+		objeto = new ObjetoComun(new CaracteristicaObjeto("Buda dorado", "Bangkok"));
 		reloj = new Reloj();
 		policia = new Policia(reloj);
 	}
