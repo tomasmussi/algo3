@@ -25,17 +25,22 @@ import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.mapa.mundi.MapaMundi;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.ObjetoComun;
+import algo3.modelo.objeto.Robable;
 import algo3.modelo.policia.Policia;
 import algo3.modelo.tiempo.Reloj;
 import algo3.modelo.viaje.Recorrido;
 
 public class ViajeTest {
+	
+	//TODO: (TOMAS) ESTOS TESTS ESTAN MAL! YO NO TENGO QUE TRANSICIONAR AL LADRON DE UNA CIUDAD A OTRA
+	// LO TIENE QUE HACER SOLO EL LADRON AL ENTERARSE QUE EL POLICIA VIAJO A LA MISMA CIUDAD EN LA
+	// QUE EL ESTA => DEBE VIAJAR A LA SIGUIENTE Y SI NO PUEDE, DEBE ESCONDERSE EN ALGUN EDIFICIO!!!!
 
 	private Policia policia;
 	private Reloj reloj;
 	private List<InformacionCiudad> listaCiudadesRecorrido;
 	private MapaMundi mapa;
-	private Ladron esteLadron;
+	private Ladron ladron;
 
 	@Before
 	public void crearListaDeInformacion() {
@@ -80,28 +85,25 @@ public class ViajeTest {
 		this.mapa = new MapaMundi();
 		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
 
-		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
-		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
+		Robable objeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
+		Ciudad estaCiudad = mapa.getCiudadDeNombre(objeto.getCiudadOrigen());
 
-		this.esteLadron = new Ladron(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
+		ladron = new Ladron(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
 
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
-		esteLadron.robar(esteObjeto);
-		this.esteLadron.elegirEscapatoria(ciudades, estaCiudad);
-		Recorrido esteRecorrido = new Recorrido(esteLadron.getEscapatoria(), ciudades);
-		Caso esteCaso = new Caso(esteObjeto, esteLadron, esteRecorrido);
-		this.policia.asignarCaso(esteCaso);
+		ladron.robar(objeto);
+		ladron.elegirEscapatoria(ciudades, estaCiudad);
+		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
+		Caso esteCaso = new Caso(objeto, ladron, esteRecorrido);
+		policia.asignarCaso(esteCaso);
 
-		Ciudad inicial = this.esteLadron.getCiudadActual();
+		Ciudad inicial = ladron.getCiudadActual();
 		policia.viajarA(inicial);
-		// En esta situacion deberian estar en la misma ciudad.
-		assertTrue(inicial.esMismaCiudadQue(policia.getCiudadActual()));
-
-		// El ladron se escapa.
-		esteLadron.moverAlSiguientePais();
+		// Policia esta en ciudad inicial
+		assertTrue(inicial.equals(policia.getCiudadActual()));
 
 		// Ahora no deberian estar en la misma ciudad, porque el ladron se fue.
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().equals(ladron.getCiudadActual()));
 	}
 
 	@Test
@@ -113,52 +115,52 @@ public class ViajeTest {
 		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
-		this.esteLadron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
+		this.ladron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
 
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 
-		esteLadron.robar(esteObjeto);
-		esteLadron.elegirEscapatoria(ciudades, estaCiudad);
-		Recorrido esteRecorrido = new Recorrido(esteLadron.getEscapatoria(), ciudades);
-		Caso esteCaso = new Caso(esteObjeto, esteLadron, esteRecorrido);
+		ladron.robar(esteObjeto);
+		ladron.elegirEscapatoria(ciudades, estaCiudad);
+		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
+		Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
 		policia.asignarCaso(esteCaso);
 
-		Ciudad inicial = this.esteLadron.getCiudadActual();
+		Ciudad inicial = this.ladron.getCiudadActual();
 		policia.viajarA(inicial);
 		// El ladron se escapa1.
-		esteLadron.moverAlSiguientePais();
+		ladron.moverAlSiguientePais();
 
 		// Ahora no deberian estar en la misma ciudad, porque el ladron se fue.
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. Utilizo la ciudad del ladron.
-		policia.viajarA(esteLadron.getCiudadActual());
+		policia.viajarA(ladron.getCiudadActual());
 		// Ambos deberian estar en la misma ciudad.
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 
 		// El ladron se escapa2.
-		esteLadron.moverAlSiguientePais();
+		ladron.moverAlSiguientePais();
 		// Ambos deberian estar en la misma ciudad.
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. Utilizo la ciudad del ladron.
-		policia.viajarA(esteLadron.getCiudadActual());
+		policia.viajarA(ladron.getCiudadActual());
 		// Ambos deberian estar en la misma ciudad.
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 
 		// El ladron se escapa3.
-		esteLadron.moverAlSiguientePais();
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		ladron.moverAlSiguientePais();
+		assertFalse(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. Utilizo la ciudad del ladron.
-		policia.viajarA(esteLadron.getCiudadActual());
+		policia.viajarA(ladron.getCiudadActual());
 		// Ambos deberian estar en la misma ciudad.
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// El ladron se escapa (No se puede seguir escapando)
-		esteLadron.moverAlSiguientePais();
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		ladron.moverAlSiguientePais();
+		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		//Se fija que le quede tiempo para poder emitir la orden.
 		// Crea Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
 		assertTrue(policia.emitirOrdenDeArresto(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta")));
 		// Arresta ladron.
-		assertTrue(policia.arrestar(esteLadron));
+		assertTrue(policia.arrestar(ladron));
 	}
 
 	@Test
@@ -169,52 +171,52 @@ public class ViajeTest {
 		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
-		this.esteLadron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
+		this.ladron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
 
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
-		esteLadron.robar(esteObjeto);
-		this.esteLadron.elegirEscapatoria(ciudades, estaCiudad);
-		Recorrido esteRecorrido = new Recorrido(esteLadron.getEscapatoria(), ciudades);
-		Caso esteCaso = new Caso(esteObjeto, esteLadron, esteRecorrido);
+		ladron.robar(esteObjeto);
+		this.ladron.elegirEscapatoria(ciudades, estaCiudad);
+		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
+		Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
 		this.policia.asignarCaso(esteCaso);
 
-		Ciudad inicial = this.esteLadron.getCiudadActual();
+		Ciudad inicial = this.ladron.getCiudadActual();
 		policia.viajarA(inicial);
 		// En esta situacion deberian estar en la misma ciudad.
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// El ladron se escapa.
-		esteLadron.moverAlSiguientePais();
+		ladron.moverAlSiguientePais();
 		// Ahora no deberian estar en la misma ciudad, porque el ladron se fue.
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. Utilizo la ciudad del ladron.
-		policia.viajarA(esteLadron.getCiudadActual());
+		policia.viajarA(ladron.getCiudadActual());
 		// Ambos deberian estar en la misma ciudad.
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// El ladron se escapa.
-		esteLadron.moverAlSiguientePais();
+		ladron.moverAlSiguientePais();
 		// Ambos deberian estar en la misma ciudad.
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. Utilizo la ciudad del ladron.
-		policia.viajarA(esteLadron.getCiudadActual());
+		policia.viajarA(ladron.getCiudadActual());
 		// Ambos deberian estar en la misma ciudad.
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// El ladron se escapa .
-		esteLadron.moverAlSiguientePais();
+		ladron.moverAlSiguientePais();
 		// Ambos deberian estar en la misma ciudad.
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. Utilizo la ciudad del ladron.
-		policia.viajarA(esteLadron.getCiudadActual());
+		policia.viajarA(ladron.getCiudadActual());
 		// Ambos deberian estar en la misma ciudad.
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// El ladron se escapa (No tiene mas paises, no deberia poder irse).
-		esteLadron.moverAlSiguientePais();
+		ladron.moverAlSiguientePais();
 		// Ambos deberian estar en la misma ciudad.
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		//Se fija que le quede tiempo para poder hacer la orden.
 		// Crea Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
 		assertTrue(policia.emitirOrdenDeArresto(new CaracteristicaLadron("Merey Laroc", "Femenino", "Croquet", "Marron", "Joyas", "Limusina")));
 		// Arresta ladron.
-		assertFalse(policia.arrestar(esteLadron));
+		assertFalse(policia.arrestar(ladron));
 	}
 
 
@@ -226,49 +228,49 @@ public class ViajeTest {
 		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
-		this.esteLadron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
+		this.ladron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
 
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
-		esteLadron.robar(esteObjeto);
-		this.esteLadron.elegirEscapatoria(ciudades, estaCiudad);
-		Recorrido esteRecorrido = new Recorrido(esteLadron.getEscapatoria(), ciudades);
-		Caso esteCaso = new Caso(esteObjeto, esteLadron, esteRecorrido);
+		ladron.robar(esteObjeto);
+		this.ladron.elegirEscapatoria(ciudades, estaCiudad);
+		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
+		Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
 		this.policia.asignarCaso(esteCaso);
 
-		Ciudad inicial = this.esteLadron.getCiudadActual();
+		Ciudad inicial = this.ladron.getCiudadActual();
 		policia.viajarA(inicial);
 		// En esta situacion deberian estar en la misma ciudad.
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// El ladron se escapa.
-		esteLadron.moverAlSiguientePais();
+		ladron.moverAlSiguientePais();
 		// Ahora no deberian estar en la misma ciudad, porque el ladron se fue.
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. Utilizo la ciudad del ladron.
-		policia.viajarA(esteLadron.getCiudadActual());
+		policia.viajarA(ladron.getCiudadActual());
 		// Ambos deberian estar en la misma ciudad.
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// El ladron se escapa (No tiene mas paises, no deberia poder irse).
-		esteLadron.moverAlSiguientePais();
+		ladron.moverAlSiguientePais();
 		// Ambos deberian estar en la misma ciudad.
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. Utilizo la ciudad del ladron.
-		policia.viajarA(esteLadron.getCiudadActual());
+		policia.viajarA(ladron.getCiudadActual());
 		// Ambos deberian estar en la misma ciudad.
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// El ladron se escapa .
-		esteLadron.moverAlSiguientePais();
+		ladron.moverAlSiguientePais();
 		// Ambos deberian estar en la misma ciudad.
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Hago viajar al policia al pais donde puedo encontrar al ladron. Utilizo la ciudad del ladron.
-		policia.viajarA(esteLadron.getCiudadActual());
+		policia.viajarA(ladron.getCiudadActual());
 		// Ambos deberian estar en la misma ciudad.
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// El ladron se escapa (No tiene mas paises, no deberia poder irse).
-		esteLadron.moverAlSiguientePais();
+		ladron.moverAlSiguientePais();
 		// Ambos deberian estar en la misma ciudad.
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().esMismaCiudadQue(ladron.getCiudadActual()));
 		// Arrestar ladron.
-		assertFalse(policia.arrestar(esteLadron));
+		assertFalse(policia.arrestar(ladron));
 	}
 
 
