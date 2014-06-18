@@ -101,6 +101,7 @@ public class ViajeTest {
 		policia.viajarA(inicial);
 		// Policia esta en ciudad inicial
 		assertTrue(inicial.equals(policia.getCiudadActual()));
+		ladron.moverAlSiguientePais();
 
 		// Ahora no deberian estar en la misma ciudad, porque el ladron se fue.
 		assertFalse(policia.getCiudadActual().equals(ladron.getCiudadActual()));
