@@ -8,6 +8,10 @@ public class Juego {
 
 	}
 
+	public void iniciar(){
+		//TODO: logica de cargar todo para el caso .
+	}
+
 
 
 
