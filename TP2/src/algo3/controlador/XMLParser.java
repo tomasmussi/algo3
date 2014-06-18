@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Properties;
 
 import algo3.modelo.ladron.CaracteristicaLadron;
+import algo3.modelo.mapa.mundi.Ciudad;
+import algo3.modelo.mapa.mundi.InformacionCiudad;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -16,6 +18,7 @@ public class XMLParser {
 
 	public static void main(String[] args) throws IOException {
 		leerLadrones();
+		leerCiudades();
 	}
 
 	private static final XStream xmlReader = new XStream();
@@ -32,16 +35,17 @@ public class XMLParser {
 		}
 	}
 
-	//	private static void leerPaises() throws IOException {
-	//		InputStream in = Properties.class.getResourceAsStream("/algo3/controlador/paises.xml");
-	//		List<Pais> ladrones = (List<Pais>)xmlReader.fromXML(in);
-	//		in.close();
-	//		Iterator<Ladron> it = ladrones.iterator();
-	//		while (it.hasNext()){
-	//			Ladron ladron = it.next();
-	//			System.out.println(ladron);
-	//		}
-	//	}
+	@SuppressWarnings("unchecked")
+	private static void leerCiudades() throws IOException {
+		InputStream in = Properties.class.getResourceAsStream("/algo3/controlador/paises.xml");
+		List<InformacionCiudad> ciudades = (List<InformacionCiudad>)xmlReader.fromXML(in);
+		in.close();
+		Iterator<InformacionCiudad> it = ciudades.iterator();
+		while (it.hasNext()){
+			InformacionCiudad estaCiudad = it.next();
+			System.out.println(estaCiudad);
+		}
+	}
 
 	public static List<CaracteristicaLadron> cargarExpedientes() {
 		try {
@@ -51,6 +55,21 @@ public class XMLParser {
 
 			in.close();
 			return expedientes;
+		} catch (IOException e) {
+			Logger.loguearError(e);
+		}
+		return null;
+
+	}
+	
+	public static List<InformacionCiudad> cargarCiudades() {
+		try {
+			XStream xmlReader = new XStream();
+			InputStream in = Properties.class.getResourceAsStream("/algo3/modelo/mapa.mundi/ciudades.xml");
+			List<InformacionCiudad> infoCiudades = (List<InformacionCiudad>) xmlReader.fromXML(in);
+
+			in.close();
+			return infoCiudades;
 		} catch (IOException e) {
 			Logger.loguearError(e);
 		}

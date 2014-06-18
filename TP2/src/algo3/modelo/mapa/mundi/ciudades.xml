@@ -1,0 +1,480 @@
+<list>
+	<nombreCiudad>Atenas</nombreCiudad>
+	<coloresBandera>Azul y blanco</coloresBandera>
+	<moneda>dracmas</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Mar Egeo,montañas de Pindo</lugaresDeReferencia>
+	<industria>,higos,aceitunas</industria>
+	<animales></animales>
+	<gente>Platon,espartanos</gente>
+	<idiomas>Griego</idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno>Primer Ministro</gobierno>
+	<miscelaneo>Republica Helenica,Vecinos Yugoslavia</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Bagdad</nombreCiudad>
+	<coloresBandera>Rojo, blanco y Negro</coloresBandera>
+	<moneda>Dinares</moneda>
+	<geografia>desierto</geografia>
+	<lugaresDeReferencia>;desierto de Siria,el rio Eufrates,Tigris</lugaresDeReferencia>
+	<industria>aceite</industria>
+	<animales>Arabian Gazelles</animales>
+	<gente>sumeria</gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo>Mesopotamia</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Bamako</nombreCiudad>
+	<coloresBandera>Verde, Amarillo y Rojo</coloresBandera>
+	<moneda>Francos</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>rio Niger,Sahara</lugaresDeReferencia>
+	<industria>mijo,arroz</industria>
+	<animales></animales>
+	<gente>;tuaregs</gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno>Presidente</gobierno>
+	<miscelaneo>Timbuktu</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Bangkok</nombreCiudad>
+	<coloresBandera>Rojo, blanco y Azul</coloresBandera>
+	<moneda>bahts</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia></lugaresDeReferencia>
+	<industria></industria>
+	<animales></animales>
+	<gente></gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion>budismo</religion>
+	<gobierno></gobierno>
+	<miscelaneo>Ancient Siam</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Budapest</nombreCiudad>
+	<coloresBandera>Rojo, blanco y verde</coloresBandera>
+	<moneda>florines</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Alpold Plains,Rio Danubio</lugaresDeReferencia>
+	<industria>Uvas</industria>
+	<animales></animales>
+	<gente>croatas, gitanos</gente>
+	<idiomas></idiomas>
+	<arte>Magyar arte</arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo>Vecinos Austria</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>BuenosAires</nombreCiudad>
+	<coloresBandera>sol</coloresBandera>
+	<moneda>pesos</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>rio Parana,Tierra del Fuego</lugaresDeReferencia>
+	<industria></industria>
+	<animales>Ganado</animales>
+	<gente>Gauchos</gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno>Presidente</gobierno>
+	<miscelaneo>ex colonia española</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Cairo</nombreCiudad>
+	<coloresBandera></coloresBandera>
+	<moneda>Libras</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>faraones Tumba,Desierto del Sinai</lugaresDeReferencia>
+	<industria>Limestone</industria>
+	<animales></animales>
+	<gente>nubios</gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo>antigua Alejandria</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Colombo</nombreCiudad>
+	<coloresBandera>Leon de Oro</coloresBandera>
+	<moneda>rupias</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Golfo de Mannar</lugaresDeReferencia>
+	<industria>citronela</industria>
+	<animales></animales>
+	<gente>croatas, gitanos</gente>
+	<idiomas></idiomas>
+	<arte>Artefactos Veddah</arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo>Taprobane antigua</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Estambul</nombreCiudad>
+	<coloresBandera>Luna Creciente y estrella</coloresBandera>
+	<moneda>Lira</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Mar Negro,el Monte Arafat</lugaresDeReferencia>
+	<industria></industria>
+	<animales></animales>
+	<gente>hititas</gente>
+	<idiomas></idiomas>
+	<arte>Magyar arte</arte>
+	<religion></religion>
+	<gobierno>Presidente</gobierno>
+	<miscelaneo>imperio bizantino,Constantinopla</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Katmandu</nombreCiudad>
+	<coloresBandera>Triangulo Doble</coloresBandera>
+	<moneda>Rupias</moneda>
+	<geografia>Montañas</geografia>
+	<lugaresDeReferencia>Baruntse,Himalayas</lugaresDeReferencia>
+	<industria></industria>
+	<animales></animales>
+	<gente></gente>
+	<idiomas>Gurkhas</idiomas>
+	<arte></arte>
+	<religion>hindu</religion>
+	<gobierno></gobierno>
+	<miscelaneo>Vecinos Austria</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Kigali</nombreCiudad>
+	<coloresBandera>Rojo, Amarillo y Verde</coloresBandera>
+	<moneda>Francos</moneda>
+	<geografia>Volcanes</geografia>
+	<lugaresDeReferencia></lugaresDeReferencia>
+	<industria>Estaño</industria>
+	<animales>Negro Mamba,Gorilla</animales>
+	<gente>pigmeos</gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo></miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Lima</nombreCiudad>
+	<coloresBandera>rojo y blanco</coloresBandera>
+	<moneda>Sols</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Huascaran</lugaresDeReferencia>
+	<industria></industria>
+	<animales></animales>
+	<gente></gente>
+	<idiomas></idiomas>
+	<arte>Arte Aymara </arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo></miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Londres</nombreCiudad>
+	<coloresBandera>Rojo, blanco y Azul</coloresBandera>
+	<moneda>Libras</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Big Ben,Lago Ness,Thames</lugaresDeReferencia>
+	<industria></industria>
+	<animales></animales>
+	<gente>celtas,druidas,sajones</gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno>Primer Ministro</gobierno>
+	<miscelaneo></miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Ciudad de Mexico</nombreCiudad>
+	<coloresBandera>Verde, blanco y Rojo</coloresBandera>
+	<moneda>s</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Monte Popocatepetl,Sierra Madre</lugaresDeReferencia>
+	<industria></industria>
+	<animales>Gila Monster</animales>
+	<gente>aztecas,mayas,toltecas</gente>
+	<idiomas></idiomas>
+	<arte>yucateca</arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo></miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Montreal</nombreCiudad>
+	<coloresBandera>con una hoja</coloresBandera>
+	<moneda></moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Peninsula Gaspe,lago Mistassini,Montgomery Falls,Isla del Principe Eduardo,Yukon</lugaresDeReferencia>
+	<industria></industria>
+	<animales>alces</animales>
+	<gente></gente>
+	<idiomas>frances</idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo>ex colonia francesa</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Moroni</nombreCiudad>
+	<coloresBandera>Verde y blanco</coloresBandera>
+	<moneda>Francos</moneda>
+	<geografia>islas,volcanes</geografia>
+	<lugaresDeReferencia>el Monte Karthala</lugaresDeReferencia>
+	<industria>Perfume</industria>
+	<animales>buho</animales>
+	<gente></gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo></miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Moscu</nombreCiudad>
+	<coloresBandera>Rojo</coloresBandera>
+	<moneda>rublos</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Lago Ladoga,Montes Urales</lugaresDeReferencia>
+	<industria></industria>
+	<animales></animales>
+	<gente>Ivan el Terrible</gente>
+	<idiomas>Ruso,Uralio</idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo>Moldavia,pais mas grande del mundo</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>New Delhi</nombreCiudad>
+	<coloresBandera>Rojo, blanco y verde</coloresBandera>
+	<moneda>rupias</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia></lugaresDeReferencia>
+	<industria></industria>
+	<animales>Viper Saw-Scaled</animales>
+	<gente></gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion>Sikh</religion>
+	<gobierno>Primer Ministro</gobierno>
+	<miscelaneo></miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>NewYork</nombreCiudad>
+	<coloresBandera>Rojo,blanco y Azul</coloresBandera>
+	<moneda>Dolares</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>tumba de Grant,Rio Hudson,Naciones Unidas,World Trade Center</lugaresDeReferencia>
+	<industria> Moda,Bolsa de Valores</industria>
+	<animales></animales>
+	<gente>Henry Hudson</gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo>Subte</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Oslo</nombreCiudad>
+	<coloresBandera>Rojo y azul</coloresBandera>
+	<moneda></moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Mar de Barents</lugaresDeReferencia>
+	<industria>hidroelectricidad</industria>
+	<animales></animales>
+	<gente>vikingos</gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno>Rey</gobierno>
+	<miscelaneo>Esqui Nordico</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Paris</nombreCiudad>
+	<coloresBandera>Rojo,blanco y Azul</coloresBandera>
+	<moneda>Francos</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Siena</lugaresDeReferencia>
+	<industria>moda</industria>
+	<animales></animales>
+	<gente></gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo></miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Peking</nombreCiudad>
+	<coloresBandera>Rojo</coloresBandera>
+	<moneda>Yuanes</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Ciudad Prohibida,el Mar Amarillo</lugaresDeReferencia>
+	<industria></industria>
+	<animales></animales>
+	<gente>Panda gigante</gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo>Dinastia Shang,Levantamiento de Wuchang</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Port Moresby</nombreCiudad>
+	<coloresBandera>Amarillo, Rojo y Negro</coloresBandera>
+	<moneda>Kinas</moneda>
+	<geografia>Volcanes</geografia>
+	<lugaresDeReferencia>Monte Karkar,Mount Manam</lugaresDeReferencia>
+	<industria>Oro</industria>
+	<animales></animales>
+	<gente>Taipans</gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno>Primer Ministro</gobierno>
+	<miscelaneo>Nueva Irlanda</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Reykjavik</nombreCiudad>
+	<coloresBandera>Rojo y Azul</coloresBandera>
+	<moneda>Kronur</moneda>
+	<geografia>Hot Springs,Volcanes</geografia>
+	<lugaresDeReferencia></lugaresDeReferencia>
+	<industria>Pescado</industria>
+	<animales></animales>
+	<gente></gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo>nacion de la isla</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>RioDeJaneiro</nombreCiudad>
+	<coloresBandera>Verde, Azul y Amarillo</coloresBandera>
+	<moneda>Cruzeiros</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>rio Amazonas</lugaresDeReferencia>
+	<industria>cafe,diamantes,titanio</industria>
+	<animales>Bushmaster,perico de oro,añil Macaw,Thin-Spined Porcupine</animales>
+	<gente></gente>
+	<idiomas>portugues</idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno>Presidente</gobierno>
+	<miscelaneo></miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Roma</nombreCiudad>
+	<coloresBandera>Verde, blanco y Rojo</coloresBandera>
+	<moneda>Lira</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Coliseo,el Foro,el Monte Etna,al mar Tirreno Textiles</lugaresDeReferencia>
+	<industria></industria>
+	<animales></animales>
+	<gente>etruscos</gente>
+	<idiomas>Italiano</idiomas>
+	<arte>Pintura renacentista</arte>
+	<religion></religion>
+	<gobierno>Presidente</gobierno>
+	<miscelaneo></miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>San Marino</nombreCiudad>
+	<coloresBandera>Azul y blanco</coloresBandera>
+	<moneda></moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Monte Titano</lugaresDeReferencia>
+	<industria>Ceramica,sellos</industria>
+	<animales></animales>
+	<gente></gente>
+	<idiomas>Italiano</idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo>Serenisima Republica,Estado mas antiguo de Europa,Vecinos Italia</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Singapur</nombreCiudad>
+	<coloresBandera>rojo y blanco</coloresBandera>
+	<moneda></moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Raffles Hotel,Mar del Sur de China,estrecho de Malaca</lugaresDeReferencia>
+	<industria>Caucho</industria>
+	<animales>Stonefish</animales>
+	<gente></gente>
+	<idiomas></idiomas>
+	<arte>arte malaya</arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo>ex colonia britanica</miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Sydney</nombreCiudad>
+	<coloresBandera>Rojo, blanco y Azul</coloresBandera>
+	<moneda></moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Gran Desierto de Arena,Opera House,Outback</lugaresDeReferencia>
+	<industria>Lana</industria>
+	<animales>Koala Bear,Tiger Snake,Wallaby,Wombat</animales>
+	<gente>los aborigenes,el capitan Cook</gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion></religion>
+	<gobierno></gobierno>
+	<miscelaneo></miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<nombreCiudad>Tokio</nombreCiudad>
+	<coloresBandera>rojo y blanco</coloresBandera>
+	<moneda>Yen</moneda>
+	<geografia></geografia>
+	<lugaresDeReferencia>Monte Fuji</lugaresDeReferencia>
+	<industria>Automoviles</industria>
+	<animales></animales>
+	<gente>Shoguns</gente>
+	<idiomas></idiomas>
+	<arte></arte>
+	<religion>Shinto</religion>
+	<gobierno></gobierno>
+	<miscelaneo></miscelaneo>	
+	</algo3.modelo.mapa.mundi.InformacionCiudad>
+</list>

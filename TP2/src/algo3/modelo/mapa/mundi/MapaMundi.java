@@ -3,11 +3,15 @@ package algo3.modelo.mapa.mundi;
 import java.util.ArrayList;
 import java.util.List;
 
+import algo3.controlador.XMLParser;
+
 public class MapaMundi {
 	private List<Ciudad> ciudadesDelMundo;
 	
 	public MapaMundi(){
 		this.ciudadesDelMundo = new ArrayList<Ciudad>();
+		List<InformacionCiudad> ciudades = XMLParser.cargarCiudades();
+		this.cargarListadoCiudades(ciudades);
 	}
 	
 	public void agregarCiudad(Ciudad estaCiudad) {
