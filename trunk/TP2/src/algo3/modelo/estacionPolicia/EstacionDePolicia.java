@@ -13,18 +13,12 @@ public class EstacionDePolicia {
 	private static EstacionDePolicia instance;
 
 	private EstacionDePolicia() {
-
+		//TODO (TOMAS) Deberia leer cada vez que me consulten un expediente, o Caso me deberia indicar que tengo que leer de vuelta configuracion
 		cargarExpedientes();
 	}
 
-
-
-
-
 	private void cargarExpedientes() {
-
 		expedientes = XMLParser.cargarExpedientes();
-
 	}
 
 	public static EstacionDePolicia getInstance() {
@@ -35,11 +29,10 @@ public class EstacionDePolicia {
 	}
 
 	public List<CaracteristicaLadron> buscarExpediente(CaracteristicaLadron caracteristicaLadron) {
-
 		List<String> caracteristicasSolicitadas = caracteristicaLadron.getCaracteristicas();
 		List<CaracteristicaLadron> coincidenciaLadrones = new ArrayList<CaracteristicaLadron>();
 		List<String> caracteristicasExpediente;
-		for (CaracteristicaLadron expediente : this.expedientes) {
+		for (CaracteristicaLadron expediente : expedientes) {
 			caracteristicasExpediente = expediente.getCaracteristicas();
 
 			Iterator<String> iter = caracteristicasSolicitadas.iterator();
@@ -49,13 +42,10 @@ public class EstacionDePolicia {
 				if (caracteristica != null) {
 					contiene = caracteristicasExpediente.contains(caracteristica);
 				}
-
 			}
 			if (contiene) {
-
 				coincidenciaLadrones.add(expediente);
 			}
-
 		}
 		return coincidenciaLadrones;
 
