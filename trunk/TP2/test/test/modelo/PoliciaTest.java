@@ -8,20 +8,25 @@ import org.junit.Before;
 import org.junit.Test;
 
 import algo3.modelo.ladron.CaracteristicaLadron;
+import algo3.modelo.ladron.Ladron;
 import algo3.modelo.policia.Policia;
 import algo3.modelo.tiempo.Reloj;
 
 public class PoliciaTest {
-	
+
+	private CaracteristicaLadron caracteristicaNickBrunch;
+	private Ladron nickBrunch;
 	private Policia policia;
 	private Reloj reloj;
-	
+
 	@Before
-	public void crearReloj(){
+	public void initialize(){
+		caracteristicaNickBrunch = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
+		nickBrunch = new Ladron(caracteristicaNickBrunch);
 		reloj = new Reloj();
 		policia = new Policia(reloj);
 	}
-	
+
 	@Test
 	public void testDispararPoliciaRestaCuatroHoras(){
 		Policia policia = new Policia(reloj);
@@ -56,7 +61,7 @@ public class PoliciaTest {
 		policia.viajar(1900);
 		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
 	}
-	
+
 	@Test
 	public void testPoliciaCreadoPuedeArrestar(){
 		assertTrue(policia.puedeArrestar());
@@ -84,8 +89,10 @@ public class PoliciaTest {
 	@Test
 	public void testPoliciaAsciendeADetective(){
 		assertEquals(policia.getGrado(), "Novato");
+		//emite orden de arresto que coincide con ladron del juego
+		policia.emitirOrdenDeArresto(caracteristicaNickBrunch);
 		for (int i = 1; i <= 5; i++){
-			policia.aumentarArrestos();
+			policia.arrestar(nickBrunch);
 		}
 		assertEquals(policia.getGrado(), "Detective");
 	}
@@ -94,20 +101,21 @@ public class PoliciaTest {
 	public void testPoliciaNovatoAsciendeHastaSargento(){
 
 		assertEquals(policia.getGrado(), "Novato");
+		policia.emitirOrdenDeArresto(caracteristicaNickBrunch);
 		for (int i = 1; i <= 5; i++){
-			policia.aumentarArrestos();
+			policia.arrestar(nickBrunch);
 		}
 		assertEquals(policia.getGrado(), "Detective");
 		for (int i = 6; i <= 10; i++){
-			policia.aumentarArrestos();
+			policia.arrestar(nickBrunch);
 		}
 		assertEquals(policia.getGrado(), "Investigador");
 		for (int i = 11; i <= 20; i++){
-			policia.aumentarArrestos();
+			policia.arrestar(nickBrunch);
 		}
 		assertEquals(policia.getGrado(), "Sargento");
 		for (int i = 0; i <= 90; i++){
-			policia.aumentarArrestos();
+			policia.arrestar(nickBrunch);
 		}
 		assertEquals(policia.getGrado(), "Sargento");
 	}
@@ -117,20 +125,21 @@ public class PoliciaTest {
 		policia.emitirOrdenDeArresto(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Croquet", "Rojo", "Anillo", "Descapotable"));
 		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
 	}
-	
+
 	@Test
 	public void testPoliciaNovatoRecorreKilometrosAsciendeTardaMenosHoras(){
 
+		policia.emitirOrdenDeArresto(caracteristicaNickBrunch);
 		policia.viajar(1300);
-		assertEquals("Lunes 09:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 12:00 horas", reloj.tiempoActual());
 		assertEquals(policia.getGrado(), "Novato");
 		for (int i = 1; i <= 10; i++){
-			policia.aumentarArrestos();
+			policia.arrestar(nickBrunch);
 		}
 		assertEquals(policia.getGrado(), "Investigador");
 		//Resta solo 1 hora
 		policia.viajar(1300);
-		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
+		assertEquals("Lunes 13:00 horas", reloj.tiempoActual());
 	}
 
 }

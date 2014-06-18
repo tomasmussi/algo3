@@ -82,7 +82,7 @@ public class Policia {
 		return grado.getGrado();
 	}
 
-	public void aumentarArrestos() {
+	private void aumentarArrestos() {
 		cantidadArrestos++;
 		grado.evaluarGrado(this);
 	}
@@ -138,6 +138,7 @@ public class Policia {
 		if ((caso.getOrdenDeArresto() == null) || !ladron.coincideCon(caso.getOrdenDeArresto().getCaracteristicaLadron())) {
 			return false;
 		}
+		aumentarArrestos();
 		return true;
 	}
 
