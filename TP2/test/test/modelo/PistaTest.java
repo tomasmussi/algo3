@@ -2,16 +2,28 @@ package test.modelo;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import algo3.modelo.edificio.Edificio;
 import algo3.modelo.edificio.EdificioFactory;
+import algo3.modelo.ladron.CaracteristicaLadron;
+import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.InformacionCiudadProvider;
 import algo3.modelo.mapa.mundi.NombresCiudades;
 import algo3.modelo.policia.Policia;
 import algo3.modelo.tiempo.Reloj;
 
 public class PistaTest {
+
+	private CaracteristicaLadron caracteristicaNickBrunch;
+	private Ladron nickBrunch;
+
+	@Before
+	public void initialize(){
+		caracteristicaNickBrunch = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
+		nickBrunch = new Ladron(caracteristicaNickBrunch);
+	}
 
 	private InformacionCiudadProvider getInfoProvider() {
 		return InformacionCiudadProvider.getInstance();
@@ -34,9 +46,11 @@ public class PistaTest {
 	}
 
 	private Policia crearPolicia(int arrestos) {
+
 		Policia policia = new Policia(new Reloj());
+		policia.emitirOrdenDeArresto(caracteristicaNickBrunch);
 		for (int i = 1; i <= arrestos; i++) {
-			policia.aumentarArrestos();
+			policia.arrestar(nickBrunch);
 		}
 		return policia;
 	}
