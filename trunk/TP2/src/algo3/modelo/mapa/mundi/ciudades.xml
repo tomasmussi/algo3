@@ -1,4 +1,5 @@
 <list>
+	<algo3.modelo.mapa.mundi.InformacionCiudad>
 	<nombreCiudad>Atenas</nombreCiudad>
 	<coloresBandera>Azul y blanco</coloresBandera>
 	<moneda>dracmas</moneda>
@@ -12,6 +13,8 @@
 	<religion></religion>
 	<gobierno>Primer Ministro</gobierno>
 	<miscelaneo>Republica Helenica,Vecinos Yugoslavia</miscelaneo>	
+	<coordenadaX>434</coordenadaX>
+	<coordenadaY>168</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -28,6 +31,8 @@
 	<religion></religion>
 	<gobierno></gobierno>
 	<miscelaneo>Mesopotamia</miscelaneo>	
+	<coordenadaX>486</coordenadaX>
+	<coordenadaY>184</coordenadaY>	
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -44,6 +49,8 @@
 	<religion></religion>
 	<gobierno>Presidente</gobierno>
 	<miscelaneo>Timbuktu</miscelaneo>	
+	<coordenadaX>382</coordenadaX>
+	<coordenadaY>226</coordenadaY>	
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -59,7 +66,9 @@
 	<arte></arte>
 	<religion>budismo</religion>
 	<gobierno></gobierno>
-	<miscelaneo>Ancient Siam</miscelaneo>	
+	<miscelaneo>Ancient Siam</miscelaneo>		
+	<coordenadaX>614</coordenadaX>
+	<coordenadaY>230</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -76,6 +85,8 @@
 	<religion></religion>
 	<gobierno></gobierno>
 	<miscelaneo>Vecinos Austria</miscelaneo>	
+	<coordenadaX>422</coordenadaX>
+	<coordenadaY>144</coordenadaY>	
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -92,6 +103,8 @@
 	<religion></religion>
 	<gobierno>Presidente</gobierno>
 	<miscelaneo>ex colonia española</miscelaneo>	
+	<coordenadaX>254</coordenadaX>
+	<coordenadaY>382</coordenadaY>	
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -107,7 +120,9 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo>antigua Alejandria</miscelaneo>	
+	<miscelaneo>antigua Alejandria</miscelaneo>		
+	<coordenadaX>454</coordenadaX>
+	<coordenadaY>202</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -124,6 +139,8 @@
 	<religion></religion>
 	<gobierno></gobierno>
 	<miscelaneo>Taprobane antigua</miscelaneo>	
+	<coordenadaX>574</coordenadaX>
+	<coordenadaY>262</coordenadaY>	
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -139,7 +156,9 @@
 	<arte>Magyar arte</arte>
 	<religion></religion>
 	<gobierno>Presidente</gobierno>
-	<miscelaneo>imperio bizantino,Constantinopla</miscelaneo>	
+	<miscelaneo>imperio bizantino,Constantinopla</miscelaneo>		
+	<coordenadaX>466</coordenadaX>
+	<coordenadaY>170</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -156,6 +175,8 @@
 	<religion>hindu</religion>
 	<gobierno></gobierno>
 	<miscelaneo>Vecinos Austria</miscelaneo>	
+	<coordenadaX>580</coordenadaX>
+	<coordenadaY>202</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -172,6 +193,8 @@
 	<religion></religion>
 	<gobierno></gobierno>
 	<miscelaneo></miscelaneo>	
+	<coordenadaX>446</coordenadaX>
+	<coordenadaY>282</coordenadaY>	
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -187,7 +210,9 @@
 	<arte>Arte Aymara </arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo></miscelaneo>	
+	<miscelaneo></miscelaneo>		
+	<coordenadaX>206</coordenadaX>
+	<coordenadaY>302</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -203,7 +228,9 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno>Primer Ministro</gobierno>
-	<miscelaneo></miscelaneo>	
+	<miscelaneo></miscelaneo>		
+	<coordenadaX>382</coordenadaX>
+	<coordenadaY>122</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -219,7 +246,9 @@
 	<arte>yucateca</arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo></miscelaneo>	
+	<miscelaneo></miscelaneo>		
+	<coordenadaX>146</coordenadaX>
+	<coordenadaY>210</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -236,6 +265,8 @@
 	<religion></religion>
 	<gobierno></gobierno>
 	<miscelaneo>ex colonia francesa</miscelaneo>	
+	<coordenadaX>232</coordenadaX>
+	<coordenadaY>104</coordenadaY>	
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -252,6 +283,8 @@
 	<religion></religion>
 	<gobierno></gobierno>
 	<miscelaneo></miscelaneo>	
+	<coordenadaX>490</coordenadaX>
+	<coordenadaY>334</coordenadaY>	
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -267,7 +300,9 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo>Moldavia,pais mas grande del mundo</miscelaneo>	
+	<miscelaneo>Moldavia,pais mas grande del mundo</miscelaneo>		
+	<coordenadaX>620</coordenadaX>
+	<coordenadaY>56</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -283,7 +318,9 @@
 	<arte></arte>
 	<religion>Sikh</religion>
 	<gobierno>Primer Ministro</gobierno>
-	<miscelaneo></miscelaneo>	
+	<miscelaneo></miscelaneo>		
+	<coordenadaX>564</coordenadaX>
+	<coordenadaY>216</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -300,6 +337,8 @@
 	<religion></religion>
 	<gobierno></gobierno>
 	<miscelaneo>Subte</miscelaneo>	
+	<coordenadaX>220</coordenadaX>
+	<coordenadaY>170</coordenadaY>	
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -315,7 +354,9 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno>Rey</gobierno>
-	<miscelaneo>Esqui Nordico</miscelaneo>	
+	<miscelaneo>Esqui Nordico</miscelaneo>		
+	<coordenadaX>404</coordenadaX>
+	<coordenadaY>90</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -331,11 +372,13 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo></miscelaneo>	
+	<miscelaneo></miscelaneo>		
+	<coordenadaX>390</coordenadaX>
+	<coordenadaY>144</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
-	<nombreCiudad>Peking</nombreCiudad>
+	<nombreCiudad>Pekin</nombreCiudad>
 	<coloresBandera>Rojo</coloresBandera>
 	<moneda>Yuanes</moneda>
 	<geografia></geografia>
@@ -348,6 +391,8 @@
 	<religion></religion>
 	<gobierno></gobierno>
 	<miscelaneo>Dinastia Shang,Levantamiento de Wuchang</miscelaneo>	
+	<coordenadaX>622</coordenadaX>
+	<coordenadaY>180</coordenadaY>	
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -363,7 +408,9 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno>Primer Ministro</gobierno>
-	<miscelaneo>Nueva Irlanda</miscelaneo>	
+	<miscelaneo>Nueva Irlanda</miscelaneo>		
+	<coordenadaX>724</coordenadaX>
+	<coordenadaY>298</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -379,7 +426,9 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo>nacion de la isla</miscelaneo>	
+	<miscelaneo>nacion de la isla</miscelaneo>		
+	<coordenadaX>350</coordenadaX>
+	<coordenadaY>82</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -395,7 +444,9 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno>Presidente</gobierno>
-	<miscelaneo></miscelaneo>	
+	<miscelaneo></miscelaneo>		
+	<coordenadaX>282</coordenadaX>
+	<coordenadaY>314</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -411,7 +462,9 @@
 	<arte>Pintura renacentista</arte>
 	<religion></religion>
 	<gobierno>Presidente</gobierno>
-	<miscelaneo></miscelaneo>	
+	<miscelaneo></miscelaneo>		
+	<coordenadaX>416</coordenadaX>
+	<coordenadaY>162</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -428,6 +481,8 @@
 	<religion></religion>
 	<gobierno></gobierno>
 	<miscelaneo>Serenisima Republica,Estado mas antiguo de Europa,Vecinos Italia</miscelaneo>	
+	<coordenadaX>422</coordenadaX>
+	<coordenadaY>172</coordenadaY>	
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -444,6 +499,8 @@
 	<religion></religion>
 	<gobierno></gobierno>
 	<miscelaneo>ex colonia britanica</miscelaneo>	
+	<coordenadaX>620</coordenadaX>
+	<coordenadaY>278</coordenadaY>	
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -460,6 +517,8 @@
 	<religion></religion>
 	<gobierno></gobierno>
 	<miscelaneo></miscelaneo>	
+	<coordenadaX>714</coordenadaX>
+	<coordenadaY>382</coordenadaY>	
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 
 	<algo3.modelo.mapa.mundi.InformacionCiudad>
@@ -475,6 +534,8 @@
 	<arte></arte>
 	<religion>Shinto</religion>
 	<gobierno></gobierno>
-	<miscelaneo></miscelaneo>	
+	<miscelaneo></miscelaneo>		
+	<coordenadaX>696</coordenadaX>
+	<coordenadaY>180</coordenadaY>
 	</algo3.modelo.mapa.mundi.InformacionCiudad>
 </list>

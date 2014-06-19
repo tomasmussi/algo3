@@ -11,6 +11,7 @@ import java.util.Properties;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
+import algo3.modelo.objeto.CaracteristicaObjeto;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -46,6 +47,18 @@ public class XMLParser {
 			System.out.println(estaCiudad);
 		}
 	}
+	
+	@SuppressWarnings("unchecked")
+	private static void leerObjetos() throws IOException {
+		InputStream in = Properties.class.getResourceAsStream("/algo3/controlador/objetos.xml");
+		List<CaracteristicaObjeto> objetos = (List<CaracteristicaObjeto>)xmlReader.fromXML(in);
+		in.close();
+		Iterator<CaracteristicaObjeto> it = objetos.iterator();
+		while (it.hasNext()){
+			CaracteristicaObjeto esteObjeto = it.next();
+			System.out.println(esteObjeto);
+		}
+	}
 
 	public static List<CaracteristicaLadron> cargarExpedientes() {
 		try {
@@ -59,7 +72,6 @@ public class XMLParser {
 			Logger.loguearError(e);
 		}
 		return null;
-
 	}
 	
 	public static List<InformacionCiudad> cargarCiudades() {
@@ -74,8 +86,22 @@ public class XMLParser {
 			Logger.loguearError(e);
 		}
 		return null;
-
 	}
+	
+	public static List<CaracteristicaObjeto> cargarObjetos() {
+		try {
+			XStream xmlReader = new XStream();
+			InputStream in = Properties.class.getResourceAsStream("/algo3/modelo/objeto/objetos.xml");
+			List<CaracteristicaObjeto> objetos = (List<CaracteristicaObjeto>) xmlReader.fromXML(in);
+
+			in.close();
+			return objetos;
+		} catch (IOException e) {
+			Logger.loguearError(e);
+		}
+		return null;
+	}
+
 
 	public static void encode(Object objeto) throws IOException{
 		FileOutputStream out = new FileOutputStream(new File("C:\\Users\\Tomas\\Desktop\\objeto.xml"));

@@ -1,0 +1,10 @@
+<list>
+  <algo3.modelo.objeto.CaracteristicaObjeto>
+	<nombre>Candelabro del Teatro</nombre>
+	<ciudadOrigen>Sydney</ciudadOrigen>
+  </algo3.modelo.objeto.CaracteristicaObjeto>
+  <algo3.modelo.objeto.CaracteristicaObjeto>
+	<nombre>Tabla babilonica</nombre>
+	<ciudadOrigen>Baghdad</ciudadOrigen>
+  </algo3.modelo.objeto.CaracteristicaObjeto>
+</list>

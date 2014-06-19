@@ -23,6 +23,8 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	private String[] religion;
 	private String gobierno;
 	private String[] miscelaneo;
+	private String coordenadaX;
+	private String coordenadaY;
 
 	/**
 	 * Crea una Informacion completamente vacia
@@ -123,6 +125,14 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 
 	public String getNombreCiudad() {
 		return nombreCiudad;
+	}
+	
+	public String getCoordenadaX() {
+		return coordenadaX;
+	}
+	
+	public String getCoordenadaY() {
+		return coordenadaY;
 	}
 
 	public void setNombreCiudad(String nombreCiudad) {

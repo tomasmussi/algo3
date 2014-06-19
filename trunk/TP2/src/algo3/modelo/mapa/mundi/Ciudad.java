@@ -25,6 +25,8 @@ public class Ciudad {
 
 	public Ciudad(InformacionCiudad informacion) {
 		this.nombre = informacion.getNombreCiudad();
+		this.coordenadaX = Integer.parseInt(informacion.getCoordenadaX());
+		this.coordenadaY = Integer.parseInt(informacion.getCoordenadaY());
 		this.informacion = informacion;
 	}
 
