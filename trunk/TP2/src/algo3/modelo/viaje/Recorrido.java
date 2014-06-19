@@ -43,7 +43,9 @@ public class Recorrido {
 			List<Ciudad> posibles = new ArrayList<Ciudad>();
 			posibles.add(ciudad1);
 			ciudadesUsadas.put(ciudad2, posibles);
-			//TODO: (Eli) Analizar si realmente es necesaria esta ultima linea.
+			if (!ciudadesUsadas.get(ciudad1).contains(ciudad2)) {
+				ciudadesUsadas.get(ciudad1).add(ciudad2);
+			}	
 			ciudadesLibres.remove(ciudad2); 
 		}
 	}
