@@ -65,7 +65,9 @@ public class Ladron {
 		}
 		iterador = rutaEscape.iterator();
 		this.moverAlSiguientePais();
+		this.moverAlSiguientePais();
 	}
+
 
 	public Ciudad getCiudadActual() {
 		return this.ciudadActual;
