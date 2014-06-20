@@ -9,12 +9,15 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import algo3.modelo.caso.Caso;
 import algo3.modelo.edificio.Edificio;
+import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.CiudadFactory;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.mapa.mundi.InformacionCiudadProvider;
 import algo3.modelo.mapa.mundi.NombresCiudades;
+import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.policia.Policia;
 import algo3.modelo.tiempo.Reloj;
 
@@ -22,11 +25,31 @@ public class CiudadTest {
 
 	private InformacionCiudad infoCiudadOrigen;
 	private InformacionCiudad infoCiudadDestino;
+	private CaracteristicaLadron caracteristicaNickBrunch;
+	private List<CaracteristicaLadron> ladrones;
+	private List<CaracteristicaObjeto> objetos;
+	private Policia policia;
+	private Reloj reloj;
 
 	@Before
 	public void crearInformacionDefault() {
 		infoCiudadOrigen = InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.NEW_YORK);
 		infoCiudadDestino = InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.RIO_DE_JANEIRO);
+	}
+
+	@Before
+	public void crearPoliciaConCaso(){
+
+		caracteristicaNickBrunch = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
+		ladrones = new ArrayList<CaracteristicaLadron>();
+		objetos = new ArrayList<CaracteristicaObjeto>();
+
+		ladrones.add(caracteristicaNickBrunch);
+		objetos.add(new CaracteristicaObjeto("Anillo del Papa", "Roma"));
+		policia = new Policia();
+		reloj = new Reloj();
+		policia.setReloj(reloj);
+		policia.asignarCaso(new Caso(ladrones, objetos, policia.getGrado()));
 	}
 
 	@Test
@@ -37,9 +60,6 @@ public class CiudadTest {
 
 	@Test
 	public void testCrearDosCiudadesRelacionaUnaConOtra() {
-		Policia policia = new Policia();
-		Reloj reloj = new Reloj();
-		policia.setReloj(reloj);
 		Ciudad ciudadOrigen = new Ciudad(0,0,null,null,null,infoCiudadOrigen);
 		ciudadOrigen.agregarInformacionProximaCiudad(infoCiudadDestino);
 		String infoBancaria = policia.visitarEdificioYObtenerPista(ciudadOrigen.getTodosLosEdificios()[0]);
@@ -50,9 +70,6 @@ public class CiudadTest {
 
 	@Test
 	public void testCrearCiudadesRelacionadasConArchivoProperties() {
-		Policia policia = new Policia();
-		Reloj reloj = new Reloj();
-		policia.setReloj(reloj);
 		// Creo una ciudad (Bangkok) que me de informacion sobre la siguiente ciudad (Buenos Aires)
 		Ciudad ciudad = CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(NombresCiudades.BANGKOK, NombresCiudades.BUENOS_AIRES);
 		List<String> pistasPosibles = new ArrayList<String>();
