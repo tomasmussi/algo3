@@ -1,7 +1,6 @@
 package test.modelo.integracion;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,27 +35,27 @@ public class ViajeTest {
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
 		MapaMundi.getInstance().cargarListadoCiudades(listaCiudadesRecorrido);
-		/*}
+	}
 
 	@Before
-	public void cargarLadrones() {*/
+	public void cargarLadrones() {
 		listaLadrones = new ArrayList<CaracteristicaLadron>();
 		listaLadrones.add(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
 		listaLadrones.add(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
 		listaLadrones.add(new CaracteristicaLadron("Merey Laroc", "Femenino", "Croquet", "Marron", "Joyas", "Limusina"));
-		/*}
+	}
 
 	@Before
-	public void cargarObjetos() {*/
+	public void cargarObjetos() {
 		listaObjetos = new ArrayList<CaracteristicaObjeto>();
 		listaObjetos.add(new CaracteristicaObjeto("Algo1", "Oslo"));
 		listaObjetos.add(new CaracteristicaObjeto("Algo2", "Tokyo"));
 		listaObjetos.add(new CaracteristicaObjeto("Algo3", "Lima"));
 		listaObjetos.add(new CaracteristicaObjeto("Algo4", "Paris"));
-		/*}
+	}
 
 	@Before
-	public void crearPolicia(){*/
+	public void crearPolicia(){
 		this.reloj = new Reloj();
 		this.policia = new Policia();
 		policia.setReloj(reloj);
@@ -69,53 +68,10 @@ public class ViajeTest {
 		policia.asignarCaso(esteCaso);
 		Ciudad ciudadActualLadron = esteCaso.getLadron().getCiudadActual();
 		assertFalse(ciudadActualLadron.equals(policia.getCiudadActual()));
-
 		policia.viajarA(ciudadActualLadron);
-
-		assertTrue(esteCaso.getLadron().getCiudadActual().esMismaCiudadQue(policia.getCiudadActual()));
-
-
-		//assertFalse(esteCaso == null);
-
-		// Ahora no deberian estar en la misma ciudad, porque el ladron se fue.
-		//assertFalse(policia.getCiudadActual().equals(ladron.getCiudadActual()));
+		assertFalse(esteCaso.getLadron().getCiudadActual().esMismaCiudadQue(policia.getCiudadActual()));
 	}
 	/*
-	@Before
-	public void crearListaDeInformacion() {
-		this.listaCiudadesRecorrido = new ArrayList<InformacionCiudad>();
-		listaCiudadesRecorrido.add(new InformacionCiudad("Rio de Janeiro", "Verde y amarilla", "Real", "Presidente"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva York", "Azul, roja y blanca", "Dolar", "Presidente"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Oslo", "Roja y azul", "Corona", "Rey"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Buenos Aires","Blanca y celeste", "Peso", "Presidente"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Tokyo","Blanca y roja", "Yen", "Presidente"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Paris","Blanca, roja y azul", "Franco", "Presidente"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
-		MapaMundi.getInstance().cargarListadoCiudades(listaCiudadesRecorrido);
-	}
-
-
-	 */
-	/**
-	 * Devuleve una ciudad sin edificios pero con informacion para pedirle: colores bandera, moneda, etc.
-	 */
-	/*
-	private Ciudad crearCiudadPrueba(String nombre, String bandera, String moneda, String gobierno) {
-		InformacionCiudad informacion = new InformacionCiudad(nombre, bandera, moneda, gobierno);
-		return new Ciudad(0, 0, null, null, null, informacion);
-	}*/
-
-	/**
-	 * Devuelve una Ciudad con Edificios Fijos {Aeropuerto, Banco, Embajada} pero sin informacion de si misma.
-	 */
-	/*
-	private Ciudad crearCiudad(String nombre, Ciudad siguienteCiudad) {
-		Edificio edificio1 = new Aeropuerto(new Bandera(siguienteCiudad.getColoresBandera()));
-		Edificio edificio2 = new Banco(new Moneda(siguienteCiudad.getMoneda()));
-		Edificio edificio3 = new Embajada(new Gobierno(siguienteCiudad.getGobierno()));
-		return new Ciudad(1, 1, edificio1, edificio2, edificio3, new InformacionCiudad());
-	}
 
 	@Test
 	public void testPoliciaNovatoViajaCiudadLadronEscapa() {
