@@ -119,19 +119,23 @@ public class Policia {
 		return horasARestar;
 	}
 
-	//TODO:Se llama con un evento
+	//Se llama con un evento
 	public String visitarEdificioYObtenerPista(Edificio edificio) {
 		int horasARestar = aumentarVisitas(edificio);
 		reloj.transcurrir(horasARestar);
+		// TODO: esto solo deberia pasar cuando es la ultima ciudad, no siempre. 
 		if(!edificio.estaLadron() ){
+			//TODO: Esto se delega en los Grados. Por ejepmlo: grado.recibirAtaque();
 			if(getCantidadArrestos()<10){
 				acuchillado();
 			}else{
 				disparado();
 			}
-		}else if(edificio.estaLadron()){
-			arrestar(getCaso().getLadron());
-
+		} else {
+			// TODO: lo arreste o no, ahora no se enteraria nunca, solo devolvería la pista.
+			if(arrestar(getCaso().getLadron())){
+				return "GANASTE";
+			}
 		}
 
 		return grado.getPista(edificio);
