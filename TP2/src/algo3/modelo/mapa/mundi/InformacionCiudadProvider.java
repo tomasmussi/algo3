@@ -5,7 +5,6 @@ import java.util.Properties;
 
 public class InformacionCiudadProvider {
 
-	// TODO: Falta traducir la informacion.
 
 	private static final String SEPARADOR = ";";
 	private static final String SEPARADOR_SECUNDARIO = ",";
@@ -50,8 +49,8 @@ public class InformacionCiudadProvider {
 	}
 
 	private InformacionCiudad crearInformacionCiudad(String nombreCiudad, String propiedades) {
-		String[] infoPropiedades = propiedades.split(SEPARADOR);
 		InformacionCiudad informacionCiudad = new InformacionCiudad();
+		String[] infoPropiedades = propiedades.split(SEPARADOR);
 		int i = 0;
 		informacionCiudad.setNombreCiudad(nombreCiudad);
 		informacionCiudad.setColoresBandera(infoPropiedades[i++]);

@@ -16,10 +16,9 @@ public class CasoTest {
 	}
 
 	@Test
-	public void NoPudoGenerarOrdenArrestoPorTenerVariasCoincidencias(){
-
+	public void testNoPudoGenerarOrdenArrestoPorTenerVariasCoincidencias(){
 		Caso caso = crearCaso();
-		caso.generarOrdenDeArresto(new CaracteristicaLadron( null, "Masculino", "Croquet", null, null, "Limousina"));
+		caso.generarOrdenDeArresto(new CaracteristicaLadron(null, "Masculino", "Croquet", null, null, "Limousina"));
 		assertEquals(null, caso.getOrdenDeArresto());
 	}
 
@@ -41,11 +40,6 @@ public class CasoTest {
 		caso.generarOrdenDeArresto(new CaracteristicaLadron("Ihor Ihorovitch", "Masculino", "Croquet", "Rubio", "Tatuaje", "Limousina"));
 		assertTrue(caso.getOrdenDeArresto().getCaracteristicaLadron().equals(new CaracteristicaLadron("Ihor Ihorovitch", "Masculino", "Croquet", "Rubio", "Tatuaje", "Limousina")));
 	}
-
-
-
-
-
 
 
 }

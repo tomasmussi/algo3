@@ -1,50 +1,53 @@
 package algo3.modelo.mapa.mundi;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import algo3.controlador.XMLParser;
 
 public class MapaMundi {
-	private List<Ciudad> ciudadesDelMundo;
+	private Map<String, Ciudad> ciudadesDelMundo;
 	private static MapaMundi instance;
 
 	private MapaMundi(){
-		this.ciudadesDelMundo = new ArrayList<Ciudad>();
+		ciudadesDelMundo = new HashMap<String, Ciudad>();
 		List<InformacionCiudad> ciudades = XMLParser.cargarCiudades();
 		this.cargarListadoCiudades(ciudades);
 	}
 
-	public static MapaMundi getInstance() {
+	public synchronized static MapaMundi getInstance() {
 		if (instance == null) {
 			instance = new MapaMundi();
 		}
 		return instance;
 	}
 
-	public void agregarCiudad(Ciudad estaCiudad) {
-		this.ciudadesDelMundo.add(estaCiudad);
+	public void agregarCiudad(Ciudad ciudad) {
+		this.ciudadesDelMundo.put(ciudad.getNombre(), ciudad);
 	}
 
+	/**
+	 * Devuelve una Ciudad a partir del nombre de la misma
+	 * @return Ciudad si esta dentro de las ciudades que contiene el mapa
+	 *  o null si no esta dicha ciudad
+	 * */
 	public Ciudad getCiudadDeNombre(String nombreCiudad) {
-		Ciudad estaCiudad = null;
-		for (int i = 0; i < this.ciudadesDelMundo.size(); i++){
-			Ciudad unaCiudad = ciudadesDelMundo.get(i);
-			if (unaCiudad.getNombre() == nombreCiudad){
-				estaCiudad = unaCiudad;
-			}
-		}
-		return estaCiudad;
+		return ciudadesDelMundo.get(nombreCiudad);
 	}
 
 	public List<Ciudad> getListadoCiudades(){
-		return this.ciudadesDelMundo;
+		return new ArrayList<Ciudad>(ciudadesDelMundo.values());
 	}
 
 	public void cargarListadoCiudades(List<InformacionCiudad> ciudades) {
-		for (int i = 0; i < ciudades.size(); i++){
-			Ciudad estaCiudad = new Ciudad(0,0,null,null,null,ciudades.get(i));
-			this.agregarCiudad(estaCiudad);
+
+		Iterator<InformacionCiudad> iter = ciudades.iterator();
+		while (iter.hasNext()){
+			InformacionCiudad informacionCiudad = iter.next();
+			agregarCiudad(new Ciudad(0,0,null,null,null,informacionCiudad));
 		}
 	}
 }

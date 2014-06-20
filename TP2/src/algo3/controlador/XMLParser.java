@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Properties;
 
 import algo3.modelo.ladron.CaracteristicaLadron;
-import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 
@@ -47,7 +46,7 @@ public class XMLParser {
 			System.out.println(estaCiudad);
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private static void leerObjetos() throws IOException {
 		InputStream in = Properties.class.getResourceAsStream("/algo3/controlador/objetos.xml");
@@ -73,7 +72,7 @@ public class XMLParser {
 		}
 		return null;
 	}
-	
+
 	public static List<InformacionCiudad> cargarCiudades() {
 		try {
 			XStream xmlReader = new XStream();
@@ -87,7 +86,7 @@ public class XMLParser {
 		}
 		return null;
 	}
-	
+
 	public static List<CaracteristicaObjeto> cargarObjetos() {
 		try {
 			XStream xmlReader = new XStream();
