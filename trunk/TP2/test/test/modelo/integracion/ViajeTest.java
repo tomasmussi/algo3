@@ -53,6 +53,7 @@ public class ViajeTest {
 		listaCiudadesRecorrido.add(new InformacionCiudad("Paris","Blanca, roja y azul", "Franco", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
+		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
 	}
 
 	@Before
@@ -84,8 +85,6 @@ public class ViajeTest {
 	@Test
 	public void testPoliciaViajaCiudadLadronEscapa() {
 
-		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
-
 		Robable objeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(objeto.getCiudadOrigen());
 
@@ -109,8 +108,6 @@ public class ViajeTest {
 
 	@Test
 	public void testPoliciaAtrapaLadronConOrdenDeArrestoCorrectayTiempo() {
-
-		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
 
 		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
@@ -165,8 +162,6 @@ public class ViajeTest {
 	@Test
 	public void testPoliciaNoAtrapaLadronConOrdenDeArrestoIncorrecta() {
 
-		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
-
 		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
@@ -220,8 +215,6 @@ public class ViajeTest {
 
 	@Test
 	public void testPoliciaNoAtrapaLadronSinOrdenDeArresto() {
-
-		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
 
 		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
