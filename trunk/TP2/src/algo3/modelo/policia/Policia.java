@@ -53,14 +53,6 @@ public class Policia {
 		reloj.transcurrir(horas);
 	}
 
-	public void acuchillado() {
-		this.restarHoras(2);
-	}
-
-	//si es investigador o sargento;
-	public void disparado() {
-		this.restarHoras(4);
-	}
 
 	/**
 	 * Viajar recibe la cantidad de kilometros a viajar por parte del policia
@@ -121,18 +113,16 @@ public class Policia {
 	public String visitarEdificioYObtenerPista(Edificio edificio) {
 		int horasARestar = aumentarVisitas(edificio);
 		reloj.transcurrir(horasARestar);
-		// TODO: esto solo deberia pasar cuando es la ultima ciudad, no siempre.
-		if(!edificio.estaLadron() ){
-			//TODO: Esto se delega en los Grados. Por ejepmlo: grado.recibirAtaque();
-			if(getCantidadArrestos()<10){
-				acuchillado();
-			}else{
-				disparado();
-			}
-		} else {
-			// TODO: lo arreste o no, ahora no se enteraria nunca, solo devolvería la pista.
+		if(!edificio.estaLadron() && caso.ultimoPaisLadron(ciudadActual) ){
+			int horasArestarPorAtaque= grado.horasArestarPorAtaque();
+			reloj.transcurrir(horasArestarPorAtaque);
+			return "Algo turbio esta ocurriendo en la ciudad.";
+		} else if(edificio.estaLadron()){
+
 			if(arrestar(getCaso().getLadron())){
 				return "GANASTE";
+			} else {
+				return "PERDISTE";
 			}
 		}
 

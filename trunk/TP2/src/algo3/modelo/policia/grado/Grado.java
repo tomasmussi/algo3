@@ -17,12 +17,15 @@ public abstract class Grado {
 
 	public abstract String getPista(Edificio edificio);
 
+	public abstract Robable getObjetoRobado(CaracteristicaObjeto unaCaracteristica);
+
+	public abstract int horasArestarPorAtaque();
+
 	public void evaluarGrado(Policia policia) {
 		if (policia.getCantidadArrestos() == getTopeArrestos()) {
 			policia.setGrado(getGradoSiguiente());
 		}
 	}
 
-	public abstract Robable getObjetoRobado(CaracteristicaObjeto unaCaracteristica);
 
 }

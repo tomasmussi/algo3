@@ -9,6 +9,7 @@ import algo3.modelo.pista.PistaMedia;
 
 public class GradoInvestigador extends Grado {
 
+	private static final int horasArestar = 4;
 	private static final String GRADO = "Investigador";
 	private DificultadPista dificultadDePista;
 
@@ -45,6 +46,11 @@ public class GradoInvestigador extends Grado {
 	@Override
 	public Robable getObjetoRobado(CaracteristicaObjeto unaCaracteristica) {
 		return new ObjetoValioso(unaCaracteristica);
+	}
+
+	@Override
+	public int horasArestarPorAtaque() {
+		return horasArestar;
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.Random;
 import algo3.modelo.estacionPolicia.EstacionDePolicia;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
+import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.Robable;
 import algo3.modelo.policia.OrdenDeArresto;
@@ -74,6 +75,10 @@ public class Caso {
 
 	public void setRecorridoCaso(Recorrido recorrido) {
 		this.recorrido = recorrido;
+	}
+
+	public boolean ultimoPaisLadron(Ciudad ciudadActual) {
+		return ciudadActual.esMismaCiudadQue(ladron.getCiudadActual());
 	}
 
 }

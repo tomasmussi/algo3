@@ -60,7 +60,7 @@ public class Ciudad {
 	}
 
 	public boolean esMismaCiudadQue(Ciudad ciudad) {
-		// Solucion temporal, comparo nombres nada mas. TODO: mejorar.
+
 		if (ciudad == null) {
 			return false;
 		}
