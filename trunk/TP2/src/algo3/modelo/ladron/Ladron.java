@@ -65,7 +65,6 @@ public class Ladron {
 		}
 		iterador = rutaEscape.iterator();
 		this.moverAlSiguientePais();
-		this.moverAlSiguientePais();
 	}
 
 
