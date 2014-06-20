@@ -88,41 +88,41 @@ public class PoliciaTest {
 
 	@Test
 	public void testPoliciaCreadoEsNovato(){
-		assertEquals(policia.getGrado(), "Novato");
+		assertEquals(policia.getGrado().getPlaca(), "Novato");
 	}
 
 	@Test
 	public void testPoliciaAsciendeADetective(){
-		assertEquals(policia.getGrado(), "Novato");
+		assertEquals(policia.getGrado().getPlaca(), "Novato");
 		//emite orden de arresto que coincide con ladron del juego
 		policia.emitirOrdenDeArresto(caracteristicaNickBrunch);
 		for (int i = 1; i <= 5; i++){
 			policia.arrestar(nickBrunch);
 		}
-		assertEquals(policia.getGrado(), "Detective");
+		assertEquals(policia.getGrado().getPlaca(), "Detective");
 	}
 
 	@Test
 	public void testPoliciaNovatoAsciendeHastaSargento(){
 
-		assertEquals(policia.getGrado(), "Novato");
+		assertEquals(policia.getGrado().getPlaca(), "Novato");
 		policia.emitirOrdenDeArresto(caracteristicaNickBrunch);
 		for (int i = 1; i <= 5; i++){
 			policia.arrestar(nickBrunch);
 		}
-		assertEquals(policia.getGrado(), "Detective");
+		assertEquals(policia.getGrado().getPlaca(), "Detective");
 		for (int i = 6; i <= 10; i++){
 			policia.arrestar(nickBrunch);
 		}
-		assertEquals(policia.getGrado(), "Investigador");
+		assertEquals(policia.getGrado().getPlaca(), "Investigador");
 		for (int i = 11; i <= 20; i++){
 			policia.arrestar(nickBrunch);
 		}
-		assertEquals(policia.getGrado(), "Sargento");
+		assertEquals(policia.getGrado().getPlaca(), "Sargento");
 		for (int i = 0; i <= 90; i++){
 			policia.arrestar(nickBrunch);
 		}
-		assertEquals(policia.getGrado(), "Sargento");
+		assertEquals(policia.getGrado().getPlaca(), "Sargento");
 	}
 
 	@Test
@@ -137,11 +137,11 @@ public class PoliciaTest {
 		policia.emitirOrdenDeArresto(caracteristicaNickBrunch);
 		policia.viajar(1300);
 		assertEquals("Lunes 12:00 horas", reloj.tiempoActual());
-		assertEquals(policia.getGrado(), "Novato");
+		assertEquals(policia.getGrado().getPlaca(), "Novato");
 		for (int i = 1; i <= 10; i++){
 			policia.arrestar(nickBrunch);
 		}
-		assertEquals(policia.getGrado(), "Investigador");
+		assertEquals(policia.getGrado().getPlaca(), "Investigador");
 		//Resta solo 1 hora
 		policia.viajar(1300);
 		assertEquals("Lunes 13:00 horas", reloj.tiempoActual());
