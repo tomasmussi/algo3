@@ -18,7 +18,7 @@ public class GradoDetective extends Grado {
 	}
 
 	@Override
-	public String getGrado() {
+	public String getPlaca() {
 		return GRADO;
 	}
 

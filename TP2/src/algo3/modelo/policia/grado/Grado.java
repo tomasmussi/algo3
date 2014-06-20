@@ -7,7 +7,7 @@ import algo3.modelo.policia.Policia;
 
 public abstract class Grado {
 
-	public abstract String getGrado();
+	public abstract String getPlaca();
 
 	public abstract int getKilometrosPorHora();
 
