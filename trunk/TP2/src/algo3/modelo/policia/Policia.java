@@ -130,7 +130,8 @@ public class Policia {
 			caso.getRecorrido().actualizarNexoEntre(ciudadActual, ciudad);
 		}
 
-		this.ciudadActual = ciudad;Ladron ladron= getCaso().getLadron();
+		this.ciudadActual = ciudad;
+		Ladron ladron= getCaso().getLadron();
 		if(ciudadActual.esMismaCiudadQue(ladron.getCiudadActual())){
 			ladron.moverAlSiguientePais();
 		}
