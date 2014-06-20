@@ -26,7 +26,7 @@ public class NombresCiudades {
 	public static final String NEW_YORK = "NewYork";
 	public static final String OSLO = "Oslo";
 	public static final String PARIS = "Paris";
-	public static final String PEKING = "Peking";
+	public static final String PEKIN = "Pekin";
 	public static final String PORT_MORESBY = "PortMoresby";
 	public static final String REYKJAVIK = "Reykjavik";
 	public static final String RIO_DE_JANEIRO = "RioDeJaneiro";
@@ -37,7 +37,7 @@ public class NombresCiudades {
 	public static final String TOKIO = "Tokio";
 
 	public static String[] getTodosLosNombres() {
-		String[] nombres = { ATENAS, BAGDAD, BAMAKO, BANGKOK, BUDAPEST, BUENOS_AIRES, CAIRO, COLOMBO, ESTAMBUL, KATHMANDU, KIGALI, LIMA, LONDRES, MEXICO_CITY, MONTREAL, MORONI, MOSCU, NEW_DELHI, NEW_YORK, OSLO, PARIS, PEKING, PORT_MORESBY,
+		String[] nombres = { ATENAS, BAGDAD, BAMAKO, BANGKOK, BUDAPEST, BUENOS_AIRES, CAIRO, COLOMBO, ESTAMBUL, KATHMANDU, KIGALI, LIMA, LONDRES, MEXICO_CITY, MONTREAL, MORONI, MOSCU, NEW_DELHI, NEW_YORK, OSLO, PARIS, PEKIN, PORT_MORESBY,
 				REYKJAVIK, RIO_DE_JANEIRO, ROMA, SAN_MARINO, SINGAPORE, SYDNEY, TOKIO, };
 		return nombres;
 	}

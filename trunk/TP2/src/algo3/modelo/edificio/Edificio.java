@@ -5,8 +5,7 @@ import algo3.modelo.ladron.Ladron;
 
 public abstract class Edificio {
 
-	//asi static(?)
-	private static Ladron ladron ;
+	private Ladron ladron ;
 
 	protected static final String MSJ_LADRON_NO_ESTUVO_AQUI = "Lo lamento, no hemos visto al sospechoso aqui.";
 
@@ -16,12 +15,10 @@ public abstract class Edificio {
 
 	public void refugiarLadron(Ladron ladron) {
 		this.ladron = ladron;
-
 	}
 
-	public Boolean estaLadron(){
+	public boolean estaLadron(){
 		return (ladron != null);
 	}
-
 
 }
