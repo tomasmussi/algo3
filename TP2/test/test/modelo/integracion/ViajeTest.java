@@ -93,7 +93,6 @@ public class ViajeTest {
 
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		ladron.robar(objeto);
-		ladron.elegirEscapatoria(ciudades);
 		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
 		Caso esteCaso = new Caso(objeto, ladron, esteRecorrido);
 		policia.asignarCaso(esteCaso);
@@ -121,7 +120,6 @@ public class ViajeTest {
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 
 		ladron.robar(esteObjeto);
-		ladron.elegirEscapatoria(ciudades);
 		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
 		Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
 		policia.asignarCaso(esteCaso);
@@ -176,7 +174,6 @@ public class ViajeTest {
 
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		ladron.robar(esteObjeto);
-		this.ladron.elegirEscapatoria(ciudades);
 		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
 		Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
 		this.policia.asignarCaso(esteCaso);
@@ -233,7 +230,6 @@ public class ViajeTest {
 
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		ladron.robar(esteObjeto);
-		this.ladron.elegirEscapatoria(ciudades);
 		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
 		Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
 		this.policia.asignarCaso(esteCaso);
