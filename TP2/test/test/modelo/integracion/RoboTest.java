@@ -31,7 +31,7 @@ public class RoboTest {
 	@Before
 	public void crearListaDeInformacion() {
 		esteLadron = new Ladron (new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
-		mapa = new MapaMundi();
+		mapa = mapa.getInstance();
 		listaCiudadesRecorrido = new ArrayList<InformacionCiudad>();
 		listaCiudadesRecorrido.add(InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.RIO_DE_JANEIRO));
 		listaCiudadesRecorrido.add(InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.NEW_YORK));
@@ -50,8 +50,8 @@ public class RoboTest {
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		esteLadron.robar(esteObjeto);
-		esteLadron.elegirEscapatoria(ciudades, estaCiudad);
-		assertTrue(esteLadron.getLongitudRecorridoEscapatoria() == 4);
+		esteLadron.elegirEscapatoria(ciudades);
+		assertTrue(esteLadron.getEscapatoria().size() == 4);
 	}
 
 	@Test
@@ -60,8 +60,8 @@ public class RoboTest {
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		esteLadron.robar(esteObjeto);
-		esteLadron.elegirEscapatoria(ciudades, estaCiudad);
-		assertTrue(esteLadron.getLongitudRecorridoEscapatoria() == 5);
+		esteLadron.elegirEscapatoria(ciudades);
+		assertTrue(esteLadron.getEscapatoria().size() == 5);
 	}
 
 	@Test
@@ -70,8 +70,8 @@ public class RoboTest {
 		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		esteLadron.robar(esteObjeto);
-		esteLadron.elegirEscapatoria(ciudades, estaCiudad);
-		assertTrue(esteLadron.getLongitudRecorridoEscapatoria() == 7);
+		esteLadron.elegirEscapatoria(ciudades);
+		assertTrue(esteLadron.getEscapatoria().size() == 7);
 	}
 
 }

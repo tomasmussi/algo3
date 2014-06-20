@@ -34,7 +34,8 @@ public class CapturaTest {
 		caracteristicaUnivocaNickBrunch = new CaracteristicaLadron(null, null, null, "Negro", null, "Motocicleta");
 		nickBrunch = new Ladron(caracteristicaNickBrunch);
 		reloj = new Reloj();
-		policia = new Policia(reloj);
+		policia = new Policia();
+		policia.setReloj(reloj);
 	}
 
 	/* Comienzan los test*/

@@ -15,6 +15,7 @@ public class Recorrido {
 	// Recorrido NO distingue entre las ciudades por las que debe pasar el ladron. Solo las recibe para armar
 	// los planes de destinos, pero no guarda el recorrido en si. Solo el ladron lo sabe.
 
+	//TODO: CAMBIAR NOMBRE A DESTINOSPOSIBLES
 	public Recorrido (List<Ciudad> escapatoria, List<Ciudad> todasLasCiudades) {
 		this.ciudadesUsadas = new HashMap<Ciudad, List<Ciudad>>();
 		this.ciudadesLibres = new ArrayList<Ciudad>();
@@ -46,11 +47,11 @@ public class Recorrido {
 			if (!ciudadesUsadas.get(ciudad1).contains(ciudad2)) {
 				ciudadesUsadas.get(ciudad1).add(ciudad2);
 			}	
-			ciudadesLibres.remove(ciudad2); 
+			ciudadesLibres.remove(ciudad2);
 		}
 	}
-	
-	// TODO: Hacer que el 4 (cantidad de opciones a ofrecer) sea una constante. ??
+	//TODO:SE LLAMA DESDE EVENTO
+	// Hacer que el 4 (cantidad de opciones a ofrecer) sea una constante. ??
 	// Devuelve las posibles ciudades, donde siempre estaran de la que viene y a la que tiene que ir + otra(s) elegida(s) Randomly.
 	public List<Ciudad> getCiudadesPosibles(Ciudad origen){
 

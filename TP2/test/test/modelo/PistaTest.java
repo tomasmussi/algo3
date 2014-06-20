@@ -47,7 +47,9 @@ public class PistaTest {
 
 	private Policia crearPolicia(int arrestos) {
 
-		Policia policia = new Policia(new Reloj());
+		Policia policia = new Policia();
+		Reloj reloj = new Reloj();
+		policia.setReloj(reloj);
 		policia.emitirOrdenDeArresto(caracteristicaNickBrunch);
 		for (int i = 1; i <= arrestos; i++) {
 			policia.arrestar(nickBrunch);

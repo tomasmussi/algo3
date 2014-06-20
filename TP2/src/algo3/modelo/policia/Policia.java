@@ -11,7 +11,6 @@ import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.policia.grado.Grado;
 import algo3.modelo.policia.grado.GradoNovato;
 import algo3.modelo.tiempo.Reloj;
-import algo3.modelo.viaje.Recorrido;
 
 public class Policia {
 
@@ -24,25 +23,28 @@ public class Policia {
 	private Grado grado;
 	private Caso caso;
 
-	public Policia(Reloj reloj) {
-		this.reloj = reloj;
+	public Policia() {
+
 		cantidadArrestos = 0;
 		cantidadDeVisitas = 0;
 		grado = new GradoNovato();
+		//TODO: ESTA LINEA DE CASO SE BORRA.
 		caso = new Caso();
 		ciudadActual = null;
 
-		// (Elisa) Esto me parece que no va aca:
-		// caso = new Caso();
-		// El juego le asigna el caso, o no??.
-		// TODO: Implementar el juego.asignarCasoAJugador(jugador, todaLaInfoDeLosArchivos);
 	}
 
+	//TODO: VER SI ESTO SE USA EN ALGUN LADO
 	public Policia(Ciudad ciudadInicial) {
 		cantidadArrestos = 0;
 		cantidadDeVisitas = 0;
 		grado = new GradoNovato();
 		this.ciudadActual = ciudadInicial;
+	}
+
+	public void setReloj(Reloj reloj){
+		this.reloj = reloj;
+
 	}
 
 	public void asignarCaso(Caso esteCaso) {
@@ -57,6 +59,7 @@ public class Policia {
 		this.restarHoras(2);
 	}
 
+	//si es investigador o sargento;
 	public void disparado() {
 		this.restarHoras(4);
 	}
@@ -73,22 +76,31 @@ public class Policia {
 		horas += (kilometros % grado.getKilometrosPorHora()) != 0 ? 1 : 0;
 		reloj.transcurrir(horas);
 	}
-
-	public boolean puedeArrestar() {
-		return reloj.hayTiempoRestante();
-	}
-
-	public String getGrado() {
-		return grado.getGrado();
-	}
-
 	private void aumentarArrestos() {
 		cantidadArrestos++;
 		grado.evaluarGrado(this);
 	}
 
+	//TODO: METODO SOLOPARA PRUEBAS
+	public boolean puedeArrestar() {
+		return reloj.hayTiempoRestante();
+	}
+
+	public Grado getGrado() {
+		return grado;
+	}
+
+
 	public int getCantidadArrestos() {
 		return cantidadArrestos;
+	}
+
+	public Caso getCaso() {
+		return caso;
+	}
+
+	public void setGrado(Grado gradoSiguiente) {
+		this.grado = gradoSiguiente;
 	}
 
 	/**
@@ -107,20 +119,41 @@ public class Policia {
 		return horasARestar;
 	}
 
+	//TODO:Se llama con un evento
 	public String visitarEdificioYObtenerPista(Edificio edificio) {
 		int horasARestar = aumentarVisitas(edificio);
 		reloj.transcurrir(horasARestar);
+		if(!edificio.estaLadron() ){
+			if(getCantidadArrestos()<10){
+				acuchillado();
+			}else{
+				disparado();
+			}
+		}else if(edificio.estaLadron()){
+			arrestar(getCaso().getLadron());
+
+		}
+
 		return grado.getPista(edificio);
 	}
 
+
+
+	//TODO: solo lo usan las pruebas
 	public Ciudad getCiudadActual() {
 		return ciudadActual;
 	}
 
+	//TODO: Se llama con un evento
 	public void viajarA(Ciudad ciudad) {
 		if (ciudadActual != null) {
 			this.viajar(ciudadActual.getDistanciaCon(ciudad));
 			caso.getRecorrido().actualizarNexoEntre(ciudadActual, ciudad);
+			Ladron ladron= getCaso().getLadron();
+			if(ciudadActual.esMismaCiudadQue(ladron.getCiudadActual())){
+				ladron.moverAlSiguientePais();
+			}
+
 		}
 		this.ciudadActual = ciudad;
 	}
@@ -153,12 +186,5 @@ public class Policia {
 		return false;
 	}
 
-	public void setGrado(Grado gradoSiguiente) {
-		this.grado = gradoSiguiente;
-	}
-
-	public void setRecorrido(Recorrido recorrido) {
-		this.caso.setRecorridoCaso(recorrido);
-	}
 
 }

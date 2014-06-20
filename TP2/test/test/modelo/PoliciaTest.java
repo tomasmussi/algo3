@@ -24,12 +24,12 @@ public class PoliciaTest {
 		caracteristicaNickBrunch = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
 		nickBrunch = new Ladron(caracteristicaNickBrunch);
 		reloj = new Reloj();
-		policia = new Policia(reloj);
+		policia = new Policia();
+		policia.setReloj(reloj);
 	}
 
 	@Test
 	public void testDispararPoliciaRestaCuatroHoras(){
-		Policia policia = new Policia(reloj);
 		policia.disparado();
 		assertEquals("Lunes 11:00 horas", reloj.tiempoActual());
 	}
@@ -37,27 +37,32 @@ public class PoliciaTest {
 	@Test
 	public void testPoliciaNovatoRecorrerKilometrosRestaHoras(){
 		reloj = new Reloj();
-		policia = new Policia(reloj);
+		policia = new Policia();
+		policia.setReloj(reloj);
 		policia.viajar(900);
 		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
 
 		reloj = new Reloj();
-		policia = new Policia(reloj);
+		policia = new Policia();
+		policia.setReloj(reloj);
 		policia.viajar(700);
 		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
 
 		reloj = new Reloj();
-		policia = new Policia(reloj);
+		policia = new Policia();
+		policia.setReloj(reloj);
 		policia.viajar(1100);
 		assertEquals("Lunes 09:00 horas", reloj.tiempoActual());
 
 		reloj = new Reloj();
-		policia = new Policia(reloj);
+		policia = new Policia();
+		policia.setReloj(reloj);
 		policia.viajar(1800);
 		assertEquals("Lunes 09:00 horas", reloj.tiempoActual());
 
 		reloj = new Reloj();
-		policia = new Policia(reloj);
+		policia = new Policia();
+		policia.setReloj(reloj);
 		policia.viajar(1900);
 		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
 	}
