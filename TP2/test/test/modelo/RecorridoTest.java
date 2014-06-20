@@ -11,6 +11,8 @@ import org.junit.Test;
 
 import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
+import algo3.modelo.mapa.mundi.InformacionCiudadProvider;
+import algo3.modelo.mapa.mundi.NombresCiudades;
 import algo3.modelo.viaje.Recorrido;
 
 public class RecorridoTest {
@@ -18,25 +20,29 @@ public class RecorridoTest {
 
 	private List<Ciudad> listaCiudadesMundo;
 	private List<Ciudad> listaRecorrido;
+	
+	private InformacionCiudad getInformacionPara(String ciudad){
+		return InformacionCiudadProvider.getInstance().getInformacionPara(ciudad);
+	}
 
 
 	@Before
 	public void crearListaDeInformacion() {
 		listaCiudadesMundo = new ArrayList<Ciudad>();
 		listaRecorrido = new ArrayList<Ciudad>();
-		listaCiudadesMundo.add(new Ciudad(new InformacionCiudad("Rio de Janeiro", "Verde y amarilla", "Real", "Presidente")));
-		listaCiudadesMundo.add(new Ciudad(new InformacionCiudad("Nueva York", "Azul, roja y blanca", "Dolar", "Presidente")));
-		listaCiudadesMundo.add(new Ciudad(new InformacionCiudad("Oslo", "Roja y azul", "Corona", "Rey")));
-		listaCiudadesMundo.add(new Ciudad(new InformacionCiudad("Buenos Aires","Blanca y celeste", "Peso", "Presidente")));
+		listaCiudadesMundo.add(new Ciudad(0,0, null, null, null, getInformacionPara(NombresCiudades.RIO_DE_JANEIRO)));
+		listaCiudadesMundo.add(new Ciudad(0,0, null, null, null, getInformacionPara(NombresCiudades.NEW_YORK)));
+		listaCiudadesMundo.add(new Ciudad(0,0, null, null, null, getInformacionPara(NombresCiudades.OSLO)));
+		listaCiudadesMundo.add(new Ciudad(0,0, null, null, null, getInformacionPara(NombresCiudades.BUENOS_AIRES)));
 		// Para los tests, uso siempre la creacion de 4 ciudades como el recorrido posta, las siguientes son de relleno
-		listaCiudadesMundo.add(new Ciudad(new InformacionCiudad("Tokyo","Blanca y roja", "Yen", "Presidente")));
-		listaCiudadesMundo.add(new Ciudad(new InformacionCiudad("Paris","Blanca, roja y azul", "Franco", "Presidente")));
-		listaCiudadesMundo.add(new Ciudad(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro")));
-		listaCiudadesMundo.add(new Ciudad(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente")));
-		listaRecorrido.add(new Ciudad(new InformacionCiudad("Rio de Janeiro", "Verde y amarilla", "Real", "Presidente")));
-		listaRecorrido.add(new Ciudad(new InformacionCiudad("Nueva York", "Azul, roja y blanca", "Dolar", "Presidente")));
-		listaRecorrido.add(new Ciudad(new InformacionCiudad("Oslo", "Roja y azul", "Corona", "Rey")));
-		listaRecorrido.add(new Ciudad(new InformacionCiudad("Buenos Aires","Blanca y celeste", "Peso", "Presidente")));
+		listaCiudadesMundo.add(new Ciudad(0,0, null, null, null, getInformacionPara(NombresCiudades.TOKIO)));
+		listaCiudadesMundo.add(new Ciudad(0,0, null, null, null, getInformacionPara(NombresCiudades.PARIS)));
+		listaCiudadesMundo.add(new Ciudad(0,0, null, null, null, getInformacionPara(NombresCiudades.NEW_DELHI)));
+		listaCiudadesMundo.add(new Ciudad(0,0, null, null, null, getInformacionPara(NombresCiudades.LIMA)));
+		listaRecorrido.add(new Ciudad(0,0, null, null, null, getInformacionPara(NombresCiudades.RIO_DE_JANEIRO)));
+		listaRecorrido.add(new Ciudad(0,0, null, null, null, getInformacionPara(NombresCiudades.NEW_YORK)));
+		listaRecorrido.add(new Ciudad(0,0, null, null, null, getInformacionPara(NombresCiudades.OSLO)));
+		listaRecorrido.add(new Ciudad(0,0, null, null, null, getInformacionPara(NombresCiudades.BUENOS_AIRES)));
 
 	}
 
