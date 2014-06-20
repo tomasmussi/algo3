@@ -12,15 +12,16 @@ import org.junit.Test;
 import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.mapa.mundi.InformacionCiudadProvider;
+import algo3.modelo.mapa.mundi.MapaMundi;
 import algo3.modelo.mapa.mundi.NombresCiudades;
 import algo3.modelo.viaje.Recorrido;
 
 public class RecorridoTest {
 
-
+	private List<InformacionCiudad> listaInformacionCiudadesMundo;
 	private List<Ciudad> listaCiudadesMundo;
 	private List<Ciudad> listaRecorrido;
-	
+
 	private InformacionCiudad getInformacionPara(String ciudad){
 		return InformacionCiudadProvider.getInstance().getInformacionPara(ciudad);
 	}
@@ -44,6 +45,17 @@ public class RecorridoTest {
 		listaRecorrido.add(new Ciudad(0,0, null, null, null, getInformacionPara(NombresCiudades.OSLO)));
 		listaRecorrido.add(new Ciudad(0,0, null, null, null, getInformacionPara(NombresCiudades.BUENOS_AIRES)));
 
+		listaInformacionCiudadesMundo = new ArrayList<InformacionCiudad>();
+		listaInformacionCiudadesMundo.add(getInformacionPara(NombresCiudades.RIO_DE_JANEIRO));
+		listaInformacionCiudadesMundo.add(getInformacionPara(NombresCiudades.NEW_YORK));
+		listaInformacionCiudadesMundo.add(getInformacionPara(NombresCiudades.OSLO));
+		listaInformacionCiudadesMundo.add(getInformacionPara(NombresCiudades.BUENOS_AIRES));
+		listaInformacionCiudadesMundo.add(getInformacionPara(NombresCiudades.TOKIO));
+		listaInformacionCiudadesMundo.add(getInformacionPara(NombresCiudades.PARIS));
+		listaInformacionCiudadesMundo.add(getInformacionPara(NombresCiudades.NEW_DELHI));
+		listaInformacionCiudadesMundo.add(getInformacionPara(NombresCiudades.LIMA));
+
+		MapaMundi.getInstance().cargarListadoCiudades(listaInformacionCiudadesMundo);
 	}
 
 	@Test
@@ -54,7 +66,7 @@ public class RecorridoTest {
 
 	@Test
 	public void testCiudadesDelRecorridoTienenComoOpcionCiudadSiguiente(){
-		Recorrido recorrido = new Recorrido(listaRecorrido, listaCiudadesMundo);
+		Recorrido recorrido = new Recorrido(listaRecorrido);
 		boolean ok = true;
 		for (int i = 0; i < listaRecorrido.size()-1; i++){
 			Ciudad ciudadPrevia = listaRecorrido.get(i);
@@ -66,14 +78,14 @@ public class RecorridoTest {
 
 	@Test
 	public void testCiudadDevuelveCuatroOpcionesPosibles(){
-		Recorrido recorrido = new Recorrido(listaRecorrido, listaCiudadesMundo);
+		Recorrido recorrido = new Recorrido(listaRecorrido);
 		Ciudad origen = listaRecorrido.get(0);
 		assertEquals(4, recorrido.getCiudadesPosibles(origen).size());
 	}
 
 	@Test
 	public void testCiudadesDelRecorridoTienenComoOpcionCiudadAnterior(){
-		Recorrido recorrido = new Recorrido(listaRecorrido, listaCiudadesMundo);
+		Recorrido recorrido = new Recorrido(listaRecorrido);
 		boolean ok = true;
 
 		for (int i = 0; i < (listaRecorrido.size()-1); i++){
