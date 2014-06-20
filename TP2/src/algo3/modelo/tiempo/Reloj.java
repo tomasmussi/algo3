@@ -47,11 +47,16 @@ public class Reloj {
 	}
 
 	private boolean esDeNoche(){
-		return horaDia >= 23 || horaDia <= 7;	
+		return horaDia >= 23 || horaDia <= 7;
 	}
 
 	public boolean hayTiempoRestante(){
 		return ! (numeroDia == 6 && horaDia == 17);
+	}
+
+	@Override
+	public String toString() {
+		return tiempoActual();
 	}
 
 }

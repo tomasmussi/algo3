@@ -52,6 +52,7 @@ public class Ladron {
 					+ cantidadCiudades + " ciudades");
 		}
 		List<Ciudad> ciudades = new ArrayList<Ciudad>(ciudadesDelMundo);
+		desordenarCiudades(ciudades);
 		this.rutaEscape = new ArrayList<Ciudad>();
 		this.rutaEscape.add(ciudadActual);
 		// Para que no pueda volver a la ciudad inicial:
@@ -67,6 +68,15 @@ public class Ladron {
 		this.moverAlSiguientePais();
 	}
 
+	private void desordenarCiudades(List<Ciudad> ciudades){
+		for (int i = 0; i < ciudades.size() - 1; i++){
+			Ciudad ciudad = ciudades.get(i);
+			int posicion = (int) ((Math.random() * ciudades.size()) % ciudades.size());
+			Ciudad otra = ciudades.get(posicion);
+			ciudades.set(i, otra);
+			ciudades.set(posicion, ciudad);
+		}
+	}
 
 	public Ciudad getCiudadActual() {
 		return this.ciudadActual;
