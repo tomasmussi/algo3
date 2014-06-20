@@ -129,6 +129,10 @@ public class Policia {
 		if (ciudadActual != null) {
 			this.viajar(ciudadActual.getDistanciaCon(ciudad));
 			caso.getRecorrido().actualizarNexoEntre(ciudadActual, ciudad);
+			Ladron ladron= getCaso().getLadron();
+			if(ciudadActual.esMismaCiudadQue(ladron.getCiudadActual())){
+				ladron.moverAlSiguientePais();
+			}
 		}
 		this.ciudadActual = ciudad;
 	}
