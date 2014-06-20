@@ -18,7 +18,7 @@ public class GradoInvestigador extends Grado {
 	}
 
 	@Override
-	public String getGrado() {
+	public String getPlaca() {
 		return GRADO;
 	}
 

@@ -47,7 +47,7 @@ public class MapaMundiTest {
 	public void testEncuentraCiudadCorrecta() {
 		MapaMundi mapa = MapaMundi.getInstance();
 		mapa.cargarListadoCiudades(listaDeInfo);
-		Ciudad estaCiudad = new Ciudad(new InformacionCiudad("Tokyo","Blanca y roja", "Yen", "Presidente"));
+		Ciudad estaCiudad = new Ciudad(0,0,null,null,null, new InformacionCiudad("Tokyo","Blanca y roja", "Yen", "Presidente"));
 		mapa.agregarCiudad(estaCiudad);
 		assertTrue(mapa.getCiudadDeNombre(estaCiudad.getNombre()) == estaCiudad);
 	}

@@ -43,7 +43,7 @@ public class MapaMundi {
 
 	public void cargarListadoCiudades(List<InformacionCiudad> ciudades) {
 		for (int i = 0; i < ciudades.size(); i++){
-			Ciudad estaCiudad = new Ciudad(ciudades.get(i));
+			Ciudad estaCiudad = new Ciudad(0,0,null,null,null,ciudades.get(i));
 			this.agregarCiudad(estaCiudad);
 		}
 	}

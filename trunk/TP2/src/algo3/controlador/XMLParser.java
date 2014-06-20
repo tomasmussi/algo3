@@ -77,7 +77,7 @@ public class XMLParser {
 	public static List<InformacionCiudad> cargarCiudades() {
 		try {
 			XStream xmlReader = new XStream();
-			InputStream in = Properties.class.getResourceAsStream("/algo3/modelo/mapa.mundi/ciudades.xml");
+			InputStream in = Properties.class.getResourceAsStream("/algo3/modelo/mapa/mundi/ciudades.xml");
 			List<InformacionCiudad> infoCiudades = (List<InformacionCiudad>) xmlReader.fromXML(in);
 
 			in.close();
