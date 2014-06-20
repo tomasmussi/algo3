@@ -31,7 +31,7 @@ public class CiudadTest {
 
 	@Test
 	public void testCrearCiudadDesdeInformacionCiudad() {
-		Ciudad ciudad = new Ciudad(infoCiudadOrigen);
+		Ciudad ciudad = new Ciudad(0,0,null,null,null,infoCiudadOrigen);
 		assertEquals(infoCiudadOrigen.getNombreCiudad(), ciudad.getNombre());
 	}
 
@@ -40,7 +40,7 @@ public class CiudadTest {
 		Policia policia = new Policia();
 		Reloj reloj = new Reloj();
 		policia.setReloj(reloj);
-		Ciudad ciudadOrigen = new Ciudad(infoCiudadOrigen);
+		Ciudad ciudadOrigen = new Ciudad(0,0,null,null,null,infoCiudadOrigen);
 		ciudadOrigen.agregarInformacionProximaCiudad(infoCiudadDestino);
 		String infoBancaria = policia.visitarEdificioYObtenerPista(ciudadOrigen.getTodosLosEdificios()[0]);
 		assertEquals(infoBancaria, "Solo se que cambio todo su dinero a Cruzeiros.");
