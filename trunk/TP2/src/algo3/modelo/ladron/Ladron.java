@@ -5,10 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import algo3.modelo.edificio.Aeropuerto;
-import algo3.modelo.edificio.Banco;
 import algo3.modelo.edificio.Edificio;
-import algo3.modelo.edificio.Embajada;
 import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.MapaMundi;
 import algo3.modelo.objeto.Robable;
@@ -52,7 +49,7 @@ public class Ladron {
 	//(FLAVIA) void SI pero no privado xq caso le pasa las ciudades SE LLAMA DESDE CASO
 	//osea a ladron le pasan las ciudades y el elige su escapatoria pero se llama desde caso.
 	//no me parece que robar lo haga
-	public void elegirEscapatoria(List<Ciudad> ciudadesDelMundo){
+	private void elegirEscapatoria(List<Ciudad> ciudadesDelMundo){
 
 		int cantidadCiudades = this.objetoRobado.getCantidadDeCiudades();
 		if (cantidadCiudades > ciudadesDelMundo.size()){
@@ -85,11 +82,8 @@ public class Ladron {
 	public void moverAlSiguientePais() {
 		if (iterador.hasNext()){
 			ciudadActual = iterador.next();
-			int longitudEscapatoria = getEscapatoria().size();
-			//si es la ultima ciudad a la q se puede mover marca q entra al edificio
-			if(getCiudadActual().esMismaCiudadQue((getEscapatoria().get(longitudEscapatoria-1)))){
-				this.refugiarseEnEdificio();
-			}
+		} else {
+			this.refugiarseEnEdificio();
 		}
 	}
 
@@ -111,10 +105,9 @@ public class Ladron {
 	}
 
 	public void robar(Robable objetoRobado) {
-
 		this.ciudadActual = MapaMundi.getInstance().getCiudadDeNombre(objetoRobado.getCiudadOrigen());
 		this.objetoRobado = objetoRobado;
-		this.elegirEscapatoria(MapaMundi.getInstance().getListadoCiudades());
+		elegirEscapatoria(MapaMundi.getInstance().getListadoCiudades());
 	}
 
 }

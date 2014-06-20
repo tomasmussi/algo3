@@ -7,7 +7,6 @@ import algo3.controlador.Logger;
 import algo3.modelo.estacionPolicia.EstacionDePolicia;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
-import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.MapaMundi;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.Robable;
@@ -44,8 +43,7 @@ public class Caso {
 		this.ladron = new Ladron(ladrones.get(posicion));
 		this.ladron.robar(objetoRobado);
 
-		asignarCiudadesAladron(MapaMundi.getInstance().getListadoCiudades());
-		//this.objeto = objetoRobado;
+		this.objeto = objetoRobado;
 		this.recorrido = new Recorrido(this.ladron.getEscapatoria(), MapaMundi.getInstance().getListadoCiudades());
 
 	}
@@ -80,32 +78,27 @@ public class Caso {
 
 	}
 
-	public void asignarCiudadesAladron(List<Ciudad> ciudadesDelMundo){
-		ladron.elegirEscapatoria(ciudadesDelMundo);
-	}
-
 
 	public OrdenDeArresto getOrdenDeArresto() {
 		return ordenDeArresto;
 	}
+
 	public void setOrdenDeArresto(OrdenDeArresto ordenDeArresto) {
 		this.ordenDeArresto = ordenDeArresto;
 	}
+
 	public Ladron getLadron() {
 		return ladron;
 	}
+
 	public void setLadron(Ladron ladron) {
 		this.ladron = ladron;
 	}
-	//	public Robable getObjeto() {
-	//		return objeto;
-	//	}
-	//	public void setObjeto(Robable objeto) {
-	//		this.objeto = objeto;
-	//	}
+
 	public Recorrido getRecorrido() {
 		return this.recorrido;
 	}
+
 	public void setRecorridoCaso(Recorrido recorrido) {
 		this.recorrido = recorrido;
 	}
