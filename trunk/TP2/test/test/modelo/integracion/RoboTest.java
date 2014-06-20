@@ -21,11 +21,9 @@ import algo3.modelo.objeto.Robable;
 
 public class RoboTest {
 
-	private List<InformacionCiudad> listaCiudadesRecorrido;
-	private MapaMundi mapa;
-
 	@Before
-	public void crearListaDeInformacion() {
+	public void cargarMapa() {
+		List<InformacionCiudad> listaCiudadesRecorrido;
 		listaCiudadesRecorrido = new ArrayList<InformacionCiudad>();
 		listaCiudadesRecorrido.add(new InformacionCiudad("Rio de Janeiro", "Verde y amarilla", "Real", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva York", "Azul, roja y blanca", "Dolar", "Presidente"));

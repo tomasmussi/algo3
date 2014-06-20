@@ -28,8 +28,6 @@ public class Policia {
 		cantidadArrestos = 0;
 		cantidadDeVisitas = 0;
 		grado = new GradoNovato();
-		//TODO: ESTA LINEA DE CASO SE BORRA.
-		caso = new Caso();
 		ciudadActual = null;
 
 	}
@@ -123,7 +121,7 @@ public class Policia {
 	public String visitarEdificioYObtenerPista(Edificio edificio) {
 		int horasARestar = aumentarVisitas(edificio);
 		reloj.transcurrir(horasARestar);
-		// TODO: esto solo deberia pasar cuando es la ultima ciudad, no siempre. 
+		// TODO: esto solo deberia pasar cuando es la ultima ciudad, no siempre.
 		if(!edificio.estaLadron() ){
 			//TODO: Esto se delega en los Grados. Por ejepmlo: grado.recibirAtaque();
 			if(getCantidadArrestos()<10){
