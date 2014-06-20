@@ -90,8 +90,6 @@ public class Ladron {
 			if(getCiudadActual().esMismaCiudadQue((getEscapatoria().get(longitudEscapatoria-1)))){
 				this.refugiarseEnEdificio();
 			}
-
-
 		}
 	}
 
@@ -102,14 +100,10 @@ public class Ladron {
 		Random rand = new Random();
 		int posicion = rand.nextInt(edificios.length -1);
 		this.entrar(edificios[posicion]);
-
-
-
 	}
 
 	private void entrar(Edificio edificio) {
 		edificio.refugiarLadron(this);
-
 	}
 
 	public List<Ciudad> getEscapatoria(){
@@ -120,6 +114,7 @@ public class Ladron {
 
 		this.ciudadActual = MapaMundi.getInstance().getCiudadDeNombre(objetoRobado.getCiudadOrigen());
 		this.objetoRobado = objetoRobado;
+		this.elegirEscapatoria(MapaMundi.getInstance().getListadoCiudades());
 	}
 
 }
