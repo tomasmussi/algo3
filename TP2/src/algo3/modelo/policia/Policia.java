@@ -36,7 +36,7 @@ public class Policia {
 
 	public void asignarCaso(Caso esteCaso) {
 		this.caso = esteCaso;
-		this.ciudadActual = esteCaso.getCiudadOrigenDeObjeto();
+		this.viajarA(esteCaso.getCiudadOrigenDeObjeto());
 	}
 
 	private void restarHoras(int horas) {
@@ -128,12 +128,12 @@ public class Policia {
 		if (ciudadActual != null) {
 			this.viajar(ciudadActual.getDistanciaCon(ciudad));
 			caso.getRecorrido().actualizarNexoEntre(ciudadActual, ciudad);
-			Ladron ladron= getCaso().getLadron();
-			if(ciudadActual.esMismaCiudadQue(ladron.getCiudadActual())){
-				ladron.moverAlSiguientePais();
-			}
 		}
-		this.ciudadActual = ciudad;
+
+		this.ciudadActual = ciudad;Ladron ladron= getCaso().getLadron();
+		if(ciudadActual.esMismaCiudadQue(ladron.getCiudadActual())){
+			ladron.moverAlSiguientePais();
+		}
 	}
 
 	/**
