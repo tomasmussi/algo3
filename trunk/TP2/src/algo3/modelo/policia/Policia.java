@@ -24,12 +24,10 @@ public class Policia {
 	private Caso caso;
 
 	public Policia() {
-
 		cantidadArrestos = 0;
 		cantidadDeVisitas = 0;
 		grado = new GradoNovato();
 		ciudadActual = null;
-
 	}
 
 	//TODO: VER SI ESTO SE USA EN ALGUN LADO
@@ -168,10 +166,8 @@ public class Policia {
 			// TODO:algo de si la pudo emitir o no
 			caso.generarOrdenDeArresto(caracteristica);
 			return true;
-
 		}
 		return false;
 	}
-
 
 }

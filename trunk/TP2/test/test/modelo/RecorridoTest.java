@@ -86,14 +86,12 @@ public class RecorridoTest {
 	@Test
 	public void testCiudadesDelRecorridoTienenComoOpcionCiudadAnterior(){
 		Recorrido recorrido = new Recorrido(listaRecorrido);
-		boolean ok = true;
 
 		for (int i = 0; i < (listaRecorrido.size()-1); i++){
 			Ciudad ciudadPrevia = listaRecorrido.get(i);
 			Ciudad ciudadPosterior = listaRecorrido.get(i+1);
-			ok &= (recorrido.getCiudadesPosibles(ciudadPosterior)).contains(ciudadPrevia);
+			assertTrue((recorrido.getCiudadesPosibles(ciudadPosterior)).contains(ciudadPrevia));
 		}
-		assertTrue(ok);
 	}
 }
 

@@ -2,27 +2,39 @@ package test.modelo;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
+import algo3.modelo.caso.Caso;
 import algo3.modelo.edificio.Edificio;
 import algo3.modelo.edificio.EdificioFactory;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.InformacionCiudadProvider;
 import algo3.modelo.mapa.mundi.NombresCiudades;
+import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.policia.Policia;
 import algo3.modelo.tiempo.Reloj;
 
 public class PistaTest {
 
 	private CaracteristicaLadron caracteristicaNickBrunch;
+	private List<CaracteristicaLadron> ladrones;
+	private List<CaracteristicaObjeto> objetos;
 	private Ladron nickBrunch;
 
 	@Before
 	public void initialize(){
 		caracteristicaNickBrunch = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
 		nickBrunch = new Ladron(caracteristicaNickBrunch);
+		ladrones = new ArrayList<CaracteristicaLadron>();
+		objetos = new ArrayList<CaracteristicaObjeto>();
+
+		ladrones.add(caracteristicaNickBrunch);
+		objetos.add(new CaracteristicaObjeto("Anillo del Papa", "Roma"));
 	}
 
 	private InformacionCiudadProvider getInfoProvider() {
@@ -50,6 +62,7 @@ public class PistaTest {
 		Policia policia = new Policia();
 		Reloj reloj = new Reloj();
 		policia.setReloj(reloj);
+		policia.asignarCaso(new Caso(ladrones, objetos, policia.getGrado()));
 		policia.emitirOrdenDeArresto(caracteristicaNickBrunch);
 		for (int i = 1; i <= arrestos; i++) {
 			policia.arrestar(nickBrunch);
