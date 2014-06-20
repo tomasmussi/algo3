@@ -20,7 +20,7 @@ public abstract class Edificio {
 	}
 
 	public Boolean estaLadron(){
-		return (ladron!=null);
+		return (ladron != null);
 	}
 
 

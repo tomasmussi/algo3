@@ -59,8 +59,7 @@ public class Ladron {
 			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: "
 					+ cantidadCiudades + " ciudades");
 		}
-		List<Ciudad> ciudades = new ArrayList<Ciudad>();
-		ciudades.addAll(ciudadesDelMundo);
+		List<Ciudad> ciudades = new ArrayList<Ciudad>(ciudadesDelMundo);
 		this.rutaEscape = new ArrayList<Ciudad>();
 		this.rutaEscape.add(ciudadActual);
 		// Para que no pueda volver a la ciudad inicial:
@@ -99,13 +98,10 @@ public class Ladron {
 	//elije random en q edificio se mete
 	private void refugiarseEnEdificio() {
 
-		List<Edificio> edificios = new ArrayList<Edificio>();
-		edificios.add(new Aeropuerto());
-		edificios.add(new Banco());
-		edificios.add(new Embajada());
+		Edificio[] edificios = ciudadActual.getTodosLosEdificios();
 		Random rand = new Random();
-		int posicion = rand.nextInt(edificios.size() -1);
-		this.entrar(edificios.get(posicion));
+		int posicion = rand.nextInt(edificios.length -1);
+		this.entrar(edificios[posicion]);
 
 
 
