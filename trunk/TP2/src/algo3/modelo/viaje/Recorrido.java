@@ -64,7 +64,7 @@ public class Recorrido {
 
 		while (ciudadesPosibles.size() < 4) {
 			ciudadesPosibles.add(ciudadesLibres.get(posicion));
-			posicion = (posicion == 3) ? 0 : posicion +1;
+			posicion = (posicion == ciudadesPosibles.size() -1) ? 0 : posicion +1;
 		}
 		return ciudadesPosibles;
 	}
