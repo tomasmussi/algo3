@@ -32,9 +32,7 @@ public class ViajeTest {
 	private Policia policia;
 	private Reloj reloj;
 	private List<InformacionCiudad> listaCiudadesRecorrido;
-	private MapaMundi mapa = MapaMundi.getInstance();
 	private Ladron ladron;
-
 
 	@Before
 	public void cargarMapa() {
@@ -63,7 +61,7 @@ public class ViajeTest {
 		listaCiudadesRecorrido.add(new InformacionCiudad("Paris","Blanca, roja y azul", "Franco", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
-		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
+		MapaMundi.getInstance().cargarListadoCiudades(listaCiudadesRecorrido);
 	}
 
 	@Before
@@ -96,13 +94,12 @@ public class ViajeTest {
 	public void testPoliciaViajaCiudadLadronEscapa() {
 
 		Robable objeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
-		Ciudad estaCiudad = mapa.getCiudadDeNombre(objeto.getCiudadOrigen());
+		Ciudad estaCiudad = MapaMundi.getInstance().getCiudadDeNombre(objeto.getCiudadOrigen());
 
 		ladron = new Ladron(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
 
-		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		ladron.robar(objeto);
-		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
+		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria());
 		//Caso esteCaso = new Caso(objeto, ladron, esteRecorrido);
 		//policia.asignarCaso(esteCaso);
 
@@ -119,15 +116,14 @@ public class ViajeTest {
 	@Test
 	public void testPoliciaAtrapaLadronConOrdenDeArrestoCorrectayTiempo() {
 
+
 		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
-		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
+		Ciudad estaCiudad = MapaMundi.getInstance().getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
 		this.ladron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
 
-		List<Ciudad> ciudades = mapa.getListadoCiudades();
-
 		ladron.robar(esteObjeto);
-		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
+		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria());
 		//Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
 		//policia.asignarCaso(esteCaso);
 
@@ -173,13 +169,12 @@ public class ViajeTest {
 	public void testPoliciaNoAtrapaLadronConOrdenDeArrestoIncorrecta() {
 
 		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
-		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
+		Ciudad estaCiudad = MapaMundi.getInstance().getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
 		this.ladron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
 
-		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		ladron.robar(esteObjeto);
-		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
+		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria());
 		//Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
 		//this.policia.asignarCaso(esteCaso);
 
@@ -227,13 +222,12 @@ public class ViajeTest {
 	public void testPoliciaNoAtrapaLadronSinOrdenDeArresto() {
 
 		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
-		Ciudad estaCiudad = mapa.getCiudadDeNombre(esteObjeto.getCiudadOrigen());
+		Ciudad estaCiudad = MapaMundi.getInstance().getCiudadDeNombre(esteObjeto.getCiudadOrigen());
 
 		this.ladron = new Ladron(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
 
-		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		ladron.robar(esteObjeto);
-		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
+		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria());
 		//Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
 		//this.policia.asignarCaso(esteCaso);
 
@@ -309,4 +303,4 @@ public class ViajeTest {
 		policia.visitarEdificioYObtenerPista(banco);
 		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
 	}*/
-}
+	}

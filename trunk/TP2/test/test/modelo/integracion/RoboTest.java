@@ -20,7 +20,7 @@ import algo3.modelo.objeto.Robable;
 
 
 public class RoboTest {
-
+	
 	@Before
 	public void cargarMapa() {
 		List<InformacionCiudad> listaCiudadesRecorrido;

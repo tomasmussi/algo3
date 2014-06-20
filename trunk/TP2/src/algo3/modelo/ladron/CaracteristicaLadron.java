@@ -49,7 +49,6 @@ public class CaracteristicaLadron implements Cloneable {
 
 	@Override
 	public int hashCode() {
-		//TODO PARA QUE ME SIRVE, SE BORRA(?)
 		final int prime = 31;
 		int result = 1;
 		result = prime * result
@@ -120,10 +119,9 @@ public class CaracteristicaLadron implements Cloneable {
 	}
 
 	@Override
-	public Object clone() throws CloneNotSupportedException {
-		//TODO XQ ESTA COMENTADO(?) ES AL PEPE USARLO(?)
-		//CaracteristicaLadron caracteristicaLadron = new CaracteristicaLadron(this.nombre, this.sexo, hobby, colorCabello, caracteristica, vehiculo);
-		return super.clone();
+	public CaracteristicaLadron clone() {
+		CaracteristicaLadron caracteristicaLadron = new CaracteristicaLadron(nombre, sexo, hobby, colorCabello, caracteristica, vehiculo);
+		return caracteristicaLadron;
 	}
 
 

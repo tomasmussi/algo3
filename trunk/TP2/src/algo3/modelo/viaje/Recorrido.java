@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Random;
 
 import algo3.modelo.mapa.mundi.Ciudad;
+import algo3.modelo.mapa.mundi.MapaMundi;
 
 public class Recorrido {
 	private Map<Ciudad, List<Ciudad>> ciudadesUsadas;
@@ -16,10 +17,10 @@ public class Recorrido {
 	// los planes de destinos, pero no guarda el recorrido en si. Solo el ladron lo sabe.
 
 	//TODO: CAMBIAR NOMBRE A DESTINOSPOSIBLES
-	public Recorrido (List<Ciudad> escapatoria, List<Ciudad> todasLasCiudades) {
+	public Recorrido (List<Ciudad> escapatoria) {
 		this.ciudadesUsadas = new HashMap<Ciudad, List<Ciudad>>();
 		this.ciudadesLibres = new ArrayList<Ciudad>();
-		this.ciudadesLibres.addAll(todasLasCiudades);
+		this.ciudadesLibres.addAll(MapaMundi.getInstance().getListadoCiudades());
 		this.crearMapaDeRecorrido(escapatoria);
 	}
 
@@ -46,7 +47,7 @@ public class Recorrido {
 			ciudadesUsadas.put(ciudad2, posibles);
 			if (!ciudadesUsadas.get(ciudad1).contains(ciudad2)) {
 				ciudadesUsadas.get(ciudad1).add(ciudad2);
-			}	
+			}
 			ciudadesLibres.remove(ciudad2);
 		}
 	}
