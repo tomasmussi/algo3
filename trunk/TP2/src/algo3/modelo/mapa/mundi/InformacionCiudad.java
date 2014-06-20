@@ -190,5 +190,12 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	public void setGobierno(String gobierno) {
 		this.gobierno = gobierno;
 	}
-
+	
+	public void setCoordenadaX(String coordX) {
+		this.coordenadaX = coordX;
+	}
+	
+	public void setCoordenadaY(String coordY) {
+		this.coordenadaY = coordY;
+	}
 }
