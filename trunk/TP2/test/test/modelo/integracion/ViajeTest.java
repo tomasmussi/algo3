@@ -31,7 +31,7 @@ import algo3.modelo.tiempo.Reloj;
 import algo3.modelo.viaje.Recorrido;
 
 public class ViajeTest {
-	
+
 	//TODO: (TOMAS) ESTOS TESTS ESTAN MAL! YO NO TENGO QUE TRANSICIONAR AL LADRON DE UNA CIUDAD A OTRA
 	// LO TIENE QUE HACER SOLO EL LADRON AL ENTERARSE QUE EL POLICIA VIAJO A LA MISMA CIUDAD EN LA
 	// QUE EL ESTA => DEBE VIAJAR A LA SIGUIENTE Y SI NO PUEDE, DEBE ESCONDERSE EN ALGUN EDIFICIO!!!!
@@ -39,7 +39,7 @@ public class ViajeTest {
 	private Policia policia;
 	private Reloj reloj;
 	private List<InformacionCiudad> listaCiudadesRecorrido;
-	private MapaMundi mapa;
+	private MapaMundi mapa = MapaMundi.getInstance();
 	private Ladron ladron;
 
 	@Before
@@ -58,7 +58,8 @@ public class ViajeTest {
 	@Before
 	public void crearPolicia(){
 		this.reloj = new Reloj();
-		this.policia = new Policia(reloj);
+		this.policia = new Policia();
+		policia.setReloj(reloj);
 	}
 
 	/**
@@ -82,7 +83,7 @@ public class ViajeTest {
 
 	@Test
 	public void testPoliciaViajaCiudadLadronEscapa() {
-		this.mapa = new MapaMundi();
+
 		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
 
 		Robable objeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
@@ -92,7 +93,7 @@ public class ViajeTest {
 
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		ladron.robar(objeto);
-		ladron.elegirEscapatoria(ciudades, estaCiudad);
+		ladron.elegirEscapatoria(ciudades);
 		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
 		Caso esteCaso = new Caso(objeto, ladron, esteRecorrido);
 		policia.asignarCaso(esteCaso);
@@ -110,7 +111,6 @@ public class ViajeTest {
 	@Test
 	public void testPoliciaAtrapaLadronConOrdenDeArrestoCorrectayTiempo() {
 
-		this.mapa = new MapaMundi();
 		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
 
 		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
@@ -121,7 +121,7 @@ public class ViajeTest {
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 
 		ladron.robar(esteObjeto);
-		ladron.elegirEscapatoria(ciudades, estaCiudad);
+		ladron.elegirEscapatoria(ciudades);
 		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
 		Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
 		policia.asignarCaso(esteCaso);
@@ -166,7 +166,7 @@ public class ViajeTest {
 
 	@Test
 	public void testPoliciaNoAtrapaLadronConOrdenDeArrestoIncorrecta() {
-		this.mapa = new MapaMundi();
+
 		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
 
 		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
@@ -176,7 +176,7 @@ public class ViajeTest {
 
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		ladron.robar(esteObjeto);
-		this.ladron.elegirEscapatoria(ciudades, estaCiudad);
+		this.ladron.elegirEscapatoria(ciudades);
 		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
 		Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
 		this.policia.asignarCaso(esteCaso);
@@ -223,7 +223,7 @@ public class ViajeTest {
 
 	@Test
 	public void testPoliciaNoAtrapaLadronSinOrdenDeArresto() {
-		this.mapa = new MapaMundi();
+
 		mapa.cargarListadoCiudades(listaCiudadesRecorrido);
 
 		ObjetoComun esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
@@ -233,7 +233,7 @@ public class ViajeTest {
 
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		ladron.robar(esteObjeto);
-		this.ladron.elegirEscapatoria(ciudades, estaCiudad);
+		this.ladron.elegirEscapatoria(ciudades);
 		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
 		Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
 		this.policia.asignarCaso(esteCaso);

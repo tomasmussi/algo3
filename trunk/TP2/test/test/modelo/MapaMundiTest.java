@@ -33,19 +33,19 @@ public class MapaMundiTest {
 
 	@Test
 	public void testEncuentraCiudadConStringCorrecta() {
-		MapaMundi mapa = new MapaMundi();
+		MapaMundi mapa = MapaMundi.getInstance();
 		mapa.cargarListadoCiudades(listaDeInfo);
 		assertTrue((mapa.getCiudadDeNombre("Lima")).getNombre() == "Lima");
 	}
 	@Test
 	public void testEncuentraCiudadConString() {
-		MapaMundi mapa = new MapaMundi();
+		MapaMundi mapa = MapaMundi.getInstance();
 		mapa.cargarListadoCiudades(listaDeInfo);
 		assertTrue((mapa.getCiudadDeNombre("Lima")) != null);
 	}
 	@Test
 	public void testEncuentraCiudadCorrecta() {
-		MapaMundi mapa = new MapaMundi();
+		MapaMundi mapa = MapaMundi.getInstance();
 		mapa.cargarListadoCiudades(listaDeInfo);
 		Ciudad estaCiudad = new Ciudad(new InformacionCiudad("Tokyo","Blanca y roja", "Yen", "Presidente"));
 		mapa.agregarCiudad(estaCiudad);

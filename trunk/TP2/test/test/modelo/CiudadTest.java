@@ -37,7 +37,9 @@ public class CiudadTest {
 
 	@Test
 	public void testCrearDosCiudadesRelacionaUnaConOtra() {
-		Policia policia = new Policia(new Reloj());
+		Policia policia = new Policia();
+		Reloj reloj = new Reloj();
+		policia.setReloj(reloj);
 		Ciudad ciudadOrigen = new Ciudad(infoCiudadOrigen);
 		ciudadOrigen.agregarInformacionProximaCiudad(infoCiudadDestino);
 		String infoBancaria = policia.visitarEdificioYObtenerPista(ciudadOrigen.getTodosLosEdificios()[0]);
@@ -48,7 +50,9 @@ public class CiudadTest {
 
 	@Test
 	public void testCrearCiudadesRelacionadasConArchivoProperties() {
-		Policia policia = new Policia(new Reloj());
+		Policia policia = new Policia();
+		Reloj reloj = new Reloj();
+		policia.setReloj(reloj);
 		// Creo una ciudad (Bangkok) que me de informacion sobre la siguiente ciudad (Buenos Aires)
 		Ciudad ciudad = CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(NombresCiudades.BANGKOK, NombresCiudades.BUENOS_AIRES);
 		List<String> pistasPosibles = new ArrayList<String>();
