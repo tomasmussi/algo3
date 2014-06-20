@@ -26,11 +26,8 @@ import algo3.modelo.viaje.Recorrido;
  * */
 public class Caso {
 
-
 	private OrdenDeArresto ordenDeArresto;
 	private Ladron ladron;
-	//TODO:sacarlo el objeto de caso con sus get y set, no lo saco x q rompe prueba.
-	private Robable objeto;
 	private Recorrido recorrido;
 
 	public Caso(List<CaracteristicaLadron> ladrones,
@@ -42,27 +39,9 @@ public class Caso {
 		posicion = rand.nextInt(ladrones.size() -1);
 		this.ladron = new Ladron(ladrones.get(posicion));
 		this.ladron.robar(objetoRobado);
-
-		this.objeto = objetoRobado;
 		this.recorrido = new Recorrido(this.ladron.getEscapatoria(), MapaMundi.getInstance().getListadoCiudades());
 
 	}
-
-	//TODO:ESTOS DOS CONSTRUCTORES HABRIA Q VOLETEARLOS PORQUE SON EXCLUSIVAMENTE
-	//PARA LAS PRUEBAS
-	//**********//
-	public Caso(Robable objeto, Ladron ladron, Recorrido recorrido){
-		this.ladron = ladron;
-		this.objeto = objeto;
-		this.recorrido = recorrido;
-	}
-
-	public Caso(){
-
-	}
-
-	//***********//
-
 
 	public void generarOrdenDeArresto(CaracteristicaLadron caracteristica){
 
@@ -73,11 +52,8 @@ public class Caso {
 			}catch (CloneNotSupportedException e){
 				Logger.loguearError("Hubo un error inesperado en el programa");
 			}
-
 		}
-
 	}
-
 
 	public OrdenDeArresto getOrdenDeArresto() {
 		return ordenDeArresto;
@@ -102,10 +78,4 @@ public class Caso {
 	public void setRecorridoCaso(Recorrido recorrido) {
 		this.recorrido = recorrido;
 	}
-
-
 }
-
-
-
-

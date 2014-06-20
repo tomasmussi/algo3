@@ -1,6 +1,5 @@
 package test.modelo.integracion;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -10,7 +9,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import algo3.modelo.caso.Caso;
 import algo3.modelo.edificio.Aeropuerto;
 import algo3.modelo.edificio.Banco;
 import algo3.modelo.edificio.Edificio;
@@ -31,16 +29,28 @@ import algo3.modelo.tiempo.Reloj;
 import algo3.modelo.viaje.Recorrido;
 
 public class ViajeTest {
-
-	//TODO: (TOMAS) ESTOS TESTS ESTAN MAL! YO NO TENGO QUE TRANSICIONAR AL LADRON DE UNA CIUDAD A OTRA
-	// LO TIENE QUE HACER SOLO EL LADRON AL ENTERARSE QUE EL POLICIA VIAJO A LA MISMA CIUDAD EN LA
-	// QUE EL ESTA => DEBE VIAJAR A LA SIGUIENTE Y SI NO PUEDE, DEBE ESCONDERSE EN ALGUN EDIFICIO!!!!
-
 	private Policia policia;
 	private Reloj reloj;
 	private List<InformacionCiudad> listaCiudadesRecorrido;
 	private MapaMundi mapa = MapaMundi.getInstance();
 	private Ladron ladron;
+
+
+	@Before
+	public void cargarMapa() {
+		List<InformacionCiudad> listaCiudadesRecorrido;
+		listaCiudadesRecorrido = new ArrayList<InformacionCiudad>();
+		listaCiudadesRecorrido.add(new InformacionCiudad("Rio de Janeiro", "Verde y amarilla", "Real", "Presidente"));
+		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva York", "Azul, roja y blanca", "Dolar", "Presidente"));
+		listaCiudadesRecorrido.add(new InformacionCiudad("Oslo", "Roja y azul", "Corona", "Rey"));
+		listaCiudadesRecorrido.add(new InformacionCiudad("Buenos Aires","Blanca y celeste", "Peso", "Presidente"));
+		listaCiudadesRecorrido.add(new InformacionCiudad("Tokyo","Blanca y roja", "Yen", "Presidente"));
+		listaCiudadesRecorrido.add(new InformacionCiudad("Paris","Blanca, roja y azul", "Franco", "Presidente"));
+		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
+		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
+		MapaMundi.getInstance().cargarListadoCiudades(listaCiudadesRecorrido);
+	}
+
 
 	@Before
 	public void crearListaDeInformacion() {
@@ -93,8 +103,8 @@ public class ViajeTest {
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		ladron.robar(objeto);
 		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
-		Caso esteCaso = new Caso(objeto, ladron, esteRecorrido);
-		policia.asignarCaso(esteCaso);
+		//Caso esteCaso = new Caso(objeto, ladron, esteRecorrido);
+		//policia.asignarCaso(esteCaso);
 
 		Ciudad inicial = ladron.getCiudadActual();
 		policia.viajarA(inicial);
@@ -118,8 +128,8 @@ public class ViajeTest {
 
 		ladron.robar(esteObjeto);
 		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
-		Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
-		policia.asignarCaso(esteCaso);
+		//Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
+		//policia.asignarCaso(esteCaso);
 
 		Ciudad inicial = this.ladron.getCiudadActual();
 		policia.viajarA(inicial);
@@ -170,8 +180,8 @@ public class ViajeTest {
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		ladron.robar(esteObjeto);
 		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
-		Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
-		this.policia.asignarCaso(esteCaso);
+		//Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
+		//this.policia.asignarCaso(esteCaso);
 
 		Ciudad inicial = this.ladron.getCiudadActual();
 		policia.viajarA(inicial);
@@ -224,8 +234,8 @@ public class ViajeTest {
 		List<Ciudad> ciudades = mapa.getListadoCiudades();
 		ladron.robar(esteObjeto);
 		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
-		Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
-		this.policia.asignarCaso(esteCaso);
+		//Caso esteCaso = new Caso(esteObjeto, ladron, esteRecorrido);
+		//this.policia.asignarCaso(esteCaso);
 
 		Ciudad inicial = this.ladron.getCiudadActual();
 		policia.viajarA(inicial);
@@ -263,7 +273,7 @@ public class ViajeTest {
 		assertFalse(policia.arrestar(ladron));
 	}
 
-
+	/*
 	@Test
 	public void testEdificioDaPistaSiguienteCiudad() {
 		Ciudad siguienteCiudad = crearCiudadPrueba("Buenos Aires", "Celeste y Blanca", "Australes", "Presidente");
@@ -298,5 +308,5 @@ public class ViajeTest {
 		policia.visitarEdificioYObtenerPista(banco);
 		policia.visitarEdificioYObtenerPista(banco);
 		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
-	}
+	}*/
 }
