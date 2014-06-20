@@ -45,12 +45,7 @@ public class Ladron {
 		return caracteristicas.equals(unaCaracteristica);
 	}
 
-	//PD: Lo hacemos privado y void te parece??
-	//(FLAVIA) void SI pero no privado xq caso le pasa las ciudades SE LLAMA DESDE CASO
-	//osea a ladron le pasan las ciudades y el elige su escapatoria pero se llama desde caso.
-	//no me parece que robar lo haga
 	private void elegirEscapatoria(List<Ciudad> ciudadesDelMundo){
-
 		int cantidadCiudades = this.objetoRobado.getCantidadDeCiudades();
 		if (cantidadCiudades > ciudadesDelMundo.size()){
 			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: "
@@ -68,15 +63,12 @@ public class Ladron {
 			this.rutaEscape.add(nuevaCiudad);
 			ciudadIterator.remove(); //NO esta mas disponible para utilizar
 		}
-
 		iterador = rutaEscape.iterator();
 		this.moverAlSiguientePais();
-
 	}
 
-
 	public Ciudad getCiudadActual() {
-		return ciudadActual;
+		return this.ciudadActual;
 	}
 
 	public void moverAlSiguientePais() {
@@ -89,7 +81,6 @@ public class Ladron {
 
 	//elije random en q edificio se mete
 	private void refugiarseEnEdificio() {
-
 		Edificio[] edificios = ciudadActual.getTodosLosEdificios();
 		Random rand = new Random();
 		int posicion = rand.nextInt(edificios.length -1);
@@ -110,4 +101,7 @@ public class Ladron {
 		elegirEscapatoria(MapaMundi.getInstance().getListadoCiudades());
 	}
 
+	public Robable getObjetoRobado(){
+		return this.objetoRobado;
+	}
 }

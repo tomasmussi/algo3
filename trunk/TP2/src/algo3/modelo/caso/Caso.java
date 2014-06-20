@@ -7,6 +7,7 @@ import algo3.modelo.estacionPolicia.EstacionDePolicia;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.Ciudad;
+import algo3.modelo.mapa.mundi.MapaMundi;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.Robable;
 import algo3.modelo.policia.OrdenDeArresto;
@@ -20,8 +21,6 @@ import algo3.modelo.viaje.Recorrido;
  * Tambien crea un Ladron que se debe robar el objeto
  * A partir del objeto robado, se crea una ciudad, que es la ciudad
  * origen del recorrido, el ladron comienza escapandose a la siguiente ciudad.
- * El ladron necesita una
- * TODO: UNA QUE NECESITA EL LADRON (?)
  * */
 public class Caso {
 
@@ -75,6 +74,11 @@ public class Caso {
 
 	public void setRecorridoCaso(Recorrido recorrido) {
 		this.recorrido = recorrido;
+	}
+
+	public Ciudad getCiudadOrigenDeObjeto(){
+		Robable objetoRobado = this.ladron.getObjetoRobado();
+		return(MapaMundi.getInstance().getCiudadDeNombre(objetoRobado.getCiudadOrigen()));
 	}
 
 	public boolean ultimoPaisLadron(Ciudad ciudadActual) {
