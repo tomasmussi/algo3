@@ -1,7 +1,6 @@
 package algo3.modelo.pista;
 
 public class Pista {
-
 	// Moneda-Bandera-Gobierno (por el momento)
 	private String entidad;
 	// Lo que se mostrara por pantlla

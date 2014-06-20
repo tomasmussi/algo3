@@ -50,6 +50,7 @@ public class PistasProvider {
 		return provider;
 	}
 
+	// TODO: Agregar las pistas de "Algo turbio esta pasando en la ciudad", etc, etc.
 	public Map<String, String> getPistasPara(String dificultad) {
 		return pistas.get(dificultad);
 	}

@@ -81,7 +81,7 @@ public class Policia {
 		grado.evaluarGrado(this);
 	}
 
-	//TODO: METODO SOLOPARA PRUEBAS
+	//METODO SOLO PARA PRUEBAS
 	public boolean puedeArrestar() {
 		return reloj.hayTiempoRestante();
 	}
