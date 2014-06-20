@@ -33,10 +33,10 @@ public class Caso {
 	public Caso(List<CaracteristicaLadron> ladrones,
 			List<CaracteristicaObjeto> objetos, Grado gradoPolicia){
 		Random rand = new Random();
-		int posicion = rand.nextInt(objetos.size() -1);
+		int posicion = objetos.size() != 1 ? rand.nextInt(objetos.size() -1) : 0;
 		Robable objetoRobado = gradoPolicia.getObjetoRobado(objetos.get(posicion));
 
-		posicion = rand.nextInt(ladrones.size() -1);
+		posicion = ladrones.size() != 1 ? rand.nextInt(ladrones.size() -1) : 0;
 		this.ladron = new Ladron(ladrones.get(posicion));
 		this.ladron.robar(objetoRobado);
 

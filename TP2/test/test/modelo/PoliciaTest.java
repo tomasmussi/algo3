@@ -4,11 +4,16 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
+import algo3.modelo.caso.Caso;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
+import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.policia.Policia;
 import algo3.modelo.tiempo.Reloj;
 
@@ -19,6 +24,9 @@ public class PoliciaTest {
 	private Policia policia;
 	private Reloj reloj;
 
+	private List<CaracteristicaLadron> ladrones;
+	private List<CaracteristicaObjeto> objetos;
+
 	@Before
 	public void initialize(){
 		caracteristicaNickBrunch = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
@@ -26,6 +34,14 @@ public class PoliciaTest {
 		reloj = new Reloj();
 		policia = new Policia();
 		policia.setReloj(reloj);
+
+		ladrones = new ArrayList<CaracteristicaLadron>();
+		ladrones.add(caracteristicaNickBrunch);
+
+		objetos = new ArrayList<CaracteristicaObjeto>();
+		objetos.add(new CaracteristicaObjeto("Anillo del Papa", "Roma"));
+
+		policia.asignarCaso(new Caso(ladrones,objetos, policia.getGrado()));
 	}
 
 	//	@Test
