@@ -32,7 +32,6 @@ public class Policia {
 
 	public void setReloj(Reloj reloj){
 		this.reloj = reloj;
-
 	}
 
 	public void asignarCaso(Caso esteCaso) {

@@ -1,5 +1,6 @@
 package test.modelo.integracion;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -67,22 +68,13 @@ public class ViajeTest {
 		Caso esteCaso = new Caso(listaLadrones, listaObjetos, policia.getGrado());
 		policia.asignarCaso(esteCaso);
 		Ciudad ciudadActualLadron = esteCaso.getLadron().getCiudadActual();
+		assertFalse(ciudadActualLadron.equals(policia.getCiudadActual()));
 
-		assertTrue(ciudadActualLadron.equals(policia.getCiudadActual()));
+		policia.viajarA(ciudadActualLadron);
 
-		//assertFalse(ciudadActualLadron == null);
-		//assertFalse(policia.getCiudadActual() == null);
-		/*
-		List<Ciudad> ciudades = mapa.getListadoCiudades();
-		ladron.robar(objeto);
-		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
-		//Caso esteCaso = new Caso(objeto, ladron, esteRecorrido);
-		//policia.asignarCaso(esteCaso);
+		assertTrue(esteCaso.getLadron().getCiudadActual().esMismaCiudadQue(policia.getCiudadActual()));
 
-		policia.viajarA(inicial);
-		 */
-		// Policia esta en ciudad inicial
-		//assertFalse(ciudadActualLadron.equals(policia.getCiudadActual()));
+
 		//assertFalse(esteCaso == null);
 
 		// Ahora no deberian estar en la misma ciudad, porque el ladron se fue.
@@ -337,4 +329,4 @@ public class ViajeTest {
 		policia.visitarEdificioYObtenerPista(banco);
 		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
 	}*/
-	}
+}
