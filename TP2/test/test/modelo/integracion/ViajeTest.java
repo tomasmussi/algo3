@@ -1,6 +1,5 @@
 package test.modelo.integracion;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
@@ -9,31 +8,20 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import algo3.modelo.edificio.Aeropuerto;
-import algo3.modelo.edificio.Banco;
-import algo3.modelo.edificio.Edificio;
-import algo3.modelo.edificio.Embajada;
-import algo3.modelo.entidad.Bandera;
-import algo3.modelo.entidad.Gobierno;
-import algo3.modelo.entidad.Moneda;
+import algo3.modelo.caso.Caso;
 import algo3.modelo.ladron.CaracteristicaLadron;
-import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.Ciudad;
 import algo3.modelo.mapa.mundi.InformacionCiudad;
 import algo3.modelo.mapa.mundi.MapaMundi;
 import algo3.modelo.objeto.CaracteristicaObjeto;
-import algo3.modelo.objeto.ObjetoComun;
-import algo3.modelo.objeto.Robable;
 import algo3.modelo.policia.Policia;
 import algo3.modelo.tiempo.Reloj;
-import algo3.modelo.viaje.Recorrido;
 
 public class ViajeTest {
 	private Policia policia;
 	private Reloj reloj;
-	private List<InformacionCiudad> listaCiudadesRecorrido;
-	private Ladron ladron;
-
+	private List<CaracteristicaLadron> listaLadrones;
+	private List<CaracteristicaObjeto> listaObjetos;
 	@Before
 	public void cargarMapa() {
 		List<InformacionCiudad> listaCiudadesRecorrido;
@@ -47,9 +35,60 @@ public class ViajeTest {
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
 		MapaMundi.getInstance().cargarListadoCiudades(listaCiudadesRecorrido);
+		/*}
+
+	@Before
+	public void cargarLadrones() {*/
+		listaLadrones = new ArrayList<CaracteristicaLadron>();
+		listaLadrones.add(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
+		listaLadrones.add(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
+		listaLadrones.add(new CaracteristicaLadron("Merey Laroc", "Femenino", "Croquet", "Marron", "Joyas", "Limusina"));
+		/*}
+
+	@Before
+	public void cargarObjetos() {*/
+		listaObjetos = new ArrayList<CaracteristicaObjeto>();
+		listaObjetos.add(new CaracteristicaObjeto("Algo1", "Oslo"));
+		listaObjetos.add(new CaracteristicaObjeto("Algo2", "Tokyo"));
+		listaObjetos.add(new CaracteristicaObjeto("Algo3", "Lima"));
+		listaObjetos.add(new CaracteristicaObjeto("Algo4", "Paris"));
+		/*}
+
+	@Before
+	public void crearPolicia(){*/
+		this.reloj = new Reloj();
+		this.policia = new Policia();
+		policia.setReloj(reloj);
 	}
 
 
+	@Test
+	public void testPoliciaNovatoViajaCiudadLadronEscapa() {
+		Caso esteCaso = new Caso(listaLadrones, listaObjetos, policia.getGrado());
+		policia.asignarCaso(esteCaso);
+		Ciudad ciudadActualLadron = esteCaso.getLadron().getCiudadActual();
+
+		assertTrue(ciudadActualLadron.equals(policia.getCiudadActual()));
+
+		//assertFalse(ciudadActualLadron == null);
+		//assertFalse(policia.getCiudadActual() == null);
+		/*
+		List<Ciudad> ciudades = mapa.getListadoCiudades();
+		ladron.robar(objeto);
+		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria(), ciudades);
+		//Caso esteCaso = new Caso(objeto, ladron, esteRecorrido);
+		//policia.asignarCaso(esteCaso);
+
+		policia.viajarA(inicial);
+		 */
+		// Policia esta en ciudad inicial
+		//assertFalse(ciudadActualLadron.equals(policia.getCiudadActual()));
+		//assertFalse(esteCaso == null);
+
+		// Ahora no deberian estar en la misma ciudad, porque el ladron se fue.
+		//assertFalse(policia.getCiudadActual().equals(ladron.getCiudadActual()));
+	}
+	/*
 	@Before
 	public void crearListaDeInformacion() {
 		this.listaCiudadesRecorrido = new ArrayList<InformacionCiudad>();
@@ -64,25 +103,21 @@ public class ViajeTest {
 		MapaMundi.getInstance().cargarListadoCiudades(listaCiudadesRecorrido);
 	}
 
-	@Before
-	public void crearPolicia(){
-		this.reloj = new Reloj();
-		this.policia = new Policia();
-		policia.setReloj(reloj);
-	}
 
+	 */
 	/**
 	 * Devuleve una ciudad sin edificios pero con informacion para pedirle: colores bandera, moneda, etc.
 	 */
+	/*
 	private Ciudad crearCiudadPrueba(String nombre, String bandera, String moneda, String gobierno) {
 		InformacionCiudad informacion = new InformacionCiudad(nombre, bandera, moneda, gobierno);
 		return new Ciudad(0, 0, null, null, null, informacion);
-	}
+	}*/
 
 	/**
 	 * Devuelve una Ciudad con Edificios Fijos {Aeropuerto, Banco, Embajada} pero sin informacion de si misma.
 	 */
-
+	/*
 	private Ciudad crearCiudad(String nombre, Ciudad siguienteCiudad) {
 		Edificio edificio1 = new Aeropuerto(new Bandera(siguienteCiudad.getColoresBandera()));
 		Edificio edificio2 = new Banco(new Moneda(siguienteCiudad.getMoneda()));
@@ -91,20 +126,19 @@ public class ViajeTest {
 	}
 
 	@Test
-	public void testPoliciaViajaCiudadLadronEscapa() {
+	public void testPoliciaNovatoViajaCiudadLadronEscapa() {
+		Caso esteCaso = new Caso(listaLadrones, listaObjetos, policia.getGrado());
+		policia.asignarCaso(esteCaso);
+		Ciudad inicial = ladron.getCiudadActual();
 
-		Robable objeto = new ObjetoComun(new CaracteristicaObjeto("Presidente", "Lima"));
-		Ciudad estaCiudad = MapaMundi.getInstance().getCiudadDeNombre(objeto.getCiudadOrigen());
-
-		ladron = new Ladron(new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
 
 		ladron.robar(objeto);
 		Recorrido esteRecorrido = new Recorrido(ladron.getEscapatoria());
 		//Caso esteCaso = new Caso(objeto, ladron, esteRecorrido);
 		//policia.asignarCaso(esteCaso);
 
-		Ciudad inicial = ladron.getCiudadActual();
 		policia.viajarA(inicial);
+
 		// Policia esta en ciudad inicial
 		assertTrue(inicial.equals(policia.getCiudadActual()));
 		ladron.moverAlSiguientePais();
@@ -267,7 +301,7 @@ public class ViajeTest {
 		assertFalse(policia.arrestar(ladron));
 	}
 
-	/*
+
 	@Test
 	public void testEdificioDaPistaSiguienteCiudad() {
 		Ciudad siguienteCiudad = crearCiudadPrueba("Buenos Aires", "Celeste y Blanca", "Australes", "Presidente");

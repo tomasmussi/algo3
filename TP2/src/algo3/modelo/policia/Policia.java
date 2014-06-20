@@ -30,14 +30,6 @@ public class Policia {
 		ciudadActual = null;
 	}
 
-	//TODO: VER SI ESTO SE USA EN ALGUN LADO
-	public Policia(Ciudad ciudadInicial) {
-		cantidadArrestos = 0;
-		cantidadDeVisitas = 0;
-		grado = new GradoNovato();
-		this.ciudadActual = ciudadInicial;
-	}
-
 	public void setReloj(Reloj reloj){
 		this.reloj = reloj;
 
@@ -45,6 +37,7 @@ public class Policia {
 
 	public void asignarCaso(Caso esteCaso) {
 		this.caso = esteCaso;
+		this.ciudadActual = esteCaso.getCiudadOrigenDeObjeto();
 	}
 
 	private void restarHoras(int horas) {
@@ -77,7 +70,6 @@ public class Policia {
 	public Grado getGrado() {
 		return grado;
 	}
-
 
 	public int getCantidadArrestos() {
 		return cantidadArrestos;
@@ -126,8 +118,6 @@ public class Policia {
 
 		return grado.getPista(edificio);
 	}
-
-
 
 	//TODO: solo lo usan las pruebas
 	public Ciudad getCiudadActual() {
