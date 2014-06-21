@@ -51,4 +51,8 @@ public class EstacionDePolicia {
 		return coincidenciaLadrones;
 
 	}
+
+	public List<CaracteristicaLadron> getExpedientes() {
+		return this.expedientes;
+	}
 }
