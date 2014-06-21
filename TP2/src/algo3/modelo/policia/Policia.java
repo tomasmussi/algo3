@@ -131,7 +131,7 @@ public class Policia {
 		}
 
 		this.ciudadActual = ciudad;
-		Ladron ladron= getCaso().getLadron();
+		Ladron ladron = getCaso().getLadron();
 		if(ciudadActual.esMismaCiudadQue(ladron.getCiudadActual())){
 			ladron.moverAlSiguientePais();
 		}

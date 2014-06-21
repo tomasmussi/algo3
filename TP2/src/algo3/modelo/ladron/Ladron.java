@@ -95,7 +95,10 @@ public class Ladron {
 		Edificio[] edificios = ciudadActual.getTodosLosEdificios();
 		Random rand = new Random();
 		int posicion = rand.nextInt(edificios.length -1);
-		this.entrar(edificios[posicion]);
+		// Solucion temporal para que podamos pasarle edificios como null en ViajeTest:
+		if (edificios[posicion] != null){
+			this.entrar(edificios[posicion]);
+		}
 	}
 
 	private void entrar(Edificio edificio) {
