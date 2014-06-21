@@ -21,7 +21,6 @@ public class Juego {
 
 	public void iniciar(){
 
-
 		Reloj reloj = new Reloj();
 		policia.setReloj(reloj);
 		Caso caso = generarCaso();
