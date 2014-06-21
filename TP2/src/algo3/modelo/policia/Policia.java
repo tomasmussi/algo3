@@ -37,6 +37,7 @@ public class Policia {
 	public void asignarCaso(Caso esteCaso) {
 		this.caso = esteCaso;
 		this.viajarA(esteCaso.getCiudadOrigenDeObjeto());
+
 	}
 
 	private void restarHoras(int horas) {
@@ -102,7 +103,7 @@ public class Policia {
 	public String visitarEdificioYObtenerPista(Edificio edificio) {
 		int horasARestar = aumentarVisitas(edificio);
 		reloj.transcurrir(horasARestar);
-		if(!edificio.estaLadron() && caso.ultimoPaisLadron(ciudadActual) ){
+		if((!edificio.estaLadron()) && (caso.ultimoPaisLadron(ciudadActual)) ){
 			int horasArestarPorAtaque= grado.horasArestarPorAtaque();
 			reloj.transcurrir(horasArestarPorAtaque);
 			return "Algo turbio esta ocurriendo en la ciudad.";

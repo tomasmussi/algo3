@@ -40,15 +40,15 @@ public class Recorrido {
 	}
 
 
-	public void actualizarNexoEntre(Ciudad ciudad1, Ciudad ciudad2) {
-		if (!ciudadesUsadas.containsKey(ciudad2)) {
+	public void actualizarNexoEntre(Ciudad ciudadOrigen, Ciudad ciudadDestino) {
+		if (!ciudadesUsadas.containsKey(ciudadDestino)) {
 			List<Ciudad> posibles = new ArrayList<Ciudad>();
-			posibles.add(ciudad1);
-			ciudadesUsadas.put(ciudad2, posibles);
-			if (!ciudadesUsadas.get(ciudad1).contains(ciudad2)) {
-				ciudadesUsadas.get(ciudad1).add(ciudad2);
+			posibles.add(ciudadOrigen);
+			ciudadesUsadas.put(ciudadDestino, posibles);
+			if (!ciudadesUsadas.get(ciudadOrigen).contains(ciudadDestino)) {
+				ciudadesUsadas.get(ciudadOrigen).add(ciudadDestino);
 			}
-			ciudadesLibres.remove(ciudad2);
+			ciudadesLibres.remove(ciudadDestino);
 		}
 	}
 	//TODO:SE LLAMA DESDE EVENTO
