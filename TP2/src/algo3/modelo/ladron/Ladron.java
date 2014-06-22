@@ -46,6 +46,7 @@ public class Ladron {
 	}
 
 	private void elegirEscapatoria(List<Ciudad> ciudadesDelMundo){
+
 		int cantidadCiudades = this.objetoRobado.getCantidadDeCiudades();
 		if (cantidadCiudades > ciudadesDelMundo.size()){
 			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: "
@@ -90,7 +91,6 @@ public class Ladron {
 		}
 	}
 
-	//elije random en q edificio se mete
 	private void refugiarseEnEdificio() {
 		Edificio[] edificios = ciudadActual.getTodosLosEdificios();
 		Random rand = new Random();

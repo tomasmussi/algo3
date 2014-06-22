@@ -6,10 +6,6 @@ public class OrdenDeArresto {
 
 	private CaracteristicaLadron caracteristicaLadron;
 
-	public OrdenDeArresto() {
-		super();
-	}
-
 	public OrdenDeArresto(CaracteristicaLadron caracteristica) {
 		this.caracteristicaLadron = caracteristica;
 	}
@@ -18,8 +14,5 @@ public class OrdenDeArresto {
 		return caracteristicaLadron;
 	}
 
-	public void setCaracteristicaLadron(CaracteristicaLadron caracteristicaLadron) {
-		this.caracteristicaLadron = caracteristicaLadron;
-	}
 
 }

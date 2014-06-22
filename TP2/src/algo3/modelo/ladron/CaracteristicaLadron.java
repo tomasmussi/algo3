@@ -5,7 +5,6 @@ import java.util.List;
 
 public class CaracteristicaLadron implements Cloneable {
 
-	private List <String> caracteristicas;
 	private String nombre;
 	private String sexo;
 
@@ -34,7 +33,7 @@ public class CaracteristicaLadron implements Cloneable {
 
 
 	public List<String> getCaracteristicas() {
-		//return caracteristicas;
+
 		List<String> caracteristicas = new ArrayList<String>();
 		caracteristicas.add(nombre);
 		caracteristicas.add(sexo);

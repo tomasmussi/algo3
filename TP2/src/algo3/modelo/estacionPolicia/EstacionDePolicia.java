@@ -30,6 +30,7 @@ public class EstacionDePolicia {
 	}
 
 	public List<CaracteristicaLadron> buscarExpediente(CaracteristicaLadron caracteristicaLadron) {
+
 		List<String> caracteristicasSolicitadas = caracteristicaLadron.getCaracteristicas();
 		List<CaracteristicaLadron> coincidenciaLadrones = new ArrayList<CaracteristicaLadron>();
 		List<String> caracteristicasExpediente;
@@ -52,7 +53,4 @@ public class EstacionDePolicia {
 
 	}
 
-	public List<CaracteristicaLadron> getExpedientes() {
-		return this.expedientes;
-	}
 }
