@@ -56,24 +56,12 @@ public class Caso {
 		return ordenDeArresto;
 	}
 
-	public void setOrdenDeArresto(OrdenDeArresto ordenDeArresto) {
-		this.ordenDeArresto = ordenDeArresto;
-	}
-
 	public Ladron getLadron() {
 		return ladron;
 	}
 
-	public void setLadron(Ladron ladron) {
-		this.ladron = ladron;
-	}
-
 	public Recorrido getRecorrido() {
 		return this.recorrido;
-	}
-
-	public void setRecorridoCaso(Recorrido recorrido) {
-		this.recorrido = recorrido;
 	}
 
 	public Ciudad getCiudadOrigenDeObjeto(){

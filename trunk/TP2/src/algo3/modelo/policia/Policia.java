@@ -14,6 +14,7 @@ import algo3.modelo.tiempo.Reloj;
 
 public class Policia {
 
+	//TODO: FIJARSE SI SE BORRA ESTA CONSTANTE HORAS_INICIALES
 	public static final int HORAS_INICIALES = 154;
 	private Reloj reloj;
 	private int cantidadArrestos;
@@ -40,11 +41,6 @@ public class Policia {
 
 	}
 
-	private void restarHoras(int horas) {
-		reloj.transcurrir(horas);
-	}
-
-
 	/**
 	 * Viajar recibe la cantidad de kilometros a viajar por parte del policia
 	 * y devuelve la cantidad de horas que le consume el viaje de acuerdo a la cantidad de kilometros
@@ -62,7 +58,7 @@ public class Policia {
 		grado.evaluarGrado(this);
 	}
 
-	//METODO SOLO PARA PRUEBAS
+	//TODO:METODO SOLO PARA PRUEBAS VER DE CORREGIRLAS Y BORRARLO
 	public boolean puedeArrestar() {
 		return reloj.hayTiempoRestante();
 	}
@@ -119,7 +115,7 @@ public class Policia {
 		return grado.getPista(edificio);
 	}
 
-	//TODO: solo lo usan las pruebas
+	//TODO: solo lo usan las pruebas arreglarlo y borrarlo
 	public Ciudad getCiudadActual() {
 		return ciudadActual;
 	}
