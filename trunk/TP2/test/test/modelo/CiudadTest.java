@@ -11,12 +11,12 @@ import org.junit.Test;
 
 import algo3.modelo.caso.Caso;
 import algo3.modelo.edificio.Edificio;
+import algo3.modelo.edificio.EdificioFactory;
 import algo3.modelo.ladron.CaracteristicaLadron;
-import algo3.modelo.mapa.mundi.Ciudad;
-import algo3.modelo.mapa.mundi.CiudadFactory;
-import algo3.modelo.mapa.mundi.InformacionCiudad;
-import algo3.modelo.mapa.mundi.InformacionCiudadProvider;
-import algo3.modelo.mapa.mundi.NombresCiudades;
+import algo3.modelo.mapa.Ciudad;
+import algo3.modelo.mapa.InformacionCiudad;
+import algo3.modelo.mapa.InformacionCiudadProvider;
+import algo3.modelo.mapa.NombresCiudades;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.policia.Policia;
 import algo3.modelo.tiempo.Reloj;
@@ -30,6 +30,32 @@ public class CiudadTest {
 	private List<CaracteristicaObjeto> objetos;
 	private Policia policia;
 	private Reloj reloj;
+
+
+	/**
+	 * Crea una ciudad a partir de un nombre. Ver NombresCiudad para informacion de nombres.
+	 * @return Ciudad.
+	 */
+	private static Ciudad crearCiudadSinEdificios(String nombreCiudad) {
+		InformacionCiudad infoCiudad = InformacionCiudadProvider.getInstance().getInformacionPara(nombreCiudad);
+		return new Ciudad(infoCiudad);
+	}
+
+	/**
+	 * Crea una ciudad a partir de un nombre y le agrega informacion a sus edificios de de la siguiente ciudad.
+	 * Ver NombresCiudad para informacion de nombres.
+	 * @return Ciudad.
+	 */
+	private static Ciudad crearCiudadConEdificiosSiguienteCiudad(String nombreCiudad, String nombreSiguienteCiudad) {
+		InformacionCiudad infoCiudad = InformacionCiudadProvider.getInstance().getInformacionPara(nombreCiudad);
+		InformacionCiudad infoSiguienteCiudad = InformacionCiudadProvider.getInstance().getInformacionPara(nombreSiguienteCiudad);
+
+		Edificio edificio1 = EdificioFactory.crearEdificioCulturalConEntidad(infoSiguienteCiudad);
+		Edificio edificio2 = EdificioFactory.crearEdificioFinancieroConEntidad(infoSiguienteCiudad);
+		Edificio edificio3 = EdificioFactory.crearEdificioDeViajeConEntidad(infoSiguienteCiudad);
+		// TODO: meter coordenadas en el properties/informacion.
+		return new Ciudad(0, 0, edificio1, edificio2, edificio3, infoCiudad);
+	}
 
 	@Before
 	public void crearInformacionDefault() {
@@ -71,7 +97,7 @@ public class CiudadTest {
 	@Test
 	public void testCrearCiudadesRelacionadasConArchivoProperties() {
 		// Creo una ciudad (Bangkok) que me de informacion sobre la siguiente ciudad (Buenos Aires)
-		Ciudad ciudad = CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(NombresCiudades.BANGKOK, NombresCiudades.BUENOS_AIRES);
+		Ciudad ciudad = CiudadTest.crearCiudadConEdificiosSiguienteCiudad(NombresCiudades.BANGKOK, NombresCiudades.BUENOS_AIRES);
 		List<String> pistasPosibles = new ArrayList<String>();
 		pistasPosibles.add("Un sospechoso estuvo aqui averiguando sobre el tipo de gobierno de un Presidente.");
 		pistasPosibles.add("Me dicen mis fuentes que se fue en un avion con Bandera de sol en sus alas.");
@@ -81,5 +107,8 @@ public class CiudadTest {
 			assertTrue(pistasPosibles.contains(policia.visitarEdificioYObtenerPista(edificio)));
 		}
 	}
+
+
+
 
 }

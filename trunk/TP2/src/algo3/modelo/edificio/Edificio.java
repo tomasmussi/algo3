@@ -5,7 +5,7 @@ import algo3.modelo.ladron.Ladron;
 
 public abstract class Edificio {
 
-	private Ladron ladron ;
+	private Ladron ladron;
 
 	protected static final String MSJ_LADRON_NO_ESTUVO_AQUI = "Lo lamento, no hemos visto al sospechoso aqui.";
 

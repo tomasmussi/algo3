@@ -8,9 +8,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import algo3.modelo.mapa.mundi.Ciudad;
-import algo3.modelo.mapa.mundi.InformacionCiudad;
-import algo3.modelo.mapa.mundi.MapaMundi;
+import algo3.modelo.mapa.Ciudad;
+import algo3.modelo.mapa.InformacionCiudad;
+import algo3.modelo.mapa.Mapa;
 
 public class MapaMundiTest {
 
@@ -33,19 +33,19 @@ public class MapaMundiTest {
 
 	@Test
 	public void testEncuentraCiudadConStringCorrecta() {
-		MapaMundi mapa = MapaMundi.getInstance();
+		Mapa mapa = Mapa.getInstance();
 		mapa.cargarListadoCiudades(listaDeInfo);
 		assertTrue((mapa.getCiudadDeNombre("Lima")).getNombre() == "Lima");
 	}
 	@Test
 	public void testEncuentraCiudadConString() {
-		MapaMundi mapa = MapaMundi.getInstance();
+		Mapa mapa = Mapa.getInstance();
 		mapa.cargarListadoCiudades(listaDeInfo);
 		assertTrue((mapa.getCiudadDeNombre("Lima")) != null);
 	}
 	@Test
 	public void testEncuentraCiudadCorrecta() {
-		MapaMundi mapa = MapaMundi.getInstance();
+		Mapa mapa = Mapa.getInstance();
 		mapa.cargarListadoCiudades(listaDeInfo);
 		Ciudad estaCiudad = new Ciudad(0,0,null,null,null, new InformacionCiudad("Tokyo","Blanca y roja", "Yen", "Presidente"));
 		mapa.agregarCiudad(estaCiudad);

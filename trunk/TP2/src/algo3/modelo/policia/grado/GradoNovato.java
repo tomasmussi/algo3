@@ -10,7 +10,7 @@ import algo3.modelo.pista.PistaFacil;
 public class GradoNovato extends Grado {
 
 	private static final String GRADO = "Novato";
-	private static final int horasArestar = 2;
+	private static final int HORAS_A_RESTAR = 2;
 	private DificultadPista dificultadDePista;
 
 	public GradoNovato() {
@@ -49,7 +49,7 @@ public class GradoNovato extends Grado {
 
 	@Override
 	public int horasArestarPorAtaque() {
-		return horasArestar;
+		return HORAS_A_RESTAR;
 	}
 
 }

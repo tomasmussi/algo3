@@ -9,12 +9,12 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import algo3.modelo.mapa.mundi.Ciudad;
-import algo3.modelo.mapa.mundi.InformacionCiudad;
-import algo3.modelo.mapa.mundi.InformacionCiudadProvider;
-import algo3.modelo.mapa.mundi.MapaMundi;
-import algo3.modelo.mapa.mundi.NombresCiudades;
-import algo3.modelo.viaje.Recorrido;
+import algo3.modelo.mapa.Ciudad;
+import algo3.modelo.mapa.InformacionCiudad;
+import algo3.modelo.mapa.InformacionCiudadProvider;
+import algo3.modelo.mapa.Mapa;
+import algo3.modelo.mapa.NombresCiudades;
+import algo3.modelo.viaje.DestinosPosibles;
 
 public class RecorridoTest {
 
@@ -55,7 +55,7 @@ public class RecorridoTest {
 		listaInformacionCiudadesMundo.add(getInformacionPara(NombresCiudades.NEW_DELHI));
 		listaInformacionCiudadesMundo.add(getInformacionPara(NombresCiudades.LIMA));
 
-		MapaMundi.getInstance().cargarListadoCiudades(listaInformacionCiudadesMundo);
+		Mapa.getInstance().cargarListadoCiudades(listaInformacionCiudadesMundo);
 	}
 
 	@Test
@@ -66,26 +66,24 @@ public class RecorridoTest {
 
 	@Test
 	public void testCiudadesDelRecorridoTienenComoOpcionCiudadSiguiente(){
-		Recorrido recorrido = new Recorrido(listaRecorrido);
-		boolean ok = true;
+		DestinosPosibles recorrido = new DestinosPosibles(listaRecorrido);
 		for (int i = 0; i < listaRecorrido.size()-1; i++){
 			Ciudad ciudadPrevia = listaRecorrido.get(i);
 			Ciudad ciudadPosterior = listaRecorrido.get(i+1);
-			ok &= recorrido.sonConsecutivas(ciudadPrevia, ciudadPosterior);
+			assertTrue(recorrido.sonConsecutivas(ciudadPrevia, ciudadPosterior));
 		}
-		assertTrue(ok);
 	}
 
 	@Test
 	public void testCiudadDevuelveCuatroOpcionesPosibles(){
-		Recorrido recorrido = new Recorrido(listaRecorrido);
+		DestinosPosibles recorrido = new DestinosPosibles(listaRecorrido);
 		Ciudad origen = listaRecorrido.get(0);
 		assertEquals(4, recorrido.getCiudadesPosibles(origen).size());
 	}
 
 	@Test
 	public void testCiudadesDelRecorridoTienenComoOpcionCiudadAnterior(){
-		Recorrido recorrido = new Recorrido(listaRecorrido);
+		DestinosPosibles recorrido = new DestinosPosibles(listaRecorrido);
 
 		for (int i = 0; i < (listaRecorrido.size()-1); i++){
 			Ciudad ciudadPrevia = listaRecorrido.get(i);

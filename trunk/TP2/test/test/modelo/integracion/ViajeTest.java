@@ -12,9 +12,9 @@ import org.junit.Test;
 import algo3.modelo.caso.Caso;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
-import algo3.modelo.mapa.mundi.Ciudad;
-import algo3.modelo.mapa.mundi.InformacionCiudad;
-import algo3.modelo.mapa.mundi.MapaMundi;
+import algo3.modelo.mapa.Ciudad;
+import algo3.modelo.mapa.InformacionCiudad;
+import algo3.modelo.mapa.Mapa;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.policia.Policia;
 import algo3.modelo.tiempo.Reloj;
@@ -38,7 +38,7 @@ public class ViajeTest {
 		listaCiudadesRecorrido.add(new InformacionCiudad("Paris","Blanca, roja y azul", "Franco", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
-		MapaMundi.getInstance().cargarListadoCiudades(listaCiudadesRecorrido);
+		Mapa.getInstance().cargarListadoCiudades(listaCiudadesRecorrido);
 
 		listaLadrones = new ArrayList<CaracteristicaLadron>();
 		listaLadrones.add(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
@@ -61,7 +61,7 @@ public class ViajeTest {
 		Ciudad ciudadActualLadron = esteCaso.getLadron().getCiudadActual();
 		assertFalse(ciudadActualLadron.equals(policia.getCiudadActual()));
 		policia.viajarA(ciudadActualLadron);
-		assertFalse(esteCaso.getLadron().getCiudadActual().esMismaCiudadQue(policia.getCiudadActual()));
+		assertFalse(esteCaso.getLadron().getCiudadActual().equals(policia.getCiudadActual()));
 	}
 
 	@Test
@@ -70,15 +70,15 @@ public class ViajeTest {
 		Ciudad ciudadActualLadron = esteLadron.getCiudadActual();
 		// El policia viaja a la 2da ciudad:
 		policia.viajarA(ciudadActualLadron);
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
 		Ciudad ciudadActualLadron2 = esteLadron.getCiudadActual();
 		// El policia viaja a la 3er ciudad:
 		policia.viajarA(ciudadActualLadron2);
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
 		Ciudad ciudadActualLadron3 = esteLadron.getCiudadActual();
 		// El policia viaja a la 4ta ciudad:
 		policia.viajarA(ciudadActualLadron3);
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
 		assertTrue(policia.emitirOrdenDeArresto(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta")));
 		assertTrue(policia.getCaso().getOrdenDeArresto() != null);
 		assertTrue(policia.arrestar(esteLadron));
@@ -90,15 +90,15 @@ public class ViajeTest {
 		Ciudad ciudadActualLadron = esteLadron.getCiudadActual();
 		// El policia viaja a la 2da ciudad:
 		policia.viajarA(ciudadActualLadron);
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
 		Ciudad ciudadActualLadron2 = esteLadron.getCiudadActual();
 		// El policia viaja a la 3er ciudad:
 		policia.viajarA(ciudadActualLadron2);
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
 		Ciudad ciudadActualLadron3 = esteLadron.getCiudadActual();
 		// El policia viaja a la 4ta ciudad:
 		policia.viajarA(ciudadActualLadron3);
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
 		// Crea Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
 		assertTrue(policia.emitirOrdenDeArresto(new CaracteristicaLadron("Merey Laroc", "Femenino", "Mountain Climbing", "Castaño", "Joyeria", "Limousina")));
 		// Arresta ladron.
@@ -114,15 +114,15 @@ public class ViajeTest {
 		Ciudad ciudadActualLadron = esteLadron.getCiudadActual();
 		// El policia viaja a la 2da ciudad:
 		policia.viajarA(ciudadActualLadron);
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
 		Ciudad ciudadActualLadron2 = esteLadron.getCiudadActual();
 		// El policia viaja a la 3er ciudad:
 		policia.viajarA(ciudadActualLadron2);
-		assertFalse(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertFalse(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
 		Ciudad ciudadActualLadron3 = esteLadron.getCiudadActual();
 		// El policia viaja a la 4ta ciudad:
 		policia.viajarA(ciudadActualLadron3);
-		assertTrue(policia.getCiudadActual().esMismaCiudadQue(esteLadron.getCiudadActual()));
+		assertTrue(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
 		assertTrue(policia.getCaso().getOrdenDeArresto() == null);
 		assertFalse(policia.arrestar(esteLadron));
 	}

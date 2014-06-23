@@ -6,13 +6,13 @@ import java.util.Random;
 import algo3.modelo.estacionPolicia.EstacionDePolicia;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
-import algo3.modelo.mapa.mundi.Ciudad;
-import algo3.modelo.mapa.mundi.MapaMundi;
+import algo3.modelo.mapa.Ciudad;
+import algo3.modelo.mapa.Mapa;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.Robable;
 import algo3.modelo.policia.OrdenDeArresto;
 import algo3.modelo.policia.grado.Grado;
-import algo3.modelo.viaje.Recorrido;
+import algo3.modelo.viaje.DestinosPosibles;
 
 
 /**
@@ -27,30 +27,39 @@ public class Caso {
 
 	private OrdenDeArresto ordenDeArresto;
 	private Ladron ladron;
-	private Recorrido recorrido;
+	private DestinosPosibles recorrido;
 
-	public Caso(List<CaracteristicaLadron> ladrones,
-			List<CaracteristicaObjeto> objetos, Grado gradoPolicia){
-		Random rand = new Random();
-		int posicion = objetos.size() != 1 ? rand.nextInt(objetos.size() -1) : 0;
-		Robable objetoRobado = gradoPolicia.getObjetoRobado(objetos.get(posicion));
+	/**
+	 * Construye un Caso. Es el objeto que representa un nivel en el juego que el
+	 * Policia (el jugador) debera resolver
+	 * @param Lista de ladrones
+	 * @param Lista de objetos
+	 * @param El grado del policia
+	 * 
+	 * Post condiciones: Obtengo un caso con un ladron y un objeto que el ladron se roba,
+	 * seleccionado a partir de las listas de que se obtienen por parametro.
+	 * 
+	 */
+	public Caso(List<CaracteristicaLadron> ladrones, List<CaracteristicaObjeto> objetos, Grado gradoPolicia){
 
-		posicion = ladrones.size() != 1 ? rand.nextInt(ladrones.size() -1) : 0;
-		this.ladron = new Ladron(ladrones.get(posicion));
+		Robable objetoRobado = gradoPolicia.getObjetoRobado(objetos.get(getNumeroRandom(objetos.size())));
+
+		this.ladron = new Ladron(ladrones.get(getNumeroRandom(ladrones.size())));
 		this.ladron.robar(objetoRobado);
+		this.recorrido = new DestinosPosibles(ladron.getEscapatoria());
+	}
 
-		this.recorrido = new Recorrido(ladron.getEscapatoria());
-
+	private int getNumeroRandom(int maximaCantidad){
+		Random rand = new Random();
+		return maximaCantidad != 1 ? rand.nextInt(maximaCantidad - 1) : 0;
 	}
 
 	public void generarOrdenDeArresto(CaracteristicaLadron caracteristica){
-
 		List<CaracteristicaLadron> expedientes = EstacionDePolicia.getInstance().buscarExpediente(caracteristica);
 		if (expedientes.size() == 1){
 			this.ordenDeArresto = new OrdenDeArresto(expedientes.get(0).clone());
 		}
 	}
-
 
 	public OrdenDeArresto getOrdenDeArresto() {
 		return ordenDeArresto;
@@ -60,17 +69,17 @@ public class Caso {
 		return ladron;
 	}
 
-	public Recorrido getRecorrido() {
-		return this.recorrido;
+	public DestinosPosibles getRecorrido() {
+		return recorrido;
 	}
 
 	public Ciudad getCiudadOrigenDeObjeto(){
-		Robable objetoRobado = this.ladron.getObjetoRobado();
-		return(MapaMundi.getInstance().getCiudadDeNombre(objetoRobado.getCiudadOrigen()));
+		Robable objetoRobado = ladron.getObjetoRobado();
+		return Mapa.getInstance().getCiudadDeNombre(objetoRobado.getCiudadOrigen());
 	}
 
 	public boolean ultimoPaisLadron(Ciudad ciudadActual) {
-		return ciudadActual.esMismaCiudadQue(ladron.getCiudadActual());
+		return ciudadActual.equals(ladron.getCiudadActual());
 	}
 
 }

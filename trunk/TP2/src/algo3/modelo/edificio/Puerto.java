@@ -2,16 +2,12 @@ package algo3.modelo.edificio;
 
 import algo3.modelo.entidad.Entidad;
 
-public class Aeropuerto extends Edificio {
+public class Puerto extends Edificio {
 
 	private String coloresBanderas;
 	private Entidad bandera;
 
-	public Aeropuerto(String coloresBanderas){
-		this.coloresBanderas = coloresBanderas;
-	}
-
-	public Aeropuerto(Entidad bandera) {
+	public Puerto(Entidad bandera) {
 		this.bandera = bandera;
 	}
 
@@ -25,7 +21,8 @@ public class Aeropuerto extends Edificio {
 
 	@Override
 	public Entidad getElemento() {
-		return bandera;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

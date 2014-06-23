@@ -1,4 +1,4 @@
-package algo3.modelo.mapa.mundi;
+package algo3.modelo.mapa;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,25 +8,25 @@ import java.util.Map;
 
 import algo3.controlador.XMLParser;
 
-public class MapaMundi {
+public class Mapa {
 	private Map<String, Ciudad> ciudadesDelMundo;
-	private static MapaMundi instance;
+	private static Mapa instance;
 
-	private MapaMundi(){
+	private Mapa(){
 		ciudadesDelMundo = new HashMap<String, Ciudad>();
 		List<InformacionCiudad> ciudades = XMLParser.cargarCiudades();
 		this.cargarListadoCiudades(ciudades);
 	}
 
-	public synchronized static MapaMundi getInstance() {
+	public synchronized static Mapa getInstance() {
 		if (instance == null) {
-			instance = new MapaMundi();
+			instance = new Mapa();
 		}
 		return instance;
 	}
 
 	public void agregarCiudad(Ciudad ciudad) {
-		this.ciudadesDelMundo.put(ciudad.getNombre(), ciudad);
+		ciudadesDelMundo.put(ciudad.getNombre(), ciudad);
 	}
 
 	/**
@@ -43,11 +43,12 @@ public class MapaMundi {
 	}
 
 	public void cargarListadoCiudades(List<InformacionCiudad> ciudades) {
-
+		//TODO: Mal, Mapa deberia manejar informacion ciudad.
+		// Despues de crear objetos que hago con el edificio y las coordenadas etc?
 		Iterator<InformacionCiudad> iter = ciudades.iterator();
 		while (iter.hasNext()){
 			InformacionCiudad informacionCiudad = iter.next();
-			agregarCiudad(new Ciudad(0,0,null,null,null,informacionCiudad));
+			agregarCiudad(CiudadFactory.crearCiudadComun(informacionCiudad));
 		}
 	}
 }

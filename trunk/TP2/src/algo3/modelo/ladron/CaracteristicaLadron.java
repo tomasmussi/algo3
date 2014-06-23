@@ -106,14 +106,7 @@ public class CaracteristicaLadron implements Cloneable {
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(nombre + '\n');
-		sb.append(sexo + '\n');
-		sb.append(hobby + '\n');
-		sb.append(colorCabello + '\n');
-		sb.append(caracteristica + '\n');
-		sb.append(vehiculo + '\n');
-		return sb.toString();
+		return nombre;
 
 	}
 

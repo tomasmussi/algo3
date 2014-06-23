@@ -5,14 +5,11 @@ public abstract class Objeto implements Robable {
 	private String nombre;
 
 	private String ciudadOrigen;
-	
+
 	public Objeto(CaracteristicaObjeto caracteristica){
 		this.nombre = caracteristica.getNombre();
 		this.ciudadOrigen = caracteristica.getCiudadOrigen();
 	}
-
-	@Override
-	public abstract Integer getCantidadDeCiudades();
 
 	@Override
 	public String getNombre() {

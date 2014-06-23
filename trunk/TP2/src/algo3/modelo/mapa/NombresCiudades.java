@@ -1,4 +1,4 @@
-package algo3.modelo.mapa.mundi;
+package algo3.modelo.mapa;
 
 /**
  * Contiene todos los nombres de las Ciudades del juego.

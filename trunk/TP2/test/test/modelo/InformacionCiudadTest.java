@@ -4,12 +4,12 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import algo3.modelo.mapa.mundi.InformacionCiudad;
-import algo3.modelo.mapa.mundi.InformacionCiudadProvider;
-import algo3.modelo.mapa.mundi.InformacionCultural;
-import algo3.modelo.mapa.mundi.InformacionDeViaje;
-import algo3.modelo.mapa.mundi.InformacionFinanciera;
-import algo3.modelo.mapa.mundi.NombresCiudades;
+import algo3.modelo.mapa.InformacionCiudad;
+import algo3.modelo.mapa.InformacionCiudadProvider;
+import algo3.modelo.mapa.InformacionCultural;
+import algo3.modelo.mapa.InformacionDeViaje;
+import algo3.modelo.mapa.InformacionFinanciera;
+import algo3.modelo.mapa.NombresCiudades;
 
 public class InformacionCiudadTest {
 

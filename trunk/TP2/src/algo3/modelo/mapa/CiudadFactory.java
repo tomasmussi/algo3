@@ -1,4 +1,4 @@
-package algo3.modelo.mapa.mundi;
+package algo3.modelo.mapa;
 
 import algo3.modelo.edificio.Edificio;
 import algo3.modelo.edificio.EdificioFactory;
@@ -28,5 +28,10 @@ public class CiudadFactory {
 		Edificio edificio3 = EdificioFactory.crearEdificioDeViajeConEntidad(infoSiguienteCiudad);
 		// TODO: meter coordenadas en el properties/informacion.
 		return new Ciudad(0, 0, edificio1, edificio2, edificio3, infoCiudad);
+	}
+
+	public static Ciudad crearCiudadComun(InformacionCiudad informacionCiudad) {
+		Edificio[] edificios = EdificioFactory.crearEdificiosSinInformacion();
+		return new Ciudad(0,0,edificios[0],edificios[1],edificios[2],informacionCiudad);
 	}
 }
