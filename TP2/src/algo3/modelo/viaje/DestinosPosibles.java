@@ -2,14 +2,16 @@ package algo3.modelo.viaje;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
-import algo3.modelo.mapa.mundi.Ciudad;
-import algo3.modelo.mapa.mundi.MapaMundi;
+import algo3.modelo.mapa.Ciudad;
+import algo3.modelo.mapa.Mapa;
 
-public class Recorrido {
+public class DestinosPosibles {
+
+	private static final int CANTIDAD_CIUDADES_POSIBLES = 4;
 	private Map<Ciudad, List<Ciudad>> ciudadesUsadas;
 	private List<Ciudad> ciudadesLibres;
 
@@ -17,14 +19,14 @@ public class Recorrido {
 	// los planes de destinos, pero no guarda el recorrido en si. Solo el ladron lo sabe.
 
 	//TODO: CAMBIAR NOMBRE A DESTINOSPOSIBLES
-	public Recorrido (List<Ciudad> escapatoria) {
-		this.ciudadesUsadas = new HashMap<Ciudad, List<Ciudad>>();
-		this.ciudadesLibres = new ArrayList<Ciudad>();
-		this.ciudadesLibres.addAll(MapaMundi.getInstance().getListadoCiudades());
-		this.crearMapaDeRecorrido(escapatoria);
+	public DestinosPosibles (List<Ciudad> escapatoria) {
+		ciudadesUsadas = new HashMap<Ciudad, List<Ciudad>>();
+		ciudadesLibres = new ArrayList<Ciudad>();
+		ciudadesLibres.addAll(Mapa.getInstance().getListadoCiudades());
+		crearMapaDeRecorrido(escapatoria);
 	}
 
-	public void crearMapaDeRecorrido(List<Ciudad> escapatoria) {
+	private void crearMapaDeRecorrido(List<Ciudad> escapatoria) {
 		for (int i = 0; i < escapatoria.size(); i++){
 			Ciudad unaCiudad = escapatoria.get(i);
 			List<Ciudad> posibles = new ArrayList<Ciudad>();
@@ -59,18 +61,18 @@ public class Recorrido {
 		List<Ciudad> ciudadesPosibles = new ArrayList<Ciudad>();
 		ciudadesPosibles.addAll(ciudadesUsadas.get(origen));
 
-		Random rand = new Random();
-		int posicion = rand.nextInt(ciudadesLibres.size() -1);
-
-		while (ciudadesPosibles.size() < 4) {
-			ciudadesPosibles.add(ciudadesLibres.get(posicion));
-			posicion = (posicion == ciudadesPosibles.size() -1) ? 0 : posicion +1;
+		Iterator<Ciudad> iter = ciudadesLibres.iterator();
+		while (ciudadesPosibles.size() < CANTIDAD_CIUDADES_POSIBLES && iter.hasNext()) {
+			Ciudad ciudadPosible = iter.next();
+			ciudadesPosibles.add(ciudadPosible);
+			//Lo saco de las listas posibles para no armar un recorrido que pueda volver
+			iter.remove();
 		}
 		return ciudadesPosibles;
 	}
 
 	public boolean sonConsecutivas(Ciudad ciudadPrevia, Ciudad ciudadPosterior) {
-		List <Ciudad> ciudadesPosibles = ciudadesUsadas.get(ciudadPrevia);
-		return (ciudadesPosibles.contains(ciudadPosterior));
+		List<Ciudad> ciudadesPosibles = ciudadesUsadas.get(ciudadPrevia);
+		return ciudadesPosibles.contains(ciudadPosterior);
 	}
 }

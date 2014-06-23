@@ -10,8 +10,8 @@ import org.junit.Test;
 
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
-import algo3.modelo.mapa.mundi.InformacionCiudad;
-import algo3.modelo.mapa.mundi.MapaMundi;
+import algo3.modelo.mapa.InformacionCiudad;
+import algo3.modelo.mapa.Mapa;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.ObjetoComun;
 import algo3.modelo.objeto.ObjetoMuyValioso;
@@ -33,7 +33,7 @@ public class RoboTest {
 		listaCiudadesRecorrido.add(new InformacionCiudad("Paris","Blanca, roja y azul", "Franco", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
-		MapaMundi.getInstance().cargarListadoCiudades(listaCiudadesRecorrido);
+		Mapa.getInstance().cargarListadoCiudades(listaCiudadesRecorrido);
 	}
 
 	@Test

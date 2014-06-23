@@ -7,22 +7,12 @@ public class Banco extends Edificio {
 	private String moneda;
 	private Entidad eMoneda;
 
-	public Banco() {
-		super();
-	}
-
-	public Banco(Entidad eMoneda) {
-		super();
-		this.eMoneda = eMoneda;
-	}
-
 	public Banco(String moneda) {
-		super();
 		this.moneda = moneda;
 	}
 
-	public void setMoneda(String moneda) {
-		this.moneda = moneda;
+	public Banco(Entidad moneda) {
+		this.eMoneda = moneda;
 	}
 
 	@Override

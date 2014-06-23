@@ -28,6 +28,7 @@ public class PistasProvider {
 		try {
 			XStream xmlReader = new XStream();
 			InputStream in = Properties.class.getResourceAsStream("/algo3/modelo/pista/pistas.xml");
+			//TODO: Mal, la lectura de XML tiene que estar en el XMLParser
 			List<Pista> pistasDelXML = (List<Pista>) xmlReader.fromXML(in);
 			for (Pista pista : pistasDelXML) {
 				Map<String, String> pistasPorEntidad = new HashMap<String, String>();

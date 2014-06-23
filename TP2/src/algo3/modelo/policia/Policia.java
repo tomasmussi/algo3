@@ -7,15 +7,13 @@ import algo3.modelo.caso.Caso;
 import algo3.modelo.edificio.Edificio;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
-import algo3.modelo.mapa.mundi.Ciudad;
+import algo3.modelo.mapa.Ciudad;
 import algo3.modelo.policia.grado.Grado;
 import algo3.modelo.policia.grado.GradoNovato;
 import algo3.modelo.tiempo.Reloj;
 
 public class Policia {
 
-	//TODO: FIJARSE SI SE BORRA ESTA CONSTANTE HORAS_INICIALES
-	public static final int HORAS_INICIALES = 154;
 	private Reloj reloj;
 	private int cantidadArrestos;
 	private int cantidadDeVisitas;
@@ -129,7 +127,7 @@ public class Policia {
 
 		this.ciudadActual = ciudad;
 		Ladron ladron = getCaso().getLadron();
-		if(ciudadActual.esMismaCiudadQue(ladron.getCiudadActual())){
+		if(ciudadActual.equals(ladron.getCiudadActual())){
 			ladron.moverAlSiguientePais();
 		}
 	}

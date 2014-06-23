@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Random;
 
 import algo3.modelo.edificio.Edificio;
-import algo3.modelo.mapa.mundi.Ciudad;
-import algo3.modelo.mapa.mundi.MapaMundi;
+import algo3.modelo.mapa.Ciudad;
+import algo3.modelo.mapa.Mapa;
 import algo3.modelo.objeto.Robable;
 
 
@@ -41,7 +41,6 @@ public class Ladron {
 	 * @return Si sus caracteristicas coinciden, univocamente es el ladron, entonces devuelve true, devuelve false en caso contrario
 	 */
 	public boolean coincideCon(CaracteristicaLadron unaCaracteristica) {
-
 		return caracteristicas.equals(unaCaracteristica);
 	}
 
@@ -80,14 +79,14 @@ public class Ladron {
 	}
 
 	public Ciudad getCiudadActual() {
-		return this.ciudadActual;
+		return ciudadActual;
 	}
 
 	public void moverAlSiguientePais() {
 		if (iterador.hasNext()){
 			ciudadActual = iterador.next();
 		} else {
-			this.refugiarseEnEdificio();
+			refugiarseEnEdificio();
 		}
 	}
 
@@ -109,10 +108,15 @@ public class Ladron {
 		return this.rutaEscape;
 	}
 
+	/**
+	 * Se llama este metodo cuando el ladron se roba un objeto al comienzo de un caso.
+	 * El ladron se roba el objeto y en base al objeto elige un recorrido por el cual escaparse.
+	 * Ese recorrido se actualiza cuando el policia se va acercando al ladron
+	 */
 	public void robar(Robable objetoRobado) {
-		this.ciudadActual = MapaMundi.getInstance().getCiudadDeNombre(objetoRobado.getCiudadOrigen());
+		this.ciudadActual = Mapa.getInstance().getCiudadDeNombre(objetoRobado.getCiudadOrigen());
 		this.objetoRobado = objetoRobado;
-		elegirEscapatoria(MapaMundi.getInstance().getListadoCiudades());
+		elegirEscapatoria(Mapa.getInstance().getListadoCiudades());
 	}
 
 	public Robable getObjetoRobado(){

@@ -3,12 +3,10 @@ package algo3.modelo.edificio;
 import algo3.modelo.entidad.Bandera;
 import algo3.modelo.entidad.Entidad;
 import algo3.modelo.entidad.EntidadCultural;
-import algo3.modelo.entidad.Gobierno;
 import algo3.modelo.entidad.Moneda;
-import algo3.modelo.mapa.mundi.InformacionCiudad;
-import algo3.modelo.mapa.mundi.InformacionCultural;
-import algo3.modelo.mapa.mundi.InformacionDeViaje;
-import algo3.modelo.mapa.mundi.InformacionFinanciera;
+import algo3.modelo.mapa.InformacionCultural;
+import algo3.modelo.mapa.InformacionDeViaje;
+import algo3.modelo.mapa.InformacionFinanciera;
 
 public class EdificioFactory {
 
@@ -26,6 +24,14 @@ public class EdificioFactory {
 		String[] infoHistorica = infoCiudad.getInformacionHistorica().split("\\|");
 		Entidad algoCultural = new EntidadCultural(infoHistorica[0], infoHistorica[1]);
 		return new Embajada(algoCultural);
+	}
+
+	public static Edificio[] crearEdificiosSinInformacion(){
+		Edificio[] edificios = new Edificio[3];
+		edificios[0] = new Aeropuerto((String)null);
+		edificios[1] = new Banco((String)null);
+		edificios[2] = new Aeropuerto((String)null);
+		return edificios;
 	}
 
 }

@@ -1,4 +1,4 @@
-package algo3.modelo.mapa.mundi;
+package algo3.modelo.mapa;
 
 import algo3.modelo.edificio.Edificio;
 import algo3.modelo.edificio.EdificioFactory;
@@ -59,13 +59,6 @@ public class Ciudad {
 		return edificios;
 	}
 
-	public boolean esMismaCiudadQue(Ciudad ciudad) {
-
-		if (ciudad == null) {
-			return false;
-		}
-		return nombre.equals(ciudad.getNombre());
-	}
 
 	@Override
 	public String toString() {

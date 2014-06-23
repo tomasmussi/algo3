@@ -7,17 +7,8 @@ public class Embajada extends Edificio {
 	private String gobierno;
 	private Entidad entidad;
 
-	public Embajada() {
-		super();
-	}
-
 	public Embajada(Entidad entidad) {
 		this.entidad = entidad;
-	}
-
-	public Embajada(String gobierno) {
-		super();
-		this.gobierno = gobierno;
 	}
 
 	public void setGobierno(String gobierno) {

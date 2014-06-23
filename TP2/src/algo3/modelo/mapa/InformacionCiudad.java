@@ -1,4 +1,4 @@
-package algo3.modelo.mapa.mundi;
+package algo3.modelo.mapa;
 
 import java.util.ArrayList;
 import java.util.Collection;

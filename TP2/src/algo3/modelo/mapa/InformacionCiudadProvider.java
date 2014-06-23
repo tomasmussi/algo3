@@ -1,7 +1,9 @@
-package algo3.modelo.mapa.mundi;
+package algo3.modelo.mapa;
 
 import java.io.IOException;
 import java.util.Properties;
+
+import algo3.controlador.Logger;
 
 public class InformacionCiudadProvider {
 
@@ -31,7 +33,7 @@ public class InformacionCiudadProvider {
 			prop = new Properties();
 			prop.load(Properties.class.getResourceAsStream("/ciudades.properties"));
 		} catch (IOException e) {
-			System.out.println("Error cargando informacion de ciudades desde archivo de propiedades." + e.toString());
+			Logger.loguearError("Error cargando informacion de ciudades desde archivo de propiedades." + e.toString());
 		}
 	}
 
