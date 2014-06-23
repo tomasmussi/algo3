@@ -1,6 +1,5 @@
 package test.modelo.integracion;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -11,11 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import algo3.modelo.caso.Caso;
-import algo3.modelo.edificio.Aeropuerto;
-import algo3.modelo.edificio.Banco;
-import algo3.modelo.edificio.Edificio;
-import algo3.modelo.entidad.Bandera;
-import algo3.modelo.entidad.Moneda;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.mundi.Ciudad;
@@ -33,7 +27,7 @@ public class ViajeTest {
 	private List<CaracteristicaObjeto> listaObjetos;
 
 	@Before
-	public void cargarMapa() {
+	public void cargarMapa(){
 		List<InformacionCiudad> listaCiudadesRecorrido;
 		listaCiudadesRecorrido = new ArrayList<InformacionCiudad>();
 		listaCiudadesRecorrido.add(new InformacionCiudad("Rio de Janeiro", "Verde y amarilla", "Real", "Presidente"));
@@ -45,25 +39,16 @@ public class ViajeTest {
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
 		MapaMundi.getInstance().cargarListadoCiudades(listaCiudadesRecorrido);
-	}
 
-	@Before
-	public void cargarLadrones() {
 		listaLadrones = new ArrayList<CaracteristicaLadron>();
 		listaLadrones.add(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
-	}
 
-	@Before
-	public void cargarObjetos() {
 		listaObjetos = new ArrayList<CaracteristicaObjeto>();
 		listaObjetos.add(new CaracteristicaObjeto("Algo1", "Oslo"));
 		listaObjetos.add(new CaracteristicaObjeto("Algo2", "Tokyo"));
 		listaObjetos.add(new CaracteristicaObjeto("Algo3", "Lima"));
 		listaObjetos.add(new CaracteristicaObjeto("Algo4", "Paris"));
-	}
 
-	@Before
-	public void initialize(){
 		this.reloj = new Reloj();
 		this.policia = new Policia();
 		policia.setReloj(reloj);
@@ -142,40 +127,4 @@ public class ViajeTest {
 		assertFalse(policia.arrestar(esteLadron));
 	}
 
-
-	//		@Test
-	//		public void testEdificioDaPistaSiguienteCiudad() {
-	//			Ciudad siguienteCiudad = crearCiudadPrueba("Buenos Aires", "Celeste y Blanca", "Australes", "Presidente");
-	//			Ciudad bangkok = crearCiudad("Bangkok", siguienteCiudad);
-	//			Edificio[] edificiosPosibles = bangkok.getTodosLosEdificios();
-	//			String pista = policia.visitarEdificioYObtenerPista(edificiosPosibles[0]); // 0 = aeropuerto.
-	//			assertTrue(pista.equals("Me dicen mis fuentes que se fue en un avion con Celeste y Blanca en sus alas."));
-	//		}
-
-	//Entrar a un edificio (1hr la primera vez , 2 hs 2da vez, 3hs 3ra vez).
-	@Test
-	public void testEdificioRestaUnaHoraPorPrimerEdifico() {
-		Edificio banco = new Banco(new Moneda("Peso"));
-		policia.visitarEdificioYObtenerPista(banco);
-		assertEquals("Lunes 08:00 horas",reloj.tiempoActual());
-	}
-	//
-	@Test
-	public void testEdificioRestaDosHorasPorSegundoEdificio() {
-		Edificio banco = new Banco(new Moneda("Peso"));
-		Edificio aeropuerto = new Aeropuerto(new Bandera("Verde y azul"));
-		policia.visitarEdificioYObtenerPista(banco);
-		policia.visitarEdificioYObtenerPista(aeropuerto);
-		assertEquals("Lunes 10:00 horas", reloj.tiempoActual());
-	}
-
-	@Test
-	public void testEdificioRestaSoloUnaHoraPorEdificioSinImportarCantidadDeEntradas() {
-		Edificio banco = new Banco(new Moneda("Peso"));
-		policia.visitarEdificioYObtenerPista(banco);
-		policia.visitarEdificioYObtenerPista(banco);
-		policia.visitarEdificioYObtenerPista(banco);
-		policia.visitarEdificioYObtenerPista(banco);
-		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
-	}
 }
