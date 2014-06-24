@@ -26,6 +26,11 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	private String coordenadaX;
 	private String coordenadaY;
 
+	@Override
+	public String toString() {
+		return nombreCiudad;
+	}
+
 	/**
 	 * Crea una Informacion completamente vacia
 	 * Hay que pasarle por parametro todas las propiedades
@@ -85,8 +90,8 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 		for (String valor : entidad){
 			if (!valor.isEmpty()) {
 				informacion.add(nombreEntidad + SEPARATOR + valor);
+			}
 		}
-	}
 	}
 
 	private Collection<String> transformarEnColeccion(String[] array) {

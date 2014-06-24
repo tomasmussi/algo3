@@ -5,7 +5,7 @@
 	<moneda>dracmas</moneda>
 	<geografia></geografia>
 	<lugaresDeReferencia>Mar Egeo,montañas de Pindo</lugaresDeReferencia>
-	<industria>,higos,aceitunas</industria>
+	<industria><string>higos</string><string>aceitunas</string></industria>
 	<animales></animales>
 	<gente>Platon,espartanos</gente>
 	<idiomas>Griego</idiomas>
@@ -22,7 +22,7 @@
 	<coloresBandera>Rojo, blanco y Negro</coloresBandera>
 	<moneda>Dinares</moneda>
 	<geografia>desierto</geografia>
-	<lugaresDeReferencia>;desierto de Siria,el rio Eufrates,Tigris</lugaresDeReferencia>
+	<lugaresDeReferencia><string>desierto de Siria</string><string>el rio Eufrates</string><string>Tigris</string></lugaresDeReferencia>
 	<industria>aceite</industria>
 	<animales>Arabian Gazelles</animales>
 	<gente>sumeria</gente>
@@ -40,7 +40,7 @@
 	<coloresBandera>Verde, Amarillo y Rojo</coloresBandera>
 	<moneda>Francos</moneda>
 	<geografia></geografia>
-	<lugaresDeReferencia>rio Niger,Sahara</lugaresDeReferencia>
+	<lugaresDeReferencia><string>rio Niger</string><string>Sahara</string></lugaresDeReferencia>
 	<industria>mijo,arroz</industria>
 	<animales></animales>
 	<gente>;tuaregs</gente>
@@ -64,7 +64,7 @@
 	<gente></gente>
 	<idiomas></idiomas>
 	<arte></arte>
-	<religion>budismo</religion>
+	<religion><string>budismo</string></religion>
 	<gobierno></gobierno>
 	<miscelaneo>Ancient Siam</miscelaneo>		
 	<coordenadaX>614</coordenadaX>
@@ -76,7 +76,7 @@
 	<coloresBandera>Rojo, blanco y verde</coloresBandera>
 	<moneda>florines</moneda>
 	<geografia></geografia>
-	<lugaresDeReferencia>Alpold Plains,Rio Danubio</lugaresDeReferencia>
+	<lugaresDeReferencia><string>Alpold Plains</string><string>Rio Danubio</string></lugaresDeReferencia>
 	<industria>Uvas</industria>
 	<animales></animales>
 	<gente>croatas, gitanos</gente>
@@ -96,7 +96,7 @@
 	<geografia></geografia>
 	<lugaresDeReferencia>rio Parana,Tierra del Fuego</lugaresDeReferencia>
 	<industria></industria>
-	<animales>Ganado</animales>
+	<animales><string>Ganado</string></animales>
 	<gente>Gauchos</gente>
 	<idiomas></idiomas>
 	<arte></arte>
@@ -115,7 +115,7 @@
 	<lugaresDeReferencia>faraones Tumba,Desierto del Sinai</lugaresDeReferencia>
 	<industria>Limestone</industria>
 	<animales></animales>
-	<gente>nubios</gente>
+	<gente><string>nubios</string></gente>
 	<idiomas></idiomas>
 	<arte></arte>
 	<religion></religion>
@@ -130,7 +130,7 @@
 	<coloresBandera>Leon de Oro</coloresBandera>
 	<moneda>rupias</moneda>
 	<geografia></geografia>
-	<lugaresDeReferencia>Golfo de Mannar</lugaresDeReferencia>
+	<lugaresDeReferencia><string>Golfo de Mannar</string></lugaresDeReferencia>
 	<industria>citronela</industria>
 	<animales></animales>
 	<gente>croatas, gitanos</gente>
@@ -151,7 +151,7 @@
 	<lugaresDeReferencia>Mar Negro,el Monte Arafat</lugaresDeReferencia>
 	<industria></industria>
 	<animales></animales>
-	<gente>hititas</gente>
+	<gente><string>hititas</string></gente>
 	<idiomas></idiomas>
 	<arte>Magyar arte</arte>
 	<religion></religion>
@@ -170,7 +170,7 @@
 	<industria></industria>
 	<animales></animales>
 	<gente></gente>
-	<idiomas>Gurkhas</idiomas>
+	<idiomas><string>Gurkhas</string></idiomas>
 	<arte></arte>
 	<religion>hindu</religion>
 	<gobierno></gobierno>
@@ -183,10 +183,10 @@
 	<nombreCiudad>Kigali</nombreCiudad>
 	<coloresBandera>Rojo, Amarillo y Verde</coloresBandera>
 	<moneda>Francos</moneda>
-	<geografia>Volcanes</geografia>
+	<geografia><string>Volcanes</string></geografia>
 	<lugaresDeReferencia></lugaresDeReferencia>
 	<industria>Estaño</industria>
-	<animales>Negro Mamba,Gorilla</animales>
+	<animales><string>Negro Mamba</string><string>Gorilla</string></animales>
 	<gente>pigmeos</gente>
 	<idiomas></idiomas>
 	<arte></arte>
@@ -202,7 +202,7 @@
 	<coloresBandera>rojo y blanco</coloresBandera>
 	<moneda>Sols</moneda>
 	<geografia></geografia>
-	<lugaresDeReferencia>Huascaran</lugaresDeReferencia>
+	<lugaresDeReferencia><string>Huascaran</string></lugaresDeReferencia>
 	<industria></industria>
 	<animales></animales>
 	<gente></gente>
@@ -220,7 +220,7 @@
 	<coloresBandera>Rojo, blanco y Azul</coloresBandera>
 	<moneda>Libras</moneda>
 	<geografia></geografia>
-	<lugaresDeReferencia>Big Ben,Lago Ness,Thames</lugaresDeReferencia>
+	<lugaresDeReferencia><string>Big Ben</string> <string>Lago Ness</string> <string>Thames</string></lugaresDeReferencia>
 	<industria></industria>
 	<animales></animales>
 	<gente>celtas,druidas,sajones</gente>
@@ -238,7 +238,7 @@
 	<coloresBandera>Verde, blanco y Rojo</coloresBandera>
 	<moneda>s</moneda>
 	<geografia></geografia>
-	<lugaresDeReferencia>Monte Popocatepetl,Sierra Madre</lugaresDeReferencia>
+	<lugaresDeReferencia><string>Monte Popocatepetl</string><string>Sierra Madre</string></lugaresDeReferencia>
 	<industria></industria>
 	<animales>Gila Monster</animales>
 	<gente>aztecas,mayas,toltecas</gente>
@@ -258,7 +258,7 @@
 	<geografia></geografia>
 	<lugaresDeReferencia>Peninsula Gaspe,lago Mistassini,Montgomery Falls,Isla del Principe Eduardo,Yukon</lugaresDeReferencia>
 	<industria></industria>
-	<animales>alces</animales>
+	<animales><string>alces</string></animales>
 	<gente></gente>
 	<idiomas>frances</idiomas>
 	<arte></arte>
@@ -273,7 +273,7 @@
 	<nombreCiudad>Moroni</nombreCiudad>
 	<coloresBandera>Verde y blanco</coloresBandera>
 	<moneda>Francos</moneda>
-	<geografia>islas,volcanes</geografia>
+	<geografia><string>islas</string><string>volcanes</string></geografia>
 	<lugaresDeReferencia>el Monte Karthala</lugaresDeReferencia>
 	<industria>Perfume</industria>
 	<animales>buho</animales>
@@ -292,7 +292,7 @@
 	<coloresBandera>Rojo</coloresBandera>
 	<moneda>rublos</moneda>
 	<geografia></geografia>
-	<lugaresDeReferencia>Lago Ladoga,Montes Urales</lugaresDeReferencia>
+	<lugaresDeReferencia><string>Lago Ladoga</string><string>Montes Urales</string></lugaresDeReferencia>
 	<industria></industria>
 	<animales></animales>
 	<gente>Ivan el Terrible</gente>
@@ -312,7 +312,7 @@
 	<geografia></geografia>
 	<lugaresDeReferencia></lugaresDeReferencia>
 	<industria></industria>
-	<animales>Viper Saw-Scaled</animales>
+	<animales><string>Viper Saw-Scaled</string></animales>
 	<gente></gente>
 	<idiomas></idiomas>
 	<arte></arte>
@@ -329,7 +329,7 @@
 	<moneda>Dolares</moneda>
 	<geografia></geografia>
 	<lugaresDeReferencia>tumba de Grant,Rio Hudson,Naciones Unidas,World Trade Center</lugaresDeReferencia>
-	<industria> Moda,Bolsa de Valores</industria>
+	<industria> <string>Moda</string><string>Bolsa de Valores</string></industria>
 	<animales></animales>
 	<gente>Henry Hudson</gente>
 	<idiomas></idiomas>
@@ -365,7 +365,7 @@
 	<moneda>Francos</moneda>
 	<geografia></geografia>
 	<lugaresDeReferencia>Siena</lugaresDeReferencia>
-	<industria>moda</industria>
+	<industria><string>moda</string></industria>
 	<animales></animales>
 	<gente></gente>
 	<idiomas></idiomas>
@@ -382,7 +382,7 @@
 	<coloresBandera>Rojo</coloresBandera>
 	<moneda>Yuanes</moneda>
 	<geografia></geografia>
-	<lugaresDeReferencia>Ciudad Prohibida,el Mar Amarillo</lugaresDeReferencia>
+	<lugaresDeReferencia><string>Ciudad Prohibida</string><string>el Mar Amarillo</string></lugaresDeReferencia>
 	<industria></industria>
 	<animales></animales>
 	<gente>Panda gigante</gente>
@@ -400,7 +400,7 @@
 	<coloresBandera>Amarillo, Rojo y Negro</coloresBandera>
 	<moneda>Kinas</moneda>
 	<geografia>Volcanes</geografia>
-	<lugaresDeReferencia>Monte Karkar,Mount Manam</lugaresDeReferencia>
+	<lugaresDeReferencia><string>Monte Karkar</string><string>Mount Manam</string></lugaresDeReferencia>
 	<industria>Oro</industria>
 	<animales></animales>
 	<gente>Taipans</gente>
@@ -419,7 +419,7 @@
 	<moneda>Kronur</moneda>
 	<geografia>Hot Springs,Volcanes</geografia>
 	<lugaresDeReferencia></lugaresDeReferencia>
-	<industria>Pescado</industria>
+	<industria><string>Pescado</string></industria>
 	<animales></animales>
 	<gente></gente>
 	<idiomas></idiomas>
@@ -437,7 +437,7 @@
 	<moneda>Cruzeiros</moneda>
 	<geografia></geografia>
 	<lugaresDeReferencia>rio Amazonas</lugaresDeReferencia>
-	<industria>cafe,diamantes,titanio</industria>
+	<industria><string>cafe</string><string>diamantes</string><string>titanio</string></industria>
 	<animales>Bushmaster,perico de oro,añil Macaw,Thin-Spined Porcupine</animales>
 	<gente></gente>
 	<idiomas>portugues</idiomas>
@@ -457,7 +457,7 @@
 	<lugaresDeReferencia>Coliseo,el Foro,el Monte Etna,al mar Tirreno Textiles</lugaresDeReferencia>
 	<industria></industria>
 	<animales></animales>
-	<gente>etruscos</gente>
+	<gente><string>etruscos</string></gente>
 	<idiomas>Italiano</idiomas>
 	<arte>Pintura renacentista</arte>
 	<religion></religion>
@@ -473,7 +473,7 @@
 	<moneda></moneda>
 	<geografia></geografia>
 	<lugaresDeReferencia>Monte Titano</lugaresDeReferencia>
-	<industria>Ceramica,sellos</industria>
+	<industria><string>Ceramica</string><string>sellos</string></industria>
 	<animales></animales>
 	<gente></gente>
 	<idiomas>Italiano</idiomas>
@@ -495,7 +495,7 @@
 	<animales>Stonefish</animales>
 	<gente></gente>
 	<idiomas></idiomas>
-	<arte>arte malaya</arte>
+	<arte><string>arte malaya</string></arte>
 	<religion></religion>
 	<gobierno></gobierno>
 	<miscelaneo>ex colonia britanica</miscelaneo>	
@@ -509,7 +509,7 @@
 	<moneda></moneda>
 	<geografia></geografia>
 	<lugaresDeReferencia>Gran Desierto de Arena,Opera House,Outback</lugaresDeReferencia>
-	<industria>Lana</industria>
+	<industria><string>Lana</string></industria>
 	<animales>Koala Bear,Tiger Snake,Wallaby,Wombat</animales>
 	<gente>los aborigenes,el capitan Cook</gente>
 	<idiomas></idiomas>
@@ -527,7 +527,7 @@
 	<moneda>Yen</moneda>
 	<geografia></geografia>
 	<lugaresDeReferencia>Monte Fuji</lugaresDeReferencia>
-	<industria>Automoviles</industria>
+	<industria><string>Automoviles</string></industria>
 	<animales></animales>
 	<gente>Shoguns</gente>
 	<idiomas></idiomas>
