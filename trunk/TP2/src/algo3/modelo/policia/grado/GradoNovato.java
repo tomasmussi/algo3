@@ -39,7 +39,7 @@ public class GradoNovato extends Grado {
 
 	@Override
 	public String getPista(Edificio edificio) {
-		return dificultadDePista.darPista(edificio.getElemento());
+		return dificultadDePista.darPista(edificio);
 	}
 
 	@Override

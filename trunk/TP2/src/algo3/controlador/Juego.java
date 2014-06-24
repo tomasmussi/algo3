@@ -12,18 +12,16 @@ import algo3.modelo.policia.Policia;
 import algo3.modelo.policia.grado.Grado;
 import algo3.modelo.tiempo.Reloj;
 
-
 public class Juego {
 
 	private Policia policia;
 	private Caso caso;
 
-
-	public Juego(Policia policia){
+	public Juego(Policia policia) {
 		this.policia = policia;
 	}
 
-	public void iniciar(){
+	public void iniciar() {
 
 		Reloj reloj = new Reloj();
 		policia.setReloj(reloj);
@@ -47,13 +45,13 @@ public class Juego {
 
 	public String buscarPista(String edificioNumero) {
 		int numero = Integer.valueOf(edificioNumero);
-		return policia.getCiudadActual().getTodosLosEdificios()[numero].darPista();
+		return policia.visitarEdificioYObtenerPista(policia.getCiudadActual().getTodosLosEdificios()[numero]);
 	}
 
 	public String getCiudadesPosibles() {
 		StringBuilder sb = new StringBuilder();
 		Iterator<Ciudad> iter = caso.getRecorrido().getCiudadesPosibles(policia.getCiudadActual()).iterator();
-		while (iter.hasNext()){
+		while (iter.hasNext()) {
 			Ciudad ciudad = iter.next();
 			sb.append(ciudad.toString());
 			sb.append("\t");
@@ -64,8 +62,5 @@ public class Juego {
 	public void viajar(String ciudad) {
 		policia.viajarA(Mapa.getInstance().getCiudadDeNombre(ciudad));
 	}
-
-
-
 
 }

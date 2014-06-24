@@ -40,7 +40,7 @@ public class GradoDetective extends Grado {
 
 	@Override
 	public String getPista(Edificio edificio) {
-		return dificultadDePista.darPista(edificio.getElemento());
+		return dificultadDePista.darPista(edificio);
 	}
 
 	@Override
@@ -52,7 +52,5 @@ public class GradoDetective extends Grado {
 	public int horasArestarPorAtaque() {
 		return HORAS_A_RESTAR;
 	}
-
-
 
 }

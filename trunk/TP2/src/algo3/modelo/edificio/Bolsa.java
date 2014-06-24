@@ -3,11 +3,11 @@ package algo3.modelo.edificio;
 import algo3.modelo.entidad.Entidad;
 import algo3.modelo.ladron.CaracteristicaLadron;
 
-public class Banco extends Edificio {
+public class Bolsa extends Edificio {
 
 	private Entidad moneda;
 
-	public Banco(CaracteristicaLadron caracteristica, Entidad entidad) {
+	public Bolsa(CaracteristicaLadron caracteristica, Entidad entidad) {
 		super(caracteristica);
 		this.moneda = entidad;
 	}
