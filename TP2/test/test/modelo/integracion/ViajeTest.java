@@ -31,10 +31,10 @@ public class ViajeTest {
 		List<InformacionCiudad> listaCiudadesRecorrido;
 		listaCiudadesRecorrido = new ArrayList<InformacionCiudad>();
 		listaCiudadesRecorrido.add(new InformacionCiudad("Rio de Janeiro", "Verde y amarilla", "Real", "Presidente"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva York", "Azul, roja y blanca", "Dolar", "Presidente"));
+		listaCiudadesRecorrido.add(new InformacionCiudad("New York", "Azul, roja y blanca", "Dolar", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Oslo", "Roja y azul", "Corona", "Rey"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Buenos Aires","Blanca y celeste", "Peso", "Presidente"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Tokyo","Blanca y roja", "Yen", "Presidente"));
+		listaCiudadesRecorrido.add(new InformacionCiudad("Tokio","Blanca y roja", "Yen", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Paris","Blanca, roja y azul", "Franco", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
@@ -44,7 +44,7 @@ public class ViajeTest {
 
 		listaObjetos = new ArrayList<CaracteristicaObjeto>();
 		listaObjetos.add(new CaracteristicaObjeto("Algo1", "Oslo"));
-		listaObjetos.add(new CaracteristicaObjeto("Algo2", "Tokyo"));
+		listaObjetos.add(new CaracteristicaObjeto("Algo2", "Tokio"));
 		listaObjetos.add(new CaracteristicaObjeto("Algo3", "Lima"));
 		listaObjetos.add(new CaracteristicaObjeto("Algo4", "Paris"));
 
@@ -70,14 +70,19 @@ public class ViajeTest {
 		// El policia viaja a la 2da ciudad:
 		policia.viajarA(ciudadActualLadron);
 		assertFalse(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
-		Ciudad ciudadActualLadron2 = esteLadron.getCiudadActual();
+		ciudadActualLadron = esteLadron.getCiudadActual();
 		// El policia viaja a la 3er ciudad:
-		policia.viajarA(ciudadActualLadron2);
+		policia.viajarA(ciudadActualLadron);
 		assertFalse(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
-		Ciudad ciudadActualLadron3 = esteLadron.getCiudadActual();
+		ciudadActualLadron = esteLadron.getCiudadActual();
 		// El policia viaja a la 4ta ciudad:
-		policia.viajarA(ciudadActualLadron3);
+		policia.viajarA(ciudadActualLadron);
+		assertFalse(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
+		// El policia viaja a la ultima ciudad
+		ciudadActualLadron = esteLadron.getCiudadActual();
+		policia.viajarA(ciudadActualLadron);
 		assertTrue(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
+
 		assertTrue(policia.emitirOrdenDeArresto(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta")));
 		assertTrue(policia.getCaso().getOrdenDeArresto() != null);
 		assertTrue(policia.arrestar(esteLadron));
@@ -86,18 +91,25 @@ public class ViajeTest {
 	@Test
 	public void testPoliciaNoAtrapaLadronConOrdenDeArrestoIncorrecta() {
 		Ladron esteLadron =  esteCaso.getLadron();
-		Ciudad ciudadActualLadron = esteLadron.getCiudadActual();
+
 		// El policia viaja a la 2da ciudad:
+		Ciudad ciudadActualLadron = esteLadron.getCiudadActual();
 		policia.viajarA(ciudadActualLadron);
 		assertFalse(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
-		Ciudad ciudadActualLadron2 = esteLadron.getCiudadActual();
 		// El policia viaja a la 3er ciudad:
-		policia.viajarA(ciudadActualLadron2);
+		ciudadActualLadron = esteLadron.getCiudadActual();
+		policia.viajarA(ciudadActualLadron);
 		assertFalse(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
-		Ciudad ciudadActualLadron3 = esteLadron.getCiudadActual();
+
 		// El policia viaja a la 4ta ciudad:
-		policia.viajarA(ciudadActualLadron3);
-		assertTrue(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
+		ciudadActualLadron = esteLadron.getCiudadActual();
+		policia.viajarA(ciudadActualLadron);
+		assertFalse(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
+
+		// El policia viaja a la ultima ciudad
+		ciudadActualLadron = esteLadron.getCiudadActual();
+		policia.viajarA(ciudadActualLadron);
+		assertFalse(policia.getCiudadActual().equals(ciudadActualLadron));
 		// Crea Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
 		assertTrue(policia.emitirOrdenDeArresto(new CaracteristicaLadron("Merey Laroc", "Femenino", "Mountain Climbing", "Castaño", "Joyeria", "Limousina")));
 		// Arresta ladron.
@@ -121,6 +133,10 @@ public class ViajeTest {
 		Ciudad ciudadActualLadron3 = esteLadron.getCiudadActual();
 		// El policia viaja a la 4ta ciudad:
 		policia.viajarA(ciudadActualLadron3);
+		assertFalse(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
+		// El policia viaja a ultima ciudad:
+		ciudadActualLadron = esteLadron.getCiudadActual();
+		policia.viajarA(ciudadActualLadron);
 		assertTrue(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
 		assertTrue(policia.getCaso().getOrdenDeArresto() == null);
 		assertFalse(policia.arrestar(esteLadron));

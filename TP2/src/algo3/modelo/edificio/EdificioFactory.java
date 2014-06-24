@@ -14,11 +14,19 @@ import algo3.modelo.mapa.InformacionFinanciera;
 public class EdificioFactory {
 
 	public static Edificio crearEdificioDeViajeConEntidad(InformacionDeViaje infoCiudad) {
+		return crearEdificioDeViajeConEntidad(null, infoCiudad);
+	}
+
+	public static Edificio crearEdificioDeViajeConEntidad(CaracteristicaLadron caracteristicas, InformacionDeViaje infoCiudad) {
 		Entidad bandera = new Bandera(infoCiudad.getInformacionViaje());
-		return getEdificioDeViajeRandom(bandera);
+		return getEdificioDeViajeRandom(caracteristicas, bandera);
 	}
 
 	public static Edificio crearEdificioFinancieroConEntidad(InformacionFinanciera infoCiudad) {
+		return crearEdificioFinancieroConEntidad(null, infoCiudad);
+	}
+
+	public static Edificio crearEdificioFinancieroConEntidad(CaracteristicaLadron caracteristicas, InformacionFinanciera infoCiudad) {
 		Entidad moneda = new Moneda(infoCiudad.getInformacionFinanciera());
 		return getEdificioFinancieroRandom(moneda);
 	}
@@ -35,14 +43,14 @@ public class EdificioFactory {
 		return new Embajada(caracteristicas, algoCultural);
 	}
 
-	private static Edificio getEdificioDeViajeRandom(Entidad bandera) {
+	private static Edificio getEdificioDeViajeRandom(CaracteristicaLadron caracteristicas, Entidad bandera) {
 		Random rdm = new Random();
 		Edificio edificio;
 		int edificioNro = rdm.nextInt(2); // Esto devuelve 0 o 1.
 		if (0 == edificioNro) {
-			edificio = new Aeropuerto(null, bandera);
+			edificio = new Aeropuerto(caracteristicas, bandera);
 		} else {
-			edificio = new Puerto(null, bandera);
+			edificio = new Puerto(caracteristicas, bandera);
 		}
 		return edificio;
 	}
