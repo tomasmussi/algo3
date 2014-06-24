@@ -37,7 +37,7 @@ public class EdificioTest {
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva York", "Azul, roja y blanca", "Dolar", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Oslo", "Roja y azul", "Corona", "Rey"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Buenos Aires","Blanca y celeste", "Peso", "Presidente"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Tokyo","Blanca y roja", "Yen", "Presidente"));
+		listaCiudadesRecorrido.add(new InformacionCiudad("Tokio","Blanca y roja", "Yen", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Paris","Blanca, roja y azul", "Franco", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
@@ -47,7 +47,7 @@ public class EdificioTest {
 
 		listaObjetos = new ArrayList<CaracteristicaObjeto>();
 		listaObjetos.add(new CaracteristicaObjeto("Algo1", "Oslo"));
-		listaObjetos.add(new CaracteristicaObjeto("Algo2", "Tokyo"));
+		listaObjetos.add(new CaracteristicaObjeto("Algo2", "Tokio"));
 		listaObjetos.add(new CaracteristicaObjeto("Algo3", "Lima"));
 		listaObjetos.add(new CaracteristicaObjeto("Algo4", "Paris"));
 

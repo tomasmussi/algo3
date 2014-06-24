@@ -23,7 +23,9 @@ import algo3.modelo.policia.grado.GradoSargento;
 public class CasoTest {
 	private List<CaracteristicaLadron> listaLadrones;
 	private List<CaracteristicaObjeto> listaObjetos;
-
+	private static final int cantidadDePaisesPorObjetoComun = 5;
+	private static final int cantidadDePaisesPorObjetoValioso = 6;
+	private static final int cantidadDePaisesPorObjetoMuyValioso = 8;
 
 	@Before
 	public void cargarMapa() {
@@ -33,7 +35,7 @@ public class CasoTest {
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva York", "Azul, roja y blanca", "Dolar", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Oslo", "Roja y azul", "Corona", "Rey"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Buenos Aires","Blanca y celeste", "Peso", "Presidente"));
-		listaCiudadesRecorrido.add(new InformacionCiudad("Tokyo","Blanca y roja", "Yen", "Presidente"));
+		listaCiudadesRecorrido.add(new InformacionCiudad("Tokio","Blanca y roja", "Yen", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Paris","Blanca, roja y azul", "Franco", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
@@ -51,7 +53,7 @@ public class CasoTest {
 	public void cargarObjetos() {
 		listaObjetos = new ArrayList<CaracteristicaObjeto>();
 		listaObjetos.add(new CaracteristicaObjeto("Algo1", "Oslo"));
-		listaObjetos.add(new CaracteristicaObjeto("Algo2", "Tokyo"));
+		listaObjetos.add(new CaracteristicaObjeto("Algo2", "Tokio"));
 		listaObjetos.add(new CaracteristicaObjeto("Algo3", "Lima"));
 		listaObjetos.add(new CaracteristicaObjeto("Algo4", "Paris"));
 	}
@@ -83,24 +85,24 @@ public class CasoTest {
 	@Test
 	public void testEnGradoNovatoCreaCasoConEscapatoriaDe4Ciudades() throws CiudadNoEncontradaException{
 		Caso caso = new Caso(listaLadrones, listaObjetos, new GradoNovato());
-		assertTrue(4 == caso.getLadron().getEscapatoria().size());
+		assertTrue(cantidadDePaisesPorObjetoComun == caso.getLadron().getEscapatoria().size());
 	}
 
 	@Test
 	public void testEnGradoInvestigadorCreaCasoConEscapatoriaDe5Ciudades() throws CiudadNoEncontradaException{
 		Caso caso = new Caso(listaLadrones, listaObjetos, new GradoInvestigador());
-		assertTrue(5 == caso.getLadron().getEscapatoria().size());
+		assertTrue(cantidadDePaisesPorObjetoValioso == caso.getLadron().getEscapatoria().size());
 	}
 
 	@Test
 	public void testEnGradoDetectiveCreaCasoConEscapatoriaDe5Ciudades() throws CiudadNoEncontradaException{
 		Caso caso = new Caso(listaLadrones, listaObjetos, new GradoDetective());
-		assertTrue(5 == caso.getLadron().getEscapatoria().size());
+		assertTrue(cantidadDePaisesPorObjetoValioso == caso.getLadron().getEscapatoria().size());
 	}
 
 	@Test
 	public void testEnGradoSargentoCreaCasoConEscapatoriaDe7Ciudades() throws CiudadNoEncontradaException{
 		Caso caso = new Caso(listaLadrones, listaObjetos, new GradoSargento());
-		assertTrue(7 == caso.getLadron().getEscapatoria().size());
+		assertTrue(cantidadDePaisesPorObjetoMuyValioso == caso.getLadron().getEscapatoria().size());
 	}
 }
