@@ -10,12 +10,11 @@ import algo3.modelo.mapa.Ciudad;
 import algo3.modelo.mapa.Mapa;
 import algo3.modelo.objeto.Robable;
 
-
 /**
  * Ladron, cuando roba un objeto, le pide al objeto la ciudad de origen y la posiciona como
  * Primera en la lista de informacion ciudad. El ladron crea su recorrido y saca de la
  * informacion disponible las ciudades usadas en el recorrido.
-
+ * 
  * 
  * */
 public class Ladron {
@@ -44,12 +43,15 @@ public class Ladron {
 		return caracteristicas.equals(unaCaracteristica);
 	}
 
-	private void elegirEscapatoria(List<Ciudad> ciudadesDelMundo){
+	public CaracteristicaLadron getCaracteristicasLadron() {
+		return caracteristicas;
+	}
+
+	private void elegirEscapatoria(List<Ciudad> ciudadesDelMundo) {
 
 		int cantidadCiudades = this.objetoRobado.getCantidadDeCiudades();
-		if (cantidadCiudades > ciudadesDelMundo.size()){
-			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: "
-					+ cantidadCiudades + " ciudades");
+		if (cantidadCiudades > ciudadesDelMundo.size()) {
+			throw new IllegalArgumentException("No hay suficiente informacion de ciudades para generar: " + cantidadCiudades + " ciudades");
 		}
 		List<Ciudad> ciudades = new ArrayList<Ciudad>(ciudadesDelMundo);
 		desordenarCiudades(ciudades);
@@ -59,17 +61,17 @@ public class Ladron {
 		ciudades.remove(ciudadActual);
 
 		Iterator<Ciudad> ciudadIterator = ciudades.iterator();
-		while (ciudadIterator.hasNext() && this.rutaEscape.size() < cantidadCiudades){
+		while (ciudadIterator.hasNext() && (this.rutaEscape.size() < cantidadCiudades)) {
 			Ciudad nuevaCiudad = ciudadIterator.next();
 			this.rutaEscape.add(nuevaCiudad);
-			ciudadIterator.remove(); //NO esta mas disponible para utilizar
+			ciudadIterator.remove(); // NO esta mas disponible para utilizar
 		}
 		iterador = rutaEscape.iterator();
 		this.moverAlSiguientePais();
 	}
 
-	private void desordenarCiudades(List<Ciudad> ciudades){
-		for (int i = 0; i < ciudades.size() - 1; i++){
+	private void desordenarCiudades(List<Ciudad> ciudades) {
+		for (int i = 0; i < (ciudades.size() - 1); i++) {
 			Ciudad ciudad = ciudades.get(i);
 			int posicion = (int) ((Math.random() * ciudades.size()) % ciudades.size());
 			Ciudad otra = ciudades.get(posicion);
@@ -83,7 +85,7 @@ public class Ladron {
 	}
 
 	public void moverAlSiguientePais() {
-		if (iterador.hasNext()){
+		if (iterador.hasNext()) {
 			ciudadActual = iterador.next();
 		} else {
 			refugiarseEnEdificio();
@@ -93,9 +95,9 @@ public class Ladron {
 	private void refugiarseEnEdificio() {
 		Edificio[] edificios = ciudadActual.getTodosLosEdificios();
 		Random rand = new Random();
-		int posicion = rand.nextInt(edificios.length -1);
+		int posicion = rand.nextInt(edificios.length - 1);
 		// Solucion temporal para que podamos pasarle edificios como null en ViajeTest:
-		if (edificios[posicion] != null){
+		if (edificios[posicion] != null) {
 			this.entrar(edificios[posicion]);
 		}
 	}
@@ -104,7 +106,7 @@ public class Ladron {
 		edificio.refugiarLadron(this);
 	}
 
-	public List<Ciudad> getEscapatoria(){
+	public List<Ciudad> getEscapatoria() {
 		return this.rutaEscape;
 	}
 
@@ -119,7 +121,7 @@ public class Ladron {
 		elegirEscapatoria(Mapa.getInstance().getListadoCiudades());
 	}
 
-	public Robable getObjetoRobado(){
+	public Robable getObjetoRobado() {
 		return this.objetoRobado;
 	}
 }

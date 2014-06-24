@@ -1,6 +1,10 @@
 package test.modelo;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -32,7 +36,12 @@ public class InformacionCiudadTest {
 	public void testCrearInformacionGeograficaSeleccionaPropiedadNoNula() {
 		// Cargada desde el properties, Tokio tiene Monte Fuji
 		InformacionCultural informacion = InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.TOKIO);
-		assertEquals("LugaresDeReferencia|Monte Fuji", informacion.getInformacionGeografica());
+		List<String> posibleInformacion = new ArrayList<String>();
+		posibleInformacion.add("Religion|Shinto");
+		posibleInformacion.add("Industria|Automoviles");
+		posibleInformacion.add("LugaresDeReferencia|Monte Fuji");
+		posibleInformacion.add("Gente|Shoguns");
+		assertTrue(posibleInformacion.contains(informacion.getInformacionCultural()));
 	}
 
 }

@@ -61,36 +61,31 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	}
 
 	@Override
-	public String getInformacionGeografica() {
+	public String getInformacionCultural() {
 		List<String> informacion = new ArrayList<String>();
-		agregarInformación(informacion, "Geografia", geografia);
-		agregarInformación(informacion, "LugaresDeReferencia", lugaresDeReferencia);
+		agregarInformacion(informacion, "Geografia", geografia);
+		agregarInformacion(informacion, "LugaresDeReferencia", lugaresDeReferencia);
+		agregarInformacion(informacion, "Industria", industria);
+		agregarInformacion(informacion, "Animales", animales);
+		agregarInformacion(informacion, "Gente", gente);
+		agregarInformacion(informacion, "Idioma", idiomas);
+		agregarInformacion(informacion, "Arte", arte);
+		agregarInformacion(informacion, "Religion", religion);
+		agregarInformacion(informacion, "Gobierno", gobierno);
 		return seleccionarAleatorioDeLista(informacion);
 	}
 
-	@Override
-	public String getInformacionHistorica() {
-		List<String> informacion = new ArrayList<String>();
-		agregarInformación(informacion, "Industria", industria);
-		agregarInformación(informacion, "Animales", animales);
-		agregarInformación(informacion, "Gente", gente);
-		agregarInformación(informacion, "Idioma", idiomas);
-		agregarInformación(informacion, "Arte", arte);
-		agregarInformación(informacion, "Religion", religion);
-		agregarInformación(informacion, "Gobierno", gobierno);
-		return seleccionarAleatorioDeLista(informacion);
-	}
-	
-	private void agregarInformación(List<String> informacion, String nombreEntidad, String entidad) {
-		if(!entidad.isEmpty()){
+	private void agregarInformacion(List<String> informacion, String nombreEntidad, String entidad) {
+		if (!entidad.isEmpty()) {
 			informacion.add(nombreEntidad + SEPARATOR + entidad);
 		}
 	}
 
-	private void agregarInformación(List<String> informacion, String nombreEntidad, String[] entidad) {
-		for (String valor : entidad){
-			if (!valor.isEmpty())
+	private void agregarInformacion(List<String> informacion, String nombreEntidad, String[] entidad) {
+		for (String valor : entidad) {
+			if (!valor.isEmpty()) {
 				informacion.add(nombreEntidad + SEPARATOR + valor);
+			}
 		}
 	}
 
@@ -126,11 +121,11 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	public String getNombreCiudad() {
 		return nombreCiudad;
 	}
-	
+
 	public String getCoordenadaX() {
 		return coordenadaX;
 	}
-	
+
 	public String getCoordenadaY() {
 		return coordenadaY;
 	}
@@ -190,11 +185,11 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	public void setGobierno(String gobierno) {
 		this.gobierno = gobierno;
 	}
-	
+
 	public void setCoordenadaX(String coordX) {
 		this.coordenadaX = coordX;
 	}
-	
+
 	public void setCoordenadaY(String coordY) {
 		this.coordenadaY = coordY;
 	}

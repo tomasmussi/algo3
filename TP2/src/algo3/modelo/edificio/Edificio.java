@@ -1,24 +1,48 @@
 package algo3.modelo.edificio;
 
+import java.util.Random;
+
 import algo3.modelo.entidad.Entidad;
+import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 
 public abstract class Edificio {
 
 	private Ladron ladron;
 
+	private CaracteristicaLadron caracteristicasLadron;
+
 	protected static final String MSJ_LADRON_NO_ESTUVO_AQUI = "Lo lamento, no hemos visto al sospechoso aqui.";
 
-	public abstract String darPista();
-
 	public abstract Entidad getElemento();
+
+	protected Edificio(CaracteristicaLadron caracteristicas) {
+		this.caracteristicasLadron = caracteristicas;
+	}
 
 	public void refugiarLadron(Ladron ladron) {
 		this.ladron = ladron;
 	}
 
-	public boolean estaLadron(){
+	public boolean estaLadron() {
 		return (ladron != null);
+	}
+
+	public String getCaracteristicaLadron() {
+		return getCaracteristcaRandom();
+	}
+
+	private String getCaracteristcaRandom() {
+		if (caracteristicasLadron == null) {
+			return null;
+		}
+		Random rdm = new Random();
+		int posicion = rdm.nextInt(caracteristicasLadron.getCaracteristicasFisicas().size());
+		String caracteristica = caracteristicasLadron.getCaracteristicasFisicas().get(posicion);
+		while (caracteristica == null) {
+			posicion = rdm.nextInt(caracteristicasLadron.getCaracteristicasFisicas().size());
+		}
+		return caracteristicasLadron.getCaracteristicasFisicas().get(posicion);
 	}
 
 }

@@ -34,10 +34,6 @@ public class Ciudad {
 		return (int) (Math.pow((Math.pow(this.coordenadaX - estaCiudad.coordenadaX, 2) + Math.pow(this.coordenadaY - estaCiudad.coordenadaY, 2)), 0.5));
 	}
 
-	public String visitarEdificio(Edificio edificio) {
-		return edificio.darPista();
-	}
-
 	public String getNombre() {
 		return nombre;
 	}

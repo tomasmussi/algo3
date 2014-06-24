@@ -29,7 +29,7 @@ public class Policia {
 		ciudadActual = null;
 	}
 
-	public void setReloj(Reloj reloj){
+	public void setReloj(Reloj reloj) {
 		this.reloj = reloj;
 	}
 
@@ -51,12 +51,13 @@ public class Policia {
 		horas += (kilometros % grado.getKilometrosPorHora()) != 0 ? 1 : 0;
 		reloj.transcurrir(horas);
 	}
+
 	private void aumentarArrestos() {
 		cantidadArrestos++;
 		grado.evaluarGrado(this);
 	}
 
-	//TODO:METODO SOLO PARA PRUEBAS VER DE CORREGIRLAS Y BORRARLO
+	// TODO:METODO SOLO PARA PRUEBAS VER DE CORREGIRLAS Y BORRARLO
 	public boolean puedeArrestar() {
 		return reloj.hayTiempoRestante();
 	}
@@ -93,17 +94,17 @@ public class Policia {
 		return horasARestar;
 	}
 
-	//Se llama con un evento
+	// Se llama con un evento
 	public String visitarEdificioYObtenerPista(Edificio edificio) {
 		int horasARestar = aumentarVisitas(edificio);
 		reloj.transcurrir(horasARestar);
-		if((!edificio.estaLadron()) && (caso.ultimoPaisLadron(ciudadActual)) ){
-			int horasArestarPorAtaque= grado.horasArestarPorAtaque();
+		if ((!edificio.estaLadron()) && (caso.ultimoPaisLadron(ciudadActual))) {
+			int horasArestarPorAtaque = grado.horasArestarPorAtaque();
 			reloj.transcurrir(horasArestarPorAtaque);
 			return "Algo turbio esta ocurriendo en la ciudad.";
-		} else if(edificio.estaLadron()){
+		} else if (edificio.estaLadron()) {
 
-			if(arrestar(getCaso().getLadron())){
+			if (arrestar(getCaso().getLadron())) {
 				return "GANASTE";
 			} else {
 				return "PERDISTE";
@@ -113,12 +114,12 @@ public class Policia {
 		return grado.getPista(edificio);
 	}
 
-	//TODO: solo lo usan las pruebas arreglarlo y borrarlo
+	// TODO: solo lo usan las pruebas arreglarlo y borrarlo
 	public Ciudad getCiudadActual() {
 		return ciudadActual;
 	}
 
-	//TODO: Se llama con un evento
+	// Se llama con un evento
 	public void viajarA(Ciudad ciudad) {
 		if (ciudadActual != null) {
 			this.viajar(ciudadActual.getDistanciaCon(ciudad));
@@ -127,7 +128,7 @@ public class Policia {
 
 		this.ciudadActual = ciudad;
 		Ladron ladron = getCaso().getLadron();
-		if(ciudadActual.equals(ladron.getCiudadActual())){
+		if (ciudadActual.equals(ladron.getCiudadActual())) {
 			ladron.moverAlSiguientePais();
 		}
 	}
