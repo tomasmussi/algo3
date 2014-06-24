@@ -47,7 +47,7 @@ public class Ladron {
 
 
 	private void elegirEscapatoria() throws CiudadNoEncontradaException {
-		rutaEscape = CiudadFactory.crearRecorridoDeCiudades(objetoRobado.getCiudadOrigen(), objetoRobado.getCantidadDeCiudades());
+		rutaEscape = CiudadFactory.crearRecorridoDeCiudades(caracteristicas, objetoRobado.getCiudadOrigen(), objetoRobado.getCantidadDeCiudades());
 		iterador = rutaEscape.iterator();
 		System.out.println(rutaEscape);
 		this.moverAlSiguientePais();
