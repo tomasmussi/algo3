@@ -4,15 +4,15 @@ import java.util.List;
 import java.util.Random;
 
 import algo3.modelo.estacionPolicia.EstacionDePolicia;
+import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.Ciudad;
-import algo3.modelo.mapa.Mapa;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.Robable;
 import algo3.modelo.policia.OrdenDeArresto;
 import algo3.modelo.policia.grado.Grado;
-import algo3.modelo.viaje.DestinosPosibles;
+import algo3.modelo.viaje.Mapa;
 
 
 /**
@@ -27,7 +27,7 @@ public class Caso {
 
 	private OrdenDeArresto ordenDeArresto;
 	private Ladron ladron;
-	private DestinosPosibles recorrido;
+	private Mapa mapa;
 
 	/**
 	 * Construye un Caso. Es el objeto que representa un nivel en el juego que el
@@ -38,15 +38,17 @@ public class Caso {
 	 * 
 	 * Post condiciones: Obtengo un caso con un ladron y un objeto que el ladron se roba,
 	 * seleccionado a partir de las listas de que se obtienen por parametro.
+	 * @throws CiudadNoEncontradaException
 	 * 
 	 */
-	public Caso(List<CaracteristicaLadron> ladrones, List<CaracteristicaObjeto> objetos, Grado gradoPolicia){
+	public Caso(List<CaracteristicaLadron> ladrones, List<CaracteristicaObjeto> objetos, Grado gradoPolicia) throws CiudadNoEncontradaException{
 
 		Robable objetoRobado = gradoPolicia.getObjetoRobado(objetos.get(getNumeroRandom(objetos.size())));
 
-		this.ladron = new Ladron(ladrones.get(getNumeroRandom(ladrones.size())));
-		this.ladron.robar(objetoRobado);
-		this.recorrido = new DestinosPosibles(ladron.getEscapatoria());
+		ladron = new Ladron(ladrones.get(getNumeroRandom(ladrones.size())));
+		ladron.robar(objetoRobado);
+		mapa = new Mapa();
+		ladron.informarRecorrido(mapa);
 	}
 
 	private int getNumeroRandom(int maximaCantidad){
@@ -69,13 +71,12 @@ public class Caso {
 		return ladron;
 	}
 
-	public DestinosPosibles getRecorrido() {
-		return recorrido;
+	public Mapa getMapa() {
+		return mapa;
 	}
 
 	public Ciudad getCiudadOrigenDeObjeto(){
-		Robable objetoRobado = ladron.getObjetoRobado();
-		return Mapa.getInstance().getCiudadDeNombre(objetoRobado.getCiudadOrigen());
+		return ladron.getCiudadOrigen();
 	}
 
 	public boolean ultimoPaisLadron(Ciudad ciudadActual) {

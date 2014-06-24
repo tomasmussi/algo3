@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import algo3.modelo.caso.Caso;
 import algo3.modelo.estacionPolicia.EstacionDePolicia;
+import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.objeto.CaracteristicaObjeto;
@@ -35,7 +36,7 @@ public class CapturaTest {
 
 
 	@Before
-	public void  initialize() {
+	public void  initialize() throws CiudadNoEncontradaException {
 		caracteristicaNickBrunch = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
 		caracteristicaMereyLaroc = new CaracteristicaLadron("Merey Laroc", "Femenino", "Croquet", "Marron", "Joyas", "Limusina");
 		caracteristicaUnivocaNickBrunch = new CaracteristicaLadron(null, null, null, "Negro", null, "Motocicleta");

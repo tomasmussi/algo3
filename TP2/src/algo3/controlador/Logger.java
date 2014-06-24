@@ -2,6 +2,8 @@ package algo3.controlador;
 
 import java.io.IOException;
 
+import algo3.modelo.excepcion.CiudadNoEncontradaException;
+
 public class Logger {
 
 	public static void loguearWarning(IOException e) {
@@ -18,6 +20,11 @@ public class Logger {
 	}
 
 	public static void loguearError(String string) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public static void loguearError(CiudadNoEncontradaException e) {
 		// TODO Auto-generated method stub
 
 	}

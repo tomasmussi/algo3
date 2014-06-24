@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import algo3.modelo.caso.Caso;
+import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.objeto.CaracteristicaObjeto;
@@ -28,7 +29,7 @@ public class PoliciaTest {
 	private List<CaracteristicaObjeto> objetos;
 
 	@Before
-	public void initialize(){
+	public void initialize()  throws CiudadNoEncontradaException{
 		caracteristicaNickBrunch = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
 		nickBrunch = new Ladron(caracteristicaNickBrunch);
 		reloj = new Reloj();

@@ -1,18 +1,27 @@
 package algo3.modelo.tiempo;
 
 import java.text.DecimalFormat;
+import java.util.Observable;
 
-public class Reloj {
+import algo3.vista.Vista;
+
+public class Reloj extends Observable {
 
 	private static final DecimalFormat formato = new DecimalFormat("00");
 	private static final int HORAS_A_DORMIR = 8;
 	private String[] dias = {"Lunes", "Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"};
 	private int numeroDia;
 	private int horaDia;
+	private Vista vista;
 
 	public Reloj() {
 		numeroDia = 0;
 		horaDia = 7;
+	}
+
+	public void setVista(Vista vista){
+		this.vista = vista;
+		addObserver(vista);
 	}
 
 	public String tiempoActual() {
@@ -44,6 +53,8 @@ public class Reloj {
 
 	public void transcurrir(int horas) {
 		transcurrirRecursivo(horas, false);
+		setChanged();
+		notifyObservers();
 	}
 
 	private boolean esDeNoche(){

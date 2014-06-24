@@ -10,11 +10,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import algo3.modelo.caso.Caso;
+import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.Ciudad;
 import algo3.modelo.mapa.InformacionCiudad;
-import algo3.modelo.mapa.Mapa;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.policia.Policia;
 import algo3.modelo.tiempo.Reloj;
@@ -27,7 +27,7 @@ public class ViajeTest {
 	private List<CaracteristicaObjeto> listaObjetos;
 
 	@Before
-	public void cargarMapa(){
+	public void cargarMapa() throws CiudadNoEncontradaException{
 		List<InformacionCiudad> listaCiudadesRecorrido;
 		listaCiudadesRecorrido = new ArrayList<InformacionCiudad>();
 		listaCiudadesRecorrido.add(new InformacionCiudad("Rio de Janeiro", "Verde y amarilla", "Real", "Presidente"));
@@ -38,7 +38,6 @@ public class ViajeTest {
 		listaCiudadesRecorrido.add(new InformacionCiudad("Paris","Blanca, roja y azul", "Franco", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
-		Mapa.getInstance().cargarListadoCiudades(listaCiudadesRecorrido);
 
 		listaLadrones = new ArrayList<CaracteristicaLadron>();
 		listaLadrones.add(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));

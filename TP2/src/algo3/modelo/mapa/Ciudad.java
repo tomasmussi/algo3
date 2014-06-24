@@ -13,10 +13,10 @@ public class Ciudad {
 	private String nombre;
 	private InformacionCiudad informacion;
 
-	public Ciudad(int coordenadaX, int coordenadaY, Edificio edificio1, Edificio edificio2, Edificio edificio3, InformacionCiudad informacion) {
+	public Ciudad(Edificio edificio1, Edificio edificio2, Edificio edificio3, InformacionCiudad informacion) {
 		this.nombre = informacion.getNombreCiudad();
-		this.coordenadaX = coordenadaX;
-		this.coordenadaY = coordenadaY;
+		this.coordenadaX = Integer.valueOf(informacion.getCoordenadaX());
+		this.coordenadaY = Integer.valueOf(informacion.getCoordenadaY());
 		this.edificio1 = edificio1;
 		this.edificio2 = edificio2;
 		this.edificio3 = edificio3;
@@ -98,7 +98,7 @@ public class Ciudad {
 	}
 
 	public int getDistanciaCon(Ciudad ciudad) {
-		return 0;
+		return 1;
 	}
 
 }

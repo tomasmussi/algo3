@@ -12,6 +12,7 @@ import org.junit.Test;
 import algo3.modelo.caso.Caso;
 import algo3.modelo.edificio.Edificio;
 import algo3.modelo.edificio.EdificioFactory;
+import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.InformacionCiudad;
@@ -29,7 +30,7 @@ public class PistaTest {
 	private Ladron nickBrunch;
 
 	@Before
-	public void initialize() {
+	public void initialize(){
 		caracteristicaNickBrunch = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
 		nickBrunch = new Ladron(caracteristicaNickBrunch);
 		ladrones = new ArrayList<CaracteristicaLadron>();
@@ -64,7 +65,11 @@ public class PistaTest {
 		Policia policia = new Policia();
 		Reloj reloj = new Reloj();
 		policia.setReloj(reloj);
-		policia.asignarCaso(new Caso(ladrones, objetos, policia.getGrado()));
+		try {
+			policia.asignarCaso(new Caso(ladrones, objetos, policia.getGrado()));
+		} catch (CiudadNoEncontradaException e) {
+			System.out.println("Error generando caso: " + e.getMessage());
+		}
 		policia.emitirOrdenDeArresto(caracteristicaNickBrunch);
 		for (int i = 1; i <= arrestos; i++) {
 			policia.arrestar(nickBrunch);
@@ -269,7 +274,7 @@ public class PistaTest {
 	@Test
 	public void testPoliciaSargentoIngresaEdificioObtienePistaYPosiblePistaLadron() {
 		Policia policia = crearPoliciaSargento();
-		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(nickBrunch, getInformacionPara(NombresCiudades.NEW_YORK));
+		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(caracteristicaNickBrunch, getInformacionPara(NombresCiudades.NEW_YORK));
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
 		List<String> posiblesPistas = new ArrayList<String>();
 		posiblesPistas.add("Estuvo mostrando sus fotos con Henry Hudson.");
