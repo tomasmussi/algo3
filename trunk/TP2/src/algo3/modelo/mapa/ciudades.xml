@@ -1,5 +1,5 @@
 <list>
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Atenas</nombreCiudad>
 	<coloresBandera>Azul y blanco</coloresBandera>
 	<moneda>dracmas</moneda>
@@ -15,9 +15,9 @@
 	<miscelaneo>Republica Helenica,Vecinos Yugoslavia</miscelaneo>	
 	<coordenadaX>434</coordenadaX>
 	<coordenadaY>168</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Bagdad</nombreCiudad>
 	<coloresBandera>Rojo, blanco y Negro</coloresBandera>
 	<moneda>Dinares</moneda>
@@ -33,9 +33,9 @@
 	<miscelaneo>Mesopotamia</miscelaneo>	
 	<coordenadaX>486</coordenadaX>
 	<coordenadaY>184</coordenadaY>	
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Bamako</nombreCiudad>
 	<coloresBandera>Verde, Amarillo y Rojo</coloresBandera>
 	<moneda>Francos</moneda>
@@ -51,9 +51,9 @@
 	<miscelaneo>Timbuktu</miscelaneo>	
 	<coordenadaX>382</coordenadaX>
 	<coordenadaY>226</coordenadaY>	
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Bangkok</nombreCiudad>
 	<coloresBandera>Rojo, blanco y Azul</coloresBandera>
 	<moneda>bahts</moneda>
@@ -69,9 +69,9 @@
 	<miscelaneo>Ancient Siam</miscelaneo>		
 	<coordenadaX>614</coordenadaX>
 	<coordenadaY>230</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Budapest</nombreCiudad>
 	<coloresBandera>Rojo, blanco y verde</coloresBandera>
 	<moneda>florines</moneda>
@@ -87,9 +87,9 @@
 	<miscelaneo>Vecinos Austria</miscelaneo>	
 	<coordenadaX>422</coordenadaX>
 	<coordenadaY>144</coordenadaY>	
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>BuenosAires</nombreCiudad>
 	<coloresBandera>sol</coloresBandera>
 	<moneda>pesos</moneda>
@@ -105,9 +105,9 @@
 	<miscelaneo>ex colonia española</miscelaneo>	
 	<coordenadaX>254</coordenadaX>
 	<coordenadaY>382</coordenadaY>	
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Cairo</nombreCiudad>
 	<coloresBandera></coloresBandera>
 	<moneda>Libras</moneda>
@@ -123,9 +123,9 @@
 	<miscelaneo>antigua Alejandria</miscelaneo>		
 	<coordenadaX>454</coordenadaX>
 	<coordenadaY>202</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Colombo</nombreCiudad>
 	<coloresBandera>Leon de Oro</coloresBandera>
 	<moneda>rupias</moneda>
@@ -141,9 +141,9 @@
 	<miscelaneo>Taprobane antigua</miscelaneo>	
 	<coordenadaX>574</coordenadaX>
 	<coordenadaY>262</coordenadaY>	
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Estambul</nombreCiudad>
 	<coloresBandera>Luna Creciente y estrella</coloresBandera>
 	<moneda>Lira</moneda>
@@ -159,9 +159,9 @@
 	<miscelaneo>imperio bizantino,Constantinopla</miscelaneo>		
 	<coordenadaX>466</coordenadaX>
 	<coordenadaY>170</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Katmandu</nombreCiudad>
 	<coloresBandera>Triangulo Doble</coloresBandera>
 	<moneda>Rupias</moneda>
@@ -177,9 +177,9 @@
 	<miscelaneo>Vecinos Austria</miscelaneo>	
 	<coordenadaX>580</coordenadaX>
 	<coordenadaY>202</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Kigali</nombreCiudad>
 	<coloresBandera>Rojo, Amarillo y Verde</coloresBandera>
 	<moneda>Francos</moneda>
@@ -195,9 +195,9 @@
 	<miscelaneo></miscelaneo>	
 	<coordenadaX>446</coordenadaX>
 	<coordenadaY>282</coordenadaY>	
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Lima</nombreCiudad>
 	<coloresBandera>rojo y blanco</coloresBandera>
 	<moneda>Sols</moneda>
@@ -213,9 +213,9 @@
 	<miscelaneo></miscelaneo>		
 	<coordenadaX>206</coordenadaX>
 	<coordenadaY>302</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Londres</nombreCiudad>
 	<coloresBandera>Rojo, blanco y Azul</coloresBandera>
 	<moneda>Libras</moneda>
@@ -231,9 +231,9 @@
 	<miscelaneo></miscelaneo>		
 	<coordenadaX>382</coordenadaX>
 	<coordenadaY>122</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Ciudad de Mexico</nombreCiudad>
 	<coloresBandera>Verde, blanco y Rojo</coloresBandera>
 	<moneda>s</moneda>
@@ -249,9 +249,9 @@
 	<miscelaneo></miscelaneo>		
 	<coordenadaX>146</coordenadaX>
 	<coordenadaY>210</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Montreal</nombreCiudad>
 	<coloresBandera>con una hoja</coloresBandera>
 	<moneda></moneda>
@@ -267,9 +267,9 @@
 	<miscelaneo>ex colonia francesa</miscelaneo>	
 	<coordenadaX>232</coordenadaX>
 	<coordenadaY>104</coordenadaY>	
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Moroni</nombreCiudad>
 	<coloresBandera>Verde y blanco</coloresBandera>
 	<moneda>Francos</moneda>
@@ -285,9 +285,9 @@
 	<miscelaneo></miscelaneo>	
 	<coordenadaX>490</coordenadaX>
 	<coordenadaY>334</coordenadaY>	
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Moscu</nombreCiudad>
 	<coloresBandera>Rojo</coloresBandera>
 	<moneda>rublos</moneda>
@@ -303,9 +303,9 @@
 	<miscelaneo>Moldavia,pais mas grande del mundo</miscelaneo>		
 	<coordenadaX>620</coordenadaX>
 	<coordenadaY>56</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>New Delhi</nombreCiudad>
 	<coloresBandera>Rojo, blanco y verde</coloresBandera>
 	<moneda>rupias</moneda>
@@ -321,9 +321,9 @@
 	<miscelaneo></miscelaneo>		
 	<coordenadaX>564</coordenadaX>
 	<coordenadaY>216</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>NewYork</nombreCiudad>
 	<coloresBandera>Rojo,blanco y Azul</coloresBandera>
 	<moneda>Dolares</moneda>
@@ -339,9 +339,9 @@
 	<miscelaneo>Subte</miscelaneo>	
 	<coordenadaX>220</coordenadaX>
 	<coordenadaY>170</coordenadaY>	
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Oslo</nombreCiudad>
 	<coloresBandera>Rojo y azul</coloresBandera>
 	<moneda></moneda>
@@ -357,9 +357,9 @@
 	<miscelaneo>Esqui Nordico</miscelaneo>		
 	<coordenadaX>404</coordenadaX>
 	<coordenadaY>90</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Paris</nombreCiudad>
 	<coloresBandera>Rojo,blanco y Azul</coloresBandera>
 	<moneda>Francos</moneda>
@@ -375,9 +375,9 @@
 	<miscelaneo></miscelaneo>		
 	<coordenadaX>390</coordenadaX>
 	<coordenadaY>144</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Pekin</nombreCiudad>
 	<coloresBandera>Rojo</coloresBandera>
 	<moneda>Yuanes</moneda>
@@ -393,9 +393,9 @@
 	<miscelaneo>Dinastia Shang,Levantamiento de Wuchang</miscelaneo>	
 	<coordenadaX>622</coordenadaX>
 	<coordenadaY>180</coordenadaY>	
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Port Moresby</nombreCiudad>
 	<coloresBandera>Amarillo, Rojo y Negro</coloresBandera>
 	<moneda>Kinas</moneda>
@@ -411,9 +411,9 @@
 	<miscelaneo>Nueva Irlanda</miscelaneo>		
 	<coordenadaX>724</coordenadaX>
 	<coordenadaY>298</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Reykjavik</nombreCiudad>
 	<coloresBandera>Rojo y Azul</coloresBandera>
 	<moneda>Kronur</moneda>
@@ -429,9 +429,9 @@
 	<miscelaneo>nacion de la isla</miscelaneo>		
 	<coordenadaX>350</coordenadaX>
 	<coordenadaY>82</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>RioDeJaneiro</nombreCiudad>
 	<coloresBandera>Verde, Azul y Amarillo</coloresBandera>
 	<moneda>Cruzeiros</moneda>
@@ -447,9 +447,9 @@
 	<miscelaneo></miscelaneo>		
 	<coordenadaX>282</coordenadaX>
 	<coordenadaY>314</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Roma</nombreCiudad>
 	<coloresBandera>Verde, blanco y Rojo</coloresBandera>
 	<moneda>Lira</moneda>
@@ -465,9 +465,9 @@
 	<miscelaneo></miscelaneo>		
 	<coordenadaX>416</coordenadaX>
 	<coordenadaY>162</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>San Marino</nombreCiudad>
 	<coloresBandera>Azul y blanco</coloresBandera>
 	<moneda></moneda>
@@ -483,9 +483,9 @@
 	<miscelaneo>Serenisima Republica,Estado mas antiguo de Europa,Vecinos Italia</miscelaneo>	
 	<coordenadaX>422</coordenadaX>
 	<coordenadaY>172</coordenadaY>	
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Singapur</nombreCiudad>
 	<coloresBandera>rojo y blanco</coloresBandera>
 	<moneda></moneda>
@@ -501,9 +501,9 @@
 	<miscelaneo>ex colonia britanica</miscelaneo>	
 	<coordenadaX>620</coordenadaX>
 	<coordenadaY>278</coordenadaY>	
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Sydney</nombreCiudad>
 	<coloresBandera>Rojo, blanco y Azul</coloresBandera>
 	<moneda></moneda>
@@ -519,9 +519,9 @@
 	<miscelaneo></miscelaneo>	
 	<coordenadaX>714</coordenadaX>
 	<coordenadaY>382</coordenadaY>	
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 
-	<algo3.modelo.mapa.mundi.InformacionCiudad>
+	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Tokio</nombreCiudad>
 	<coloresBandera>rojo y blanco</coloresBandera>
 	<moneda>Yen</moneda>
@@ -537,5 +537,5 @@
 	<miscelaneo></miscelaneo>		
 	<coordenadaX>696</coordenadaX>
 	<coordenadaY>180</coordenadaY>
-	</algo3.modelo.mapa.mundi.InformacionCiudad>
+	</algo3.modelo.mapa.InformacionCiudad>
 </list>
