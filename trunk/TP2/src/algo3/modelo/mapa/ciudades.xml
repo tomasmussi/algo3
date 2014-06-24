@@ -4,7 +4,7 @@
 	<coloresBandera>Azul y blanco</coloresBandera>
 	<moneda>dracmas</moneda>
 	<geografia></geografia>
-	<lugaresDeReferencia>Mar Egeo,montañas de Pindo</lugaresDeReferencia>
+	<lugaresDeReferencia><string>Mar Egeo</string><string>montañas de Pindo</string></lugaresDeReferencia>
 	<industria><string>higos</string><string>aceitunas</string></industria>
 	<animales></animales>
 	<gente>Platon,espartanos</gente>

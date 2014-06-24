@@ -63,6 +63,7 @@ public class Mapa {
 				posibles.add(escapatoria.get(i-1));
 			}
 			agregarCiudad(unaCiudad, posibles);
+			ciudadesLibres.remove(unaCiudad.getNombre());
 		}
 	}
 
@@ -71,18 +72,6 @@ public class Mapa {
 		nombresDeCiudades.put(origen.getNombre(), origen);
 	}
 
-
-	//	public void actualizarNexoEntre(Ciudad ciudadOrigen, Ciudad ciudadDestino) {
-	//		if (!ciudadesUsadas.containsKey(ciudadDestino)) {
-	//			List<Ciudad> posibles = new ArrayList<Ciudad>();
-	//			posibles.add(ciudadOrigen);
-	//			ciudadesUsadas.put(ciudadDestino, posibles);
-	//			if (!ciudadesUsadas.get(ciudadOrigen).contains(ciudadDestino)) {
-	//				ciudadesUsadas.get(ciudadOrigen).add(ciudadDestino);
-	//			}
-	//			ciudadesLibres.remove(ciudadDestino);
-	//		}
-	//	}
 
 	//TODO:SE LLAMA DESDE EVENTO
 	// Hacer que el 4 (cantidad de opciones a ofrecer) sea una constante. ??
@@ -109,7 +98,7 @@ public class Mapa {
 			destinoPosibles.add(ciudadOrigen);
 			agregarCiudad(nuevaCiudad, destinoPosibles);
 			// Origen -> Destino
-			origenPosibles.add(ciudadOrigen);
+			origenPosibles.add(nuevaCiudad);
 			//Lo saco de las listas posibles para no armar un recorrido que pueda volver
 			iter.remove();
 		}
