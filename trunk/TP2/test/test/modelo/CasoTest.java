@@ -11,9 +11,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import algo3.modelo.caso.Caso;
+import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.mapa.InformacionCiudad;
-import algo3.modelo.mapa.Mapa;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.policia.grado.GradoDetective;
 import algo3.modelo.policia.grado.GradoInvestigador;
@@ -37,7 +37,6 @@ public class CasoTest {
 		listaCiudadesRecorrido.add(new InformacionCiudad("Paris","Blanca, roja y azul", "Franco", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
-		Mapa.getInstance().cargarListadoCiudades(listaCiudadesRecorrido);
 	}
 
 	@Before
@@ -58,21 +57,21 @@ public class CasoTest {
 	}
 
 	@Test
-	public void testNoPudoGenerarOrdenArrestoPorTenerVariasCoincidencias(){
+	public void testNoPudoGenerarOrdenArrestoPorTenerVariasCoincidencias() throws CiudadNoEncontradaException{
 		Caso caso = new Caso(listaLadrones, listaObjetos, new GradoNovato());
 		caso.generarOrdenDeArresto(new CaracteristicaLadron(null, "Masculino", "Croquet", null, null, "Limousina"));
 		assertEquals(null, caso.getOrdenDeArresto());
 	}
 
 	@Test
-	public void testGenerarOrdenDeArrestoSiHayUnaSolaCoincidencia(){
+	public void testGenerarOrdenDeArrestoSiHayUnaSolaCoincidencia() throws CiudadNoEncontradaException{
 		Caso caso = new Caso(listaLadrones, listaObjetos, new GradoNovato());
 		caso.generarOrdenDeArresto(new CaracteristicaLadron("Nick Brunch","Masculino","Mountain Climbing","Negro","Anillo","Motocicleta"));
 		assertFalse(caso.getOrdenDeArresto() == null);
 	}
 
 	@Test
-	public void testGenerarOrdenDeArrestoCuandoYaExisteUnaLaPisa(){
+	public void testGenerarOrdenDeArrestoCuandoYaExisteUnaLaPisa() throws CiudadNoEncontradaException{
 		Caso caso = new Caso(listaLadrones, listaObjetos, new GradoNovato());
 		caso.generarOrdenDeArresto(new CaracteristicaLadron("Nick Brunch","Masculino","Mountain Climbing","Negro","Anillo","Motocicleta"));
 		assertTrue(caso.getOrdenDeArresto().getCaracteristicaLadron().equals(new CaracteristicaLadron("Nick Brunch","Masculino","Mountain Climbing","Negro","Anillo","Motocicleta")));
@@ -82,25 +81,25 @@ public class CasoTest {
 	}
 
 	@Test
-	public void testEnGradoNovatoCreaCasoConEscapatoriaDe4Ciudades(){
+	public void testEnGradoNovatoCreaCasoConEscapatoriaDe4Ciudades() throws CiudadNoEncontradaException{
 		Caso caso = new Caso(listaLadrones, listaObjetos, new GradoNovato());
 		assertTrue(4 == caso.getLadron().getEscapatoria().size());
 	}
 
 	@Test
-	public void testEnGradoInvestigadorCreaCasoConEscapatoriaDe5Ciudades(){
+	public void testEnGradoInvestigadorCreaCasoConEscapatoriaDe5Ciudades() throws CiudadNoEncontradaException{
 		Caso caso = new Caso(listaLadrones, listaObjetos, new GradoInvestigador());
 		assertTrue(5 == caso.getLadron().getEscapatoria().size());
 	}
 
 	@Test
-	public void testEnGradoDetectiveCreaCasoConEscapatoriaDe5Ciudades(){
+	public void testEnGradoDetectiveCreaCasoConEscapatoriaDe5Ciudades() throws CiudadNoEncontradaException{
 		Caso caso = new Caso(listaLadrones, listaObjetos, new GradoDetective());
 		assertTrue(5 == caso.getLadron().getEscapatoria().size());
 	}
 
 	@Test
-	public void testEnGradoSargentoCreaCasoConEscapatoriaDe7Ciudades(){
+	public void testEnGradoSargentoCreaCasoConEscapatoriaDe7Ciudades() throws CiudadNoEncontradaException{
 		Caso caso = new Caso(listaLadrones, listaObjetos, new GradoSargento());
 		assertTrue(7 == caso.getLadron().getEscapatoria().size());
 	}

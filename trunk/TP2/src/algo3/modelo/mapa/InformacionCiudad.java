@@ -76,17 +76,17 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	}
 
 	private void agregarInformacion(List<String> informacion, String nombreEntidad, String entidad) {
-		if (!entidad.isEmpty()) {
+		if(!entidad.isEmpty()){
 			informacion.add(nombreEntidad + SEPARATOR + entidad);
 		}
 	}
 
 	private void agregarInformacion(List<String> informacion, String nombreEntidad, String[] entidad) {
-		for (String valor : entidad) {
+		for (String valor : entidad){
 			if (!valor.isEmpty()) {
 				informacion.add(nombreEntidad + SEPARATOR + valor);
-			}
 		}
+	}
 	}
 
 	private Collection<String> transformarEnColeccion(String[] array) {
@@ -123,11 +123,11 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	}
 
 	public String getCoordenadaX() {
-		return coordenadaX;
+		return coordenadaX.isEmpty() ? "0" : coordenadaX;
 	}
 
 	public String getCoordenadaY() {
-		return coordenadaY;
+		return coordenadaY.isEmpty() ? "0" : coordenadaY;
 	}
 
 	public void setNombreCiudad(String nombreCiudad) {

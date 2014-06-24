@@ -6,7 +6,7 @@ import algo3.modelo.entidad.Bandera;
 import algo3.modelo.entidad.Entidad;
 import algo3.modelo.entidad.EntidadCultural;
 import algo3.modelo.entidad.Moneda;
-import algo3.modelo.ladron.Ladron;
+import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.mapa.InformacionCultural;
 import algo3.modelo.mapa.InformacionDeViaje;
 import algo3.modelo.mapa.InformacionFinanciera;
@@ -29,10 +29,10 @@ public class EdificioFactory {
 		return new Embajada(null, algoCultural);
 	}
 
-	public static Edificio crearEdificioCulturalConEntidad(Ladron ladron, InformacionCultural infoCiudad) {
+	public static Edificio crearEdificioCulturalConEntidad(CaracteristicaLadron caracteristicas, InformacionCultural infoCiudad) {
 		String[] infoHistorica = infoCiudad.getInformacionCultural().split("\\|");
 		Entidad algoCultural = new EntidadCultural(infoHistorica[0], infoHistorica[1]);
-		return new Embajada(ladron.getCaracteristicasLadron(), algoCultural);
+		return new Embajada(caracteristicas, algoCultural);
 	}
 
 	private static Edificio getEdificioDeViajeRandom(Entidad bandera) {

@@ -12,6 +12,7 @@ import org.junit.Test;
 import algo3.modelo.caso.Caso;
 import algo3.modelo.edificio.Edificio;
 import algo3.modelo.edificio.EdificioFactory;
+import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.mapa.Ciudad;
 import algo3.modelo.mapa.InformacionCiudad;
@@ -53,8 +54,7 @@ public class CiudadTest {
 		Edificio edificio1 = EdificioFactory.crearEdificioCulturalConEntidad(infoSiguienteCiudad);
 		Edificio edificio2 = EdificioFactory.crearEdificioFinancieroConEntidad(infoSiguienteCiudad);
 		Edificio edificio3 = EdificioFactory.crearEdificioDeViajeConEntidad(infoSiguienteCiudad);
-		// TODO: meter coordenadas en el properties/informacion.
-		return new Ciudad(0, 0, edificio1, edificio2, edificio3, infoCiudad);
+		return new Ciudad(edificio1, edificio2, edificio3, infoCiudad);
 	}
 
 	@Before
@@ -64,7 +64,7 @@ public class CiudadTest {
 	}
 
 	@Before
-	public void crearPoliciaConCaso(){
+	public void crearPoliciaConCaso()  throws CiudadNoEncontradaException{
 
 		caracteristicaNickBrunch = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
 		ladrones = new ArrayList<CaracteristicaLadron>();
@@ -80,13 +80,13 @@ public class CiudadTest {
 
 	@Test
 	public void testCrearCiudadDesdeInformacionCiudad() {
-		Ciudad ciudad = new Ciudad(0,0,null,null,null,infoCiudadOrigen);
+		Ciudad ciudad = new Ciudad(null,null,null,infoCiudadOrigen);
 		assertEquals(infoCiudadOrigen.getNombreCiudad(), ciudad.getNombre());
 	}
 
 	@Test
 	public void testCrearDosCiudadesRelacionaUnaConOtra() {
-		Ciudad ciudadOrigen = new Ciudad(0,0,null,null,null,infoCiudadOrigen);
+		Ciudad ciudadOrigen = new Ciudad(null,null,null,infoCiudadOrigen);
 		ciudadOrigen.agregarInformacionProximaCiudad(infoCiudadDestino);
 		String infoBancaria = policia.visitarEdificioYObtenerPista(ciudadOrigen.getTodosLosEdificios()[0]);
 		assertEquals(infoBancaria, "Solo se que cambio todo su dinero a Cruzeiros.");

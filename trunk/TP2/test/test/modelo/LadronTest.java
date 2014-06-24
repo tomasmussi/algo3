@@ -7,6 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.objeto.CaracteristicaObjeto;
@@ -45,29 +46,11 @@ public class LadronTest {
 	}
 
 	@Test
-	public void testCrearObjetoRobadoComun(){
+	public void testCrearObjetoRobadoComun()  throws CiudadNoEncontradaException{
 		//TODO (TOMAS) Coordinar con eli porque no tengo bien idea de a quien le tengo que pedir ciudades para armar recorrido
 		Robable objetoRobado = new ObjetoComun(new CaracteristicaObjeto("Anillo del Papa", "Roma"));
 		ladron.robar(objetoRobado);
 		assertTrue(true);
 	}
 
-	//TODO Esto es test puramente de Objeto, no de Ladron, pasar a ObjetoTest
-	//	@Test
-	//	public void testCrearObjetoRobadoValioso(){
-	//		Objeto objeto = new ObjetoValioso("Pope Ring", "Rome");
-	//		boolean isOK = objeto.getNombre().equals("Pope Ring")
-	//				&& objeto.getCiudadOrigen().equals("Rome")
-	//				&& objeto.getCantidadDeCiudades().equals(5);
-	//		assertTrue(isOK);
-	//	}
-	//
-	//	@Test
-	//	public void testCrearObjetoRobadoMuyValioso(){
-	//		Objeto objeto = new ObjetoMuyValioso("Pope Ring", "Rome");
-	//		boolean isOK = objeto.getNombre().equals("Pope Ring")
-	//				&& objeto.getCiudadOrigen().equals("Rome")
-	//				&& objeto.getCantidadDeCiudades().equals(7);
-	//		assertTrue(isOK);
-	//	}
 }

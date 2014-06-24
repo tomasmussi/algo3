@@ -1,5 +1,7 @@
 package algo3.vista;
 
-public interface Vista {
+import java.util.Observer;
+
+public interface Vista extends Observer {
 
 }

@@ -8,10 +8,10 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.InformacionCiudad;
-import algo3.modelo.mapa.Mapa;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.objeto.ObjetoComun;
 import algo3.modelo.objeto.ObjetoMuyValioso;
@@ -20,7 +20,7 @@ import algo3.modelo.objeto.Robable;
 
 
 public class RoboTest {
-	
+
 	@Before
 	public void cargarMapa() {
 		List<InformacionCiudad> listaCiudadesRecorrido;
@@ -33,11 +33,10 @@ public class RoboTest {
 		listaCiudadesRecorrido.add(new InformacionCiudad("Paris","Blanca, roja y azul", "Franco", "Presidente"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Nueva Delhi","Roja, blanca y verde", "Rupia", "Primer Ministro"));
 		listaCiudadesRecorrido.add(new InformacionCiudad("Lima","Roja y blanca", "Sol", "Presidente"));
-		Mapa.getInstance().cargarListadoCiudades(listaCiudadesRecorrido);
 	}
 
 	@Test
-	public void testObjetoComunRobadoSonCuatroPaises(){
+	public void testObjetoComunRobadoSonCuatroPaises() throws CiudadNoEncontradaException{
 		Ladron esteLadron = new Ladron (new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
 		Robable esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Algo", "Buenos Aires"));
 		esteLadron.robar(esteObjeto);
@@ -45,7 +44,7 @@ public class RoboTest {
 	}
 
 	@Test
-	public void testObjetoValiosoRobadoSonCincoPaises(){
+	public void testObjetoValiosoRobadoSonCincoPaises() throws CiudadNoEncontradaException{
 		Ladron esteLadron = new Ladron (new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
 		Robable esteObjeto = new ObjetoValioso(new CaracteristicaObjeto("Algo", "Buenos Aires"));
 		esteLadron.robar(esteObjeto);
@@ -53,7 +52,7 @@ public class RoboTest {
 	}
 
 	@Test
-	public void testObjetoMuyValiosoRobadoSonSietePaises(){
+	public void testObjetoMuyValiosoRobadoSonSietePaises() throws CiudadNoEncontradaException{
 		Ladron esteLadron = new Ladron (new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
 		Robable esteObjeto = new ObjetoMuyValioso(new CaracteristicaObjeto("Algo", "Buenos Aires"));
 		esteLadron.robar(esteObjeto);

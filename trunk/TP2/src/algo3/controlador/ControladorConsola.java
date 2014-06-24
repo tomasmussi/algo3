@@ -1,16 +1,15 @@
-package algo3.vista;
+package algo3.controlador;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Observable;
-import java.util.Observer;
 
-import algo3.controlador.Juego;
 import algo3.modelo.policia.Policia;
+import algo3.vista.Vista;
+import algo3.vista.VistaConsolaReloj;
+import algo3.vista.VistaViaje;
 
-public class VistaConsola implements Vista, Observer {
-
+public class ControladorConsola {
 
 	public static void main(String[] args) {
 		BufferedReader reader = null;
@@ -21,7 +20,11 @@ public class VistaConsola implements Vista, Observer {
 		}
 		String linea;
 		Policia policia = new Policia();
-		Juego juego = new Juego(policia);
+
+		Vista vistaReloj = new VistaConsolaReloj();
+		Vista vistaViaje = new VistaViaje();
+		Juego juego = new Juego(policia, vistaReloj);
+		juego.setVistaViaje(vistaViaje);
 		try {
 			while (!(linea = reader.readLine()).equalsIgnoreCase("fin")){
 				if (linea.contains("ciudades_posibles")){
@@ -43,24 +46,5 @@ public class VistaConsola implements Vista, Observer {
 			e.printStackTrace();
 		}
 	}
-
-	private Juego juego;
-
-	public VistaConsola(Juego juego){
-		this.juego = juego;
-	}
-
-
-	public void inicializarVista(){
-
-	}
-
-
-	@Override
-	public void update(Observable o, Object arg) {
-
-	}
-
-
 
 }

@@ -2,6 +2,7 @@ package algo3.modelo.policia;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 import algo3.modelo.caso.Caso;
 import algo3.modelo.edificio.Edificio;
@@ -11,8 +12,9 @@ import algo3.modelo.mapa.Ciudad;
 import algo3.modelo.policia.grado.Grado;
 import algo3.modelo.policia.grado.GradoNovato;
 import algo3.modelo.tiempo.Reloj;
+import algo3.vista.Vista;
 
-public class Policia {
+public class Policia extends Observable {
 
 	private Reloj reloj;
 	private int cantidadArrestos;
@@ -21,6 +23,7 @@ public class Policia {
 	private Ciudad ciudadActual;
 	private Grado grado;
 	private Caso caso;
+	private Vista vista;
 
 	public Policia() {
 		cantidadArrestos = 0;
@@ -29,7 +32,7 @@ public class Policia {
 		ciudadActual = null;
 	}
 
-	public void setReloj(Reloj reloj) {
+	public void setReloj(Reloj reloj){
 		this.reloj = reloj;
 	}
 
@@ -51,13 +54,12 @@ public class Policia {
 		horas += (kilometros % grado.getKilometrosPorHora()) != 0 ? 1 : 0;
 		reloj.transcurrir(horas);
 	}
-
 	private void aumentarArrestos() {
 		cantidadArrestos++;
 		grado.evaluarGrado(this);
 	}
 
-	// TODO:METODO SOLO PARA PRUEBAS VER DE CORREGIRLAS Y BORRARLO
+	//TODO:METODO SOLO PARA PRUEBAS VER DE CORREGIRLAS Y BORRARLO
 	public boolean puedeArrestar() {
 		return reloj.hayTiempoRestante();
 	}
@@ -94,17 +96,17 @@ public class Policia {
 		return horasARestar;
 	}
 
-	// Se llama con un evento
+	//Se llama con un evento
 	public String visitarEdificioYObtenerPista(Edificio edificio) {
 		int horasARestar = aumentarVisitas(edificio);
 		reloj.transcurrir(horasARestar);
-		if ((!edificio.estaLadron()) && (caso.ultimoPaisLadron(ciudadActual))) {
-			int horasArestarPorAtaque = grado.horasArestarPorAtaque();
+		if((!edificio.estaLadron()) && (caso.ultimoPaisLadron(ciudadActual)) ){
+			int horasArestarPorAtaque= grado.horasArestarPorAtaque();
 			reloj.transcurrir(horasArestarPorAtaque);
 			return "Algo turbio esta ocurriendo en la ciudad.";
-		} else if (edificio.estaLadron()) {
+		} else if(edificio.estaLadron()){
 
-			if (arrestar(getCaso().getLadron())) {
+			if(arrestar(getCaso().getLadron())){
 				return "GANASTE";
 			} else {
 				return "PERDISTE";
@@ -114,7 +116,7 @@ public class Policia {
 		return grado.getPista(edificio);
 	}
 
-	// TODO: solo lo usan las pruebas arreglarlo y borrarlo
+	//TODO: solo lo usan las pruebas arreglarlo y borrarlo
 	public Ciudad getCiudadActual() {
 		return ciudadActual;
 	}
@@ -123,14 +125,16 @@ public class Policia {
 	public void viajarA(Ciudad ciudad) {
 		if (ciudadActual != null) {
 			this.viajar(ciudadActual.getDistanciaCon(ciudad));
-			caso.getRecorrido().actualizarNexoEntre(ciudadActual, ciudad);
+			//caso.getDestinosPosibles().actualizarNexoEntre(ciudadActual, ciudad);
 		}
 
 		this.ciudadActual = ciudad;
 		Ladron ladron = getCaso().getLadron();
-		if (ciudadActual.equals(ladron.getCiudadActual())) {
+		if(ciudadActual.equals(ladron.getCiudadActual())){
 			ladron.moverAlSiguientePais();
 		}
+		setChanged();
+		notifyObservers();
 	}
 
 	/**
@@ -158,6 +162,11 @@ public class Policia {
 			return true;
 		}
 		return false;
+	}
+
+	public void setVista(Vista vistaViaje) {
+		this.vista = vistaViaje;
+		addObserver(vista);
 	}
 
 }
