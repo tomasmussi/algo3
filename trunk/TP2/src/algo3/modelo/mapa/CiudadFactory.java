@@ -24,11 +24,11 @@ public class CiudadFactory {
 	 * Ver NombresCiudad para informacion de nombres.
 	 * @return Ciudad.
 	 */
-	private static Ciudad crearCiudadConEdificiosSiguienteCiudad(InformacionCiudad origen, InformacionCiudad destino) {
+	public static Ciudad crearCiudadConEdificiosSiguienteCiudad(InformacionCiudad origen, InformacionCiudad destino) {
 		return crearCiudadConEdificiosSiguienteCiudad(null, origen, destino);
 	}
 
-	private static Ciudad crearCiudadConEdificiosSiguienteCiudad(CaracteristicaLadron caracteristicas,
+	public static Ciudad crearCiudadConEdificiosSiguienteCiudad(CaracteristicaLadron caracteristicas,
 			InformacionCiudad origen, InformacionCiudad destino) {
 		Edificio edificio1 = EdificioFactory.crearEdificioCulturalConEntidad(caracteristicas, destino);
 		Edificio edificio2 = EdificioFactory.crearEdificioFinancieroConEntidad(caracteristicas, destino);
@@ -43,10 +43,10 @@ public class CiudadFactory {
 	 * @return Ciudad.
 	 * @throws CiudadNoEncontradaException
 	 */
-	public static Ciudad crearCiudadConEdificiosSiguienteCiudad(String origen, String destino) throws CiudadNoEncontradaException {
+	public static Ciudad crearCiudadConEdificiosSiguienteCiudad(CaracteristicaLadron caracteristicas, String origen, String destino) throws CiudadNoEncontradaException {
 		InformacionCiudad infoOrigen = InformacionMapa.getInstance().getCiudadDeNombre(origen);
 		InformacionCiudad infoDestino = InformacionMapa.getInstance().getCiudadDeNombre(destino);
-		return CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(infoOrigen, infoDestino);
+		return CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(caracteristicas, infoOrigen, infoDestino);
 	}
 
 	public static Ciudad crearCiudadComun(InformacionCiudad informacionCiudad) {
@@ -74,7 +74,7 @@ public class CiudadFactory {
 		desordenarCiudades(ciudades);
 		List<Ciudad> recorrido = new ArrayList<Ciudad>();
 
-		Ciudad origen = CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(ciudadOrigen, ciudades.get(0).getNombreCiudad());
+		Ciudad origen = CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(caracteristicas, ciudadOrigen, ciudades.get(0).getNombreCiudad());
 		recorrido.add(origen);
 		int i;
 		for (i = 0; i < cantidadCiudades - 1; i++){

@@ -61,7 +61,7 @@ public class EdificioTest {
 	public void testEdificioRestaUnaHoraPorPrimerEdifico() {
 		Edificio banco = new Banco(null, new Moneda("Peso"));
 		policia.visitarEdificioYObtenerPista(banco);
-		assertEquals("Lunes 08:00 horas",reloj.tiempoActual());
+		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
 	}
 
 	@Test
@@ -86,7 +86,7 @@ public class EdificioTest {
 	@Test
 	public void testEdificioDaPistaSiguienteCiudad() {
 		String colores = esteCaso.getLadron().getCiudadActual().getColoresBandera();
-		String pista = policia.visitarEdificioYObtenerPista(policia.getCiudadActual().getTodosLosEdificios()[2]); // 0 = aeropuerto.
+		String pista = policia.visitarEdificioYObtenerPista(policia.getCiudadActual().getTodosLosEdificios()[2]);
 		assertEquals("Me dicen mis fuentes que se fue en un avion con " + colores + " en sus alas.", pista);
 	}
 

@@ -15,8 +15,9 @@ import algo3.modelo.edificio.EdificioFactory;
 import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.mapa.Ciudad;
+import algo3.modelo.mapa.CiudadFactory;
 import algo3.modelo.mapa.InformacionCiudad;
-import algo3.modelo.mapa.InformacionCiudadProvider;
+import algo3.modelo.mapa.InformacionMapa;
 import algo3.modelo.mapa.NombresCiudades;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.policia.Policia;
@@ -34,22 +35,13 @@ public class CiudadTest {
 
 
 	/**
-	 * Crea una ciudad a partir de un nombre. Ver NombresCiudad para informacion de nombres.
-	 * @return Ciudad.
-	 */
-	private static Ciudad crearCiudadSinEdificios(String nombreCiudad) {
-		InformacionCiudad infoCiudad = InformacionCiudadProvider.getInstance().getInformacionPara(nombreCiudad);
-		return new Ciudad(infoCiudad);
-	}
-
-	/**
 	 * Crea una ciudad a partir de un nombre y le agrega informacion a sus edificios de de la siguiente ciudad.
 	 * Ver NombresCiudad para informacion de nombres.
 	 * @return Ciudad.
 	 */
 	private static Ciudad crearCiudadConEdificiosSiguienteCiudad(String nombreCiudad, String nombreSiguienteCiudad) {
-		InformacionCiudad infoCiudad = InformacionCiudadProvider.getInstance().getInformacionPara(nombreCiudad);
-		InformacionCiudad infoSiguienteCiudad = InformacionCiudadProvider.getInstance().getInformacionPara(nombreSiguienteCiudad);
+		InformacionCiudad infoCiudad = InformacionMapa.getInstance().getCiudadDeNombre(nombreCiudad);
+		InformacionCiudad infoSiguienteCiudad = InformacionMapa.getInstance().getCiudadDeNombre(nombreSiguienteCiudad);
 
 		Edificio edificio1 = EdificioFactory.crearEdificioCulturalConEntidad(infoSiguienteCiudad);
 		Edificio edificio2 = EdificioFactory.crearEdificioFinancieroConEntidad(infoSiguienteCiudad);
@@ -59,8 +51,8 @@ public class CiudadTest {
 
 	@Before
 	public void crearInformacionDefault() {
-		infoCiudadOrigen = InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.NEW_YORK);
-		infoCiudadDestino = InformacionCiudadProvider.getInstance().getInformacionPara(NombresCiudades.RIO_DE_JANEIRO);
+		infoCiudadOrigen = InformacionMapa.getInstance().getCiudadDeNombre(NombresCiudades.NEW_YORK);
+		infoCiudadDestino = InformacionMapa.getInstance().getCiudadDeNombre(NombresCiudades.RIO_DE_JANEIRO);
 	}
 
 	@Before
@@ -80,15 +72,14 @@ public class CiudadTest {
 
 	@Test
 	public void testCrearCiudadDesdeInformacionCiudad() {
-		Ciudad ciudad = new Ciudad(null,null,null,infoCiudadOrigen);
+		Ciudad ciudad = CiudadFactory.crearCiudadComun(infoCiudadOrigen);
 		assertEquals(infoCiudadOrigen.getNombreCiudad(), ciudad.getNombre());
 	}
 
 	@Test
 	public void testCrearDosCiudadesRelacionaUnaConOtra() {
-		Ciudad ciudadOrigen = new Ciudad(null,null,null,infoCiudadOrigen);
-		ciudadOrigen.agregarInformacionProximaCiudad(infoCiudadDestino);
-		String infoBancaria = policia.visitarEdificioYObtenerPista(ciudadOrigen.getTodosLosEdificios()[0]);
+		Ciudad ciudadOrigen = CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(null, infoCiudadOrigen, infoCiudadDestino); 
+		String infoBancaria = policia.visitarEdificioYObtenerPista(ciudadOrigen.getTodosLosEdificios()[1]);
 		assertEquals(infoBancaria, "Solo se que cambio todo su dinero a Cruzeiros.");
 		String infoBandera = policia.visitarEdificioYObtenerPista(ciudadOrigen.getTodosLosEdificios()[2]);
 		assertEquals(infoBandera, "Me dicen mis fuentes que se fue en un avion con Verde, Azul y Amarillo en sus alas.");

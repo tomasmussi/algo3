@@ -28,7 +28,7 @@ public class EdificioFactory {
 
 	public static Edificio crearEdificioFinancieroConEntidad(CaracteristicaLadron caracteristicas, InformacionFinanciera infoCiudad) {
 		Entidad moneda = new Moneda(infoCiudad.getInformacionFinanciera());
-		return getEdificioFinancieroRandom(moneda);
+		return getEdificioFinancieroRandom(caracteristicas, moneda);
 	}
 
 	public static Edificio crearEdificioCulturalConEntidad(InformacionCultural infoCiudad) {
@@ -55,14 +55,14 @@ public class EdificioFactory {
 		return edificio;
 	}
 
-	private static Edificio getEdificioFinancieroRandom(Entidad moneda) {
+	private static Edificio getEdificioFinancieroRandom(CaracteristicaLadron caracteristicas, Entidad moneda) {
 		Random rdm = new Random();
 		Edificio edificio;
 		int edificioNro = rdm.nextInt(2); // Esto devuelve 0 o 1.
 		if (0 == edificioNro) {
-			edificio = new Banco(null, moneda);
+			edificio = new Banco(caracteristicas, moneda);
 		} else {
-			edificio = new Bolsa(null, moneda);
+			edificio = new Bolsa(caracteristicas, moneda);
 		}
 		return edificio;
 	}

@@ -30,12 +30,37 @@ public class ControladorConsola {
 				if (linea.contains("ciudades_posibles")){
 					System.out.println(juego.getCiudadesPosibles());
 				} else if (linea.contains("emitir_orden")){
-
+					System.out.println("    Ingrese las caracteristicas del ladron separadas por coma (,).");
+					System.out.println("    Si no las conoce solo presione enter.");
+					String[] caracteristicas = new String[6];
+					String[] mostrar = {"Sexo","Hobby","Color de pelo","Caracteristica","Vehiculo"};
+					int i = 0;
+					while(i < mostrar.length){
+						System.out.println(mostrar[i] +":");
+						linea = reader.readLine();
+						if (linea.equals("")){
+							caracteristicas[i] = null;
+						} else {
+							caracteristicas[i] = linea;
+						}
+						i++;
+					}
+					if(juego.emitirOrdenDeArresto(caracteristicas)){
+						System.out.println("Orden emitida.");
+					} else {
+						System.out.println("No se pudo emitir orden de arresto.");
+					}
 				} else if (linea.contains("viajar")){
 					juego.viajar(linea.split(";")[1]);
 				} else if (linea.contains("entrar")){
 					String edificioNumero = linea.split(" ")[1];
-					System.out.println(juego.buscarPista(edificioNumero));
+					String pista = juego.buscarPista(edificioNumero);
+					System.out.println(pista);
+					if(pista.equals("GANASTE")){
+						System.out.println("Grado policia: " + policia.getGrado().getPlaca());
+					} else if (pista.equals("PERDISTE")){
+						linea = "fin";
+					}
 				} else if (linea.contains("iniciar_caso")){
 					juego.iniciar();
 				} else if (linea.contains("ciudad_actual")){

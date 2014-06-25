@@ -17,6 +17,7 @@ import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.InformacionCiudad;
 import algo3.modelo.mapa.InformacionCiudadProvider;
+import algo3.modelo.mapa.InformacionMapa;
 import algo3.modelo.mapa.NombresCiudades;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.policia.Policia;
@@ -41,7 +42,7 @@ public class PistaTest {
 	}
 
 	private InformacionCiudad getInformacionPara(String ciudad) {
-		return InformacionCiudadProvider.getInstance().getInformacionPara(ciudad);
+		return InformacionMapa.getInstance().getCiudadDeNombre(ciudad);
 	}
 
 	private Policia crearPoliciaSargento() {
@@ -105,7 +106,7 @@ public class PistaTest {
 		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(getInformacionPara(NombresCiudades.PORT_MORESBY));
 		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del pais. En este caso "Primer Ministro".
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
-		assertTrue(pista.startsWith("Un sospechoso estuvo aqui averiguando sobre el tipo de gobierno de un Primer Ministro."));
+		assertTrue(pista.startsWith("Estuvo mostrando sus fotos con Taipans."));
 	}
 
 	@Test
@@ -114,7 +115,7 @@ public class PistaTest {
 		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(getInformacionPara(NombresCiudades.MEXICO_CITY));
 		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del pais. En este caso "Primer Ministro".
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
-		assertTrue(pista.startsWith("Estaba buscando libros acerca de yucateca joyeria."));
+		assertTrue(pista.startsWith("Estaba buscando libros acerca de yucateca."));
 	}
 
 	@Test
@@ -123,7 +124,7 @@ public class PistaTest {
 		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(getInformacionPara(NombresCiudades.COLOMBO));
 		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del pais. En este caso "Primer Ministro".
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
-		assertTrue(pista.startsWith("Estaba buscando libros acerca de Artefactos Veddah."));
+		assertTrue(pista.startsWith("Segun mis fuentes, estuvo mostrando fotos de Golfo de Mannar."));
 	}
 
 	@Test
@@ -163,7 +164,7 @@ public class PistaTest {
 		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(getInformacionPara(NombresCiudades.PORT_MORESBY));
 		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del pais. En este caso "Primer Ministro".
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
-		assertTrue(pista.startsWith("Dijo algo acerca de tomar el te con el Primer Ministro."));
+		assertTrue(pista.startsWith("Estuvo mostrando sus fotos con Taipans."));
 	}
 
 	/* ************************************************* */
@@ -194,7 +195,7 @@ public class PistaTest {
 		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(getInformacionPara(NombresCiudades.PORT_MORESBY));
 		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del pais. En este caso "Primer Ministro".
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
-		assertTrue(pista.startsWith("Dijo algo acerca de tomar el te con el Primer Ministro."));
+		assertTrue(pista.startsWith("Estuvo mostrando sus fotos con Taipans."));
 	}
 
 	@Test
@@ -246,7 +247,7 @@ public class PistaTest {
 		Edificio edificio = EdificioFactory.crearEdificioCulturalConEntidad(getInformacionPara(NombresCiudades.PORT_MORESBY));
 		// Edificio Cultural me va a proporcionar informacion acerca del gobierno del pais. En este caso "Primer Ministro".
 		String pista = policia.visitarEdificioYObtenerPista(edificio);
-		assertTrue(pista.startsWith("Mostro interes en aprender sobre el gobierno de un Primer Ministro."));
+		assertTrue(pista.startsWith("Estuvo mostrando sus fotos con Taipans."));
 	}
 
 	@Test
