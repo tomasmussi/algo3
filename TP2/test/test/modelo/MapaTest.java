@@ -51,7 +51,6 @@ public class MapaTest {
 	@Test
 	public void testCiudadesDelRecorridoTienenComoOpcionCiudadSiguiente(){
 		// Cargo y genero un recorrido a partir de esta lista
-		InformacionMapa.getInstance().cargarCiudades(listaRecorrido);
 		Mapa mapa = new Mapa(CiudadFactory.crearRecorridoDeCiudades(NombresCiudades.RIO_DE_JANEIRO, 4));
 		List<Ciudad> ciudadesPosibles = mapa.getCiudadesPosibles(NombresCiudades.RIO_DE_JANEIRO);
 		assertEquals(4, ciudadesPosibles.size());
