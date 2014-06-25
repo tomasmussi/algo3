@@ -48,21 +48,11 @@ public class MapaTest {
 		listaInformacionCiudadesMundo.add(getInformacionPara(NombresCiudades.LIMA));
 	}
 
-	//	@Test
-	//	public void testCantidadDeCiudadesARecorrer() throws CiudadNoEncontradaException {
-	//		Robable objetoRobado = new ObjetoComun(new CaracteristicaObjeto("Anillo del Papa", "Roma"));
-	//		CaracteristicaLadron caracteristicaNickBrunch = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
-	//		Ladron ladron = new Ladron(caracteristicaNickBrunch);
-	//		ladron.robar(objetoRobado);
-	//		assertEquals(4, ladron.getEscapatoria().size());
-	//	}
-
-
 	@Test
 	public void testCiudadesDelRecorridoTienenComoOpcionCiudadSiguiente(){
 		// Cargo y genero un recorrido a partir de esta lista
 		InformacionMapa.getInstance().cargarCiudades(listaRecorrido);
-		Mapa mapa = new Mapa(CiudadFactory.crearRecorridoDeCiudades("RioDeJaneiro", 4));
+		Mapa mapa = new Mapa(CiudadFactory.crearRecorridoDeCiudades(NombresCiudades.RIO_DE_JANEIRO, 4));
 		List<Ciudad> ciudadesPosibles = mapa.getCiudadesPosibles(NombresCiudades.RIO_DE_JANEIRO);
 		assertEquals(4, ciudadesPosibles.size());
 		Iterator<Ciudad> iter = ciudadesPosibles.iterator();
@@ -70,24 +60,6 @@ public class MapaTest {
 			Ciudad next = iter.next();
 		}
 	}
-
-	//	@Test
-	//	public void testCiudadDevuelveCuatroOpcionesPosibles(){
-	//		InformacionMapa.getInstance().cargarCiudades(listaRecorrido);
-	//		Mapa mapa = new Mapa(CiudadFactory.crearRecorridoDeCiudades("RioDeJaneiro", 4));
-	//		Ciudad origen = listaRecorrido.get(0);
-	//		assertEquals(4, mapa.getCiudadesPosibles(origen).size());
-	//	}
-	//
-	//	@Test
-	//	public void testCiudadesDelRecorridoTienenComoOpcionCiudadAnterior(){
-	//		InformacionMapa.getInstance().cargarCiudades(listaRecorrido);
-	//		Mapa mapa = new Mapa(CiudadFactory.crearRecorridoDeCiudades("RioDeJaneiro", 4));
-	//
-	//		for (int i = 0; i < listaRecorrido.size(); i++){
-	//			Ciudad previa = mapa.getCiudadesPosibles("RioDeJaneiro");
-	//		}
-	//	}
 
 	@Test(expected=CiudadNoEncontradaException.class)
 	public void testMapaElevaExcepcionAlPedirCiudadInexistente() throws CiudadNoEncontradaException {

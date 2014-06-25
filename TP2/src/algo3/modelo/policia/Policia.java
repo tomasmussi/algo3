@@ -18,8 +18,7 @@ public class Policia extends Observable {
 
 	private Reloj reloj;
 	private int cantidadArrestos;
-	private int cantidadDeVisitas;
-	private List<Edificio> edificiosVisitados = new ArrayList<Edificio>();
+	private List<Edificio> edificiosVisitados;
 	private Ciudad ciudadActual;
 	private Grado grado;
 	private Caso caso;
@@ -27,7 +26,7 @@ public class Policia extends Observable {
 
 	public Policia() {
 		cantidadArrestos = 0;
-		cantidadDeVisitas = 0;
+		edificiosVisitados = new ArrayList<Edificio>();
 		grado = new GradoNovato();
 		ciudadActual = null;
 	}
@@ -94,8 +93,7 @@ public class Policia extends Observable {
 		int horasARestar = 0;
 		if (!edificiosVisitados.contains(edificio)) {
 			edificiosVisitados.add(edificio);
-			cantidadDeVisitas++;
-			horasARestar = cantidadDeVisitas;
+			horasARestar = edificiosVisitados.size();
 		}
 		return horasARestar;
 	}
@@ -131,10 +129,8 @@ public class Policia extends Observable {
 			this.viajar(ciudadActual.getDistanciaCon(ciudad));
 		}
 		this.ciudadActual = ciudad;
-		Ladron ladron = getCaso().getLadron();
-		if(ciudadActual.equals(ladron.getCiudadActual())){
-			ladron.moverAlSiguientePais();
-		}
+		caso.notificarViaje(ciudadActual);
+		edificiosVisitados = new ArrayList<Edificio>();
 		setChanged();
 		notifyObservers();
 	}
@@ -159,9 +155,7 @@ public class Policia extends Observable {
 	public boolean emitirOrdenDeArresto(CaracteristicaLadron caracteristica) {
 		reloj.transcurrir(3);
 		if ((caracteristica != null) && reloj.hayTiempoRestante()) {
-			// TODO:algo de si la pudo emitir o no
-			caso.generarOrdenDeArresto(caracteristica);
-			return true;
+			return caso.generarOrdenDeArresto(caracteristica);
 		}
 		return false;
 	}

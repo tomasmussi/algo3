@@ -92,8 +92,10 @@ public class Juego {
 		policia.setVista(vistaViaje);
 	}
 
-
-
-
+	public boolean emitirOrdenDeArresto(String[] caracteristicas) {
+		CaracteristicaLadron carac = new CaracteristicaLadron(null, caracteristicas[0], 
+				caracteristicas[1], caracteristicas[2], caracteristicas[3], caracteristicas[4]);
+		return policia.emitirOrdenDeArresto(carac);
+	}
 
 }

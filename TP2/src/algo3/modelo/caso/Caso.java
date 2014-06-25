@@ -56,10 +56,15 @@ public class Caso {
 		return maximaCantidad != 1 ? rand.nextInt(maximaCantidad - 1) : 0;
 	}
 
-	public void generarOrdenDeArresto(CaracteristicaLadron caracteristica){
+	public boolean generarOrdenDeArresto(CaracteristicaLadron caracteristica){
 		List<CaracteristicaLadron> expedientes = EstacionDePolicia.getInstance().buscarExpediente(caracteristica);
 		if (expedientes.size() == 1){
 			this.ordenDeArresto = new OrdenDeArresto(expedientes.get(0).clone());
+			System.out.println("Orden emitida contra: " +expedientes);
+			return true;
+		} else {
+			System.out.println("Sospechosos: " + expedientes);
+			return false;
 		}
 	}
 
@@ -81,6 +86,15 @@ public class Caso {
 
 	public boolean ultimoPaisLadron(Ciudad ciudadActual) {
 		return ciudadActual.equals(ladron.getCiudadActual());
+	}
+
+	/**
+	 * Notifica al caso el viaje del policia. Si el Ladron estaba en esa ciudad, se escapa.
+	 */
+	public void notificarViaje(Ciudad ciudadActual) {
+		if(ciudadActual.equals(ladron.getCiudadActual())){
+			ladron.moverAlSiguientePais();
+		}
 	}
 
 }

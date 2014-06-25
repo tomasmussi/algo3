@@ -14,25 +14,25 @@
 	<ciudadOrigen>Pekin</ciudadOrigen>
   </algo3.modelo.objeto.CaracteristicaObjeto>
   
-  <!-- <algo3.modelo.objeto.CaracteristicaObjeto>
-	<nombre></nombre>
-	<ciudadOrigen></ciudadOrigen>
-  </algo3.modelo.objeto.CaracteristicaObjeto>
-  <algo3.modelo.objeto.CaracteristicaObjeto>
-	<nombre></nombre>
-	<ciudadOrigen></ciudadOrigen>
-  </algo3.modelo.objeto.CaracteristicaObjeto>
-  
-  <algo3.modelo.objeto.CaracteristicaObjeto>
-	<nombre></nombre>
-	<ciudadOrigen></ciudadOrigen>
-  </algo3.modelo.objeto.CaracteristicaObjeto>
-  
-  <algo3.modelo.objeto.CaracteristicaObjeto>
-	<nombre></nombre>
-	<ciudadOrigen></ciudadOrigen>
-  </algo3.modelo.objeto.CaracteristicaObjeto>
-</list> -->
+  <!--
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre></nombre>
+		<ciudadOrigen></ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre></nombre>
+		<ciudadOrigen></ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre></nombre>
+		<ciudadOrigen></ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre></nombre>
+		<ciudadOrigen></ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	-->
+</list>
 
 <!--  -  
 -  Boar's Tusk (Port Moresby)
