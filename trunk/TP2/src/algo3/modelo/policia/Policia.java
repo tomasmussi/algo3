@@ -49,10 +49,14 @@ public class Policia extends Observable {
 	 * 
 	 * */
 	public void viajar(int kilometros) {
+		reloj.transcurrir(calcularKilometrosPorHora(kilometros));
+	}
+
+	public int calcularKilometrosPorHora(int kilometros){
 		// Calculo de cuantas horas tengo que restar
 		int horas = kilometros / grado.getKilometrosPorHora();
 		horas += (kilometros % grado.getKilometrosPorHora()) != 0 ? 1 : 0;
-		reloj.transcurrir(horas);
+		return horas;
 	}
 	private void aumentarArrestos() {
 		cantidadArrestos++;
@@ -125,9 +129,7 @@ public class Policia extends Observable {
 	public void viajarA(Ciudad ciudad) {
 		if (ciudadActual != null) {
 			this.viajar(ciudadActual.getDistanciaCon(ciudad));
-			//caso.getDestinosPosibles().actualizarNexoEntre(ciudadActual, ciudad);
 		}
-
 		this.ciudadActual = ciudad;
 		Ladron ladron = getCaso().getLadron();
 		if(ciudadActual.equals(ladron.getCiudadActual())){

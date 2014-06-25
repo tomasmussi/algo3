@@ -43,7 +43,7 @@ public class CiudadFactory {
 	 * @return Ciudad.
 	 * @throws CiudadNoEncontradaException
 	 */
-	private static Ciudad crearCiudadConEdificiosSiguienteCiudad(String origen, String destino) throws CiudadNoEncontradaException {
+	public static Ciudad crearCiudadConEdificiosSiguienteCiudad(String origen, String destino) throws CiudadNoEncontradaException {
 		InformacionCiudad infoOrigen = InformacionMapa.getInstance().getCiudadDeNombre(origen);
 		InformacionCiudad infoDestino = InformacionMapa.getInstance().getCiudadDeNombre(destino);
 		return CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(infoOrigen, infoDestino);
