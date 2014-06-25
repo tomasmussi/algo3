@@ -5,8 +5,9 @@ import algo3.modelo.edificio.EdificioFactory;
 
 public class Ciudad {
 
-	private int coordenadaX;
-	private int coordenadaY;
+	private static final int RADIO_TIERRA = 6371;
+	private float latitud;
+	private float longitud;
 	private Edificio edificio1;
 	private Edificio edificio2;
 	private Edificio edificio3;
@@ -15,8 +16,8 @@ public class Ciudad {
 
 	public Ciudad(Edificio edificio1, Edificio edificio2, Edificio edificio3, InformacionCiudad informacion) {
 		this.nombre = informacion.getNombreCiudad();
-		this.coordenadaX = Integer.valueOf(informacion.getCoordenadaX());
-		this.coordenadaY = Integer.valueOf(informacion.getCoordenadaY());
+		this.latitud = Float.valueOf(informacion.getLatitud());
+		this.longitud = Float.valueOf(informacion.getLongitud());
 		this.edificio1 = edificio1;
 		this.edificio2 = edificio2;
 		this.edificio3 = edificio3;
@@ -25,13 +26,13 @@ public class Ciudad {
 
 	public Ciudad(InformacionCiudad informacion) {
 		this.nombre = informacion.getNombreCiudad();
-		this.coordenadaX = Integer.parseInt(informacion.getCoordenadaX());
-		this.coordenadaY = Integer.parseInt(informacion.getCoordenadaY());
+		this.latitud = Float.valueOf(informacion.getLatitud());
+		this.longitud = Float.valueOf(informacion.getLongitud());
 		this.informacion = informacion;
 	}
 
 	public int calcularDistanciaCon(Ciudad estaCiudad) {
-		return (int) (Math.pow((Math.pow(this.coordenadaX - estaCiudad.coordenadaX, 2) + Math.pow(this.coordenadaY - estaCiudad.coordenadaY, 2)), 0.5));
+		return (int) (Math.pow((Math.pow(this.latitud - estaCiudad.latitud, 2) + Math.pow(this.longitud - estaCiudad.longitud, 2)), 0.5));
 	}
 
 	public String getNombre() {
@@ -98,7 +99,19 @@ public class Ciudad {
 	}
 
 	public int getDistanciaCon(Ciudad ciudad) {
-		return 1;
+		return distFrom(latitud, longitud, ciudad.latitud, ciudad.longitud).intValue();
+	}
+
+	public static Float distFrom(float latitud1, float longitud1, float latitud2, float longitud2) {
+		double dLat = Math.toRadians(latitud2-latitud1);
+		double dLng = Math.toRadians(longitud2-longitud1);
+		double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+				Math.cos(Math.toRadians(latitud1)) * Math.cos(Math.toRadians(latitud2)) *
+				Math.sin(dLng/2) * Math.sin(dLng/2);
+		double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+		float dist = (float) (RADIO_TIERRA * c);
+
+		return dist;
 	}
 
 }

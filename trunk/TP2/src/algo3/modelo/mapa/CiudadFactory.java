@@ -56,7 +56,6 @@ public class CiudadFactory {
 
 
 	private static Ciudad crearCiudadFinalRecorrido(InformacionCiudad informacionCiudad) {
-		// TODO Hacer Ciudad posta, hablar con Nico
 		return CiudadFactory.crearCiudadComun(informacionCiudad);
 	}
 
