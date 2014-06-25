@@ -109,9 +109,9 @@ public class ViajeTest {
 		// El policia viaja a la ultima ciudad
 		ciudadActualLadron = esteLadron.getCiudadActual();
 		policia.viajarA(ciudadActualLadron);
-		assertFalse(policia.getCiudadActual().equals(ciudadActualLadron));
+		assertTrue(policia.getCiudadActual().equals(ciudadActualLadron));
 		// Crea Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
-		assertTrue(policia.emitirOrdenDeArresto(new CaracteristicaLadron("Merey Laroc", "Femenino", "Mountain Climbing", "Castaño", "Joyeria", "Limousina")));
+		assertTrue(policia.emitirOrdenDeArresto(new CaracteristicaLadron("Merey Laroc", "Femenino", "Mountain Climbing", "Castaño", "Joyeria", "Limusina")));
 		// Arresta ladron.
 		assertTrue(policia.getCaso().getOrdenDeArresto() != null);
 		assertFalse(policia.arrestar(esteLadron));
