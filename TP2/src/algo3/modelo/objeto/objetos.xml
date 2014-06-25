@@ -3,11 +3,60 @@
 	<nombre>Candelabro del Teatro</nombre>
 	<ciudadOrigen>Sydney</ciudadOrigen>
   </algo3.modelo.objeto.CaracteristicaObjeto>
+  
   <algo3.modelo.objeto.CaracteristicaObjeto>
 	<nombre>Tabla babilonica</nombre>
 	<ciudadOrigen>Baghdad</ciudadOrigen>
   </algo3.modelo.objeto.CaracteristicaObjeto>
-</list>
+  
+  <algo3.modelo.objeto.CaracteristicaObjeto>
+	<nombre>Huevo de 1000 anios</nombre>
+	<ciudadOrigen>Pekin</ciudadOrigen>
+  </algo3.modelo.objeto.CaracteristicaObjeto>
+  
+  <!-- <algo3.modelo.objeto.CaracteristicaObjeto>
+	<nombre></nombre>
+	<ciudadOrigen></ciudadOrigen>
+  </algo3.modelo.objeto.CaracteristicaObjeto>
+  <algo3.modelo.objeto.CaracteristicaObjeto>
+	<nombre></nombre>
+	<ciudadOrigen></ciudadOrigen>
+  </algo3.modelo.objeto.CaracteristicaObjeto>
+  
+  <algo3.modelo.objeto.CaracteristicaObjeto>
+	<nombre></nombre>
+	<ciudadOrigen></ciudadOrigen>
+  </algo3.modelo.objeto.CaracteristicaObjeto>
+  
+  <algo3.modelo.objeto.CaracteristicaObjeto>
+	<nombre></nombre>
+	<ciudadOrigen></ciudadOrigen>
+  </algo3.modelo.objeto.CaracteristicaObjeto>
+</list> -->
 
-
-<!--  Porque hay solo un objeto en esta lista??? -->
+<!--  -  
+-  Boar's Tusk (Port Moresby)
+-  Constantine's Jeweled Cross (Istanbul)
+-  Crown Jewels (London)
+-  Flying Carpet (Baghdad)
+-  Golden Buddha (Bangkok)
+-  Incan Gold Mask (Lima)
+-  Islamic Manuscript (Bamako)
+-  Ivan the Terrible's Crown (Moscow)
+-  King Tut's Mask (Cairo)
+-  Mask of Montezuma (Mexico City)
+-  Mask of Priam (Athens)
+-  Merlion the Golden Lion (Singapore)
+-  Painting from the Kremlin (Moscow)
+-  Pope's Ring (Rome)
+-  Rare Mali Empire Pottery (Bamako)
+-  Rare Tea Plant (Colombo)
+-  Royal Quartz Collection (Kathmandu)
+-  Sernedip Ruby (Colombo)
+-  Silver LLama (Lima)
+-  Solid Gold Bola (Buenos Aires)
+-  Stanley Cup (Montreal)
+-  Stuffed Parrot (Rio de Janeiro)
+-  The Rockettes (New York)
+-  Viking Helmet (Oslo)
+-  Watusi King's Headdress (Kigali) -->
