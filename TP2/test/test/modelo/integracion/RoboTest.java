@@ -40,7 +40,7 @@ public class RoboTest {
 		Ladron esteLadron = new Ladron (new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
 		Robable esteObjeto = new ObjetoComun(new CaracteristicaObjeto("Algo", "Buenos Aires"));
 		esteLadron.robar(esteObjeto);
-		assertTrue(esteLadron.getEscapatoria().size() == 4);
+		assertTrue(esteLadron.getEscapatoria().size() == 5);
 	}
 
 	@Test
@@ -48,7 +48,7 @@ public class RoboTest {
 		Ladron esteLadron = new Ladron (new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
 		Robable esteObjeto = new ObjetoValioso(new CaracteristicaObjeto("Algo", "Buenos Aires"));
 		esteLadron.robar(esteObjeto);
-		assertTrue(esteLadron.getEscapatoria().size() == 5);
+		assertTrue(esteLadron.getEscapatoria().size() == 6);
 	}
 
 	@Test
@@ -56,7 +56,7 @@ public class RoboTest {
 		Ladron esteLadron = new Ladron (new CaracteristicaLadron("Carmen Sandiego", "Femenino", "Mountain Climbing", "Rojo", "Tatuaje", "Descapotable"));
 		Robable esteObjeto = new ObjetoMuyValioso(new CaracteristicaObjeto("Algo", "Buenos Aires"));
 		esteLadron.robar(esteObjeto);
-		assertTrue(esteLadron.getEscapatoria().size() == 7);
+		assertTrue(esteLadron.getEscapatoria().size() == 8);
 	}
 
 }

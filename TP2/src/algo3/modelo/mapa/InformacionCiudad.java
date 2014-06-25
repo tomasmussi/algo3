@@ -23,8 +23,8 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	private String[] religion;
 	private String gobierno;
 	private String[] miscelaneo;
-	private String coordenadaX;
-	private String coordenadaY;
+	private String latitud;
+	private String longitud;
 
 	@Override
 	public String toString() {
@@ -127,12 +127,12 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 		return nombreCiudad;
 	}
 
-	public String getCoordenadaX() {
-		return coordenadaX.isEmpty() ? "0" : coordenadaX;
+	public String getLatitud() {
+		return latitud.isEmpty() ? "0" : latitud;
 	}
 
-	public String getCoordenadaY() {
-		return coordenadaY.isEmpty() ? "0" : coordenadaY;
+	public String getLongitud() {
+		return longitud.isEmpty() ? "0" : longitud;
 	}
 
 	public void setNombreCiudad(String nombreCiudad) {
@@ -191,11 +191,11 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 		this.gobierno = gobierno;
 	}
 
-	public void setCoordenadaX(String coordX) {
-		this.coordenadaX = coordX;
+	public void setLatitud(String latitud) {
+		this.latitud = latitud;
 	}
 
-	public void setCoordenadaY(String coordY) {
-		this.coordenadaY = coordY;
+	public void setLongitud(String longitud) {
+		this.longitud = longitud;
 	}
 }
