@@ -254,7 +254,7 @@
 	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Montreal</nombreCiudad>
 	<coloresBandera>con una hoja</coloresBandera>
-	<moneda></moneda>
+	<moneda>Dolares</moneda>
 	<geografia></geografia>
 	<lugaresDeReferencia><string>Peninsula Gaspe</string><string>lago Mistassini</string>
 		<string>Montgomery Falls</string><string>Isla del Principe Eduardo</string><string>Yukon</string></lugaresDeReferencia>
@@ -345,7 +345,7 @@
 	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Oslo</nombreCiudad>
 	<coloresBandera>Rojo y azul</coloresBandera>
-	<moneda></moneda>
+	<moneda>Coronas</moneda>
 	<geografia></geografia>
 	<lugaresDeReferencia><string>Mar de Barents</string></lugaresDeReferencia>
 	<industria><string>hidroelectricidad</string></industria>
@@ -471,7 +471,7 @@
 	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>San Marino</nombreCiudad>
 	<coloresBandera>Azul y blanco</coloresBandera>
-	<moneda></moneda>
+	<moneda>Francos</moneda>
 	<geografia></geografia>
 	<lugaresDeReferencia>Monte Titano</lugaresDeReferencia>
 	<industria><string>Ceramica</string><string>sellos</string></industria>
@@ -489,7 +489,7 @@
 	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Singapur</nombreCiudad>
 	<coloresBandera>rojo y blanco</coloresBandera>
-	<moneda></moneda>
+	<moneda>Dolares</moneda>
 	<geografia></geografia>
 	<lugaresDeReferencia><string>Raffles Hotel</string><string>Mar del Sur de China</string><string>estrecho de Malaca</string></lugaresDeReferencia>
 	<industria><string>Caucho</string></industria>
@@ -507,7 +507,7 @@
 	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Sydney</nombreCiudad>
 	<coloresBandera>Rojo, blanco y Azul</coloresBandera>
-	<moneda></moneda>
+	<moneda>Dolares</moneda>
 	<geografia></geografia>
 	<lugaresDeReferencia><string>Gran Desierto de Arena</string><string>Opera House</string><string>Outback</string></lugaresDeReferencia>
 	<industria><string>Lana</string></industria>
