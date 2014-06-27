@@ -5,6 +5,7 @@ import java.util.Random;
 import algo3.modelo.entidad.Bandera;
 import algo3.modelo.entidad.Entidad;
 import algo3.modelo.entidad.EntidadCultural;
+import algo3.modelo.entidad.EntidadVacia;
 import algo3.modelo.entidad.Moneda;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.mapa.InformacionCultural;
@@ -72,6 +73,14 @@ public class EdificioFactory {
 		edificios[0] = new Aeropuerto(null, null);
 		edificios[1] = new Banco(null, null);
 		edificios[2] = new Aeropuerto(null, null);
+		return edificios;
+	}
+
+	public static Edificio[] crearEdificioFinalDeCiudad(){
+		Edificio[] edificios = new Edificio[3];
+		edificios[0] = getEdificioFinancieroRandom(null, new EntidadVacia());
+		edificios[1] = getEdificioDeViajeRandom(null, new EntidadVacia());
+		edificios[2] = getEdificioDeViajeRandom(null, new EntidadVacia());
 		return edificios;
 	}
 

@@ -49,7 +49,11 @@
 		<contenido>Estuvo buscando libros acerca de %variable%.</contenido>
 		<dificultad>Facil</dificultad>
 	</algo3.modelo.pista.Pista>
-	
+	<algo3.modelo.pista.Pista>
+		<entidad>Turbio</entidad>
+		<contenido>Algo turbio esta sucediendo en la ciudad.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
 	
 	
 	<algo3.modelo.pista.Pista>
@@ -100,6 +104,11 @@
 	<algo3.modelo.pista.Pista>
 		<entidad>Religion</entidad>
 		<contenido>Estuvo buscando libros acerca de %variable%.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Turbio</entidad>
+		<contenido>Algo turbio esta sucediendo en la ciudad.</contenido>
 		<dificultad>Media</dificultad>
 	</algo3.modelo.pista.Pista>
 	
@@ -153,6 +162,11 @@
 	<algo3.modelo.pista.Pista>
 		<entidad>Religion</entidad>
 		<contenido>Estuvo buscando libros acerca de %variable%.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Turbio</entidad>
+		<contenido>Algo turbio esta sucediendo en la ciudad.</contenido>
 		<dificultad>Dificil</dificultad>
 	</algo3.modelo.pista.Pista>
 	

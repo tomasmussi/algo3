@@ -4,7 +4,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +15,6 @@ import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.InformacionCiudad;
-import algo3.modelo.mapa.InformacionCiudadProvider;
 import algo3.modelo.mapa.InformacionMapa;
 import algo3.modelo.mapa.NombresCiudades;
 import algo3.modelo.objeto.CaracteristicaObjeto;
@@ -289,8 +287,7 @@ public class PistaTest {
 		posiblesPistas.add("Llevaba consigo un casco");
 		String[] pistaSplit = pista.split("\\.");
 		if (pistaSplit.length == 2) {
-			Random rdm = new Random();
-			assertTrue(posiblesPistas.contains(pistaSplit[rdm.nextInt(2)].trim()));
+			assertTrue(posiblesPistas.contains(pistaSplit[1].trim()));
 		} else {
 			assertTrue(posiblesPistas.contains(pista));
 		}

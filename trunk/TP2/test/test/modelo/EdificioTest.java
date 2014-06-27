@@ -1,6 +1,7 @@
 package test.modelo;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,7 +86,8 @@ public class EdificioTest {
 	public void testEdificioDaPistaSiguienteCiudad() {
 		String colores = esteCaso.getLadron().getCiudadActual().getColoresBandera();
 		String pista = policia.visitarEdificioYObtenerPista(policia.getCiudadActual().getTodosLosEdificios()[2]);
-		assertEquals("Me dicen mis fuentes que se fue en un avion con " + colores + " en sus alas.", pista);
+		String esperado = "Me dicen mis fuentes que se fue en un avion con " + colores + " en sus alas.";
+		assertTrue(pista.startsWith(esperado));
 	}
 
 	//TODO MUY DINAMICA LA PRUEBA Y ROMPE CUANDO GASTA HORAS POR IR A DORMIR
