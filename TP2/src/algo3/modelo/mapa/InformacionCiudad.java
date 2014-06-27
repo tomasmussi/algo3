@@ -120,7 +120,8 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 				return next;
 			}
 		}
-		return "";
+		// No hay informacion disponible
+		return " | ";
 	}
 
 	public String getNombreCiudad() {

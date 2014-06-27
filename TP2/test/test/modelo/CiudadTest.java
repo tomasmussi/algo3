@@ -78,7 +78,7 @@ public class CiudadTest {
 
 	@Test
 	public void testCrearDosCiudadesRelacionaUnaConOtra() {
-		Ciudad ciudadOrigen = CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(null, infoCiudadOrigen, infoCiudadDestino); 
+		Ciudad ciudadOrigen = CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(null, infoCiudadOrigen, infoCiudadDestino);
 		String infoBancaria = policia.visitarEdificioYObtenerPista(ciudadOrigen.getTodosLosEdificios()[1]);
 		assertEquals(infoBancaria, "Solo se que cambio todo su dinero a Cruzeiros.");
 		String infoBandera = policia.visitarEdificioYObtenerPista(ciudadOrigen.getTodosLosEdificios()[2]);
@@ -91,7 +91,7 @@ public class CiudadTest {
 		Ciudad ciudad = CiudadTest.crearCiudadConEdificiosSiguienteCiudad(NombresCiudades.BANGKOK, NombresCiudades.BUENOS_AIRES);
 		List<String> pistasPosibles = new ArrayList<String>();
 		pistasPosibles.add("Un sospechoso estuvo aqui averiguando sobre el tipo de gobierno de un Presidente.");
-		pistasPosibles.add("Me dicen mis fuentes que se fue en un avion con Bandera de sol en sus alas.");
+		pistasPosibles.add("Me dicen mis fuentes que se fue en un avion con sol en sus alas.");
 		pistasPosibles.add("Solo se que cambio todo su dinero a Australes.");
 		Edificio[] edificios = ciudad.getTodosLosEdificios();
 		for (Edificio edificio : edificios) {

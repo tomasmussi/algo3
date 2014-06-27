@@ -102,21 +102,16 @@ public class Policia extends Observable {
 	public String visitarEdificioYObtenerPista(Edificio edificio) {
 		int horasARestar = aumentarVisitas(edificio);
 		reloj.transcurrir(horasARestar);
-		if((!edificio.estaLadron()) && (caso.ultimoPaisLadron(ciudadActual)) ){
-			int horasArestarPorAtaque= grado.horasArestarPorAtaque();
-			reloj.transcurrir(horasArestarPorAtaque);
-			return "Algo turbio esta ocurriendo en la ciudad.";
-		} else if(edificio.estaLadron()){
-
+		if(edificio.estaLadron()){
 			if(arrestar(getCaso().getLadron())){
 				return "GANASTE";
 			} else {
 				return "PERDISTE";
 			}
 		}
-
 		return grado.getPista(edificio);
 	}
+
 
 	//TODO: solo lo usan las pruebas arreglarlo y borrarlo
 	public Ciudad getCiudadActual() {

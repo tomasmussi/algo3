@@ -19,10 +19,9 @@ public class InformacionCiudadTest {
 
 	@Test
 	public void testCrearInformacionDeViajeSeleccionaPropiedadNoNula() {
-		// Cargada desde el properties, SanMarino no tiene moneda
 		InformacionDeViaje informacion = InformacionMapa.getInstance().getCiudadDeNombre(NombresCiudades.SAN_MARINO);
 		assertEquals("Azul y blanco", informacion.getInformacionViaje());
-		assertEquals("", ((InformacionCiudad) informacion).getInformacionFinanciera());
+		assertEquals("Francos", ((InformacionCiudad) informacion).getInformacionFinanciera());
 	}
 
 	@Test

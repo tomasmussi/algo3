@@ -56,7 +56,8 @@ public class CiudadFactory {
 
 
 	private static Ciudad crearCiudadFinalRecorrido(InformacionCiudad informacionCiudad) {
-		return CiudadFactory.crearCiudadComun(informacionCiudad);
+		Edificio[] edificios = EdificioFactory.crearEdificioFinalDeCiudad();
+		return new Ciudad(edificios[0],edificios[1],edificios[2],informacionCiudad);
 	}
 
 	/**
