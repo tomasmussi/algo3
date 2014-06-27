@@ -1,6 +1,6 @@
 package algo3.modelo.juego;
 
-import algo3.vista.VentanaDeJuego;
+import algo3.vista.FramePrincipal;
 
 public class Juego {
 
@@ -14,10 +14,10 @@ public class Juego {
 	}
 
 	private void crearVentanas() {
-		VentanaDeJuego ventana = new VentanaDeJuego();
+		FramePrincipal ventana = new FramePrincipal();
 		ventana.setVisible(true);
-		ventana.setLocation(300, 300);
-		ventana.setDefaultCloseOperation(VentanaDeJuego.EXIT_ON_CLOSE);
+		ventana.setExtendedState(FramePrincipal.MAXIMIZED_BOTH);
+		ventana.setResizable(false);
+		ventana.setDefaultCloseOperation(FramePrincipal.EXIT_ON_CLOSE);
 	}
-
 }
