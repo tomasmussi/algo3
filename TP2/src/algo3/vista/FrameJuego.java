@@ -2,12 +2,8 @@ package algo3.vista;
 
 import java.awt.Frame;
 import java.awt.Image;
-import java.awt.MediaTracker;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -40,13 +36,12 @@ public class FrameJuego extends JFrame {
 						new RowSpec[] { FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"),
 								FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), }));
 
-
 		JButton btnVerPosiblesDestinos = new JButton("Ver posibles destinos");
 		btnVerPosiblesDestinos.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// mostrar la lista de ciudades posibles. En un JPanel??
-				 String[] ciudadesPosibles = { "Ciudad 1", "Ciudad 2", "Ciudad 3", "Ciudad 4" };
+				String[] ciudadesPosibles = { "Ciudad 1", "Ciudad 2", "Ciudad 3", "Ciudad 4" };
 				JOptionPane.showMessageDialog(null, ciudadesPosibles, "Ciudades posibles", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
