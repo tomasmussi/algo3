@@ -1,12 +1,13 @@
 package algo3.modelo.edificio;
 
+import java.util.Observable;
 import java.util.Random;
 
 import algo3.modelo.entidad.Entidad;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
 
-public abstract class Edificio {
+public abstract class Edificio extends Observable {
 
 	private Ladron ladron;
 
@@ -25,7 +26,13 @@ public abstract class Edificio {
 	}
 
 	public boolean estaLadron() {
-		return (ladron != null);
+		if(ladron!=null){
+			setChanged();
+			notifyObservers();
+			return true;
+		}
+		return false;
+		//return (ladron != null);
 	}
 
 	public String getCaracteristicaLadron() {
