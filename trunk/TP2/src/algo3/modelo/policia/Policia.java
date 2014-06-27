@@ -113,7 +113,7 @@ public class Policia extends Observable {
 	}
 
 
-	//TODO: solo lo usan las pruebas arreglarlo y borrarlo
+
 	public Ciudad getCiudadActual() {
 		return ciudadActual;
 	}
@@ -152,6 +152,8 @@ public class Policia extends Observable {
 		if ((caracteristica != null) && reloj.hayTiempoRestante()) {
 			return caso.generarOrdenDeArresto(caracteristica);
 		}
+		setChanged();
+		notifyObservers();
 		return false;
 	}
 

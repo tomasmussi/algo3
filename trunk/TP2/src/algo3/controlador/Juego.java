@@ -35,22 +35,21 @@ public class Juego {
 		Reloj reloj = new Reloj();
 		reloj.setVista(vistaReloj);
 		policia.setReloj(reloj);
-		Caso caso = generarCaso();
+		generarCaso();
 		policia.asignarCaso(caso);
 
 	}
 
-	private Caso generarCaso() {
+	private void generarCaso() {
 
 		List<CaracteristicaLadron> ladrones = XMLParser.cargarExpedientes();
-		Grado grado = policia.getGrado();
 		List<CaracteristicaObjeto> objetos = XMLParser.cargarObjetos();
+		Grado grado = policia.getGrado();
 		try {
 			caso = new Caso(ladrones, objetos, grado);
 		} catch (CiudadNoEncontradaException e) {
 			Logger.loguearError(e);
 		}
-		return caso;
 	}
 
 	public String ciudadActual() {
@@ -93,7 +92,7 @@ public class Juego {
 	}
 
 	public boolean emitirOrdenDeArresto(String[] caracteristicas) {
-		CaracteristicaLadron carac = new CaracteristicaLadron(null, caracteristicas[0], 
+		CaracteristicaLadron carac = new CaracteristicaLadron(null, caracteristicas[0],
 				caracteristicas[1], caracteristicas[2], caracteristicas[3], caracteristicas[4]);
 		return policia.emitirOrdenDeArresto(carac);
 	}
