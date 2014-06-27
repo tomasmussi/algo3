@@ -53,8 +53,12 @@
 		<entidad>Turbio</entidad>
 		<contenido>Algo turbio esta sucediendo en la ciudad.</contenido>
 		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>	
+	<algo3.modelo.pista.Pista>
+		<entidad>Geografia</entidad>
+		<contenido>Dijo que iba a recorrer %variable%.</contenido>
+		<dificultad>Facil</dificultad>
 	</algo3.modelo.pista.Pista>
-	
 	
 	<algo3.modelo.pista.Pista>
 		<entidad>Moneda</entidad>
@@ -110,6 +114,11 @@
 		<entidad>Turbio</entidad>
 		<contenido>Algo turbio esta sucediendo en la ciudad.</contenido>
 		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Geografia</entidad>
+		<contenido>Dijo que iba a recorrer %variable%.</contenido>
+		<dificultad>Facil</dificultad>
 	</algo3.modelo.pista.Pista>
 	
 	
@@ -168,6 +177,11 @@
 		<entidad>Turbio</entidad>
 		<contenido>Algo turbio esta sucediendo en la ciudad.</contenido>
 		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Geografia</entidad>
+		<contenido>Dijo que iba a recorrer %variable%.</contenido>
+		<dificultad>Facil</dificultad>
 	</algo3.modelo.pista.Pista>
 	
 	

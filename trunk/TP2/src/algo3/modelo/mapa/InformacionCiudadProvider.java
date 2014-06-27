@@ -66,7 +66,6 @@ public class InformacionCiudadProvider {
 		informacionCiudad.setArte(infoPropiedades[i++].split(SEPARADOR_SECUNDARIO));
 		informacionCiudad.setReligion(infoPropiedades[i++].split(SEPARADOR_SECUNDARIO));
 		informacionCiudad.setGobierno(infoPropiedades[i++]);
-		informacionCiudad.setMiscelaneo(infoPropiedades[i++].split(SEPARADOR_SECUNDARIO));
 		informacionCiudad.setLatitud(infoPropiedades[i++]);
 		informacionCiudad.setLongitud(infoPropiedades[i++]);
 		return informacionCiudad;

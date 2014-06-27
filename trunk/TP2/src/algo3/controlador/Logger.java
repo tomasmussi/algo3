@@ -25,7 +25,11 @@ public class Logger {
 	}
 
 	public static void loguearError(CiudadNoEncontradaException e) {
-		// TODO Auto-generated method stub
+		System.out.println("FALLO " + e.getMessage());
+
+	}
+
+	public static void loguearError(Exception e) {
 
 	}
 

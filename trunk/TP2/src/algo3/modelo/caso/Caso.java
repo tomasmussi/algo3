@@ -22,7 +22,7 @@ import algo3.modelo.viaje.Mapa;
  * A partir del objeto robado, se crea una ciudad, que es la ciudad
  * origen del recorrido, el ladron comienza escapandose a la siguiente ciudad.
  * */
-public class Caso {
+public class Caso{
 
 
 	private OrdenDeArresto ordenDeArresto;
@@ -96,5 +96,6 @@ public class Caso {
 			ladron.moverAlSiguientePais();
 		}
 	}
+
 
 }

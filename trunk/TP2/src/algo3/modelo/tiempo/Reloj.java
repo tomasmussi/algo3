@@ -12,15 +12,12 @@ public class Reloj extends Observable {
 	private String[] dias = {"Lunes", "Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"};
 	private int numeroDia;
 	private int horaDia;
-	private Vista vista;
 
 	public Reloj() {
-		numeroDia = 0;
-		horaDia = 7;
+		resetear();
 	}
 
 	public void setVista(Vista vista){
-		this.vista = vista;
 		addObserver(vista);
 	}
 
@@ -68,6 +65,11 @@ public class Reloj extends Observable {
 	@Override
 	public String toString() {
 		return tiempoActual();
+	}
+
+	public void resetear() {
+		numeroDia = 0;
+		horaDia = 7;
 	}
 
 }

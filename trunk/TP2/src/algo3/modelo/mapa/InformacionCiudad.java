@@ -1,11 +1,8 @@
 package algo3.modelo.mapa;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 public class InformacionCiudad implements InformacionFinanciera, InformacionCultural, InformacionDeViaje {
 
@@ -22,7 +19,6 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	private String[] arte;
 	private String[] religion;
 	private String gobierno;
-	private String[] miscelaneo;
 	private String latitud;
 	private String longitud;
 
@@ -94,17 +90,6 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 		}
 	}
 
-	private Collection<String> transformarEnColeccion(String[] array) {
-		Set<String> conjunto = new HashSet<String>();
-		if (array == null) {
-			return conjunto;
-		}
-		for (String element : array) {
-			conjunto.add(element);
-		}
-		return conjunto;
-	}
-
 	private String seleccionarAleatorioDeLista(List<String> lista) {
 		// Desordeno un poco la lista para darle aleatoriedad
 		for (int i = 0; i < lista.size(); i++) {
@@ -170,10 +155,6 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 
 	public void setReligion(String[] religion) {
 		this.religion = religion;
-	}
-
-	public void setMiscelaneo(String[] miscelaneo) {
-		this.miscelaneo = miscelaneo;
 	}
 
 	public void setColoresBandera(String coloresBandera) {
