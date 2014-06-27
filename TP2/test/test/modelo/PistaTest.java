@@ -13,12 +13,16 @@ import algo3.modelo.edificio.Edificio;
 import algo3.modelo.edificio.EdificioFactory;
 import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.ladron.CaracteristicaLadron;
-import algo3.modelo.ladron.Ladron;
 import algo3.modelo.mapa.InformacionCiudad;
 import algo3.modelo.mapa.InformacionMapa;
 import algo3.modelo.mapa.NombresCiudades;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.policia.Policia;
+import algo3.modelo.policia.grado.Grado;
+import algo3.modelo.policia.grado.GradoDetective;
+import algo3.modelo.policia.grado.GradoInvestigador;
+import algo3.modelo.policia.grado.GradoNovato;
+import algo3.modelo.policia.grado.GradoSargento;
 import algo3.modelo.tiempo.Reloj;
 
 public class PistaTest {
@@ -26,12 +30,10 @@ public class PistaTest {
 	private CaracteristicaLadron caracteristicaNickBrunch;
 	private List<CaracteristicaLadron> ladrones;
 	private List<CaracteristicaObjeto> objetos;
-	private Ladron nickBrunch;
 
 	@Before
 	public void initialize(){
 		caracteristicaNickBrunch = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
-		nickBrunch = new Ladron(caracteristicaNickBrunch);
 		ladrones = new ArrayList<CaracteristicaLadron>();
 		objetos = new ArrayList<CaracteristicaObjeto>();
 
@@ -44,22 +46,22 @@ public class PistaTest {
 	}
 
 	private Policia crearPoliciaSargento() {
-		return crearPolicia(20);
+		return crearPolicia(new GradoSargento());
 	}
 
 	private Policia crearPoliciaDetective() {
-		return crearPolicia(5);
+		return crearPolicia(new GradoDetective());
 	}
 
 	private Policia crearPoliciaInvestigador() {
-		return crearPolicia(10);
+		return crearPolicia(new GradoInvestigador());
 	}
 
 	private Policia crearPoliciaNovato() {
-		return crearPolicia(0);
+		return crearPolicia(new GradoNovato());
 	}
 
-	private Policia crearPolicia(int arrestos) {
+	private Policia crearPolicia(Grado grado) {
 
 		Policia policia = new Policia();
 		Reloj reloj = new Reloj();
@@ -69,10 +71,7 @@ public class PistaTest {
 		} catch (CiudadNoEncontradaException e) {
 			System.out.println("Error generando caso: " + e.getMessage());
 		}
-		policia.emitirOrdenDeArresto(caracteristicaNickBrunch);
-		for (int i = 1; i <= arrestos; i++) {
-			policia.arrestar(nickBrunch);
-		}
+		policia.setGrado(grado);
 		return policia;
 	}
 

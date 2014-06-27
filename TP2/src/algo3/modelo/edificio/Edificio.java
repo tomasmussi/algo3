@@ -6,6 +6,7 @@ import java.util.Random;
 import algo3.modelo.entidad.Entidad;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.ladron.Ladron;
+import algo3.modelo.policia.Policia;
 
 public abstract class Edificio extends Observable {
 
@@ -14,6 +15,8 @@ public abstract class Edificio extends Observable {
 	private CaracteristicaLadron caracteristicasLadron;
 
 	protected static final String MSJ_LADRON_NO_ESTUVO_AQUI = "Lo lamento, no hemos visto al sospechoso aqui.";
+
+	public static final String LADRON_ENCONTRADO = "LADRON ENCONTRADO";
 
 	public abstract Entidad getElemento();
 
@@ -50,6 +53,15 @@ public abstract class Edificio extends Observable {
 			posicion = rdm.nextInt(caracteristicasLadron.getCaracteristicasFisicas().size());
 		}
 		return caracteristicasLadron.getCaracteristicasFisicas().get(posicion);
+	}
+
+	public String visitar(Policia policia) {
+		if (estaLadron()){
+			return LADRON_ENCONTRADO;
+		} else {
+			return policia.getGrado().getPista(this);
+		}
+
 	}
 
 }

@@ -12,7 +12,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno>Primer Ministro</gobierno>
-	<miscelaneo>Republica Helenica,Vecinos Yugoslavia</miscelaneo>	
 	<latitud>38</latitud>
 	<longitud>23.7166</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -30,7 +29,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo>Mesopotamia</miscelaneo>	
 	<latitud>33.35</latitud>
 	<longitud>44.4166</longitud>	
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -48,7 +46,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno>Presidente</gobierno>
-	<miscelaneo>Timbuktu</miscelaneo>	
 	<latitud>12.6536</latitud>
 	<longitud>-7.9883</longitud>	
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -66,7 +63,6 @@
 	<arte></arte>
 	<religion><string>budismo</string></religion>
 	<gobierno></gobierno>
-	<miscelaneo>Ancient Siam</miscelaneo>		
 	<latitud>13.75</latitud>
 	<longitud>100.5166</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -84,7 +80,6 @@
 	<arte>Magyar arte</arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo>Vecinos Austria</miscelaneo>	
 	<latitud>47.4983</latitud>
 	<longitud>19.0408</longitud>	
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -102,7 +97,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno>Presidente</gobierno>
-	<miscelaneo>ex colonia española</miscelaneo>	
 	<latitud>-34.5833</latitud>
 	<longitud>-58.3667</longitud>	
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -120,7 +114,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo>antigua Alejandria</miscelaneo>		
 	<latitud>30.0561</latitud>
 	<longitud>31.2394</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -138,7 +131,6 @@
 	<arte>Artefactos Veddah</arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo>Taprobane antigua</miscelaneo>	
 	<latitud>6.9167</latitud>
 	<longitud>79.8333</longitud>	
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -148,7 +140,7 @@
 	<coloresBandera>Luna Creciente y estrella</coloresBandera>
 	<moneda>Lira</moneda>
 	<geografia></geografia>
-	<lugaresDeReferencia>Mar Negro,el Monte Arafat</lugaresDeReferencia>
+	<lugaresDeReferencia><string>Mar Negro</string><string>el Monte Arafat</string></lugaresDeReferencia>
 	<industria></industria>
 	<animales></animales>
 	<gente><string>hititas</string></gente>
@@ -156,7 +148,6 @@
 	<arte>Magyar arte</arte>
 	<religion></religion>
 	<gobierno>Presidente</gobierno>
-	<miscelaneo><string>imperio bizantino</string><string>Constantinopla</string></miscelaneo>		
 	<latitud>41.01</latitud>
 	<longitud>28.9603</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -174,7 +165,6 @@
 	<arte></arte>
 	<religion>hindu</religion>
 	<gobierno></gobierno>
-	<miscelaneo>Vecinos Austria</miscelaneo>	
 	<latitud>27.7167</latitud>
 	<longitud>85.3667</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -192,7 +182,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo></miscelaneo>	
 	<latitud>-1.95</latitud>
 	<longitud>30.05</longitud>	
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -210,7 +199,6 @@
 	<arte><string>Arte Aymara</string></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo></miscelaneo>		
 	<latitud>-12.035</latitud>
 	<longitud>-77.0186</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -228,7 +216,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno>Primer Ministro</gobierno>
-	<miscelaneo></miscelaneo>		
 	<latitud>51.507222</latitud>
 	<longitud>-0.1275</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -246,7 +233,6 @@
 	<arte><string>yucateca</string></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo></miscelaneo>		
 	<latitud>19.4194</latitud>
 	<longitud>-99.1456</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -265,7 +251,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo><string>ex colonia francesa</string></miscelaneo>	
 	<latitud>45.5081</latitud>
 	<longitud>-73.555</longitud>	
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -283,7 +268,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo></miscelaneo>	
 	<latitud>-11.75</latitud>
 	<longitud>43.2</longitud>	
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -301,7 +285,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo><string>Moldavia</string><string>pais mas grande del mundo</string></miscelaneo>		
 	<latitud>55.7517</latitud>
 	<longitud>37.6178</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -319,7 +302,6 @@
 	<arte></arte>
 	<religion><string>Sikh</string></religion>
 	<gobierno>Primer Ministro</gobierno>
-	<miscelaneo></miscelaneo>		
 	<latitud>28.7</latitud>
 	<longitud>77.2</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -337,7 +319,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo><string>Subte</string></miscelaneo>	
 	<latitud>40.75</latitud>
 	<longitud>-74</longitud>	
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -355,7 +336,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno>Rey</gobierno>
-	<miscelaneo><string>Esqui Nordico</string></miscelaneo>		
 	<latitud>59.9111</latitud>
 	<longitud>10.7528</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -373,7 +353,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo></miscelaneo>		
 	<latitud>48.8667</latitud>
 	<longitud>2.333</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -391,7 +370,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo><string>Dinastia Shang</string><string>Levantamiento de Wuchang</string></miscelaneo>	
 	<latitud>39.905</latitud>
 	<longitud>116.3919</longitud>	
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -409,7 +387,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno><string>Primer Ministro</string></gobierno>
-	<miscelaneo><string>Nueva Irlanda</string></miscelaneo>		
 	<latitud>-9.5</latitud>
 	<longitud>147.2</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -427,7 +404,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo><string>nacion de la isla</string></miscelaneo>		
 	<latitud>64.15</latitud>
 	<longitud>-21.883</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -445,7 +421,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno><string>Presidente</string></gobierno>
-	<miscelaneo></miscelaneo>
 	<latitud>-22.9478</latitud>	
 	<longitud>-43.2914</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -463,7 +438,6 @@
 	<arte><string>Pintura renacentista</string></arte>
 	<religion></religion>
 	<gobierno>Presidente</gobierno>
-	<miscelaneo></miscelaneo>		
 	<latitud>41.9</latitud>
 	<longitud>12.5</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -481,7 +455,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo><string>Serenisima Republica</string><string>Estado mas antiguo de Europa</string><string>Vecinos Italia</string></miscelaneo>	
 	<latitud>43.932</latitud>
 	<longitud>12.4485</longitud>	
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -499,7 +472,6 @@
 	<arte><string><string>arte malaya</string></string></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo><string>ex colonia britanica</string></miscelaneo>	
 	<latitud>1.300</latitud>
 	<longitud>103.850</longitud>	
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -517,7 +489,6 @@
 	<arte></arte>
 	<religion></religion>
 	<gobierno></gobierno>
-	<miscelaneo></miscelaneo>	
 	<latitud>-33.8694</latitud>
 	<longitud>151.2083</longitud>	
 	</algo3.modelo.mapa.InformacionCiudad>
@@ -535,7 +506,6 @@
 	<arte></arte>
 	<religion><string>Shinto</string></religion>
 	<gobierno></gobierno>
-	<miscelaneo></miscelaneo>		
 	<latitud>35.68</latitud>
 	<longitud>139.76</longitud>
 	</algo3.modelo.mapa.InformacionCiudad>

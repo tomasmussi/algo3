@@ -2,6 +2,8 @@ package algo3.modelo.ladron;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Random;
 
 import algo3.modelo.edificio.Edificio;
@@ -9,6 +11,7 @@ import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.mapa.Ciudad;
 import algo3.modelo.mapa.CiudadFactory;
 import algo3.modelo.objeto.Robable;
+import algo3.modelo.policia.Policia;
 import algo3.modelo.viaje.Mapa;
 
 
@@ -19,7 +22,7 @@ import algo3.modelo.viaje.Mapa;
 
  * 
  * */
-public class Ladron {
+public class Ladron implements Observer {
 
 	private CaracteristicaLadron caracteristicas;
 	private Robable objetoRobado;
@@ -90,8 +93,6 @@ public class Ladron {
 	 * @throws CiudadNoEncontradaException
 	 */
 	public void robar(Robable objetoRobado) throws CiudadNoEncontradaException {
-
-		//ciudadActual = CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(nombreCiudad, nombreSiguienteCiudad);
 		this.objetoRobado = objetoRobado;
 		elegirEscapatoria();
 	}
@@ -106,6 +107,14 @@ public class Ladron {
 
 	public void informarRecorrido(Mapa mapa) {
 		mapa.agregarCiudades(rutaEscape);
+	}
+
+	@Override
+	public void update(Observable observado, Object arg1) {
+		Policia policia = (Policia) observado;
+		if (policia.getCiudadActual().equals(this.ciudadActual)){
+			this.moverAlSiguientePais();
+		}
 	}
 
 }

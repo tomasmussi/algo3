@@ -1,6 +1,8 @@
 package algo3.controlador;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,12 +12,13 @@ import java.util.Properties;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.mapa.InformacionCiudad;
 import algo3.modelo.objeto.CaracteristicaObjeto;
+import algo3.modelo.policia.Policia;
 
 import com.thoughtworks.xstream.XStream;
 
 public class XMLParser {
 
-	private static final XStream xmlReader = new XStream();
+	private static final XStream xmlStream = new XStream();
 
 	public static List<CaracteristicaLadron> cargarExpedientes() {
 		try {
@@ -62,7 +65,7 @@ public class XMLParser {
 
 	public static void encode(Object objeto) throws IOException{
 		FileOutputStream out = new FileOutputStream(new File("C:\\Users\\Tomas\\Desktop\\objeto.xml"));
-		xmlReader.toXML(objeto, out);
+		xmlStream.toXML(objeto, out);
 		out.close();
 	}
 
@@ -70,7 +73,7 @@ public class XMLParser {
 		Object decodificado = null;
 		try{
 			InputStream in = Properties.class.getResourceAsStream("/algo3/controlador/ladrones.xml");
-			decodificado = xmlReader.fromXML(in);
+			decodificado = xmlStream.fromXML(in);
 			if (in != null){
 				in.close();
 			}
@@ -84,7 +87,7 @@ public class XMLParser {
 	public static Object decode(InputStream in) throws IOException {
 		Object decodificado = null;
 		try{
-			decodificado = xmlReader.fromXML(in);
+			decodificado = xmlStream.fromXML(in);
 			if (in != null){
 				in.close();
 			}
@@ -93,6 +96,29 @@ public class XMLParser {
 			decodificado = XMLParser.decode();
 		}
 		return decodificado;
+	}
+
+	public static boolean guardarPolicia(Policia policia) {
+		try {
+			FileOutputStream out = new FileOutputStream(new File("C:\\Users\\EM\\Desktop\\objet.xml"));
+			xmlStream.toXML(policia.clone(), out);
+		} catch (FileNotFoundException e) {
+			Logger.loguearError(e);
+			return false;
+		}
+		return true;
+	}
+
+	public static Policia cargarPolicia() {
+		Policia policia = null;
+		try {
+			InputStream in = new FileInputStream(new File("C:\\Users\\EM\\Desktop\\objet.xml"));
+			policia = (Policia) xmlStream.fromXML(in);
+		} catch (Exception e) {
+			Logger.loguearError(e);
+			policia = new Policia();
+		}
+		return policia;
 	}
 
 }

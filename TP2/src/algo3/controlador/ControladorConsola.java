@@ -65,6 +65,10 @@ public class ControladorConsola {
 					juego.iniciar();
 				} else if (linea.contains("ciudad_actual")){
 					System.out.println(juego.ciudadActual());
+				} else if (linea.contains("guardar")){
+					juego.guardar();
+				} else if (linea.contains("leer")){
+					juego.cargar();
 				}
 			}
 		} catch (IOException e) {

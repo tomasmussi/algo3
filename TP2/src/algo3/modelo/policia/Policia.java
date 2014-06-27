@@ -37,6 +37,7 @@ public class Policia extends Observable {
 
 	public void asignarCaso(Caso esteCaso) {
 		this.caso = esteCaso;
+		addObserver(caso.getLadron());
 		this.viajarA(esteCaso.getCiudadOrigenDeObjeto());
 
 	}
@@ -102,14 +103,12 @@ public class Policia extends Observable {
 	public String visitarEdificioYObtenerPista(Edificio edificio) {
 		int horasARestar = aumentarVisitas(edificio);
 		reloj.transcurrir(horasARestar);
-		if(edificio.estaLadron()){
-			if(arrestar(getCaso().getLadron())){
-				return "GANASTE";
-			} else {
-				return "PERDISTE";
-			}
+		String pista = edificio.visitar(this);
+		if (pista.equals(Edificio.LADRON_ENCONTRADO)){
+			setChanged();
+			notifyObservers(arrestar(caso.getLadron()));
 		}
-		return grado.getPista(edificio);
+		return pista;
 	}
 
 
@@ -124,7 +123,6 @@ public class Policia extends Observable {
 			this.viajar(ciudadActual.getDistanciaCon(ciudad));
 		}
 		this.ciudadActual = ciudad;
-		caso.notificarViaje(ciudadActual);
 		edificiosVisitados = new ArrayList<Edificio>();
 		setChanged();
 		notifyObservers();
@@ -140,7 +138,8 @@ public class Policia extends Observable {
 	 * @return true si atrapo al ladron, false de lo contrario
 	 */
 	public boolean arrestar(Ladron ladron) {
-		if ((caso.getOrdenDeArresto() == null) || !ladron.coincideCon(caso.getOrdenDeArresto().getCaracteristicaLadron())) {
+		if ((caso.getOrdenDeArresto() == null) || !ladron.coincideCon(caso.getOrdenDeArresto().getCaracteristicaLadron())
+				|| !reloj.hayTiempoRestante()) {
 			return false;
 		}
 		aumentarArrestos();
@@ -152,6 +151,7 @@ public class Policia extends Observable {
 		if ((caracteristica != null) && reloj.hayTiempoRestante()) {
 			return caso.generarOrdenDeArresto(caracteristica);
 		}
+		//TODO Revisar...
 		setChanged();
 		notifyObservers();
 		return false;
@@ -160,6 +160,23 @@ public class Policia extends Observable {
 	public void setVista(Vista vistaViaje) {
 		this.vista = vistaViaje;
 		addObserver(vista);
+	}
+
+	public void resetear() {
+		if (caso != null){
+			deleteObserver(caso.getLadron());
+		}
+		ciudadActual = null;
+		caso = null;
+		edificiosVisitados = new ArrayList<Edificio>();
+	}
+
+	@Override
+	public Object clone() {
+		Policia policiaPersistir = new Policia();
+		policiaPersistir.cantidadArrestos = this.cantidadArrestos;
+		policiaPersistir.grado = this.grado;
+		return policiaPersistir;
 	}
 
 }
