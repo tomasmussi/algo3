@@ -18,14 +18,12 @@ import com.jgoodies.forms.layout.RowSpec;
 
 public class FramePrincipal extends JFrame {
 
-	private JFrame ventanaJuego;
+	private static final long serialVersionUID = 2528876481084656378L;
+	
 	private JFrame ingresarInformacion;
 	private JPanel imagenPrincipal;
 
 	public FramePrincipal() {
-		ventanaJuego = new VentanaDeJuego();
-		ventanaJuego.setVisible(false);
-
 		ingresarInformacion = new VentanaIngresarNombre(this);
 		getContentPane().setLayout(
 				new FormLayout(new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), }, new RowSpec[] { FormFactory.RELATED_GAP_ROWSPEC,

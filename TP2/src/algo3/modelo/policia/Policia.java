@@ -23,15 +23,25 @@ public class Policia extends Observable {
 	private Grado grado;
 	private Caso caso;
 	private Vista vista;
+	private String nombre;
 
 	public Policia() {
+		inicializarPolicia();
+	}
+
+	public Policia(String nombrePolicia) {
+		this.nombre = nombrePolicia;
+		inicializarPolicia();
+	}
+
+	private void inicializarPolicia() {
 		cantidadArrestos = 0;
 		edificiosVisitados = new ArrayList<Edificio>();
 		grado = new GradoNovato();
 		ciudadActual = null;
 	}
 
-	public void setReloj(Reloj reloj){
+	public void setReloj(Reloj reloj) {
 		this.reloj = reloj;
 	}
 
@@ -52,18 +62,19 @@ public class Policia extends Observable {
 		reloj.transcurrir(calcularKilometrosPorHora(kilometros));
 	}
 
-	public int calcularKilometrosPorHora(int kilometros){
+	public int calcularKilometrosPorHora(int kilometros) {
 		// Calculo de cuantas horas tengo que restar
 		int horas = kilometros / grado.getKilometrosPorHora();
 		horas += (kilometros % grado.getKilometrosPorHora()) != 0 ? 1 : 0;
 		return horas;
 	}
+
 	private void aumentarArrestos() {
 		cantidadArrestos++;
 		grado.evaluarGrado(this);
 	}
 
-	//TODO:METODO SOLO PARA PRUEBAS VER DE CORREGIRLAS Y BORRARLO
+	// TODO:METODO SOLO PARA PRUEBAS VER DE CORREGIRLAS Y BORRARLO
 	public boolean puedeArrestar() {
 		return reloj.hayTiempoRestante();
 	}
@@ -99,19 +110,17 @@ public class Policia extends Observable {
 		return horasARestar;
 	}
 
-	//Se llama con un evento
+	// Se llama con un evento
 	public String visitarEdificioYObtenerPista(Edificio edificio) {
 		int horasARestar = aumentarVisitas(edificio);
 		reloj.transcurrir(horasARestar);
 		String pista = edificio.visitar(this);
-		if (pista.equals(Edificio.LADRON_ENCONTRADO)){
+		if (pista.equals(Edificio.LADRON_ENCONTRADO)) {
 			setChanged();
 			notifyObservers(arrestar(caso.getLadron()));
 		}
 		return pista;
 	}
-
-
 
 	public Ciudad getCiudadActual() {
 		return ciudadActual;
@@ -138,8 +147,7 @@ public class Policia extends Observable {
 	 * @return true si atrapo al ladron, false de lo contrario
 	 */
 	public boolean arrestar(Ladron ladron) {
-		if ((caso.getOrdenDeArresto() == null) || !ladron.coincideCon(caso.getOrdenDeArresto().getCaracteristicaLadron())
-				|| !reloj.hayTiempoRestante()) {
+		if ((caso.getOrdenDeArresto() == null) || !ladron.coincideCon(caso.getOrdenDeArresto().getCaracteristicaLadron()) || !reloj.hayTiempoRestante()) {
 			return false;
 		}
 		aumentarArrestos();
@@ -151,7 +159,7 @@ public class Policia extends Observable {
 		if ((caracteristica != null) && reloj.hayTiempoRestante()) {
 			return caso.generarOrdenDeArresto(caracteristica);
 		}
-		//TODO Revisar...
+		// TODO Revisar...
 		setChanged();
 		notifyObservers();
 		return false;
@@ -163,7 +171,7 @@ public class Policia extends Observable {
 	}
 
 	public void resetear() {
-		if (caso != null){
+		if (caso != null) {
 			deleteObserver(caso.getLadron());
 		}
 		ciudadActual = null;
