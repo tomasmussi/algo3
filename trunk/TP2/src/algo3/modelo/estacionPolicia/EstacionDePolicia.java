@@ -13,8 +13,6 @@ public class EstacionDePolicia {
 	private static EstacionDePolicia instance;
 
 	private EstacionDePolicia() {
-		//TODO (TOMAS) Deberia leer cada vez que me consulten un expediente, o Caso me deberia indicar que tengo que leer de vuelta configuracion
-		//(FLAVIA) Masuh dijo que era discutible, así que le pregunto a el despues, me parece demas hacer eso por las dudas le consulto.
 		cargarExpedientes();
 	}
 

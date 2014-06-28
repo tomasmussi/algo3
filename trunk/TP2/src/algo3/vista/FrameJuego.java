@@ -15,6 +15,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
+import algo3.controlador.ControladorMoverCiudades;
+import algo3.controlador.ControladorPosiblesDestinos;
 import algo3.modelo.juego.Juego;
 
 import com.jgoodies.forms.factories.FormFactory;
@@ -47,6 +49,7 @@ public class FrameJuego extends JFrame {
 	private JMenuItem mntmCerrarSesion;
 	private JMenuItem mntmSalir;
 	private JLabel lblReloj;
+	private JLabel lblCiudadActual;
 
 	public FrameJuego(final FramePrincipal framePrincipal, String nombrePolicia) {
 		this.framePrincipal = framePrincipal;
@@ -54,7 +57,7 @@ public class FrameJuego extends JFrame {
 		iniciarFrameExpedientes();
 
 		browser = BrowserFactory.create();
-		browser.loadURL(GOOGLE_MAPS_URL + getMarkers());
+
 
 		getContentPane().setLayout(
 				new FormLayout(new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), FormFactory.RELATED_GAP_COLSPEC,
@@ -63,16 +66,19 @@ public class FrameJuego extends JFrame {
 						RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC,
 						RowSpec.decode("default:grow"), }));
 
-		btnVerPosiblesDestinos = new JButton("Ver posibles destinos");
+		lblCiudadActual = new JLabel("");
+		lblCiudadActual.setBackground(new Color(255, 99, 71));
+		lblCiudadActual.setFont(new Font("Calibri Light", Font.BOLD, 20));
+		lblCiudadActual.setBackground(new Color(255, 99, 71));
+		lblCiudadActual.setOpaque(true);
+		lblCiudadActual.setForeground(Color.BLACK);
+		lblCiudadActual.setHorizontalAlignment(SwingConstants.CENTER);
+		getContentPane().add(lblCiudadActual, "2, 2, fill, fill");
 		// btnVerPosiblesDestinos.setBackground(new Color(255, 99, 71));
-		btnVerPosiblesDestinos.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// mostrar la lista de ciudades posibles. En un JPanel??
-				String[] ciudadesPosibles = { "Buenos Aires", "New York", "Sydney" };
-				JOptionPane.showMessageDialog(null, ciudadesPosibles, "Ciudades posibles", JOptionPane.INFORMATION_MESSAGE);
-			}
-		});
+
+		btnVerPosiblesDestinos = new JButton("Ver posibles destinos");
+
+
 		getContentPane().add(btnVerPosiblesDestinos, "8, 2, 1, 3, fill, fill");
 
 		lblReloj = new JLabel();
@@ -81,23 +87,11 @@ public class FrameJuego extends JFrame {
 		lblReloj.setOpaque(true);
 		lblReloj.setForeground(Color.BLACK);
 		lblReloj.setHorizontalAlignment(SwingConstants.CENTER);
-		getContentPane().add(lblReloj, "2, 2, 5, 1, fill, fill");
+		getContentPane().add(lblReloj, "4, 2, 3, 1, fill, fill");
 
 		btnViajar = new JButton("Viajar");
 		// btnViajar.setBackground(new Color(255, 99, 71));
-		btnViajar.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// situar al policia en la ciudad elegida.
-				// obtener la ciudad a la que se viajo, obetener el nombre y elegir la foto a mostrar.
-				// Toolkit.getDefaultToolkit().getImage(ciudad.getNombre()); ???
-				// Ver como interactuar con google maps y las coordenadas, esto por ahora es solo de adorno,
-				// todavia no tiene funcionalidad, es solo para hacerlo "cheto".
-				mostrarGoogleMaps(browser);
-				String[] ciudades = { "Buenos Aires", "New York", "Sydney" };
-				mostarFrameDeViaje("Viajar a:", "Viajar", ciudades);
-			}
-		});
+
 		getContentPane().add(btnViajar, "8, 6, 1, 3, fill, fill");
 
 		btnBuscar = new JButton("Buscar");
@@ -112,7 +106,6 @@ public class FrameJuego extends JFrame {
 			}
 		});
 		getContentPane().add(btnBuscar, "8, 10, 1, 3, fill, fill");
-
 		bntExpedientes = new JButton("Expedientes");
 		// bntExpedientes.setBackground(new Color(255, 99, 71));
 		bntExpedientes.addActionListener(new ActionListener() {
@@ -145,7 +138,7 @@ public class FrameJuego extends JFrame {
 		mntmSalir.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				int opcion = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea salir?\nLa informacion no guardada se perdera.");
+				int opcion = JOptionPane.showConfirmDialog(null, "Esta seguro que desea salir?\nLa informacion no guardada se perdera.");
 				if (opcion == JOptionPane.OK_OPTION) {
 					cerrarJuego();
 				}
@@ -153,12 +146,15 @@ public class FrameJuego extends JFrame {
 		});
 		mnJuego.add(mntmSalir);
 
-		// Let game begin...
+		// Let the game begin...
 		iniciarJuego(nombrePolicia);
+		btnVerPosiblesDestinos.addActionListener(new ControladorPosiblesDestinos(juego));
+		btnViajar.addActionListener(new ControladorMoverCiudades(this, juego));
+		browser.loadURL(GOOGLE_MAPS_URL + getMarkers());
 	}
 
 	private void iniciarJuego(String nombrePolicia) {
-		this.juego = new Juego(nombrePolicia, lblReloj);
+		this.juego = new Juego(nombrePolicia, lblReloj, lblCiudadActual);
 	}
 
 	private void iniciarFrameExpedientes() {
@@ -166,7 +162,7 @@ public class FrameJuego extends JFrame {
 		expedientes.setVisible(false);
 	}
 
-	protected void mostarFrameDeViaje(String lblInformacion, String lblBoton, String[] informacionCombo) {
+	public void mostarFrameDeViaje(String lblInformacion, String lblBoton, String[] informacionCombo) {
 		FrameDeViaje fViajar = new FrameDeViaje(juego, lblInformacion, lblBoton, informacionCombo);
 		fViajar.setVisible(true);
 	}
@@ -176,7 +172,7 @@ public class FrameJuego extends JFrame {
 		// de ver posibles destinos.
 		// Para cada ciudad agregar su marker. Ejemplo:
 		String markers = "";
-		String[] ciudades = { "Buenos Aires", "New York", "Sydney" };
+		String[] ciudades = juego.getCiudadesPosibles();
 		for (String ciudad : ciudades) {
 			markers = markers + MARKER + ciudad.replace(" ", "%"); // Es necesario reemplazar los espacios de los nombres por %
 		}
@@ -195,7 +191,7 @@ public class FrameJuego extends JFrame {
 		System.exit(0);
 	}
 
-	protected void mostrarGoogleMaps(Browser browser) {
+	public void mostrarGoogleMaps() {
 		getContentPane().add(browser.getView().getComponent(), "2, 4, 5, 13, fill, fill");
 		while (browser.isLoading()) {
 			try {
@@ -205,7 +201,7 @@ public class FrameJuego extends JFrame {
 			}
 			JOptionPane.showMessageDialog(null, "Cargando mapa, por favor aguarde.");
 		}
-		// Modifica el tamaño para que Swing pueda identificar el cambio del estado de la ventana.
+		// Modifica el tamanio para que Swing pueda identificar el cambio del estado de la ventana.
 		setSize(Frame.MAXIMIZED_HORIZ, Frame.MAXIMIZED_VERT);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}

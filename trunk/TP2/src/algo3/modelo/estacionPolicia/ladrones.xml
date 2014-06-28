@@ -48,7 +48,7 @@
 	<nombre>Merey Laroc</nombre>
 	<sexo>Femenino</sexo>
 	<hobby>Mountain Climbing</hobby>
-    <colorCabello>Castaño</colorCabello>
+    <colorCabello>Castanio</colorCabello>
 	<caracteristica>Joyeria</caracteristica>
 	<vehiculo>Limusina</vehiculo>
   </algo3.modelo.ladron.CaracteristicaLadron>
@@ -66,7 +66,7 @@
 	<nombre>Katherine Drib</nombre>
 	<sexo>Femenino</sexo>
 	<hobby>Mountain Climbing</hobby>
-    <colorCabello>Castaño</colorCabello>
+    <colorCabello>Castanio</colorCabello>
 	<caracteristica>Tatuaje</caracteristica>
 	<vehiculo>Motocicleta</vehiculo>
   </algo3.modelo.ladron.CaracteristicaLadron>
@@ -84,7 +84,7 @@
 	<nombre>Carmen Sandiego</nombre>
 	<sexo>Femenino</sexo>
 	<hobby>Tenis</hobby>
-    <colorCabello>Castaño</colorCabello>
+    <colorCabello>Castanio</colorCabello>
 	<caracteristica>Joyeria</caracteristica>
 	<vehiculo>Descapotable</vehiculo>
   </algo3.modelo.ladron.CaracteristicaLadron>

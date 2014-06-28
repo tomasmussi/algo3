@@ -55,7 +55,7 @@ public class FrameExpedientes extends JFrame {
 		JComboBox<String> cmbPelos = new JComboBox<String>();
 		cmbPelos.addItem("Seleccione color de cabello...");
 		cmbPelos.addItem("Rubio");
-		cmbPelos.addItem("Castaño");
+		cmbPelos.addItem("Castanio");
 		cmbPelos.addItem("Negro");
 		cmbPelos.addItem("Rojo");
 		getContentPane().add(cmbPelos, "3, 8, fill, default");

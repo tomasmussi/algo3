@@ -69,7 +69,6 @@ public class PistaTest {
 		try {
 			policia.asignarCaso(new Caso(ladrones, objetos, policia.getGrado()));
 		} catch (CiudadNoEncontradaException e) {
-			System.out.println("Error generando caso: " + e.getMessage());
 		}
 		policia.setGrado(grado);
 		return policia;
