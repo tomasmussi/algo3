@@ -1,6 +1,5 @@
 package algo3.vista;
 
-import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;
@@ -11,6 +10,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import com.jgoodies.forms.factories.FormFactory;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.RowSpec;
 
 public class FramePrincipal extends JFrame {
 
@@ -23,10 +27,12 @@ public class FramePrincipal extends JFrame {
 		ventanaJuego.setVisible(false);
 
 		ingresarInformacion = new VentanaIngresarNombre(this);
-		ingresarInformacion.setVisible(false);
+		getContentPane().setLayout(
+				new FormLayout(new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), }, new RowSpec[] { FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), }));
 
-		JButton btnCargarPartida = new JButton("Cargar Partida");
-		getContentPane().add(btnCargarPartida, BorderLayout.EAST);
+		imagenPrincipal = new JPanelPrincipal();
+		getContentPane().add(imagenPrincipal, "4, 2, 1, 3, fill, fill");
 
 		JButton btnEmpezarJuego = new JButton("Empezar Juego");
 		btnEmpezarJuego.addActionListener(new ActionListener() {
@@ -35,10 +41,12 @@ public class FramePrincipal extends JFrame {
 				mostrarVentanaIngresoNombre();
 			}
 		});
-		getContentPane().add(btnEmpezarJuego, BorderLayout.WEST);
+		getContentPane().add(btnEmpezarJuego, "2, 2, fill, fill");
 
-		imagenPrincipal = new JPanelPrincipal();
-		getContentPane().add(imagenPrincipal, BorderLayout.CENTER);
+		JButton btnCargarPartida = new JButton("Cargar Partida");
+		getContentPane().add(btnCargarPartida, "2, 4, fill, fill");
+
+		requestFocusInWindow();
 	}
 
 	protected void mostrarVentanaIngresoNombre() {
