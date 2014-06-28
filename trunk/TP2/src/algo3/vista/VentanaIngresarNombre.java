@@ -17,8 +17,10 @@ import javax.swing.SwingConstants;
 public class VentanaIngresarNombre extends JFrame {
 
 	private JTextField textField;
+	private FramePrincipal framePrincipal;
 
 	public VentanaIngresarNombre(final FramePrincipal framePrincipal) {
+		this.framePrincipal = framePrincipal;
 		setSize(450, 180);
 		setLocation(500, 300);
 
@@ -38,7 +40,8 @@ public class VentanaIngresarNombre extends JFrame {
 					JOptionPane.showMessageDialog(null, "El nombre del policia no puede ser vacio.");
 				} else {
 					iniciarYMostrarFrameDeJuego();
-					framePrincipal.dispose();
+					framePrincipal.setVisible(false);
+					clearTextField();
 				}
 			}
 		});
@@ -68,9 +71,13 @@ public class VentanaIngresarNombre extends JFrame {
 		getContentPane().setLayout(groupLayout);
 	}
 
+	public void clearTextField() {
+		textField.setText("");
+	}
+
 	protected void iniciarYMostrarFrameDeJuego() {
 		// llama a la ventana de Juego posta.
-		FrameJuego frameJuego = new FrameJuego();
+		FrameJuego frameJuego = new FrameJuego(framePrincipal);
 		// frameJuego.setResizable(false);
 		frameJuego.setVisible(true);
 		frameJuego.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -88,7 +95,9 @@ public class VentanaIngresarNombre extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent event) {
+			frame.clearTextField();
 			frame.dispose();
 		}
 	}
+
 }

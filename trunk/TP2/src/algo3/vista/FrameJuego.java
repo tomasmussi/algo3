@@ -1,14 +1,16 @@
 package algo3.vista;
 
 import java.awt.Frame;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -19,35 +21,52 @@ import com.teamdev.jxbrowser.chromium.BrowserFactory;
 
 public class FrameJuego extends JFrame {
 
-	private Image imagenCiudad;
+	private static final long serialVersionUID = 9051874880109659757L;
+
+	private static String MARKER = "&markers=";
+	private static String GOOGLE_MAPS_URL = "http://maps.google.com/maps/api/staticmap?center=30,0&zoom=1&scale=2&size=900x400&sensor=false";
+
 	private FrameExpedientes expedientes;
-	private JPanel panelPrincipal;
+	private FramePrincipal framePrincipal;
 	private Browser browser;
 
-	public FrameJuego() {
+	// private Image imagenCiudad;
+	// private JPanel panelPrincipal;
+	private JButton btnVerPosiblesDestinos;
+	private JButton btnViajar;
+	private JButton btnBuscar;
+	private JButton bntExpedientes;
+	private JMenuBar menuBar;
+	private JMenu mnJuego;
+	private JMenuItem mntmCerrarSesion;
+	private JMenuItem mntmSalir;
+	private JLabel lblNewLabel;
+
+	public FrameJuego(final FramePrincipal framePrincipal) {
+		this.framePrincipal = framePrincipal;
 		expedientes = new FrameExpedientes();
 		expedientes.setVisible(false);
 
 		browser = BrowserFactory.create();
-		browser.loadURL("https://maps.google.com");
+		browser.loadURL(GOOGLE_MAPS_URL + getMarkers());
 
 		getContentPane().setLayout(
-				new FormLayout(new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC, },
-						new RowSpec[] { FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"),
-								FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), }));
+				new FormLayout(new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), FormFactory.RELATED_GAP_COLSPEC,
+						ColumnSpec.decode("default:grow"), FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] { FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), }));
 
-		JButton btnVerPosiblesDestinos = new JButton("Ver posibles destinos");
+		btnVerPosiblesDestinos = new JButton("Ver posibles destinos");
 		btnVerPosiblesDestinos.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// mostrar la lista de ciudades posibles. En un JPanel??
-				String[] ciudadesPosibles = { "Ciudad 1", "Ciudad 2", "Ciudad 3", "Ciudad 4" };
+				String[] ciudadesPosibles = { "Buenos Aires", "New York", "Sydney" };
 				JOptionPane.showMessageDialog(null, ciudadesPosibles, "Ciudades posibles", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
-		getContentPane().add(btnVerPosiblesDestinos, "6, 2, fill, fill");
+		getContentPane().add(btnVerPosiblesDestinos, "8, 2, fill, fill");
 
-		JButton btnViajar = new JButton("Viajar");
+		btnViajar = new JButton("Viajar");
 		btnViajar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -57,37 +76,99 @@ public class FrameJuego extends JFrame {
 				// Ver como interactuar con google maps y las coordenadas, esto por ahora es solo de adorno,
 				// todavia no tiene funcionalidad, es solo para hacerlo "cheto".
 				mostrarGoogleMaps(browser);
+				String[] ciudades = { "Buenos Aires", "New York", "Sydney" };
+				mostarFrameDeViaje("Viajar a:", "Viajar", ciudades);
 			}
 		});
-		getContentPane().add(btnViajar, "6, 4, fill, fill");
+		getContentPane().add(btnViajar, "8, 4, fill, fill");
 
-		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar = new JButton("Buscar");
 		btnBuscar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// mostrar los edificios. Usar imagenes segun los tipos de edificio.
 				// reemplazar el JPanel por uno nuevo que reciba los edificios. ejemplo JEdificiosPanel.
-				panelPrincipal = new EdificiosPanel();
+				String[] edificios = { "Banco", "Aeropuerto", "Biblioteca" };
+				mostarFrameDeViaje("Entrar en:", "Buscar", edificios);
 			}
 		});
-		getContentPane().add(btnBuscar, "6, 6, fill, fill");
+		getContentPane().add(btnBuscar, "8, 6, fill, fill");
 
-		JButton bntExpedientes = new JButton("Expedientes");
+		bntExpedientes = new JButton("Expedientes");
 		bntExpedientes.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				mostrarVentanaExpedientes();
 			}
 		});
-		getContentPane().add(bntExpedientes, "6, 8, fill, fill");
+		getContentPane().add(bntExpedientes, "8, 8, fill, fill");
+
+		menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+
+		mnJuego = new JMenu("Juego");
+		menuBar.add(mnJuego);
+
+		mntmCerrarSesion = new JMenuItem("Cerrar sesion");
+		mntmCerrarSesion.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				int opcion = JOptionPane.showConfirmDialog(null, "Al cerrar sesion se guardara el estado del policia.\nEl caso se perdera.");
+				if (opcion == JOptionPane.OK_OPTION) {
+					cerrarSesion();
+				}
+			}
+		});
+		mnJuego.add(mntmCerrarSesion);
+
+		mntmSalir = new JMenuItem("Salir");
+		mntmSalir.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				int opcion = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea salir?\nLa informacion no guardada se perdera.");
+				if (opcion == JOptionPane.OK_OPTION) {
+					cerrarJuego();
+				}
+			}
+		});
+		mnJuego.add(mntmSalir);
 
 	}
 
+	protected void mostarFrameDeViaje(String lblInformacion, String lblBoton, String[] informacionCombo) {
+		FrameDeViaje fViajar = new FrameDeViaje(lblInformacion, lblBoton, informacionCombo);
+		fViajar.setVisible(true);
+	}
+
+	private String getMarkers() {
+		// Armar un marker por cada ciudad, esta lista de ciudades son las mismas que se tienen que ver en el boton
+		// de ver posibles destinos.
+		// Para cada ciudad agregar su marker. Ejemplo:
+		String markers = "";
+		String[] ciudades = { "Buenos Aires", "New York", "Sydney" };
+		for (String ciudad : ciudades) {
+			markers = markers + MARKER + ciudad.replace(" ", "%"); // Es necesario reemplazar los espacios de los nombres por %
+		}
+		return markers;
+	}
+
+	protected void cerrarSesion() {
+		// Guardar informacion(estado) del policia. No guardar el caso.
+		// Si el caso se cierra sin haberse ganado, se pierde.
+		framePrincipal.setVisible(true);
+		this.dispose();
+	}
+
+	protected void cerrarJuego() {
+		// Cierra el juego definitivamente.
+		System.exit(0);
+	}
+
 	protected void mostrarGoogleMaps(Browser browser) {
-		getContentPane().add(browser.getView().getComponent(), "2, 2, 1, 7, fill, fill");
+		getContentPane().add(browser.getView().getComponent(), "2, 2, 5, 7, fill, fill");
 		while (browser.isLoading()) {
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -101,4 +182,5 @@ public class FrameJuego extends JFrame {
 	protected void mostrarVentanaExpedientes() {
 		expedientes.setVisible(true);
 	}
+
 }
