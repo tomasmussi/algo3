@@ -53,27 +53,12 @@ public class JuegoTest {
 		caso = new Caso(ladrones, objetos, policia.getGrado());
 		policia.asignarCaso(caso);
 
-		System.out.println(caso.getLadron().getEscapatoria());
-		System.out.println(policia.getCiudadActual());
-
-		//		String pista = policia.visitarEdificioYObtenerPista(policia.getCiudadActual().getTodosLosEdificios()[0]);
-		//		System.out.println(pista);
-		//		pista = policia.visitarEdificioYObtenerPista(policia.getCiudadActual().getTodosLosEdificios()[1]);
-		//		System.out.println(pista);
-		//		pista = policia.visitarEdificioYObtenerPista(policia.getCiudadActual().getTodosLosEdificios()[2]);
-		//		System.out.println(pista);
 
 		policia.viajarA(caso.getLadron().getCiudadActual());
-		System.out.println(caso.getLadron().getEscapatoria());
-		System.out.println(policia.getCiudadActual());
 
 		policia.viajarA(caso.getLadron().getCiudadActual());
-		System.out.println(caso.getLadron().getEscapatoria());
-		System.out.println(policia.getCiudadActual());
 
 		policia.viajarA(caso.getLadron().getCiudadActual());
-		System.out.println(caso.getLadron().getEscapatoria());
-		System.out.println(policia.getCiudadActual());
 		policia.emitirOrdenDeArresto(caracteristicaUnivocaNickBrunch);
 
 		assertTrue(policia.arrestar(caso.getLadron()));

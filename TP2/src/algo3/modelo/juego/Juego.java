@@ -1,5 +1,6 @@
 package algo3.modelo.juego;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -11,11 +12,13 @@ import algo3.controlador.XMLParser;
 import algo3.modelo.caso.Caso;
 import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.ladron.CaracteristicaLadron;
+import algo3.modelo.mapa.Ciudad;
 import algo3.modelo.objeto.CaracteristicaObjeto;
 import algo3.modelo.policia.Policia;
 import algo3.modelo.policia.grado.Grado;
 import algo3.modelo.tiempo.Reloj;
 import algo3.vista.Vista;
+import algo3.vista.VistaPolicia;
 import algo3.vista.VistaReloj;
 
 public class Juego implements Observer {
@@ -26,10 +29,11 @@ public class Juego implements Observer {
 	private boolean casoAsignado;
 	private Reloj reloj;
 
-	public Juego(String nombrePolicia, JComponent componenteReloj) {
+	public Juego(String nombrePolicia, JComponent componenteReloj, JComponent componenteCiudadActual) {
 		this.policia = new Policia(nombrePolicia);
 		policia.addObserver(this);
 		inicializarReloj(componenteReloj);
+		inicializarCiudadActual(componenteCiudadActual);
 		policia.setReloj(reloj);
 		iniciarCaso();
 	}
@@ -57,6 +61,12 @@ public class Juego implements Observer {
 		reloj.setVista(vistaReloj);
 		reloj.addObserver(this);
 		reloj.notificar();
+	}
+
+	private void inicializarCiudadActual(JComponent componenteReloj) {
+		vistaReloj = new VistaPolicia(componenteReloj);
+		policia.setVista(vistaReloj);
+		policia.addObserver(this);
 	}
 
 	private void finalizarCaso() {
@@ -93,6 +103,31 @@ public class Juego implements Observer {
 
 	public void transcurrirReloj() {
 		reloj.transcurrir(3);
+	}
+
+	public String[] getCiudadesPosibles() {
+		List<Ciudad> ciudadesPosibles =  caso.getMapa().getCiudadesPosibles(policia.getCiudadActual());
+		String[] ciudades = new String[4];
+		int i = 0;
+		for (Ciudad ciudad : ciudadesPosibles) {
+			ciudades[i++] = ciudad.getNombre();
+		}
+		return ciudades;
+	}
+
+	public void viajar(String ciudad) {
+		Iterator<Ciudad> ciudades = caso.getMapa().getCiudadesPosibles(policia.getCiudadActual()).iterator();
+		boolean encontrado = false;
+		Ciudad ciudadPosible = null;
+		while (ciudades.hasNext() && !encontrado){
+			ciudadPosible = ciudades.next();
+			if (ciudadPosible.getNombre().equals(ciudad)){
+				encontrado = true;
+			}
+		}
+		if (encontrado) {
+			policia.viajarA(ciudadPosible);
+		}
 	}
 
 }

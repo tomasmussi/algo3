@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import algo3.controlador.ControladorViaje;
 import algo3.modelo.juego.Juego;
 
 import com.jgoodies.forms.factories.FormFactory;
@@ -46,17 +47,7 @@ public class FrameDeViaje extends JFrame {
 		getContentPane().add(combo, "2, 4, 3, 1, fill, fill");
 
 		btnAccion = new JButton(lblBoton);
-		btnAccion.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// Cambia la ciudad actual del policia (jugador) a la que se haya elegido.
-				// Agregar controlador que haga esto.
-				// Por ahora solo se va a cerrar sin hacer nada.
-				setVisible(false);
-				String item = (String) combo.getSelectedItem();
-				transcurrirReloj(); // Para testear que las horas pasan y se ven en el label...
-			}
-		});
+		btnAccion.addActionListener(new ControladorViaje(juego, combo, this));
 		getContentPane().add(btnAccion, "2, 6, fill, fill");
 
 		btnCancelar = new JButton("Cancelar");

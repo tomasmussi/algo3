@@ -60,10 +60,8 @@ public class Caso{
 		List<CaracteristicaLadron> expedientes = EstacionDePolicia.getInstance().buscarExpediente(caracteristica);
 		if (expedientes.size() == 1){
 			this.ordenDeArresto = new OrdenDeArresto(expedientes.get(0).clone());
-			System.out.println("Orden emitida contra: " +expedientes);
 			return true;
 		} else {
-			System.out.println("Sospechosos: " + expedientes);
 			return false;
 		}
 	}

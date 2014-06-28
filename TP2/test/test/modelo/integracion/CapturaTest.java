@@ -22,7 +22,7 @@ import algo3.modelo.tiempo.Reloj;
 
 public class CapturaTest {
 
-	/* ************** Métodos auxiliares ************** */
+	/* ************** Metodos auxiliares ************** */
 
 	private CaracteristicaLadron caracteristicaNickBrunch;
 	private CaracteristicaLadron caracteristicaMereyLaroc;
@@ -38,7 +38,7 @@ public class CapturaTest {
 	@Before
 	public void  initialize() throws CiudadNoEncontradaException {
 		caracteristicaNickBrunch = new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta");
-		caracteristicaMereyLaroc = new CaracteristicaLadron("Merey Laroc", "Femenino", "Mountain Climbing", "Castaño", "Joyeria", "Limusina");
+		caracteristicaMereyLaroc = new CaracteristicaLadron("Merey Laroc", "Femenino", "Mountain Climbing", "Castanio", "Joyeria", "Limusina");
 		caracteristicaUnivocaNickBrunch = new CaracteristicaLadron(null, null, null, "Negro", null, "Motocicleta");
 		nickBrunch = new Ladron(caracteristicaNickBrunch);
 		reloj = new Reloj();

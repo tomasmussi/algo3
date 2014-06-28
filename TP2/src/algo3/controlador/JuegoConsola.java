@@ -16,7 +16,7 @@ import algo3.modelo.tiempo.Reloj;
 import algo3.vista.Vista;
 
 
-public class Juego implements Observer {
+public class JuegoConsola implements Observer {
 
 	private Policia policia;
 	private Caso caso;
@@ -27,12 +27,12 @@ public class Juego implements Observer {
 	private static final String CASO_NO_INICIADO = "Hay que iniciar un caso";
 
 
-	public Juego(Policia policia){
+	public JuegoConsola(Policia policia){
 		this.policia = policia;
 		casoAsignado = false;
 	}
 
-	public Juego(Policia policia, Vista vista){
+	public JuegoConsola(Policia policia, Vista vista){
 		this.policia = policia;
 		this.vistaReloj = vista;
 		this.reloj = new Reloj();

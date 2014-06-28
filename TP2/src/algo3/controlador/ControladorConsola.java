@@ -23,7 +23,7 @@ public class ControladorConsola {
 
 		Vista vistaReloj = new VistaConsolaReloj();
 		Vista vistaViaje = new VistaViaje();
-		Juego juego = new Juego(policia, vistaReloj);
+		JuegoConsola juego = new JuegoConsola(policia, vistaReloj);
 		juego.setVistaViaje(vistaViaje);
 		try {
 			while (!(linea = reader.readLine()).equalsIgnoreCase("fin")){
