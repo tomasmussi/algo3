@@ -47,7 +47,6 @@ public class LadronTest {
 
 	@Test
 	public void testCrearObjetoRobadoComun()  throws CiudadNoEncontradaException{
-		//TODO (TOMAS) Coordinar con eli porque no tengo bien idea de a quien le tengo que pedir ciudades para armar recorrido
 		Robable objetoRobado = new ObjetoComun(new CaracteristicaObjeto("Anillo del Papa", "Roma"));
 		ladron.robar(objetoRobado);
 		assertTrue(true);
