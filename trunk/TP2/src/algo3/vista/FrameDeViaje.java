@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import algo3.modelo.juego.Juego;
+
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
@@ -19,11 +21,14 @@ public class FrameDeViaje extends JFrame {
 	private static final long serialVersionUID = -1869602327896771994L;
 
 	private JLabel lblViajarA;
-	private JComboBox<String> cmbCiudades;
-	private JButton btnViajar;
+	private JComboBox<String> combo;
+	private JButton btnAccion;
 	private JButton btnCancelar;
 
-	public FrameDeViaje(String lblInformacion, String lblBoton, String[] informacionCombo) {
+	private Juego juego;
+
+	public FrameDeViaje(Juego juego, String lblInformacion, String lblBoton, String[] informacionCombo) {
+		this.juego = juego;
 		setResizable(false);
 		setSize(250, 130);
 		setLocation(50, 50);
@@ -36,23 +41,23 @@ public class FrameDeViaje extends JFrame {
 		lblViajarA.setHorizontalAlignment(SwingConstants.CENTER);
 		getContentPane().add(lblViajarA, "2, 2, 3, 1, fill, fill");
 
-		cmbCiudades = new JComboBox<String>();
+		combo = new JComboBox<String>();
 		cargarCombo(informacionCombo);
-		getContentPane().add(cmbCiudades, "2, 4, 3, 1, fill, fill");
+		getContentPane().add(combo, "2, 4, 3, 1, fill, fill");
 
-		btnViajar = new JButton(lblBoton);
-		btnViajar.addActionListener(new ActionListener() {
+		btnAccion = new JButton(lblBoton);
+		btnAccion.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// Cambia la ciudad actual del policia (jugador) a la que se haya elegido.
 				// Agregar controlador que haga esto.
 				// Por ahora solo se va a cerrar sin hacer nada.
 				setVisible(false);
-				String ciudad = (String) cmbCiudades.getSelectedItem();
-				// viajarrr
+				String item = (String) combo.getSelectedItem();
+				transcurrirReloj(); // Para testear que las horas pasan y se ven en el label...
 			}
 		});
-		getContentPane().add(btnViajar, "2, 6, fill, fill");
+		getContentPane().add(btnAccion, "2, 6, fill, fill");
 
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
@@ -64,9 +69,13 @@ public class FrameDeViaje extends JFrame {
 		getContentPane().add(btnCancelar, "4, 6, fill, fill");
 	}
 
+	protected void transcurrirReloj() {
+		juego.transcurrirReloj();
+	}
+
 	private void cargarCombo(String[] informacionCombo) {
 		for (String informacion : informacionCombo) {
-			cmbCiudades.addItem(informacion);
+			combo.addItem(informacion);
 		}
 	}
 

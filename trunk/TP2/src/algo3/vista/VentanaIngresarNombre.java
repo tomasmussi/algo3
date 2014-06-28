@@ -16,7 +16,9 @@ import javax.swing.SwingConstants;
 
 public class VentanaIngresarNombre extends JFrame {
 
-	private JTextField textField;
+	private static final long serialVersionUID = 5114387229747868813L;
+
+	private JTextField txtNombrePolicia;
 	private FramePrincipal framePrincipal;
 
 	public VentanaIngresarNombre(final FramePrincipal framePrincipal) {
@@ -24,9 +26,9 @@ public class VentanaIngresarNombre extends JFrame {
 		setSize(450, 180);
 		setLocation(500, 300);
 
-		textField = new JTextField();
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setColumns(10);
+		txtNombrePolicia = new JTextField();
+		txtNombrePolicia.setHorizontalAlignment(SwingConstants.CENTER);
+		txtNombrePolicia.setColumns(10);
 
 		JLabel lblInformacion = new JLabel("Policia al teclado, por favor identifiquese:");
 		lblInformacion.setFont(new Font("Calibri Light", Font.BOLD, 15));
@@ -36,7 +38,7 @@ public class VentanaIngresarNombre extends JFrame {
 		bntAceptar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if ((textField.getText() == null) || (textField.getText().trim().isEmpty())) {
+				if ((txtNombrePolicia.getText() == null) || (txtNombrePolicia.getText().trim().isEmpty())) {
 					JOptionPane.showMessageDialog(null, "El nombre del policia no puede ser vacio.");
 				} else {
 					iniciarYMostrarFrameDeJuego();
@@ -64,24 +66,24 @@ public class VentanaIngresarNombre extends JFrame {
 												.addGroup(
 														groupLayout.createSequentialGroup().addContainerGap().addComponent(bntAceptar, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE).addGap(18)
 																.addComponent(bntCancelar, GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))).addContainerGap())
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup().addGap(58).addComponent(textField, GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE).addGap(56)));
+				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup().addGap(58).addComponent(txtNombrePolicia, GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE).addGap(56)));
 		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(
-				groupLayout.createSequentialGroup().addContainerGap().addComponent(lblInformacion, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE).addPreferredGap(ComponentPlacement.RELATED).addComponent(textField).addGap(18)
+				groupLayout.createSequentialGroup().addContainerGap().addComponent(lblInformacion, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE).addPreferredGap(ComponentPlacement.RELATED).addComponent(txtNombrePolicia).addGap(18)
 						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE).addComponent(bntAceptar).addComponent(bntCancelar)).addGap(137)));
 		getContentPane().setLayout(groupLayout);
 	}
 
 	public void clearTextField() {
-		textField.setText("");
+		txtNombrePolicia.setText("");
 	}
 
 	protected void iniciarYMostrarFrameDeJuego() {
 		// llama a la ventana de Juego posta.
-		FrameJuego frameJuego = new FrameJuego(framePrincipal);
+		FrameJuego frameJuego = new FrameJuego(framePrincipal, txtNombrePolicia.getText());
 		// frameJuego.setResizable(false);
 		frameJuego.setVisible(true);
 		frameJuego.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		frameJuego.setDefaultCloseOperation(VentanaDeJuego.EXIT_ON_CLOSE);
+		frameJuego.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.dispose();
 	}
 
