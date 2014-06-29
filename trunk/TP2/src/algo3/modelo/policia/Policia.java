@@ -114,9 +114,11 @@ public class Policia extends Observable {
 		int horasARestar = aumentarVisitas(edificio);
 		reloj.transcurrir(horasARestar);
 		String pista = edificio.visitar(this);
+		setChanged();
 		if (pista.equals(Edificio.LADRON_ENCONTRADO)) {
-			setChanged();
 			notifyObservers(arrestar(caso.getLadron()));
+		} else {
+			notifyObservers();
 		}
 		return pista;
 	}
@@ -155,10 +157,13 @@ public class Policia extends Observable {
 
 	public List<CaracteristicaLadron> emitirOrdenDeArresto(CaracteristicaLadron caracteristica) {
 		reloj.transcurrir(3);
+		List<CaracteristicaLadron> lista = new ArrayList<CaracteristicaLadron>();
 		if ((caracteristica != null) && reloj.hayTiempoRestante()) {
-			return caso.generarOrdenDeArresto(caracteristica);
+			lista = caso.generarOrdenDeArresto(caracteristica);
 		}
-		return new ArrayList<CaracteristicaLadron>();
+		setChanged();
+		notifyObservers();
+		return lista;
 	}
 
 	public void setVista(Vista vistaViaje) {
