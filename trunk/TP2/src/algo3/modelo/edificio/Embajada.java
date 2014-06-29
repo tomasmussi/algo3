@@ -17,4 +17,9 @@ public class Embajada extends Edificio {
 		return entidad;
 	}
 
+	@Override
+	public String getNombre() {
+		return "Embajada";
+	}
+
 }

@@ -2,12 +2,21 @@ package algo3.vista;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+
+import algo3.controlador.ControladorOrdenArresto;
+import algo3.modelo.juego.Juego;
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -16,7 +25,25 @@ import com.jgoodies.forms.layout.RowSpec;
 
 public class FrameExpedientes extends JFrame {
 
-	public FrameExpedientes() {
+	private static final long serialVersionUID = 1L;
+
+	public static final String SEXO = "SEXO";
+	public static final String HOBBY = "HOBBY";
+	public static final String CABELLO = "CABELLO";
+	public static final String CARACTERISTICA = "CARACTERISTICA";
+	public static final String VEHICULO = "VEHICULO";
+	public static final String SELECCIONAR = "Seleccione...";
+	private Map<String, Set<String>> caracteristicas;
+
+	private JComboBox<String> cmbSexo;
+	JComboBox<String> cmbHobby;
+	JComboBox<String> cmbPelos;
+	JComboBox<String> cmbCaracteristicas;
+	JComboBox<String> cmbVehiculos;
+
+	public FrameExpedientes(Juego juego, Map<String, Set<String>> caracteristicas) {
+		this.caracteristicas = caracteristicas;
+
 		setSize(400, 250);
 		setResizable(false);
 		setLocation(450, 250);
@@ -31,64 +58,43 @@ public class FrameExpedientes extends JFrame {
 		lblSexo.setHorizontalAlignment(SwingConstants.RIGHT);
 		getContentPane().add(lblSexo, "1, 4, fill, fill");
 
-		JComboBox<String> cmbSexo = new JComboBox<String>();
-		cmbSexo.addItem("Seleccione sexo...");
-		cmbSexo.addItem("Masculino");
-		cmbSexo.addItem("Femenino");
+		cmbSexo = new JComboBox<String>();
+		cargarComboDeTipo(SEXO, cmbSexo);
 		getContentPane().add(cmbSexo, "3, 4, fill, default");
 
 		JLabel lblHobby = new JLabel("Hobby");
 		lblHobby.setHorizontalAlignment(SwingConstants.RIGHT);
 		getContentPane().add(lblHobby, "1, 6, fill, fill");
 
-		JComboBox<String> cmbHobby = new JComboBox<String>();
-		cmbHobby.addItem("Seleccione hobby...");
-		cmbHobby.addItem("Tenis");
-		cmbHobby.addItem("Croquet");
-		cmbHobby.addItem("Mountain Climbing");
+		cmbHobby = new JComboBox<String>();
+		cargarComboDeTipo(HOBBY, cmbHobby);
 		getContentPane().add(cmbHobby, "3, 6, fill, default");
 
 		JLabel lblPelo = new JLabel("Color de Pelo");
 		lblPelo.setHorizontalAlignment(SwingConstants.RIGHT);
 		getContentPane().add(lblPelo, "1, 8, fill, fill");
 
-		JComboBox<String> cmbPelos = new JComboBox<String>();
-		cmbPelos.addItem("Seleccione color de cabello...");
-		cmbPelos.addItem("Rubio");
-		cmbPelos.addItem("Castanio");
-		cmbPelos.addItem("Negro");
-		cmbPelos.addItem("Rojo");
+		cmbPelos = new JComboBox<String>();
+		cargarComboDeTipo(CABELLO, cmbPelos);
 		getContentPane().add(cmbPelos, "3, 8, fill, default");
 
 		JLabel lblCaracteristicas = new JLabel("Caracteristica");
 		lblCaracteristicas.setHorizontalAlignment(SwingConstants.RIGHT);
 		getContentPane().add(lblCaracteristicas, "1, 10, fill, fill");
 
-		JComboBox<String> cmbCaracteristicas = new JComboBox<String>();
-		cmbCaracteristicas.addItem("Seleccione caracteristica...");
-		cmbCaracteristicas.addItem("Tatuaje");
-		cmbCaracteristicas.addItem("Anillo");
-		cmbCaracteristicas.addItem("Joyeria");
+		cmbCaracteristicas = new JComboBox<String>();
+		cargarComboDeTipo(CARACTERISTICA, cmbCaracteristicas);
 		getContentPane().add(cmbCaracteristicas, "3, 10, fill, default");
 
 		JLabel lblVehiculo = new JLabel("Vehiculo");
 		lblVehiculo.setHorizontalAlignment(SwingConstants.RIGHT);
 		getContentPane().add(lblVehiculo, "1, 12, fill, fill");
 
-		JComboBox<String> cmbVehiculos = new JComboBox<String>();
-		cmbVehiculos.addItem("Seleccione vehiculo...");
-		cmbVehiculos.addItem("Limusina");
-		cmbVehiculos.addItem("Motocicleta");
-		cmbVehiculos.addItem("Descapotable");
+		cmbVehiculos = new JComboBox<String>();
+		cargarComboDeTipo(VEHICULO, cmbVehiculos);
 		getContentPane().add(cmbVehiculos, "3, 12, fill, default");
 
 		JButton btnNewButton = new JButton("Emitir orden");
-		btnNewButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// emitir orden. Setearla en el caso.
-			}
-		});
 		getContentPane().add(btnNewButton, "1, 16");
 
 		JButton btnCancelar = new JButton("Cancelar");
@@ -99,12 +105,41 @@ public class FrameExpedientes extends JFrame {
 			}
 		});
 		getContentPane().add(btnCancelar, "3, 16");
+		btnNewButton.addActionListener(new ControladorOrdenArresto(juego, this));
 
 	}
 
 	protected void cerrarVentana() {
 		// La esconde, no la cierra.
 		this.setVisible(false);
+	}
+
+	private void cargarComboDeTipo(String tipo, JComboBox<String> combo){
+		combo.addItem(SELECCIONAR);
+		Iterator<String> elementos = caracteristicas.get(tipo).iterator();
+		while (elementos.hasNext()){
+			String elemento = elementos.next();
+			combo.addItem(elemento);
+		}
+	}
+
+	public List<String> getListaCaracteristicas() {
+		List<String> caracteristicas = new ArrayList<String>();
+		caracteristicas.add(getItem(cmbSexo.getSelectedItem()));
+		caracteristicas.add(getItem(cmbHobby.getSelectedItem()));
+		caracteristicas.add(getItem(cmbPelos.getSelectedItem()));
+		caracteristicas.add(getItem(cmbCaracteristicas.getSelectedItem()));
+		caracteristicas.add(getItem(cmbVehiculos.getSelectedItem()));
+		return caracteristicas;
+	}
+
+	private String getItem(Object item){
+		String elemento = (String) item;
+		return elemento.equals(SELECCIONAR) ? null : elemento;
+	}
+
+	public void mostrarOrdenEmitida(boolean emitirOrdenDeArresto) {
+		JOptionPane.showMessageDialog(null, emitirOrdenDeArresto ? "Orden Emitida." : "No se pudo emitir orden.");
 	}
 
 }

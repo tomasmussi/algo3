@@ -72,7 +72,7 @@ public class EdificioFactory {
 		Edificio[] edificios = new Edificio[3];
 		edificios[0] = new Aeropuerto(null, null);
 		edificios[1] = new Banco(null, null);
-		edificios[2] = new Aeropuerto(null, null);
+		edificios[2] = new Embajada(null, null);
 		return edificios;
 	}
 

@@ -17,4 +17,9 @@ public class Puerto extends Edificio {
 		return entidad;
 	}
 
+	@Override
+	public String getNombre() {
+		return "Puerto";
+	}
+
 }

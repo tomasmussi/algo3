@@ -17,4 +17,9 @@ public class Bolsa extends Edificio {
 		return moneda;
 	}
 
+	@Override
+	public String getNombre() {
+		return "Bolsa";
+	}
+
 }

@@ -18,11 +18,6 @@ public class ControladorMoverCiudades implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// situar al policia en la ciudad elegida.
-		// obtener la ciudad a la que se viajo, obetener el nombre y elegir la foto a mostrar.
-		// Toolkit.getDefaultToolkit().getImage(ciudad.getNombre()); ???
-		// Ver como interactuar con google maps y las coordenadas, esto por ahora es solo de adorno,
-		// todavia no tiene funcionalidad, es solo para hacerlo "cheto".
 		frame.mostrarGoogleMaps();
 		frame.mostarFrameDeViaje("Viajar a:", "Viajar",juego.getCiudadesPosibles());
 	}
