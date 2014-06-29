@@ -20,7 +20,7 @@ public class EdificioFactory {
 
 	public static Edificio crearEdificioDeViajeConEntidad(CaracteristicaLadron caracteristicas, InformacionDeViaje infoCiudad) {
 		Entidad bandera = new Bandera(infoCiudad.getInformacionViaje());
-		return getEdificioDeViajeRandom(caracteristicas, bandera);
+		return crearEdificioDeViajeRandom(caracteristicas, bandera);
 	}
 
 	public static Edificio crearEdificioFinancieroConEntidad(InformacionFinanciera infoCiudad) {
@@ -29,7 +29,7 @@ public class EdificioFactory {
 
 	public static Edificio crearEdificioFinancieroConEntidad(CaracteristicaLadron caracteristicas, InformacionFinanciera infoCiudad) {
 		Entidad moneda = new Moneda(infoCiudad.getInformacionFinanciera());
-		return getEdificioFinancieroRandom(caracteristicas, moneda);
+		return crearEdificioFinancieroRandom(caracteristicas, moneda);
 	}
 
 	public static Edificio crearEdificioCulturalConEntidad(InformacionCultural infoCiudad) {
@@ -44,7 +44,7 @@ public class EdificioFactory {
 		return new Embajada(caracteristicas, algoCultural);
 	}
 
-	private static Edificio getEdificioDeViajeRandom(CaracteristicaLadron caracteristicas, Entidad bandera) {
+	private static Edificio crearEdificioDeViajeRandom(CaracteristicaLadron caracteristicas, Entidad bandera) {
 		Random rdm = new Random();
 		Edificio edificio;
 		int edificioNro = rdm.nextInt(2); // Esto devuelve 0 o 1.
@@ -56,7 +56,7 @@ public class EdificioFactory {
 		return edificio;
 	}
 
-	private static Edificio getEdificioFinancieroRandom(CaracteristicaLadron caracteristicas, Entidad moneda) {
+	private static Edificio crearEdificioFinancieroRandom(CaracteristicaLadron caracteristicas, Entidad moneda) {
 		Random rdm = new Random();
 		Edificio edificio;
 		int edificioNro = rdm.nextInt(2); // Esto devuelve 0 o 1.
@@ -66,6 +66,10 @@ public class EdificioFactory {
 			edificio = new Bolsa(caracteristicas, moneda);
 		}
 		return edificio;
+	}
+
+	private static Edificio crearEdificioCulturalConEntidadVacia(CaracteristicaLadron caracteristicas, Entidad entidad) {
+		return new Embajada(null, entidad);
 	}
 
 	public static Edificio[] crearEdificiosSinInformacion() {
@@ -78,9 +82,9 @@ public class EdificioFactory {
 
 	public static Edificio[] crearEdificioFinalDeCiudad(){
 		Edificio[] edificios = new Edificio[3];
-		edificios[0] = getEdificioFinancieroRandom(null, new EntidadVacia());
-		edificios[1] = getEdificioDeViajeRandom(null, new EntidadVacia());
-		edificios[2] = getEdificioDeViajeRandom(null, new EntidadVacia());
+		edificios[0] = crearEdificioFinancieroRandom(null, new EntidadVacia());
+		edificios[1] = crearEdificioDeViajeRandom(null, new EntidadVacia());
+		edificios[2] = crearEdificioCulturalConEntidadVacia(null, new EntidadVacia());
 		return edificios;
 	}
 
