@@ -45,11 +45,11 @@ public class ControladorConsola {
 						}
 						i++;
 					}
-					if(juego.emitirOrdenDeArresto(caracteristicas)){
-						System.out.println("Orden emitida.");
-					} else {
-						System.out.println("No se pudo emitir orden de arresto.");
-					}
+					//					if(juego.emitirOrdenDeArresto(caracteristicas)){
+					//						System.out.println("Orden emitida.");
+					//					} else {
+					//						System.out.println("No se pudo emitir orden de arresto.");
+					//					}
 				} else if (linea.contains("viajar")){
 					juego.viajar(linea.split(";")[1]);
 				} else if (linea.contains("entrar")){
@@ -66,7 +66,7 @@ public class ControladorConsola {
 				} else if (linea.contains("ciudad_actual")){
 					System.out.println(juego.ciudadActual());
 				} else if (linea.contains("guardar")){
-					juego.guardar();
+					juego.guardar("");
 				} else if (linea.contains("leer")){
 					juego.cargar();
 				}

@@ -147,4 +147,12 @@ public class CaracteristicaLadron implements Cloneable {
 		return caracteristicaLadron;
 	}
 
+	public String getSexo() {
+		return sexo;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
 }

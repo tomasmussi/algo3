@@ -61,7 +61,9 @@ public class CapturaTest {
 		//Se quedo sin tiempo para emitir la orden de arresto.
 		reloj.transcurrir(154);
 		// Para crear la  orden de arresto lo hace con las caracteristicas del ladron que esta en base de datos.
-		assertFalse(policia.emitirOrdenDeArresto(caracteristicaNickBrunch));
+		List<CaracteristicaLadron> caracteristicas = policia.emitirOrdenDeArresto(caracteristicaNickBrunch);
+		//No hay orden
+		assertFalse(caracteristicas.size() == 1);
 	}
 
 	@Test
@@ -72,7 +74,8 @@ public class CapturaTest {
 	@Test
 	public void testPoliciaNoAtrapaLadronConOrdenDeArrestoEquivocada(){
 		//Crea Orden de arresto con caracteristicas que no son las del ladron juego pero que esta en la base de datos
-		assertTrue(policia.emitirOrdenDeArresto(caracteristicaMereyLaroc));
+		List<CaracteristicaLadron> caracteristicas = policia.emitirOrdenDeArresto(caracteristicaMereyLaroc);
+		assertTrue(caracteristicas.get(0).equals(caracteristicaMereyLaroc));
 		//No atrapa ladron porque no coincide con la orden de arresto.
 		assertFalse(policia.arrestar(nickBrunch));
 	}
@@ -81,7 +84,8 @@ public class CapturaTest {
 	public void testPoliciaAtrapaLadronConTiempoYOrdenDeArrestoCorrecta(){
 		reloj.transcurrir(148);
 		// Para crear la  orden de arresto lo hace con las caracteristicas del ladron (En este caso el que cree al inicio).
-		assertTrue(policia.emitirOrdenDeArresto(caracteristicaNickBrunch));
+		List<CaracteristicaLadron> caracteristicas = policia.emitirOrdenDeArresto(caracteristicaNickBrunch);
+		assertTrue(caracteristicas.get(0).equals(caracteristicaNickBrunch));
 		//La orden de arresto coincide con el ladron del juego y lo arresta
 		assertTrue(policia.arrestar(nickBrunch));
 	}

@@ -74,7 +74,6 @@ public class Policia extends Observable {
 		grado.evaluarGrado(this);
 	}
 
-	// TODO:METODO SOLO PARA PRUEBAS VER DE CORREGIRLAS Y BORRARLO
 	public boolean puedeArrestar() {
 		return reloj.hayTiempoRestante();
 	}
@@ -154,15 +153,12 @@ public class Policia extends Observable {
 		return true;
 	}
 
-	public boolean emitirOrdenDeArresto(CaracteristicaLadron caracteristica) {
+	public List<CaracteristicaLadron> emitirOrdenDeArresto(CaracteristicaLadron caracteristica) {
 		reloj.transcurrir(3);
 		if ((caracteristica != null) && reloj.hayTiempoRestante()) {
 			return caso.generarOrdenDeArresto(caracteristica);
 		}
-		// TODO Revisar...
-		setChanged();
-		notifyObservers();
-		return false;
+		return new ArrayList<CaracteristicaLadron>();
 	}
 
 	public void setVista(Vista vistaViaje) {
@@ -184,7 +180,16 @@ public class Policia extends Observable {
 		Policia policiaPersistir = new Policia();
 		policiaPersistir.cantidadArrestos = this.cantidadArrestos;
 		policiaPersistir.grado = this.grado;
+		policiaPersistir.nombre = this.nombre;
 		return policiaPersistir;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 }

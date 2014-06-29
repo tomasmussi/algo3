@@ -24,6 +24,11 @@ import com.thoughtworks.xstream.XStream;
 
 public class XMLParser {
 
+	private static final String FILE_SEP = System.getProperty("file.separator");
+	private static final String DEFAULT = System.getProperty("user.home");
+	private static final String EXTENSION_XML = ".xml";
+	private static String PATH;
+
 	private static final XStream xmlStream = new XStream();
 
 	public static List<CaracteristicaLadron> cargarExpedientes() {
@@ -125,9 +130,15 @@ public class XMLParser {
 		return decodificado;
 	}
 
-	public static boolean guardarPolicia(Policia policia) {
+	public static boolean guardarPolicia(Policia policia, String path) {
 		try {
-			FileOutputStream out = new FileOutputStream(new File("C:\\Users\\EM\\Desktop\\objet.xml"));
+			File archivo = null;
+			if (path != null){
+				archivo = new File(path + FILE_SEP + policia.getNombre() + EXTENSION_XML);
+			} else {
+				archivo = new File(DEFAULT + policia.getNombre() + EXTENSION_XML);
+			}
+			FileOutputStream out = new FileOutputStream(archivo);
 			xmlStream.toXML(policia.clone(), out);
 		} catch (FileNotFoundException e) {
 			Logger.loguearError(e);
@@ -152,7 +163,7 @@ public class XMLParser {
 		//Busco primero si existe el jugador
 		Policia policia = null;
 		try {
-			String archivo = path + System.getProperty("file.seperator") + nombreJugador;
+			String archivo = path + FILE_SEP + nombreJugador + EXTENSION_XML;
 			File registro = new File(archivo);
 			if (registro.exists()){
 				policia = (Policia) xmlStream.fromXML(registro);
@@ -164,6 +175,11 @@ public class XMLParser {
 			policia = new Policia(nombreJugador);
 		}
 		return policia;
+	}
+
+
+	public static void setPath(String path) {
+		PATH = path;
 	}
 
 
