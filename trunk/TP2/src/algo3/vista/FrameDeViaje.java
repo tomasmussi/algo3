@@ -26,10 +26,8 @@ public class FrameDeViaje extends JFrame {
 	private JButton btnAccion;
 	private JButton btnCancelar;
 
-	private Juego juego;
 
 	public FrameDeViaje(Juego juego, String lblInformacion, String lblBoton, String[] informacionCombo) {
-		this.juego = juego;
 		setResizable(false);
 		setSize(250, 130);
 		setLocation(50, 50);

@@ -23,10 +23,8 @@ public class FramePrincipal extends JFrame {
 	private JFrame ingresarInformacion;
 	private JPanel imagenPrincipal;
 
-	private String path;
 
 	public FramePrincipal(String path) {
-		this.path = path;
 		ingresarInformacion = new VentanaIngresarNombre(this, path);
 		getContentPane().setLayout(
 				new FormLayout(new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), }, new RowSpec[] { FormFactory.RELATED_GAP_ROWSPEC,
