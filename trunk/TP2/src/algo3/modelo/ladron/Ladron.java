@@ -117,4 +117,8 @@ public class Ladron implements Observer {
 		}
 	}
 
+	public String getSexo() {
+		return caracteristicas.getSexo();
+	}
+
 }

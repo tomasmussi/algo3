@@ -98,20 +98,10 @@ public class Juego extends Observable implements Observer {
 		}
 	}
 
-	public boolean guardar() {
-		return XMLParser.guardarPolicia(policia);
+	public boolean guardar(String path) {
+		return XMLParser.guardarPolicia(policia, path);
 	}
 
-	public Policia cargar() {
-		policia = XMLParser.cargarPolicia();
-		//finalizarCaso();
-		//inicializarReloj();
-		return policia;
-	}
-
-	public void transcurrirReloj() {
-		reloj.transcurrir(3);
-	}
 
 	public String[] getCiudadesPosibles() {
 		List<Ciudad> ciudadesPosibles =  caso.getMapa().getCiudadesPosibles(policia.getCiudadActual());
@@ -138,10 +128,15 @@ public class Juego extends Observable implements Observer {
 		}
 	}
 
-	public boolean emitirOrdenDeArresto(List<String> caracteristicas) {
+	public String[] emitirOrdenDeArresto(List<String> caracteristicas) {
 		CaracteristicaLadron carac = new CaracteristicaLadron(null, caracteristicas.get(0),
 				caracteristicas.get(1), caracteristicas.get(2), caracteristicas.get(3), caracteristicas.get(4));
-		return policia.emitirOrdenDeArresto(carac);
+		List<CaracteristicaLadron> expedientes = policia.emitirOrdenDeArresto(carac);
+		String[] nombres = new String[expedientes.size()];
+		for (int i = 0; i < expedientes.size(); i++){
+			nombres[i] = expedientes.get(i).getNombre();
+		}
+		return nombres;
 	}
 
 	public String[] getEdificios() {
@@ -155,6 +150,18 @@ public class Juego extends Observable implements Observer {
 
 	public String buscarPista(int edificio) {
 		return policia.visitarEdificioYObtenerPista(policia.getCiudadActual().getTodosLosEdificios()[edificio]);
+	}
+
+	public String getSexoLadron() {
+		return caso.getLadron().getSexo();
+	}
+
+	public String getCiudadOrigen() {
+		return caso.getCiudadOrigenDeObjeto().getNombre();
+	}
+
+	public String getNombreObjeto() {
+		return caso.getLadron().getObjetoRobado().getNombre();
 	}
 
 

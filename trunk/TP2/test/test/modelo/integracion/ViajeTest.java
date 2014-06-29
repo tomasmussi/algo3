@@ -82,8 +82,8 @@ public class ViajeTest {
 		ciudadActualLadron = esteLadron.getCiudadActual();
 		policia.viajarA(ciudadActualLadron);
 		assertTrue(policia.getCiudadActual().equals(esteLadron.getCiudadActual()));
-
-		assertTrue(policia.emitirOrdenDeArresto(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta")));
+		List<CaracteristicaLadron> caracteristicas = policia.emitirOrdenDeArresto(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta"));
+		assertTrue(caracteristicas.get(0).equals(new CaracteristicaLadron("Nick Brunch", "Masculino", "Mountain Climbing", "Negro", "Anillo", "Motocicleta")));
 		assertTrue(policia.getCaso().getOrdenDeArresto() != null);
 		assertTrue(policia.arrestar(esteLadron));
 	}
@@ -111,7 +111,8 @@ public class ViajeTest {
 		policia.viajarA(ciudadActualLadron);
 		assertTrue(policia.getCiudadActual().equals(ciudadActualLadron));
 		// Crea Orden de arresto con las caracteristicas del ladron (En este caso el que cree al inicio)
-		assertTrue(policia.emitirOrdenDeArresto(new CaracteristicaLadron("Merey Laroc", "Femenino", "Mountain Climbing", "Castanio", "Joyeria", "Limusina")));
+		List<CaracteristicaLadron> caracteristicas = policia.emitirOrdenDeArresto(new CaracteristicaLadron("Merey Laroc", "Femenino", "Mountain Climbing", "Castanio", "Joyeria", "Limusina"));
+		assertTrue(caracteristicas.get(0).equals(new CaracteristicaLadron("Merey Laroc", "Femenino", "Mountain Climbing", "Castanio", "Joyeria", "Limusina")));
 		// Arresta ladron.
 		assertTrue(policia.getCaso().getOrdenDeArresto() != null);
 		assertFalse(policia.arrestar(esteLadron));

@@ -56,14 +56,14 @@ public class Caso{
 		return maximaCantidad != 1 ? rand.nextInt(maximaCantidad - 1) : 0;
 	}
 
-	public boolean generarOrdenDeArresto(CaracteristicaLadron caracteristica){
+	public List<CaracteristicaLadron> generarOrdenDeArresto(CaracteristicaLadron caracteristica){
 		List<CaracteristicaLadron> expedientes = EstacionDePolicia.getInstance().buscarExpediente(caracteristica);
 		if (expedientes.size() == 1){
 			this.ordenDeArresto = new OrdenDeArresto(expedientes.get(0).clone());
-			return true;
 		} else {
-			return false;
+			this.ordenDeArresto = null;
 		}
+		return expedientes;
 	}
 
 	public OrdenDeArresto getOrdenDeArresto() {

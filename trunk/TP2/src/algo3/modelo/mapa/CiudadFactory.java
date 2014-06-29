@@ -68,6 +68,7 @@ public class CiudadFactory {
 
 		Ciudad origen = CiudadFactory.crearCiudadConEdificiosSiguienteCiudad(caracteristicas, ciudadOrigen, ciudades.get(0).getNombreCiudad());
 		recorrido.add(origen);
+		ciudades.remove(InformacionMapa.getInstance().getCiudadDeNombre(ciudadOrigen));
 		int i;
 		for (i = 0; i < cantidadCiudades - 1; i++){
 			InformacionCiudad anterior = ciudades.get(i);

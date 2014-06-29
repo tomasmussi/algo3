@@ -138,8 +138,26 @@ public class FrameExpedientes extends JFrame {
 		return elemento.equals(SELECCIONAR) ? null : elemento;
 	}
 
-	public void mostrarOrdenEmitida(boolean emitirOrdenDeArresto) {
-		JOptionPane.showMessageDialog(null, emitirOrdenDeArresto ? "Orden Emitida." : "No se pudo emitir orden.");
+	public void mostrarOrdenEmitida(String[] nombres) {
+		String mensaje = "";
+		if (nombres.length == 0){
+			mensaje = "No hay ladrones que coincidan con esas caracteristicas";
+		} else {
+			mensaje = "Orden de arresto\n";
+			for (int i = 0; i < nombres.length; i++){
+				mensaje += nombres[i] + "\n";
+			}
+		}
+		JOptionPane.showMessageDialog(null, mensaje);
 	}
+
+	public void resetear() {
+		cmbSexo.setSelectedItem(SELECCIONAR);
+		cmbHobby.setSelectedItem(SELECCIONAR);
+		cmbPelos.setSelectedItem(SELECCIONAR);
+		cmbCaracteristicas.setSelectedItem(SELECCIONAR);
+		cmbVehiculos.setSelectedItem(SELECCIONAR);
+	}
+
 
 }

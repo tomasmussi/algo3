@@ -118,9 +118,9 @@ public class JuegoConsola implements Observer {
 		policia.setVista(vistaViaje);
 	}
 
-	public boolean emitirOrdenDeArresto(String[] caracteristicas) {
+	public List<CaracteristicaLadron> emitirOrdenDeArresto(String[] caracteristicas) {
 		if (!casoAsignado){
-			return false;
+			return null;
 		}
 		CaracteristicaLadron carac = new CaracteristicaLadron(null, caracteristicas[0],
 				caracteristicas[1], caracteristicas[2], caracteristicas[3], caracteristicas[4]);
@@ -148,8 +148,8 @@ public class JuegoConsola implements Observer {
 		}
 	}
 
-	public boolean guardar() {
-		return XMLParser.guardarPolicia(policia);
+	public boolean guardar(String path) {
+		return XMLParser.guardarPolicia(policia, path);
 	}
 
 	public Policia cargar() {

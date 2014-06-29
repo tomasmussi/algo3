@@ -40,6 +40,7 @@ public class FrameJuego extends JFrame implements Observer {
 	private static String MARKER = "&markers=";
 	private static String GOOGLE_MAPS_URL = "http://maps.google.com/maps/api/staticmap?center=30,0&zoom=1&scale=2&size=900x400&sensor=false";
 
+
 	private FrameExpedientes expedientes;
 	private FramePrincipal framePrincipal;
 	private Browser browser;
@@ -58,10 +59,12 @@ public class FrameJuego extends JFrame implements Observer {
 	private JLabel lblReloj;
 	private JLabel lblCiudadActual;
 	private Policia policia;
+	private String path;
 
-	public FrameJuego(final FramePrincipal framePrincipal, Policia policia) {
+	public FrameJuego(final FramePrincipal framePrincipal, Policia policia, String path) {
 		this.framePrincipal = framePrincipal;
 		this.policia = policia;
+		this.path = path;
 
 		browser = BrowserFactory.create();
 
@@ -149,9 +152,25 @@ public class FrameJuego extends JFrame implements Observer {
 		iniciarFrameExpedientes(XMLParser.cargarCaracteristicasExpedientes());
 	}
 
+	private void mostrarMensajeInicio(){
+		StringBuilder sb = new StringBuilder();
+		sb.append("Mensaje de Interpol:\n");
+		sb.append("Una persona de sexo ");
+		sb.append(juego.getSexoLadron());
+		sb.append(" se robo ");
+		sb.append(juego.getNombreObjeto());
+		sb.append(" del tesoro nacional de ");
+		sb.append(juego.getCiudadOrigen());
+		sb.append("\n");
+		sb.append("Su mision: Atrapar al ladron antes del Domingo a las 17:00 horas\n");
+		sb.append("Buena suerte " + policia.getGrado().getPlaca() + " " + policia.getNombre());
+		JOptionPane.showMessageDialog(null, sb.toString(), "Nuevo caso", JOptionPane.INFORMATION_MESSAGE);
+	}
+
 	private void iniciarJuego() {
 		this.juego = new Juego(policia, lblReloj, lblCiudadActual);
 		juego.addObserver(this);
+		mostrarMensajeInicio();
 	}
 
 	private void iniciarFrameExpedientes(Map<String, Set<String>> caracteristicas) {
@@ -185,6 +204,12 @@ public class FrameJuego extends JFrame implements Observer {
 		// Guardar informacion(estado) del policia. No guardar el caso.
 		// Si el caso se cierra sin haberse ganado, se pierde.
 		framePrincipal.setVisible(true);
+		boolean resultado = juego.guardar(path);
+		if (resultado){
+			JOptionPane.showMessageDialog(null, "Juego guardado exitosamente");
+		} else {
+			JOptionPane.showMessageDialog(null, "Error al guardar el estado del juego", "", JOptionPane.ERROR_MESSAGE);
+		}
 		this.dispose();
 	}
 
@@ -218,6 +243,7 @@ public class FrameJuego extends JFrame implements Observer {
 
 		JOptionPane.showMessageDialog(null, mensaje);
 		int respuesta = JOptionPane.showConfirmDialog(null, "Desea jugar de nuevo?");
+		juego.guardar(path);
 		if (respuesta == JOptionPane.OK_OPTION){
 			resetearCaso();
 		} else {
@@ -228,6 +254,8 @@ public class FrameJuego extends JFrame implements Observer {
 	private void resetearCaso(){
 		juego.resetear();
 		this.repaint();
+		expedientes.resetear();
+		mostrarMensajeInicio();
 	}
 
 

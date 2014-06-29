@@ -85,7 +85,7 @@ public class VentanaIngresarNombre extends JFrame {
 	protected void iniciarYMostrarFrameDeJuego() {
 		Policia policia = obtenerJugador();
 		// llama a la ventana de Juego posta.
-		FrameJuego frameJuego = new FrameJuego(framePrincipal, policia);
+		FrameJuego frameJuego = new FrameJuego(framePrincipal, policia, path);
 		// frameJuego.setResizable(false);
 		frameJuego.setVisible(true);
 		frameJuego.setExtendedState(JFrame.MAXIMIZED_BOTH);

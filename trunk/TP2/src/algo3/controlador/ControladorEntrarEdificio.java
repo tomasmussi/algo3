@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import algo3.modelo.edificio.Edificio;
 import algo3.modelo.juego.Juego;
 import algo3.vista.FrameDeEdificios;
 
@@ -22,8 +23,12 @@ public class ControladorEntrarEdificio implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		int edificio = frame.getEdificioSeleccionado();
 		String pista = juego.buscarPista(edificio);
-		JOptionPane.showMessageDialog(null, pista);
-		frame.setVisible(true);
+		if (!Edificio.LADRON_ENCONTRADO.equals(pista)){
+			JOptionPane.showMessageDialog(null, pista);
+			frame.setVisible(true);
+		} else {
+			frame.dispose();
+		}
 	}
 
 }

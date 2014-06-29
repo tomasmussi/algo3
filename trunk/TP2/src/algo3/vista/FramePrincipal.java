@@ -25,7 +25,8 @@ public class FramePrincipal extends JFrame {
 
 	private String path;
 
-	public FramePrincipal() {
+	public FramePrincipal(String path) {
+		this.path = path;
 		ingresarInformacion = new VentanaIngresarNombre(this, path);
 		getContentPane().setLayout(
 				new FormLayout(new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), }, new RowSpec[] { FormFactory.RELATED_GAP_ROWSPEC,
@@ -41,10 +42,7 @@ public class FramePrincipal extends JFrame {
 				mostrarVentanaIngresoNombre();
 			}
 		});
-		getContentPane().add(btnEmpezarJuego, "2, 2, fill, fill");
-
-		JButton btnCargarPartida = new JButton("Cargar Partida");
-		getContentPane().add(btnCargarPartida, "2, 4, fill, fill");
+		getContentPane().add(btnEmpezarJuego, "2, 2, 1, 3, fill, fill");
 
 		requestFocusInWindow();
 	}
@@ -77,7 +75,4 @@ public class FramePrincipal extends JFrame {
 		}
 	}
 
-	public void setPath(String path) {
-		this.path = path;
-	}
 }
