@@ -103,7 +103,7 @@
 
 	<algo3.modelo.mapa.InformacionCiudad>
 	<nombreCiudad>Cairo</nombreCiudad>
-	<coloresBandera></coloresBandera>
+	<coloresBandera>Roja, negra y blanca</coloresBandera>
 	<moneda>Libras</moneda>
 	<geografia></geografia>
 	<lugaresDeReferencia>faraones Tumba,Desierto del Sinai</lugaresDeReferencia>

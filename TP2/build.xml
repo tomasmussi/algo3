@@ -79,18 +79,22 @@ public class HWTest extends TestCase {
   	<mkdir dir="${reports.xml.dir}"/>
   </target>
 
-  <target name="compile" depends="init" description="compile the source " >
+  <target name="compile" depends="clean, init" description="compile the source " >
     <!-- Compile the java code from ${src} into ${build} -->
     <javac debug="true" 
 	   srcdir="${src}" 
 	   destdir="${build}"
 	   classpathref="project.classpath"
-       includeantruntime="false"/>
+       includeantruntime="false">
+    </javac>
     <!-- Copy files from ${src} into ${build} -->
     <copy todir="${build}"> 
         <fileset dir="${src}">
           <exclude name="**/*.java"/>
         </fileset>
+    	<fileset dir="${lib}">
+    		<include name="**/*.jar"/>
+    	</fileset>
     </copy>
   </target>
 
@@ -113,6 +117,13 @@ public class HWTest extends TestCase {
   				<!--<report format="frames" todir="${reports.xml.dir}" />-->
   	</junitreport>
   </target>
+	
+    <target name="junitreport">
+        <junitreport todir="${reports.xml.dir}">
+            <fileset dir="${reports.xml.dir}" includes="TEST-*.xml"/>
+            <report todir="${reports.xml.dir}"/>
+        </junitreport>
+    </target>
 
   <target name="compiletest" depends="compile"
         description="compile the tests " >
@@ -127,7 +138,8 @@ public class HWTest extends TestCase {
 	<antcall target="clean.dist"/>
     <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
     <jar jarfile="${dist}/${jarname}.jar" basedir="${build}" excludes="*Test.class">
-    	<zipgroupfileset dir="${lib}" includes="*.jar" />
+    	<!--<zipfileset excludes="META-INF/**/*" src="${lib}/bcprov-jdk16-145.jar"/>-->
+    	<zipgroupfileset dir="${lib}" includes="*.jar" excludes="META-INF/**/*"/>
         <manifest>
         <attribute name="Main-Class"
                 value="${main_class_name}"/>
@@ -145,13 +157,21 @@ public class HWTest extends TestCase {
   </target>
 	
 
-  <target name="clean"
-        description="clean up" >
+  	<target name="clean" description="clean up" >
     <!-- Delete the ${build} directory-->
-    <delete dir="${build}"/>
-  </target>
-  <target name="clean.dist">
-  	<delete dir="${dist}"/>
-  </target>
+    	<delete dir="${build}"/>
+  	</target>
+	
+  	<target name="clean.dist">
+  		<delete dir="${dist}"/>
+  	</target>
+	
+	<target name="jugar" depends="compile">	
+	</target>
+	
+	<target name="run" depends="dist">
+	        <java jar="${dist}/${jarname}.jar" fork="true"/>
+	</target>
+	
 </project>
 

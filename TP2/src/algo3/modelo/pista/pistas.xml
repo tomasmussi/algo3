@@ -118,7 +118,7 @@
 	<algo3.modelo.pista.Pista>
 		<entidad>Geografia</entidad>
 		<contenido>Dijo que iba a recorrer %variable%.</contenido>
-		<dificultad>Facil</dificultad>
+		<dificultad>Media</dificultad>
 	</algo3.modelo.pista.Pista>
 	
 	
@@ -181,7 +181,7 @@
 	<algo3.modelo.pista.Pista>
 		<entidad>Geografia</entidad>
 		<contenido>Dijo que iba a recorrer %variable%.</contenido>
-		<dificultad>Facil</dificultad>
+		<dificultad>Dificil</dificultad>
 	</algo3.modelo.pista.Pista>
 	
 	

@@ -18,32 +18,26 @@ import java.util.Set;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.mapa.InformacionCiudad;
 import algo3.modelo.objeto.CaracteristicaObjeto;
+import algo3.modelo.pista.Pista;
 import algo3.modelo.policia.Policia;
 
 import com.thoughtworks.xstream.XStream;
 
+@SuppressWarnings("unchecked")
 public class XMLParser {
 
 	private static final String FILE_SEP = System.getProperty("file.separator");
 	private static final String DEFAULT = System.getProperty("user.home");
 	private static final String EXTENSION_XML = ".xml";
 	private static String PATH;
+	private static final String LADRONES = "ladrones";
+	private static final String CIUDADES = "ciudades";
+	private static final String OBJETOS = "objetos";
+	private static final String PISTAS = "pistas";
 
 	private static final XStream xmlStream = new XStream();
 
-	public static List<CaracteristicaLadron> cargarExpedientes() {
-		try {
-			XStream xmlReader = new XStream();
-			InputStream in = Properties.class.getResourceAsStream("/algo3/modelo/estacionPolicia/ladrones.xml");
-			List<CaracteristicaLadron> expedientes = (List<CaracteristicaLadron>) xmlReader.fromXML(in);
 
-			in.close();
-			return expedientes;
-		} catch (IOException e) {
-			Logger.loguearError(e);
-		}
-		return null;
-	}
 
 
 	public static Map<String, Set<String>> cargarCaracteristicasExpedientes() {
@@ -66,11 +60,47 @@ public class XMLParser {
 		return caracteristicasPorTipo;
 	}
 
+	public static List<CaracteristicaLadron> cargarExpedientesDefault() {
+		try {
+			InputStream in = Properties.class.getResourceAsStream("/algo3/modelo/estacionPolicia/ladrones.xml");
+			List<CaracteristicaLadron> expedientes = (List<CaracteristicaLadron>) xmlStream.fromXML(in);
+
+			in.close();
+			return expedientes;
+		} catch (IOException e) {
+			Logger.loguearError(e);
+		}
+		return null;
+	}
+
+	public static List<CaracteristicaLadron> cargarExpedientes() {
+		try {
+			InputStream in = new FileInputStream(new File(PATH + FILE_SEP + LADRONES +EXTENSION_XML));
+			List<CaracteristicaLadron> expedientes = (List<CaracteristicaLadron>) xmlStream.fromXML(in);
+			in.close();
+			return expedientes;
+		} catch (Exception e) {
+			Logger.loguearError(e);
+		}
+		return cargarExpedientesDefault();
+	}
+
 	public static List<InformacionCiudad> cargarCiudades() {
 		try {
-			XStream xmlReader = new XStream();
+			InputStream in = new FileInputStream(new File(PATH + FILE_SEP + CIUDADES + EXTENSION_XML));
+			List<InformacionCiudad> infoCiudades = (List<InformacionCiudad>) xmlStream.fromXML(in);
+			in.close();
+			return infoCiudades;
+		} catch (Exception e) {
+			Logger.loguearError(e);
+		}
+		return cargarCiudadesDefault();
+	}
+
+	public static List<InformacionCiudad> cargarCiudadesDefault() {
+		try {
 			InputStream in = Properties.class.getResourceAsStream("/algo3/modelo/mapa/ciudades.xml");
-			List<InformacionCiudad> infoCiudades = (List<InformacionCiudad>) xmlReader.fromXML(in);
+			List<InformacionCiudad> infoCiudades = (List<InformacionCiudad>) xmlStream.fromXML(in);
 
 			in.close();
 			return infoCiudades;
@@ -80,12 +110,10 @@ public class XMLParser {
 		return null;
 	}
 
-	public static List<CaracteristicaObjeto> cargarObjetos() {
+	public static List<CaracteristicaObjeto> cargarObjetosDefault() {
 		try {
-			XStream xmlReader = new XStream();
 			InputStream in = Properties.class.getResourceAsStream("/algo3/modelo/objeto/objetos.xml");
-			List<CaracteristicaObjeto> objetos = (List<CaracteristicaObjeto>) xmlReader.fromXML(in);
-
+			List<CaracteristicaObjeto> objetos = (List<CaracteristicaObjeto>) xmlStream.fromXML(in);
 			in.close();
 			return objetos;
 		} catch (IOException e) {
@@ -94,40 +122,59 @@ public class XMLParser {
 		return null;
 	}
 
-
-	public static void encode(Object objeto) throws IOException{
-		FileOutputStream out = new FileOutputStream(new File("C:\\Users\\Tomas\\Desktop\\objeto.xml"));
-		xmlStream.toXML(objeto, out);
-		out.close();
+	public static List<CaracteristicaObjeto> cargarObjetos() {
+		try {
+			InputStream in = new FileInputStream(new File(PATH + FILE_SEP + OBJETOS + EXTENSION_XML));
+			List<CaracteristicaObjeto> objetos = (List<CaracteristicaObjeto>) xmlStream.fromXML(in);
+			in.close();
+			return objetos;
+		} catch (Exception e) {
+			Logger.loguearError(e);
+		}
+		return cargarObjetosDefault();
 	}
 
-	public static Object decode() throws IOException {
-		Object decodificado = null;
-		try{
-			InputStream in = Properties.class.getResourceAsStream("/algo3/controlador/ladrones.xml");
-			decodificado = xmlStream.fromXML(in);
-			if (in != null){
-				in.close();
+	public static Map<String, Map<String, String>> cargarPistas() {
+		Map<String, Map<String, String>> pistas = new HashMap<String, Map<String, String>>();
+		try {
+			InputStream in = new FileInputStream(new File(PATH + FILE_SEP + PISTAS + EXTENSION_XML));
+			List<Pista> pistasDelXML = (List<Pista>) xmlStream.fromXML(in);
+			for (Pista pista : pistasDelXML) {
+				Map<String, String> pistasPorEntidad = new HashMap<String, String>();
+				if (pistas.containsKey(pista.getDificultad())) {
+					pistasPorEntidad = pistas.get(pista.getDificultad());
+				}
+				pistasPorEntidad.put(pista.getEntidad(), pista.getContenido());
+				pistas.put(pista.getDificultad(), pistasPorEntidad);
 			}
-		} catch (IOException e){
-			Logger.loguearError("Error al cargar configuracion por defecto", e);
+			in.close();
+			return pistas;
+		} catch (Exception e) {
+			Logger.loguearError(e);
 		}
-		return decodificado;
+		return cargarPistasDefault();
 	}
 
 
-	public static Object decode(InputStream in) throws IOException {
-		Object decodificado = null;
-		try{
-			decodificado = xmlStream.fromXML(in);
-			if (in != null){
-				in.close();
+
+	public static Map<String, Map<String, String>> cargarPistasDefault() {
+		Map<String, Map<String, String>> pistas = new HashMap<String, Map<String, String>>();
+		try {
+			InputStream in = Properties.class.getResourceAsStream("/algo3/modelo/pista/pistas.xml");
+			List<Pista> pistasDelXML = (List<Pista>) xmlStream.fromXML(in);
+			for (Pista pista : pistasDelXML) {
+				Map<String, String> pistasPorEntidad = new HashMap<String, String>();
+				if (pistas.containsKey(pista.getDificultad())) {
+					pistasPorEntidad = pistas.get(pista.getDificultad());
+				}
+				pistasPorEntidad.put(pista.getEntidad(), pista.getContenido());
+				pistas.put(pista.getDificultad(), pistasPorEntidad);
 			}
-		} catch (IOException e){
-			Logger.loguearWarning(e);
-			decodificado = XMLParser.decode();
+			in.close();
+		} catch (IOException e) {
+			Logger.loguearError(e);
 		}
-		return decodificado;
+		return pistas;
 	}
 
 	public static boolean guardarPolicia(Policia policia, String path) {
