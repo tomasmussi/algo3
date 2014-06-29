@@ -66,7 +66,7 @@ public class Juego extends Observable implements Observer {
 		reloj = new Reloj();
 		vistaReloj = new VistaReloj(componenteReloj);
 		reloj.setVista(vistaReloj);
-		reloj.addObserver(this);
+		//reloj.addObserver(this);
 		reloj.notificar();
 	}
 
