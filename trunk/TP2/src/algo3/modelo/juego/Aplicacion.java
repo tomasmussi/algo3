@@ -1,5 +1,6 @@
 package algo3.modelo.juego;
 
+import algo3.controlador.Logger;
 import algo3.controlador.XMLParser;
 import algo3.vista.FramePrincipal;
 
@@ -11,6 +12,7 @@ public class Aplicacion {
 			path = args[0];
 		}
 		XMLParser.setPath(path);
+		Logger.setPath(path);
 		FramePrincipal ventana = new FramePrincipal(path);
 		ventana.setVisible(true);
 		ventana.setExtendedState(FramePrincipal.MAXIMIZED_BOTH);
