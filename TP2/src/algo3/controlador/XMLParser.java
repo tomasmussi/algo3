@@ -6,8 +6,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Properties;
+import java.util.Set;
 
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.mapa.InformacionCiudad;
@@ -32,6 +38,27 @@ public class XMLParser {
 			Logger.loguearError(e);
 		}
 		return null;
+	}
+
+
+	public static Map<String, Set<String>> cargarCaracteristicasExpedientes() {
+		Iterator<CaracteristicaLadron> caracteristicas = cargarExpedientes().iterator();
+		Map<String, Set<String>> caracteristicasPorTipo = new HashMap<String, Set<String>>();
+		while (caracteristicas.hasNext()){
+			CaracteristicaLadron siguiente = caracteristicas.next();
+			Iterator<Entry<String, String>> iter = siguiente.getCaracteristicasPorTipo().entrySet().iterator();
+			while (iter.hasNext()){
+				Entry<String, String> entry = iter.next();
+				if (caracteristicasPorTipo.containsKey(entry.getKey())){
+					caracteristicasPorTipo.get(entry.getKey()).add(entry.getValue());
+				} else {
+					Set<String> tipoCaracteristica = new HashSet<String>();
+					tipoCaracteristica.add(entry.getValue());
+					caracteristicasPorTipo.put(entry.getKey(), tipoCaracteristica);
+				}
+			}
+		}
+		return caracteristicasPorTipo;
 	}
 
 	public static List<InformacionCiudad> cargarCiudades() {
@@ -120,5 +147,24 @@ public class XMLParser {
 		}
 		return policia;
 	}
+
+	public static Policia cargarPoliciaDeArchivo(String path, String nombreJugador){
+		//Busco primero si existe el jugador
+		Policia policia = null;
+		try {
+			String archivo = path + System.getProperty("file.seperator") + nombreJugador;
+			File registro = new File(archivo);
+			if (registro.exists()){
+				policia = (Policia) xmlStream.fromXML(registro);
+			} else {
+				policia = new Policia(nombreJugador);
+			}
+		} catch (Exception e) {
+			Logger.loguearError(e);
+			policia = new Policia(nombreJugador);
+		}
+		return policia;
+	}
+
 
 }

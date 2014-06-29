@@ -19,12 +19,14 @@ import com.jgoodies.forms.layout.RowSpec;
 public class FramePrincipal extends JFrame {
 
 	private static final long serialVersionUID = 2528876481084656378L;
-	
+
 	private JFrame ingresarInformacion;
 	private JPanel imagenPrincipal;
 
+	private String path;
+
 	public FramePrincipal() {
-		ingresarInformacion = new VentanaIngresarNombre(this);
+		ingresarInformacion = new VentanaIngresarNombre(this, path);
 		getContentPane().setLayout(
 				new FormLayout(new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC, FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), }, new RowSpec[] { FormFactory.RELATED_GAP_ROWSPEC,
 						RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), }));
@@ -73,5 +75,9 @@ public class FramePrincipal extends JFrame {
 			super.paintComponent(g);
 			g.drawImage(bgimage, 1, 1, null);
 		}
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 }

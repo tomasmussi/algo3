@@ -17,4 +17,9 @@ public class Aeropuerto extends Edificio {
 		return bandera;
 	}
 
+	@Override
+	public String getNombre() {
+		return "Aeropuerto";
+	}
+
 }

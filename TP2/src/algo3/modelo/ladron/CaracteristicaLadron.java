@@ -1,9 +1,18 @@
 package algo3.modelo.ladron;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CaracteristicaLadron implements Cloneable {
+
+	public static final String SEXO = "SEXO";
+	public static final String HOBBY = "HOBBY";
+	public static final String CABELLO = "CABELLO";
+	public static final String CARACTERISTICA = "CARACTERISTICA";
+	public static final String VEHICULO = "VEHICULO";
+
 
 	private String nombre;
 	private String sexo;
@@ -28,6 +37,16 @@ public class CaracteristicaLadron implements Cloneable {
 		this.caracteristica = caracteristica;
 		this.vehiculo = vehiculo;
 
+	}
+
+	public Map<String, String> getCaracteristicasPorTipo(){
+		Map<String, String> caracteristicasPorTipo = new HashMap<String, String>();
+		caracteristicasPorTipo.put(SEXO, sexo);
+		caracteristicasPorTipo.put(HOBBY, hobby);
+		caracteristicasPorTipo.put(CABELLO, colorCabello);
+		caracteristicasPorTipo.put(CARACTERISTICA, caracteristica);
+		caracteristicasPorTipo.put(VEHICULO, vehiculo);
+		return caracteristicasPorTipo;
 	}
 
 	public List<String> getCaracteristicas() {

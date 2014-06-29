@@ -20,6 +20,8 @@ public abstract class Edificio extends Observable {
 
 	public abstract Entidad getElemento();
 
+	public abstract String getNombre();
+
 	protected Edificio(CaracteristicaLadron caracteristicas) {
 		this.caracteristicasLadron = caracteristicas;
 	}
@@ -61,7 +63,6 @@ public abstract class Edificio extends Observable {
 		} else {
 			return policia.getGrado().getPista(this);
 		}
-
 	}
 
 }

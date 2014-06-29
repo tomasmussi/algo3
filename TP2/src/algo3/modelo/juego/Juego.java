@@ -10,6 +10,7 @@ import javax.swing.JComponent;
 import algo3.controlador.Logger;
 import algo3.controlador.XMLParser;
 import algo3.modelo.caso.Caso;
+import algo3.modelo.edificio.Edificio;
 import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.ladron.CaracteristicaLadron;
 import algo3.modelo.mapa.Ciudad;
@@ -21,16 +22,16 @@ import algo3.vista.Vista;
 import algo3.vista.VistaPolicia;
 import algo3.vista.VistaReloj;
 
-public class Juego implements Observer {
+public class Juego extends Observable implements Observer {
 
 	private Vista vistaReloj;
+	private Vista vistaCiudad;
 	private Policia policia;
 	private Caso caso;
-	private boolean casoAsignado;
 	private Reloj reloj;
 
-	public Juego(String nombrePolicia, JComponent componenteReloj, JComponent componenteCiudadActual) {
-		this.policia = new Policia(nombrePolicia);
+	public Juego(Policia policia, JComponent componenteReloj, JComponent componenteCiudadActual) {
+		this.policia = policia;
 		policia.addObserver(this);
 		inicializarReloj(componenteReloj);
 		inicializarCiudadActual(componenteCiudadActual);
@@ -38,10 +39,16 @@ public class Juego implements Observer {
 		iniciarCaso();
 	}
 
+	public void resetear() {
+		reloj.resetear();
+		reloj.notificar();
+		policia.resetear();
+		iniciarCaso();
+	}
+
 	private void iniciarCaso() {
 		generarCaso();
 		policia.asignarCaso(caso);
-		casoAsignado = true;
 	}
 
 	private void generarCaso() {
@@ -63,20 +70,21 @@ public class Juego implements Observer {
 		reloj.notificar();
 	}
 
-	private void inicializarCiudadActual(JComponent componenteReloj) {
-		vistaReloj = new VistaPolicia(componenteReloj);
-		policia.setVista(vistaReloj);
+	private void inicializarCiudadActual(JComponent componenteCiudadActual) {
+		vistaCiudad = new VistaPolicia(componenteCiudadActual);
+		policia.setVista(vistaCiudad);
 		policia.addObserver(this);
 	}
 
-	private void finalizarCaso() {
-		casoAsignado = false;
+	private void finalizarCaso(String estado) {
+		setChanged();
+		notifyObservers(estado);
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 		if (!reloj.hayTiempoRestante()) {
-			finalizarCaso();
+			finalizarCaso("TIME OUT");
 		}
 		if (arg != null) {
 			// Fue un update proveniente de Policia
@@ -86,7 +94,7 @@ public class Juego implements Observer {
 			} else {
 				System.out.println("SE ESCAPO");
 			}
-			finalizarCaso();
+			finalizarCaso(atrapado ? "Ladron Atrapado" : "No se pudo atrapar ladron");
 		}
 	}
 
@@ -96,8 +104,8 @@ public class Juego implements Observer {
 
 	public Policia cargar() {
 		policia = XMLParser.cargarPolicia();
-		finalizarCaso();
-		// inicializarReloj();
+		//finalizarCaso();
+		//inicializarReloj();
 		return policia;
 	}
 
@@ -129,5 +137,26 @@ public class Juego implements Observer {
 			policia.viajarA(ciudadPosible);
 		}
 	}
+
+	public boolean emitirOrdenDeArresto(List<String> caracteristicas) {
+		CaracteristicaLadron carac = new CaracteristicaLadron(null, caracteristicas.get(0),
+				caracteristicas.get(1), caracteristicas.get(2), caracteristicas.get(3), caracteristicas.get(4));
+		return policia.emitirOrdenDeArresto(carac);
+	}
+
+	public String[] getEdificios() {
+		Edificio[] edificios = policia.getCiudadActual().getTodosLosEdificios();
+		String[] nombres = new String[edificios.length];
+		for (int i = 0; i < edificios.length; i++){
+			nombres[i] = edificios[i].getNombre();
+		}
+		return nombres;
+	}
+
+	public String buscarPista(int edificio) {
+		return policia.visitarEdificioYObtenerPista(policia.getCiudadActual().getTodosLosEdificios()[edificio]);
+	}
+
+
 
 }

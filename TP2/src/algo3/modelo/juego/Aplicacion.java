@@ -6,6 +6,7 @@ public class Aplicacion {
 
 	public static void main(String args[]) {
 		FramePrincipal ventana = new FramePrincipal();
+		ventana.setPath(args[0]);
 		ventana.setVisible(true);
 		ventana.setExtendedState(FramePrincipal.MAXIMIZED_BOTH);
 		ventana.setResizable(false);

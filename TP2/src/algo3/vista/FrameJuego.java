@@ -5,6 +5,10 @@ import java.awt.Font;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
+import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,9 +19,12 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
+import algo3.controlador.ControladorBuscarEdificos;
 import algo3.controlador.ControladorMoverCiudades;
 import algo3.controlador.ControladorPosiblesDestinos;
+import algo3.controlador.XMLParser;
 import algo3.modelo.juego.Juego;
+import algo3.modelo.policia.Policia;
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -26,7 +33,7 @@ import com.jgoodies.forms.layout.RowSpec;
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.BrowserFactory;
 
-public class FrameJuego extends JFrame {
+public class FrameJuego extends JFrame implements Observer {
 
 	private static final long serialVersionUID = 9051874880109659757L;
 
@@ -50,14 +57,13 @@ public class FrameJuego extends JFrame {
 	private JMenuItem mntmSalir;
 	private JLabel lblReloj;
 	private JLabel lblCiudadActual;
+	private Policia policia;
 
-	public FrameJuego(final FramePrincipal framePrincipal, String nombrePolicia) {
+	public FrameJuego(final FramePrincipal framePrincipal, Policia policia) {
 		this.framePrincipal = framePrincipal;
-
-		iniciarFrameExpedientes();
+		this.policia = policia;
 
 		browser = BrowserFactory.create();
-
 
 		getContentPane().setLayout(
 				new FormLayout(new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), FormFactory.RELATED_GAP_COLSPEC,
@@ -74,7 +80,6 @@ public class FrameJuego extends JFrame {
 		lblCiudadActual.setForeground(Color.BLACK);
 		lblCiudadActual.setHorizontalAlignment(SwingConstants.CENTER);
 		getContentPane().add(lblCiudadActual, "2, 2, fill, fill");
-		// btnVerPosiblesDestinos.setBackground(new Color(255, 99, 71));
 
 		btnVerPosiblesDestinos = new JButton("Ver posibles destinos");
 
@@ -90,24 +95,13 @@ public class FrameJuego extends JFrame {
 		getContentPane().add(lblReloj, "4, 2, 3, 1, fill, fill");
 
 		btnViajar = new JButton("Viajar");
-		// btnViajar.setBackground(new Color(255, 99, 71));
 
 		getContentPane().add(btnViajar, "8, 6, 1, 3, fill, fill");
 
 		btnBuscar = new JButton("Buscar");
-		// btnBuscar.setBackground(new Color(255, 99, 71));
-		btnBuscar.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// mostrar los edificios. Usar imagenes segun los tipos de edificio.
-				// reemplazar el JPanel por uno nuevo que reciba los edificios. ejemplo JEdificiosPanel.
-				String[] edificios = { "Banco", "Aeropuerto", "Biblioteca" };
-				mostarFrameDeViaje("Entrar en:", "Buscar", edificios);
-			}
-		});
+
 		getContentPane().add(btnBuscar, "8, 10, 1, 3, fill, fill");
 		bntExpedientes = new JButton("Expedientes");
-		// bntExpedientes.setBackground(new Color(255, 99, 71));
 		bntExpedientes.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -147,24 +141,32 @@ public class FrameJuego extends JFrame {
 		mnJuego.add(mntmSalir);
 
 		// Let the game begin...
-		iniciarJuego(nombrePolicia);
+		iniciarJuego();
 		btnVerPosiblesDestinos.addActionListener(new ControladorPosiblesDestinos(juego));
 		btnViajar.addActionListener(new ControladorMoverCiudades(this, juego));
+		btnBuscar.addActionListener(new ControladorBuscarEdificos(this,juego));
 		browser.loadURL(GOOGLE_MAPS_URL + getMarkers());
+		iniciarFrameExpedientes(XMLParser.cargarCaracteristicasExpedientes());
 	}
 
-	private void iniciarJuego(String nombrePolicia) {
-		this.juego = new Juego(nombrePolicia, lblReloj, lblCiudadActual);
+	private void iniciarJuego() {
+		this.juego = new Juego(policia, lblReloj, lblCiudadActual);
+		juego.addObserver(this);
 	}
 
-	private void iniciarFrameExpedientes() {
-		expedientes = new FrameExpedientes();
+	private void iniciarFrameExpedientes(Map<String, Set<String>> caracteristicas) {
+		expedientes = new FrameExpedientes(juego, caracteristicas);
 		expedientes.setVisible(false);
 	}
 
 	public void mostarFrameDeViaje(String lblInformacion, String lblBoton, String[] informacionCombo) {
 		FrameDeViaje fViajar = new FrameDeViaje(juego, lblInformacion, lblBoton, informacionCombo);
 		fViajar.setVisible(true);
+	}
+
+	public void mostarFrameDeEdificios(String lblInformacion, String lblBoton, String[] informacionCombo) {
+		FrameDeEdificios fEdificios = new FrameDeEdificios(juego, lblInformacion, lblBoton, informacionCombo);
+		fEdificios.setVisible(true);
 	}
 
 	private String getMarkers() {
@@ -209,5 +211,24 @@ public class FrameJuego extends JFrame {
 	protected void mostrarVentanaExpedientes() {
 		expedientes.setVisible(true);
 	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		String mensaje = (String) arg;
+
+		JOptionPane.showMessageDialog(null, mensaje);
+		int respuesta = JOptionPane.showConfirmDialog(null, "Desea jugar de nuevo?");
+		if (respuesta == JOptionPane.OK_OPTION){
+			resetearCaso();
+		} else {
+			System.exit(0);
+		}
+	}
+
+	private void resetearCaso(){
+		juego.resetear();
+		this.repaint();
+	}
+
 
 }
