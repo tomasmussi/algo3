@@ -20,5 +20,6 @@ public class ControladorMoverCiudades implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		frame.mostrarGoogleMaps();
 		frame.mostarFrameDeViaje("Viajar a:", "Viajar",juego.getCiudadesPosibles());
+
 	}
 }

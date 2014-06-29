@@ -105,13 +105,14 @@ public class Juego extends Observable implements Observer {
 
 	public String[] getCiudadesPosibles() {
 		List<Ciudad> ciudadesPosibles =  caso.getMapa().getCiudadesPosibles(policia.getCiudadActual());
-		String[] ciudades = new String[4];
+		String[] ciudades = new String[ciudadesPosibles.size()];
 		int i = 0;
 		for (Ciudad ciudad : ciudadesPosibles) {
 			ciudades[i++] = ciudad.getNombre();
 		}
 		return ciudades;
 	}
+
 
 	public void viajar(String ciudad) {
 		Iterator<Ciudad> ciudades = caso.getMapa().getCiudadesPosibles(policia.getCiudadActual()).iterator();
@@ -162,6 +163,10 @@ public class Juego extends Observable implements Observer {
 
 	public String getNombreObjeto() {
 		return caso.getLadron().getObjetoRobado().getNombre();
+	}
+
+	public String getCiudadActual() {
+		return policia.getCiudadActual().getNombre();
 	}
 
 

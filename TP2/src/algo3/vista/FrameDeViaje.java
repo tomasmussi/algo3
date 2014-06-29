@@ -27,7 +27,7 @@ public class FrameDeViaje extends JFrame {
 	private JButton btnCancelar;
 
 
-	public FrameDeViaje(Juego juego, String lblInformacion, String lblBoton, String[] informacionCombo) {
+	public FrameDeViaje(Juego juego, String lblInformacion, String lblBoton, String[] informacionCombo, FrameJuego frameJuego) {
 		setResizable(false);
 		setSize(250, 130);
 		setLocation(50, 50);
@@ -45,7 +45,7 @@ public class FrameDeViaje extends JFrame {
 		getContentPane().add(combo, "2, 4, 3, 1, fill, fill");
 
 		btnAccion = new JButton(lblBoton);
-		btnAccion.addActionListener(new ControladorViaje(juego, combo, this));
+		btnAccion.addActionListener(new ControladorViaje(juego, combo, this, frameJuego));
 		getContentPane().add(btnAccion, "2, 6, fill, fill");
 
 		btnCancelar = new JButton("Cancelar");

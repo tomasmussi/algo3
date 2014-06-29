@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
@@ -46,8 +47,6 @@ public class FrameJuego extends JFrame implements Observer {
 	private Browser browser;
 	private Juego juego;
 
-	// private Image imagenCiudad;
-	// private JPanel panelPrincipal;
 	private JButton btnVerPosiblesDestinos;
 	private JButton btnViajar;
 	private JButton btnBuscar;
@@ -60,6 +59,7 @@ public class FrameJuego extends JFrame implements Observer {
 	private JLabel lblCiudadActual;
 	private Policia policia;
 	private String path;
+	private static Map<String, String> casosEspeciales;
 
 	public FrameJuego(final FramePrincipal framePrincipal, Policia policia, String path) {
 		this.framePrincipal = framePrincipal;
@@ -69,11 +69,32 @@ public class FrameJuego extends JFrame implements Observer {
 		browser = BrowserFactory.create();
 
 		getContentPane().setLayout(
-				new FormLayout(new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), FormFactory.RELATED_GAP_COLSPEC,
-						ColumnSpec.decode("default:grow"), FormFactory.RELATED_GAP_COLSPEC, FormFactory.DEFAULT_COLSPEC, }, new RowSpec[] { FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC,
-						RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC,
-						RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC, RowSpec.decode("default:grow"), FormFactory.RELATED_GAP_ROWSPEC,
-						RowSpec.decode("default:grow"), }));
+				new FormLayout(new ColumnSpec[] {
+						FormFactory.RELATED_GAP_COLSPEC,
+						ColumnSpec.decode("default:grow"),
+						FormFactory.RELATED_GAP_COLSPEC,
+						ColumnSpec.decode("default:grow"),
+						FormFactory.RELATED_GAP_COLSPEC,
+						ColumnSpec.decode("default:grow"),
+						FormFactory.RELATED_GAP_COLSPEC,
+						FormFactory.DEFAULT_COLSPEC,},
+						new RowSpec[] {
+						FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("default:grow"),
+						FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("default:grow"),
+						FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("default:grow"),
+						FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("default:grow"),
+						FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("default:grow"),
+						FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("default:grow"),
+						FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("default:grow"),
+						FormFactory.RELATED_GAP_ROWSPEC,
+						RowSpec.decode("default:grow"),}));
 
 		lblCiudadActual = new JLabel("");
 		lblCiudadActual.setBackground(new Color(255, 99, 71));
@@ -96,6 +117,7 @@ public class FrameJuego extends JFrame implements Observer {
 		lblReloj.setForeground(Color.BLACK);
 		lblReloj.setHorizontalAlignment(SwingConstants.CENTER);
 		getContentPane().add(lblReloj, "4, 2, 3, 1, fill, fill");
+
 
 		btnViajar = new JButton("Viajar");
 
@@ -148,8 +170,11 @@ public class FrameJuego extends JFrame implements Observer {
 		btnVerPosiblesDestinos.addActionListener(new ControladorPosiblesDestinos(juego));
 		btnViajar.addActionListener(new ControladorMoverCiudades(this, juego));
 		btnBuscar.addActionListener(new ControladorBuscarEdificos(this,juego));
-		browser.loadURL(GOOGLE_MAPS_URL + getMarkers());
+
 		iniciarFrameExpedientes(XMLParser.cargarCaracteristicasExpedientes());
+		mostrarFrameDeCiudad(juego.getCiudadOrigen());
+		mostrarGoogleMaps();
+		refrescarMarcadores();
 	}
 
 	private void mostrarMensajeInicio(){
@@ -179,8 +204,12 @@ public class FrameJuego extends JFrame implements Observer {
 	}
 
 	public void mostarFrameDeViaje(String lblInformacion, String lblBoton, String[] informacionCombo) {
-		FrameDeViaje fViajar = new FrameDeViaje(juego, lblInformacion, lblBoton, informacionCombo);
+		FrameDeViaje fViajar = new FrameDeViaje(juego, lblInformacion, lblBoton, informacionCombo, this);
 		fViajar.setVisible(true);
+	}
+
+	public void mostrarFrameDeCiudad(String nombreCiudad) {
+		new FrameCiudad(nombreCiudad);
 	}
 
 	public void mostarFrameDeEdificios(String lblInformacion, String lblBoton, String[] informacionCombo) {
@@ -189,15 +218,29 @@ public class FrameJuego extends JFrame implements Observer {
 	}
 
 	private String getMarkers() {
-		// Armar un marker por cada ciudad, esta lista de ciudades son las mismas que se tienen que ver en el boton
-		// de ver posibles destinos.
-		// Para cada ciudad agregar su marker. Ejemplo:
 		String markers = "";
 		String[] ciudades = juego.getCiudadesPosibles();
+		chequearCiudades(ciudades);
 		for (String ciudad : ciudades) {
 			markers = markers + MARKER + ciudad.replace(" ", "%"); // Es necesario reemplazar los espacios de los nombres por %
 		}
 		return markers;
+	}
+
+	private void chequearCiudades(String[] ciudades){
+		for (int i = 0; i < ciudades.length; i++){
+			if (casosEspeciales.containsKey(ciudades[i])){
+				ciudades[i] = casosEspeciales.get(ciudades[i]);
+			}
+		}
+	}
+
+	static {
+		casosEspeciales = new HashMap<String, String>();
+		casosEspeciales.put("Ciudad de Mexico", "Mexico");
+		casosEspeciales.put("Rio de Janeiro", "Rio do Janeiro");
+		casosEspeciales.put("Tokio", "Tokio,Japon");
+		casosEspeciales.put("New Delhi", "newdelhi");
 	}
 
 	protected void cerrarSesion() {
@@ -218,6 +261,10 @@ public class FrameJuego extends JFrame implements Observer {
 		System.exit(0);
 	}
 
+	public void refrescarMarcadores() {
+		browser.loadURL(GOOGLE_MAPS_URL + getMarkers());
+	}
+
 	public void mostrarGoogleMaps() {
 		getContentPane().add(browser.getView().getComponent(), "2, 4, 5, 13, fill, fill");
 		while (browser.isLoading()) {
@@ -232,6 +279,10 @@ public class FrameJuego extends JFrame implements Observer {
 		setSize(Frame.MAXIMIZED_HORIZ, Frame.MAXIMIZED_VERT);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
+
+
+
+
 
 	protected void mostrarVentanaExpedientes() {
 		expedientes.setVisible(true);
@@ -256,7 +307,10 @@ public class FrameJuego extends JFrame implements Observer {
 		this.repaint();
 		expedientes.resetear();
 		mostrarMensajeInicio();
+		refrescarMarcadores();
+		mostrarFrameDeCiudad(juego.getCiudadOrigen());
 	}
+
 
 
 }
