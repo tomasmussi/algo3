@@ -55,6 +55,7 @@ public class HWTest extends TestCase {
 	<property name="dist"  location="dist"/>
 	<property name="lib"  location="libs"/>
 	<property name="reports.xml.dir" location="${build}/reports"/>
+	<property name="user" value="Tomas"/>	
 
   	<path id="project.classpath">
     	<pathelement location="${build}" />
@@ -88,18 +89,17 @@ public class HWTest extends TestCase {
 	<target name="compile" depends="clean, init" description="Compila codigo fuente" >
     <!-- Compile the java code from ${src} into ${build} -->
 		<javac debug="true" srcdir="${src}" destdir="${build}" classpathref="project.classpath" includeantruntime="false">
-			<!-- Revisar el classpath-->
-			<!--<classpath>
-				<fileset dir="${lib}">
-					<include name="**/*.jar"/>
-				</fileset>
-				<fileset dir="${lib}/xstream">
-					<include name="**/*.jar"/>
-				</fileset>
-			</classpath>-->
 		</javac>
-		
+
 		<!-- Copy files from ${src} into ${build} -->
+		<!-->-->
+	</target>
+	
+	<target name="compiletest" depends="compile" description="Compilar tests">
+	        <javac debug="true" srcdir="${test}" destdir="${build}" classpathref="project.classpath" includeantruntime="false"/>
+	</target>
+
+	<target name="test" depends="compiletest" description="Ejecutar tests">
 		<copy todir="${build}">
 		    <fileset dir="${src}">
 		      <exclude name="**/*.java"/>
@@ -109,13 +109,6 @@ public class HWTest extends TestCase {
 				<include name="xstream/*.jar"/>
 			</fileset>
 		</copy>
-	</target>
-	
-	<target name="compiletest" depends="compile" description="Compilar tests">
-	        <javac debug="true" srcdir="${test}" destdir="${build}" classpathref="project.classpath" includeantruntime="false"/>
-	</target>
-
-	<target name="test" depends="compiletest" description="Ejecutar tests">
 		<junit printsummary="yes" fork="yes" haltonfailure="yes">
 	  		<formatter type="plain"/>
 	  		<batchtest fork="true">
@@ -133,38 +126,66 @@ public class HWTest extends TestCase {
   		</junitreport>
   	</target>
 
-	<!-- No haria falta si anda el makeJar --> 
-  	<target name="dist" depends="compile, clean.dist" description="Generar jar" >		
-    	<!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
-    	<jar jarfile="${dist}/${jarname}.jar" basedir="${build}" excludes="*Test.class">
-	    	<!--<zipfileset excludes="META-INF/**/*" src="${lib}/bcprov-jdk16-145.jar"/>-->
-	    	<!--<zipfileset excludes="META-INF/**/*" src="${lib}/*.jar"/>-->
-	    	<zipgroupfileset dir="${lib}" includes="*.jar" excludes="META-INF/**/*"/>
-	        <manifest>
-	        	<attribute name="Main-Class" value="${main_class_name}"/>
-	        	<attribute name="Class-Path" value="${project.classpath}"/>
-	        </manifest>
-    	</jar>
-  	</target>
-
 	<target name="makeJar" depends="compile, clean.dist" description="Crea un Jar ejecutable">
     	<manifest file="MANIFEST.MF">
-        	<attribute name="Built-By" value="Tomas"/>
+        	<attribute name="Built-By" value="${user}"/>
+    		<attribute name="Class-Path" value="."/>
             <attribute name="Main-Class" value="${main_class_name}"/>
-    		<attribute name="Class-Path" value="${jar.classpath}"/>
-    		<!--<attribute name="Class-Path" value=" C:\Eclipse-Kepler\eclipse\workspace\TP2\libs\*.jar"/>-->
-    		<!--<attribute name="Class-Path" value=" C:\Eclipse-Kepler\eclipse\workspace\TP2\libs\xstream\*.jar"/>-->
         </manifest>
-		<copy todir="${build}">
-        	<fileset dir="${src}">
-            	<exclude name="**/*.java"/>
-            </fileset>
+		<fileset dir="${build}"/>
+        <!--<zipfileset excludes="META-INF/*.SF" src="${lib}/junit-4.10.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/cglib-nodep-2.2.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/dom4j-1.6.1.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/jdom-1.1.3.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/jdom2-2.0.5.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/jettison-1.2.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/joda-time-1.6.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/json-20080701.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/kxml2-2.3.0.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/kxml2-min-2.3.0.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/stax-1.2.0.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/stax-api-1.0.1.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/wstx-asl-3.2.7.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/xmlpull-1.1.3.1.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/xom-1.1.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/xpp3_min-1.1.4c.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/xstream/xstream-1.4.7.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/forms-1.3.0.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/jxbrowser-4.4.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/license.jar"/>
+        <zipfileset excludes="META-INF/*.SF" src="${lib}/jxbrowser-win-4.4.jar"/>-->
+		
+		
+		<!--<unzip src="${lib}/junit-4.10.jar" dest="${build}"/>-->
+        <unzip src="${lib}/xstream/cglib-nodep-2.2.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/dom4j-1.6.1.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/jdom-1.1.3.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/jdom2-2.0.5.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/jettison-1.2.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/joda-time-1.6.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/json-20080701.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/kxml2-2.3.0.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/kxml2-min-2.3.0.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/stax-1.2.0.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/stax-api-1.0.1.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/wstx-asl-3.2.7.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/xmlpull-1.1.3.1.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/xom-1.1.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/xpp3_min-1.1.4c.jar" dest="${build}"/>
+        <unzip src="${lib}/xstream/xstream-1.4.7.jar" dest="${build}"/>
+        <unzip src="${lib}/forms-1.3.0.jar" dest="${build}"/>
+        <unzip src="${lib}/jxbrowser-4.4.jar" dest="${build}"/>
+        <unzip src="${lib}/license.jar" dest="${build}"/>
+        <unzip src="${lib}/jxbrowser-win-4.4.jar" dest="${build}"/>
+
+		<copy file="carmen-sandiego.jpg" todir="${build}">        	
         </copy>
+
         <jar destfile="${dist}/${jarname}.jar" basedir="${build}" includes="**" manifest="MANIFEST.MF"/>
     </target>
 
     <target name="jugar" depends="makeJar" description="Corre el programa desde un Jar">
-    	<ant target="clean"/>
+    	<!--<ant target="clean"/>-->
         <java jar="${dist}/${jarname}.jar" fork="true" classpathref="project.classpath"/>
     </target>
 
@@ -179,4 +200,3 @@ public class HWTest extends TestCase {
     </target>
 
 </project>
-
