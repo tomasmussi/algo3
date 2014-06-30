@@ -43,151 +43,129 @@ public class HWTest extends TestCase {
 
  -->
 
-<project name="CarmenSandiego" default="dist" basedir=".">
-    <description>
-        Ant Simple Sample File
-    </description>
-  <!-- set global properties for this build -->
-  <property name="ant.project.name" value="antsimple"/>
-  <property name="main_class_name" value="algo3.modelo.juego.Aplicacion"/>
-  <property name="jarname"  value="${ant.project.name}"/>
-  <!-- set directories -->
-  <property name="src" location="src"/>
-  <property name="test" location="test"/>
-  <property name="build" location="build"/>
-  <property name="dist"  location="dist"/>
-  <property name="lib"  location="libs"/>
-  <property name="reports.xml.dir" location="${build}/reports"/>
+<project name="CarmenSandiego" default="jugar" basedir=".">
+	<!-- set global properties for this build -->
+	<property name="ant.project.name" value="antsimple"/>
+	<property name="main_class_name" value="algo3.modelo.juego.Aplicacion"/>
+	<property name="jarname"  value="${ant.project.name}"/>
+	<!-- set directories -->
+	<property name="src" location="src"/>
+	<property name="test" location="test"/>
+	<property name="build" location="build"/>
+	<property name="dist"  location="dist"/>
+	<property name="lib"  location="libs"/>
+	<property name="reports.xml.dir" location="${build}/reports"/>
 
-  <path id="project.classpath">
-    <pathelement location="${build}" />
-    <fileset dir="${lib}">
-		<include name="*.jar" />
-		<include name="/xstream/*.jar"/>
-	</fileset>
-  </path>
-
-
-  <target name="init">
-    <!-- Create the time stamp -->
-    <tstamp/>
-    <!-- Create directories if needed -->
-    <mkdir dir="${src}"/>
-    <mkdir dir="${test}"/>
-    <mkdir dir="${build}"/>
-    <mkdir dir="${dist}"/>
-  	<mkdir dir="${reports.xml.dir}"/>
-  </target>
-
-  <target name="compile" depends="clean, init" description="compile the source " >
-    <!-- Compile the java code from ${src} into ${build} -->
-    <javac debug="true"
-	   srcdir="${src}"
-	   destdir="${build}"
-	   classpathref="project.classpath"
-       includeantruntime="false">
-    	<classpath>
-    		<fileset dir="${lib}">
-    			<include name="**/*.jar"/>    			
-    		</fileset>
-    		<fileset dir="${lib}/xstream">
-    			<include name="**/*.jar"/>
-    		</fileset>
-    	</classpath>
-    </javac>
-    <!-- Copy files from ${src} into ${build} -->
-    <copy todir="${build}">
-        <fileset dir="${src}">
-          <exclude name="**/*.java"/>
-        </fileset>
+  	<path id="project.classpath">
+    	<pathelement location="${build}" />
     	<fileset dir="${lib}">
-    		<include name="**/*.jar"/>
-    	</fileset>
-    </copy>
-  </target>
+			<include name="*.jar" />
+			<include name="/xstream/*.jar"/>
+		</fileset>
+  	</path>
 
 
-  <target name="test" depends="compiletest" description="run the tests " >
-    <junit printsummary="yes" fork="yes" haltonfailure="yes">
-      <formatter type="plain"/>
-      <batchtest fork="true">
-        <fileset dir="${test}">
-          <include name="**/*Test*.java"/>
-        </fileset>
-      </batchtest>
-      <classpath refid="project.classpath" />
-    </junit>
-  	<fail message="Pruebas fallidas" if="test.failure" />
-  	<junitreport todir="${reports.xml.dir}">
-  				<fileset dir="${reports.xml.dir}">
-  					<include name="TEST-*.xml" />
-  				</fileset>
-  				<!--<report format="frames" todir="${reports.xml.dir}" />-->
-  	</junitreport>
-  </target>
-
-    <target name="junitreport">
-        <junitreport todir="${reports.xml.dir}">
-            <fileset dir="${reports.xml.dir}" includes="TEST-*.xml"/>
-            <report todir="${reports.xml.dir}"/>
-        </junitreport>
-    </target>
-
-  <target name="compiletest" depends="compile"
-        description="compile the tests " >
-        <javac debug="true"
-               srcdir="${test}"
-               destdir="${build}"
-               classpathref="project.classpath"
-        		includeantruntime="false"/>
-  </target>
-
-  <target name="dist" depends="compile,clean.dist" description="generate the distribution" >
-	<antcall target="clean.dist"/>
-    <!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
-    <jar jarfile="${dist}/${jarname}.jar" basedir="${build}" excludes="*Test.class">
-    	<!--<zipfileset excludes="META-INF/**/*" src="${lib}/bcprov-jdk16-145.jar"/>-->
-    	<zipgroupfileset dir="${lib}" includes="*.jar" excludes="META-INF/**/*"/>
-        <manifest>
-        <attribute name="Main-Class"
-                value="${main_class_name}"/>
-        </manifest>
-    </jar>
-  </target>
-
-
-  	<target name="clean" description="clean up" >
+  	<target name="clean" description="Limpiar carpeta build" >
     <!-- Delete the ${build} directory-->
     	<delete dir="${build}"/>
   	</target>
 
-  	<target name="clean.dist">
+  	<target name="clean.dist" description="Limpiar carpeta distribucion">
   		<delete dir="${dist}"/>
   	</target>
 
-	 <target name="makeJar" depends="compile" description="Crea un Jar ejecutable">
-            <manifest file="MANIFEST.MF">
-                    <attribute name="Built-By" value="Tomas"/>
-                    <attribute name="Main-Class" value="algo3.modelo.juego.Aplicacion"/>
-            </manifest>
-            <copy todir="${build}">
-                    <fileset dir="${src}">
-                            <exclude name="**/*.java"/>                    		
-                    </fileset>
-            </copy>
-            <jar destfile="${dist}/${jarname}}.jar" basedir="${build}" includes="**" manifest="MANIFEST.MF"/>
-            <!--<mkdir dir="release/configuraciones"/>
-            <copy todir="release/configuraciones">
-                    <fileset dir="configuraciones">
-                            <include name="**/*.settings"/>
-                    </fileset>
-            </copy>-->
-            <!--<mkdir dir="release/Saves"/>-->
+  	<target name="init" description="Crea carpetas necesarias para deployar">
+	    <!-- Create the time stamp -->
+	    <tstamp/>
+	    <!-- Create directories if needed -->
+	    <mkdir dir="${src}"/>
+	    <mkdir dir="${test}"/>
+	    <mkdir dir="${build}"/>
+	    <mkdir dir="${dist}"/>
+	  	<mkdir dir="${reports.xml.dir}"/>
+  	</target>
+
+	<target name="compile" depends="clean, init" description="Compila codigo fuente" >
+    <!-- Compile the java code from ${src} into ${build} -->
+		<javac debug="true" srcdir="${src}" destdir="${build}" classpathref="project.classpath" includeantruntime="false">
+			<!-- Revisar el classpath-->
+			<!--<classpath>
+				<fileset dir="${lib}">
+					<include name="**/*.jar"/>
+				</fileset>
+				<fileset dir="${lib}/xstream">
+					<include name="**/*.jar"/>
+				</fileset>
+			</classpath>-->
+		</javac>
+		
+		<!-- Copy files from ${src} into ${build} -->
+		<copy todir="${build}">
+		    <fileset dir="${src}">
+		      <exclude name="**/*.java"/>
+		    </fileset>
+			<fileset dir="${lib}">
+				<include name="**/*.jar"/>
+				<include name="xstream/*.jar"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="compiletest" depends="compile" description="Compilar tests">
+	        <javac debug="true" srcdir="${test}" destdir="${build}" classpathref="project.classpath" includeantruntime="false"/>
+	</target>
+
+	<target name="test" depends="compiletest" description="Ejecutar tests">
+		<junit printsummary="yes" fork="yes" haltonfailure="yes">
+	  		<formatter type="plain"/>
+	  		<batchtest fork="true">
+				<fileset dir="${test}">
+	  				<include name="**/*Test*.java"/>
+				</fileset>
+	  		</batchtest>
+	  		<classpath refid="project.classpath" />
+		</junit>
+  		<fail message="Pruebas fallidas" if="test.failure" />
+  		<junitreport todir="${reports.xml.dir}">
+  			<fileset dir="${reports.xml.dir}">
+  				<include name="TEST-*.xml" />
+  			</fileset>
+  		</junitreport>
+  	</target>
+
+	<!-- No haria falta si anda el makeJar --> 
+  	<target name="dist" depends="compile, clean.dist" description="Generar jar" >		
+    	<!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+    	<jar jarfile="${dist}/${jarname}.jar" basedir="${build}" excludes="*Test.class">
+	    	<!--<zipfileset excludes="META-INF/**/*" src="${lib}/bcprov-jdk16-145.jar"/>-->
+	    	<!--<zipfileset excludes="META-INF/**/*" src="${lib}/*.jar"/>-->
+	    	<zipgroupfileset dir="${lib}" includes="*.jar" excludes="META-INF/**/*"/>
+	        <manifest>
+	        	<attribute name="Main-Class" value="${main_class_name}"/>
+	        	<attribute name="Class-Path" value="${project.classpath}"/>
+	        </manifest>
+    	</jar>
+  	</target>
+
+	<target name="makeJar" depends="compile, clean.dist" description="Crea un Jar ejecutable">
+    	<manifest file="MANIFEST.MF">
+        	<attribute name="Built-By" value="Tomas"/>
+            <attribute name="Main-Class" value="${main_class_name}"/>
+    		<attribute name="Class-Path" value="${jar.classpath}"/>
+    		<!--<attribute name="Class-Path" value=" C:\Eclipse-Kepler\eclipse\workspace\TP2\libs\*.jar"/>-->
+    		<!--<attribute name="Class-Path" value=" C:\Eclipse-Kepler\eclipse\workspace\TP2\libs\xstream\*.jar"/>-->
+        </manifest>
+		<copy todir="${build}">
+        	<fileset dir="${src}">
+            	<exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <jar destfile="${dist}/${jarname}.jar" basedir="${build}" includes="**" manifest="MANIFEST.MF"/>
     </target>
 
-    <target name="correrPrograma" depends="makeJar" description="Corre el programa desde un Jar">
-            <ant target="clean"/>
-            <java jar="${dist}/${jarname}.jar" fork="true" />
+    <target name="jugar" depends="makeJar" description="Corre el programa desde un Jar">
+    	<ant target="clean"/>
+        <java jar="${dist}/${jarname}.jar" fork="true" classpathref="project.classpath"/>
     </target>
 
     <target name="Menu">
