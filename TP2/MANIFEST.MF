@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Ant-Version: Apache Ant 1.8.4
-Created-By: 1.7.0_17-b02 (Oracle Corporation)
-Built-By: Tomas
-Main-Class: algo3.modelo.juego.Aplicacion
-Class-Path: .
-
