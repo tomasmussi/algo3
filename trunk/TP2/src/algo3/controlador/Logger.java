@@ -17,63 +17,75 @@ public class Logger {
 	private static BufferedWriter out;
 
 	public static void loguearWarning(IOException e) {
+		if (getOutputStream() == null){
+			return;
+		}
 		try {
 			getOutputStream().write("Waringn: " + e.getMessage());
 			getOutputStream().write("\n");
 			getOutputStream().flush();
 		} catch (IOException e1) {
-			e1.printStackTrace();
 		}
 	}
 
 	public static void loguearError(IOException e) {
+		if (getOutputStream() == null){
+			return;
+		}
 		try {
 			getOutputStream().write("FALLO " + e.getMessage());
 			getOutputStream().write("\n");
 			getOutputStream().flush();
 		} catch (IOException e1) {
-			e1.printStackTrace();
 		}
 	}
 
 	public static void loguearError(String string, IOException e) {
+		if (getOutputStream() == null){
+			return;
+		}
 		try {
 			getOutputStream().write("FALLO " + e.getMessage());
 			getOutputStream().write("\n");
 			getOutputStream().flush();
 		} catch (IOException e1) {
-			e1.printStackTrace();
 		}
 	}
 
 	public static void loguearError(String string) {
+		if (getOutputStream() == null){
+			return;
+		}
 		try {
 			getOutputStream().write("FALLO " + string);
 			getOutputStream().write("\n");
 			getOutputStream().flush();
 		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 
 	public static void loguearError(CiudadNoEncontradaException e) {
+		if (getOutputStream() == null){
+			return;
+		}
 		try {
 			getOutputStream().write("FALLO " + e.getMessage());
 			getOutputStream().write("\n");
 			getOutputStream().flush();
 		} catch (IOException e1) {
-			e1.printStackTrace();
 		}
 
 	}
 
 	public static void loguearError(Exception e) {
+		if (getOutputStream() == null){
+			return;
+		}
 		try {
 			getOutputStream().write("FALLO " + e.getMessage());
 			getOutputStream().write("\n");
 			getOutputStream().flush();
 		} catch (IOException e1) {
-			e1.printStackTrace();
 		}
 	}
 
@@ -86,7 +98,6 @@ public class Logger {
 			try {
 				out = new BufferedWriter(new OutputStreamWriter (new FileOutputStream(new File(PATH + FILE_SEP + LOG))));
 			} catch (FileNotFoundException e) {
-				e.printStackTrace();
 			}
 		}
 		return out;
