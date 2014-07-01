@@ -3,8 +3,14 @@ package algo3.vista;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.MediaTracker;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
@@ -18,6 +24,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import algo3.controlador.ControladorBuscarEdificos;
@@ -39,6 +46,7 @@ public class FrameJuego extends JFrame implements Observer {
 	private static final long serialVersionUID = 9051874880109659757L;
 
 	private static String MARKER = "&markers=";
+	private static final String GOOLGE_URL = "www.google.com";
 	private static String GOOGLE_MAPS_URL = "http://maps.google.com/maps/api/staticmap?center=30,0&zoom=1&scale=2&size=900x400&sensor=false";
 
 
@@ -262,27 +270,51 @@ public class FrameJuego extends JFrame implements Observer {
 	}
 
 	public void refrescarMarcadores() {
-		browser.loadURL(GOOGLE_MAPS_URL + getMarkers());
+		if (hayConexion()){
+			browser.loadURL(GOOGLE_MAPS_URL + getMarkers());
+		} else {
+			mostrarGoogleMapsDefault();
+		}
+	}
+
+	private boolean hayConexion(){
+		//Manera tosca de chequear conexion
+		try {
+			InetAddress.getByName(GOOLGE_URL);
+			return true;
+		} catch (IOException e){
+			return false;
+		}
+	}
+
+	public void refrescarMarcadoresDefault() {
+		mostrarGoogleMapsDefault();
 	}
 
 	public void mostrarGoogleMaps() {
-		getContentPane().add(browser.getView().getComponent(), "2, 4, 5, 13, fill, fill");
-		while (browser.isLoading()) {
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		if (hayConexion()){
+			getContentPane().add(browser.getView().getComponent(), "2, 4, 5, 13, fill, fill");
+			while (browser.isLoading()) {
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				JOptionPane.showMessageDialog(null, "Cargando mapa, por favor aguarde.");
 			}
-			JOptionPane.showMessageDialog(null, "Cargando mapa, por favor aguarde.");
+			// Modifica el tamanio para que Swing pueda identificar el cambio del estado de la ventana.
+			setSize(Frame.MAXIMIZED_HORIZ, Frame.MAXIMIZED_VERT);
+			setExtendedState(JFrame.MAXIMIZED_BOTH);
+		} else {
+			mostrarGoogleMapsDefault();
 		}
-		// Modifica el tamanio para que Swing pueda identificar el cambio del estado de la ventana.
-		setSize(Frame.MAXIMIZED_HORIZ, Frame.MAXIMIZED_VERT);
-		setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
 
-
-
-
+	public void mostrarGoogleMapsDefault() {
+		PanelMapa panel = new PanelMapa();
+		getContentPane().add(panel, "2, 4, 5, 13, fill, fill");
+		panel.setSize(Frame.MAXIMIZED_HORIZ, Frame.MAXIMIZED_VERT);
+	}
 
 	protected void mostrarVentanaExpedientes() {
 		expedientes.setVisible(true);
@@ -309,6 +341,33 @@ public class FrameJuego extends JFrame implements Observer {
 		mostrarMensajeInicio();
 		refrescarMarcadores();
 		mostrarFrameDeCiudad(juego.getCiudadOrigen());
+	}
+
+	private class PanelMapa extends JPanel {
+
+
+		private static final long serialVersionUID = 1174752589700819501L;
+		private static final String MUNDO = "mundo.jpg";
+
+		private Image bgimage = null;
+
+		private PanelMapa() {
+			MediaTracker mt = new MediaTracker(this);
+			bgimage = Toolkit.getDefaultToolkit().getImage(MUNDO);
+			mt.addImage(bgimage, 0);
+			try {
+				mt.waitForAll();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+
+		@Override
+		protected void paintComponent(Graphics g) {
+			super.paintComponent(g);
+			g.drawImage(bgimage, 1, 1, null);
+		}
+
 	}
 
 
