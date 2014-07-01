@@ -168,7 +168,4 @@ public class Juego extends Observable implements Observer {
 	public String getCiudadActual() {
 		return policia.getCiudadActual().getNombre();
 	}
-
-
-
 }
