@@ -3,6 +3,7 @@ package algo3.modelo.policia;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
+import java.util.Random;
 
 import algo3.modelo.caso.Caso;
 import algo3.modelo.edificio.Edificio;
@@ -119,8 +120,22 @@ public class Policia extends Observable {
 			notifyObservers(arrestar(caso.getLadron()));
 		} else {
 			notifyObservers();
+			Random rand = new Random();
+			if (rand.nextInt(2) == 1 && this.estaEnMismaCiudadQueLadron()){
+				this.herir();
+				//TODO: Avisarle al ususario Has sido herido.
+			}
 		}
+
 		return pista;
+	}
+
+	private boolean estaEnMismaCiudadQueLadron(){
+		return (ciudadActual.equals(caso.getLadron().getCiudadActual()));
+	}
+
+	private void herir(){
+		reloj.transcurrir(grado.horasARestarPorAtaque());
 	}
 
 	public Ciudad getCiudadActual() {
