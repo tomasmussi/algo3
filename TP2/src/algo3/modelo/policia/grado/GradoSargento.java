@@ -51,7 +51,7 @@ public class GradoSargento extends Grado {
 	}
 
 	@Override
-	public int horasArestarPorAtaque() {
+	public int horasARestarPorAtaque() {
 		return HORAS_A_RESTAR;
 	}
 }

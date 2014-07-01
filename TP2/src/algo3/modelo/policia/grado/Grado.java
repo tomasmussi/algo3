@@ -19,7 +19,7 @@ public abstract class Grado {
 
 	public abstract Robable getObjetoRobado(CaracteristicaObjeto unaCaracteristica);
 
-	public abstract int horasArestarPorAtaque();
+	public abstract int horasARestarPorAtaque();
 
 	public void evaluarGrado(Policia policia) {
 		if (policia.getCantidadArrestos() == getTopeArrestos()) {

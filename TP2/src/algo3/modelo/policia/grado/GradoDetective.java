@@ -49,7 +49,7 @@ public class GradoDetective extends Grado {
 	}
 
 	@Override
-	public int horasArestarPorAtaque() {
+	public int horasARestarPorAtaque() {
 		return HORAS_A_RESTAR;
 	}
 
