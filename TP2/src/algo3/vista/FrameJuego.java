@@ -117,10 +117,10 @@ public class FrameJuego extends JFrame implements Observer {
 		lblCiudadActual.setHorizontalAlignment(SwingConstants.CENTER);
 		getContentPane().add(lblCiudadActual, "2, 2, fill, fill");
 		lblCiudadActualFoto = new JLabel();
-		Icon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage("ciudades/Sidney.jpg"));
-		lblCiudadActualFoto.setIcon(icon);
-		lblCiudadActualFoto.setHorizontalAlignment(SwingConstants.CENTER);
-		getContentPane().add(lblCiudadActualFoto, "2, 4, 3, 1, fill, fill");
+		//		Icon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage("ciudades/Sidney.jpg"));
+		//		lblCiudadActualFoto.setIcon(icon);
+		//		lblCiudadActualFoto.setHorizontalAlignment(SwingConstants.CENTER);
+		//		getContentPane().add(lblCiudadActualFoto, "2, 4, 3, 1, fill, fill");
 
 		btnVerPosiblesDestinos = new JButton("Ver posibles destinos");
 
@@ -187,6 +187,7 @@ public class FrameJuego extends JFrame implements Observer {
 		btnBuscar.addActionListener(new ControladorBuscarEdificos(this,juego));
 
 		iniciarFrameExpedientes(XMLParser.cargarCaracteristicasExpedientes());
+		setearImagenCiudad(juego.getCiudadOrigen());
 		//mostrarFrameDeCiudad(juego.getCiudadOrigen());
 		//mostrarGoogleMaps();
 		//refrescarMarcadores();
@@ -228,6 +229,15 @@ public class FrameJuego extends JFrame implements Observer {
 	public void mostarFrameDeViaje(String lblInformacion, String lblBoton, String[] informacionCombo) {
 		FrameDeViaje fViajar = new FrameDeViaje(juego, lblInformacion, lblBoton, informacionCombo, this);
 		fViajar.setVisible(true);
+	}
+
+	public void setearImagenCiudad(String nombreCiudad){
+		Image foto = this.conseguirImagenCiudad(nombreCiudad);
+		Icon icon = new ImageIcon(foto);
+		lblCiudadActualFoto.setIcon(icon);
+		lblCiudadActualFoto.setHorizontalAlignment(SwingConstants.CENTER);
+		getContentPane().add(lblCiudadActualFoto, "2, 4, 3, 1, fill, fill");
+		lblCiudadActualFoto.show();
 	}
 
 	private Image conseguirImagenCiudad(String nombreCiudad){
@@ -334,6 +344,11 @@ public class FrameJuego extends JFrame implements Observer {
 		PanelMapa panel = new PanelMapa();
 		getContentPane().add(panel, "2, 4, 5, 13, fill, fill");
 		panel.setSize(Frame.MAXIMIZED_HORIZ, Frame.MAXIMIZED_VERT);
+	}
+
+	//TODO: Implementar esta clase!
+	public void ocultarGoogleMaps(){
+
 	}
 
 	protected void mostrarVentanaExpedientes() {
