@@ -1,0 +1,334 @@
+<list>
+	<algo3.modelo.pista.Pista>
+		<entidad>Moneda</entidad>
+		<contenido>Solo se que cambio todo su dinero a %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Bandera</entidad>
+		<contenido>Me dicen mis fuentes que se fue en un avion con %variable% en sus alas.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Gobierno</entidad>
+		<contenido>Un sospechoso estuvo aqui averiguando sobre el tipo de gobierno de un %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Industria</entidad>
+		<contenido>Una persona estuvo aqui buscando informacion sobre %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>LugaresDeReferencia</entidad>
+		<contenido>Segun mis fuentes, estuvo mostrando fotos de %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Animales</entidad>
+		<contenido>Estuvo por aqui averiguando como criar %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Gente</entidad>
+		<contenido>Estuvo mostrando sus fotos con %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Idioma</entidad>
+		<contenido>Estuvo buscando diccionarios de %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Arte</entidad>
+		<contenido>Estaba buscando libros acerca de %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Religion</entidad>
+		<contenido>Estuvo buscando libros acerca de %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Turbio</entidad>
+		<contenido>Algo turbio esta sucediendo en la ciudad.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>	
+	<algo3.modelo.pista.Pista>
+		<entidad>Geografia</entidad>
+		<contenido>Dijo que iba a recorrer %variable%.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	
+	<algo3.modelo.pista.Pista>
+		<entidad>Moneda</entidad>
+		<contenido>Segun mis fuentes estuvo averiguando sobre el valor de %variable%.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Bandera</entidad>
+		<contenido>Me dicen mis fuentes que se fue en un vehiculo con %variable% en sus banderines.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Gobierno</entidad>
+		<contenido>Dijo algo acerca de tomar el te con el %variable%.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Industria</entidad>
+		<contenido>Una persona estuvo aqui buscando informacion sobre %variable%.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>LugaresDeReferencia</entidad>
+		<contenido>Segun mis fuentes, estuvo mostrando fotos de %variable%.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Animales</entidad>
+		<contenido>Estuvo por aqui averiguando como criar %variable%.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Gente</entidad>
+		<contenido>Estuvo mostrando sus fotos con %variable%.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Idioma</entidad>
+		<contenido>Estuvo buscando diccionarios de %variable%.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Arte</entidad>
+		<contenido>Estaba buscando libros acerca de %variable%.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Religion</entidad>
+		<contenido>Estuvo buscando libros acerca de %variable%.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Turbio</entidad>
+		<contenido>Algo turbio esta sucediendo en la ciudad.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Geografia</entidad>
+		<contenido>Dijo que iba a recorrer %variable%.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	
+	
+	
+	<algo3.modelo.pista.Pista>
+		<entidad>Moneda</entidad>
+		<contenido>Estuvo consultando sobre el indice devaluatorio de %variable%.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Bandera</entidad>
+		<contenido>Segun escuche, estaba mostrando una foto del hotel donde se hospedaria, tenia %variable% en su puerta.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Gobierno</entidad>
+		<contenido>Mostro interes en aprender sobre el gobierno de un %variable%.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Industria</entidad>
+		<contenido>Una persona estuvo aqui buscando informacion sobre %variable%.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>LugaresDeReferencia</entidad>
+		<contenido>Segun mis fuentes, estuvo mostrando fotos de %variable%.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Animales</entidad>
+		<contenido>Estuvo por aqui averiguando como criar %variable%.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Gente</entidad>
+		<contenido>Estuvo mostrando sus fotos con %variable%.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Idioma</entidad>
+		<contenido>Estuvo buscando diccionarios de %variable%.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Arte</entidad>
+		<contenido>Estaba buscando libros acerca de %variable%.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Religion</entidad>
+		<contenido>Estuvo buscando libros acerca de %variable%.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Turbio</entidad>
+		<contenido>Algo turbio esta sucediendo en la ciudad.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Geografia</entidad>
+		<contenido>Dijo que iba a recorrer %variable%.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	
+	
+	
+	<!--           PISTAS DEL LADRON           -->
+	<algo3.modelo.pista.Pista>
+		<entidad>Tenis</entidad>
+		<contenido>Iba con una raqueta de tenis en su bolso.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Tenis</entidad>
+		<contenido>Pregunto por los resultados de tenis.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Tenis</entidad>
+		<contenido>Queria comprar entradas para Wimbledon.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	
+	<algo3.modelo.pista.Pista>
+		<entidad>Mountain Climbing</entidad>
+		<contenido>Comento que le gustaba el Mountain Climbing.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Mountain Climbing</entidad>
+		<contenido>Comento que le gustaba el Mountain Climbing.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Mountain Climbing</entidad>
+		<contenido>Comento que le gustaba el Mountain Climbing.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	
+	<algo3.modelo.pista.Pista>
+		<entidad>Croquet</entidad>
+		<contenido>Comento que le gustaba el Croquet.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Croquet</entidad>
+		<contenido>Estuvo averiguando sobre los resultados del Croquet.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Croquet</entidad>
+		<contenido>Iba con un mazo de Croquet.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	
+	<algo3.modelo.pista.Pista>
+		<entidad>Anillo</entidad>
+		<contenido>Me gusto mucho el anillo que llevaba.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Anillo</entidad>
+		<contenido>Me llamo la atencion el gran anillo en su dedo.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Anillo</entidad>
+		<contenido>Llevaba una gran piedra preciosa en su dedo.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	
+	<algo3.modelo.pista.Pista>
+		<entidad>Tatuaje</entidad>
+		<contenido>No me gusto el tatuaje que llevaba.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Tatuaje</entidad>
+		<contenido>Ha tratado de esconder su tatuaje.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Tatuaje</entidad>
+		<contenido>Se lo veia nervioso tratando de ocultar un tatuaje.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	
+	<algo3.modelo.pista.Pista>
+		<entidad>Joyeria</entidad>
+		<contenido>Llevaba una gran cantidad de joyas.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Joyeria</entidad>
+		<contenido>Me llamo la atencion su joyeria.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Joyeria</entidad>
+		<contenido>Llevaba grandes joyas consigo.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+
+	<algo3.modelo.pista.Pista>
+		<entidad>Descapotable</entidad>
+		<contenido>Me gusto mucho su auto descapotable.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Descapotable</entidad>
+		<contenido>Me gusto mucho su auto sin techo.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Descapotable</entidad>
+		<contenido>Me gusto mucho su auto convertible.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	
+	<algo3.modelo.pista.Pista>
+		<entidad>Limusina</entidad>
+		<contenido>Tenia una gran limusina.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Limusina</entidad>
+		<contenido>Pregunto donde podia estacionar su limusina.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Limusina</entidad>
+		<contenido>Iba a todos lados con su chofer.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	
+	<algo3.modelo.pista.Pista>
+		<entidad>Motocicleta</entidad>
+		<contenido>Tenia una gran moto.</contenido>
+		<dificultad>Facil</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Motocicleta</entidad>
+		<contenido>Pregunto donde podia estacionar su motocicleta.</contenido>
+		<dificultad>Media</dificultad>
+	</algo3.modelo.pista.Pista>
+	<algo3.modelo.pista.Pista>
+		<entidad>Motocicleta</entidad>
+		<contenido>Llevaba consigo un casco.</contenido>
+		<dificultad>Dificil</dificultad>
+	</algo3.modelo.pista.Pista>
+	
+</list>
