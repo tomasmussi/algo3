@@ -1,0 +1,128 @@
+<list>
+  <algo3.modelo.objeto.CaracteristicaObjeto>
+	<nombre>Candelabro del Teatro</nombre>
+	<ciudadOrigen>Sydney</ciudadOrigen>
+  </algo3.modelo.objeto.CaracteristicaObjeto>
+  
+  <algo3.modelo.objeto.CaracteristicaObjeto>
+	<nombre>Tabla babilonica</nombre>
+	<ciudadOrigen>Bagdad</ciudadOrigen>
+  </algo3.modelo.objeto.CaracteristicaObjeto>
+  
+  <algo3.modelo.objeto.CaracteristicaObjeto>
+	<nombre>Huevo de 1000 anios</nombre>
+	<ciudadOrigen>Pekin</ciudadOrigen>
+  </algo3.modelo.objeto.CaracteristicaObjeto>
+  
+  <algo3.modelo.objeto.CaracteristicaObjeto>
+	<nombre>Colmillos de Jabali</nombre>
+	<ciudadOrigen>Port Moresby</ciudadOrigen>
+  </algo3.modelo.objeto.CaracteristicaObjeto>
+  
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Cruz engarzada de Constantinopla</nombre>
+		<ciudadOrigen>Estambul</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Corona con joyas</nombre>
+		<ciudadOrigen>Londres</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Alfombra voladora</nombre>
+		<ciudadOrigen>Bagdad</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Buda dorado</nombre>
+		<ciudadOrigen>Bangkok</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Mascara de oro inca</nombre>
+		<ciudadOrigen>Lima</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Manuscrito islamico</nombre>
+		<ciudadOrigen>Bamako</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Corona de Ivan el Terrible</nombre>
+		<ciudadOrigen>Moscu</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Mascara del rey Tut</nombre>
+		<ciudadOrigen>Cairo</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Mascara de Montezuma</nombre>
+		<ciudadOrigen>Ciudad de Mexico</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>	
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Mascara de Priam</nombre>
+		<ciudadOrigen>Atenas</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>	
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Merlion el leon dorado</nombre>
+		<ciudadOrigen>Singapur</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Pintura del Kremlin</nombre>
+		<ciudadOrigen>Moscu</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Anillo del Papa</nombre>
+		<ciudadOrigen>Roma</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Rara ceramica del imperio Mali </nombre>
+		<ciudadOrigen>Bamako</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Rara planta de te</nombre>
+		<ciudadOrigen>Colombo</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Coleccion real de cuarzo</nombre>
+		<ciudadOrigen>Katmandu</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Rubi Sernedip</nombre>
+		<ciudadOrigen>Colombo</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>	
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Llama plateada</nombre>
+		<ciudadOrigen>Lima</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Bola de oro solido</nombre>
+		<ciudadOrigen>Buenos Aires</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Copa de Stanley</nombre>
+		<ciudadOrigen>Montreal</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Loro relleno</nombre>
+		<ciudadOrigen>Rio de Janeiro</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>	
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>The Rockettes</nombre>
+		<ciudadOrigen>New York</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Casco vikingo</nombre>
+		<ciudadOrigen>Oslo</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	<algo3.modelo.objeto.CaracteristicaObjeto>
+		<nombre>Tocado del Watusi Rey</nombre>
+		<ciudadOrigen>Kigali</ciudadOrigen>
+	</algo3.modelo.objeto.CaracteristicaObjeto>
+	
+</list>
