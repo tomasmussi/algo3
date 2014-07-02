@@ -37,7 +37,6 @@ public abstract class Edificio extends Observable {
 			return true;
 		}
 		return false;
-		//return (ladron != null);
 	}
 
 	public String getCaracteristicaLadron() {
@@ -61,6 +60,9 @@ public abstract class Edificio extends Observable {
 		if (estaLadron()){
 			return LADRON_ENCONTRADO;
 		} else {
+			if (getElemento() != null){
+				getElemento().atacarPolicia(policia);
+			}
 			return policia.getGrado().getPista(this);
 		}
 	}

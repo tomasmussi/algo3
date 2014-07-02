@@ -3,7 +3,6 @@ package algo3.modelo.policia;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
-import java.util.Random;
 
 import algo3.modelo.caso.Caso;
 import algo3.modelo.edificio.Edificio;
@@ -24,6 +23,7 @@ public class Policia extends Observable {
 	private Grado grado;
 	private Caso caso;
 	private Vista vista;
+	private Vista vistaAtaque;
 	private String nombre;
 
 	public Policia() {
@@ -120,22 +120,8 @@ public class Policia extends Observable {
 			notifyObservers(arrestar(caso.getLadron()));
 		} else {
 			notifyObservers();
-			Random rand = new Random();
-			if (rand.nextInt(2) == 1 && this.estaEnMismaCiudadQueLadron()){
-				this.herir();
-				//TODO: Avisarle al ususario Has sido herido.
-			}
 		}
-
 		return pista;
-	}
-
-	private boolean estaEnMismaCiudadQueLadron(){
-		return (ciudadActual.equals(caso.getLadron().getCiudadActual()));
-	}
-
-	private void herir(){
-		reloj.transcurrir(grado.horasARestarPorAtaque());
 	}
 
 	public Ciudad getCiudadActual() {
@@ -186,6 +172,10 @@ public class Policia extends Observable {
 		addObserver(vista);
 	}
 
+	public void setVistaAtaque(Vista vistaAtaque){
+		this.vistaAtaque = vistaAtaque;
+	}
+
 	public void resetear() {
 		if (caso != null) {
 			deleteObserver(caso.getLadron());
@@ -211,5 +201,11 @@ public class Policia extends Observable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+	public void atacado() {
+		String tipoAtaque = grado.restarHorasPorAtaque(reloj);
+		vistaAtaque.update(this, tipoAtaque);
+	}
+
 
 }

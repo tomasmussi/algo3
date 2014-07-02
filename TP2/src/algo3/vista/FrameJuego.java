@@ -17,8 +17,6 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Set;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -50,8 +48,7 @@ public class FrameJuego extends JFrame implements Observer {
 	private static String MARKER = "&markers=";
 	private static final String GOOLGE_URL = "www.google.com";
 	private static String GOOGLE_MAPS_URL = "http://maps.google.com/maps/api/staticmap?center=30,0&zoom=1&scale=2&size=900x400&sensor=false";
-	private static final String CIUDADES = "ciudades/";
-	private static final String EXTENSION_JPG = ".jpg";
+
 
 	private FrameExpedientes expedientes;
 	private FramePrincipal framePrincipal;
@@ -69,7 +66,6 @@ public class FrameJuego extends JFrame implements Observer {
 	private JLabel lblReloj;
 	private JLabel lblCiudadActual;
 	private Policia policia;
-	private JLabel lblCiudadActualFoto;
 	private String path;
 	private static Map<String, String> casosEspeciales;
 
@@ -116,13 +112,9 @@ public class FrameJuego extends JFrame implements Observer {
 		lblCiudadActual.setForeground(Color.BLACK);
 		lblCiudadActual.setHorizontalAlignment(SwingConstants.CENTER);
 		getContentPane().add(lblCiudadActual, "2, 2, fill, fill");
-		lblCiudadActualFoto = new JLabel();
-		//		Icon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage("ciudades/Sidney.jpg"));
-		//		lblCiudadActualFoto.setIcon(icon);
-		//		lblCiudadActualFoto.setHorizontalAlignment(SwingConstants.CENTER);
-		//		getContentPane().add(lblCiudadActualFoto, "2, 4, 3, 1, fill, fill");
 
 		btnVerPosiblesDestinos = new JButton("Ver posibles destinos");
+
 
 		getContentPane().add(btnVerPosiblesDestinos, "8, 2, 1, 3, fill, fill");
 
@@ -133,6 +125,7 @@ public class FrameJuego extends JFrame implements Observer {
 		lblReloj.setForeground(Color.BLACK);
 		lblReloj.setHorizontalAlignment(SwingConstants.CENTER);
 		getContentPane().add(lblReloj, "4, 2, 3, 1, fill, fill");
+
 
 		btnViajar = new JButton("Viajar");
 
@@ -182,15 +175,14 @@ public class FrameJuego extends JFrame implements Observer {
 
 		// Let the game begin...
 		iniciarJuego();
-		btnVerPosiblesDestinos.addActionListener(new ControladorPosiblesDestinos(this, juego));
+		btnVerPosiblesDestinos.addActionListener(new ControladorPosiblesDestinos(juego));
 		btnViajar.addActionListener(new ControladorMoverCiudades(this, juego));
 		btnBuscar.addActionListener(new ControladorBuscarEdificos(this,juego));
 
 		iniciarFrameExpedientes(XMLParser.cargarCaracteristicasExpedientes());
-		setearImagenCiudad(juego.getCiudadOrigen());
-		//mostrarFrameDeCiudad(juego.getCiudadOrigen());
-		//mostrarGoogleMaps();
-		//refrescarMarcadores();
+		mostrarFrameDeCiudad(juego.getCiudadOrigen());
+		mostrarGoogleMaps();
+		refrescarMarcadores();
 	}
 
 	private void mostrarMensajeInicio(){
@@ -208,13 +200,6 @@ public class FrameJuego extends JFrame implements Observer {
 		JOptionPane.showMessageDialog(null, sb.toString(), "Nuevo caso", JOptionPane.INFORMATION_MESSAGE);
 	}
 
-	private void notificarAtaque(){
-		StringBuilder sb = new StringBuilder();
-		sb.append("Has sido atacado.\n");
-		JOptionPane.showMessageDialog(null, sb.toString(), "ATAQUE", JOptionPane.INFORMATION_MESSAGE);
-	}
-
-
 	private void iniciarJuego() {
 		this.juego = new Juego(policia, lblReloj, lblCiudadActual);
 		juego.addObserver(this);
@@ -231,25 +216,11 @@ public class FrameJuego extends JFrame implements Observer {
 		fViajar.setVisible(true);
 	}
 
-	public void setearImagenCiudad(String nombreCiudad){
-		Image foto = this.conseguirImagenCiudad(nombreCiudad);
-		Icon icon = new ImageIcon(foto);
-		lblCiudadActualFoto.setIcon(icon);
-		lblCiudadActualFoto.setHorizontalAlignment(SwingConstants.CENTER);
-		getContentPane().add(lblCiudadActualFoto, "2, 4, 3, 1, fill, fill");
-		lblCiudadActualFoto.show();
-	}
-
-	private Image conseguirImagenCiudad(String nombreCiudad){
-		return Toolkit.getDefaultToolkit().getImage(CIUDADES + nombreCiudad + EXTENSION_JPG);
-	}
-
 	public void mostrarFrameDeCiudad(String nombreCiudad) {
 		new FrameCiudad(nombreCiudad);
 	}
 
 	public void mostarFrameDeEdificios(String lblInformacion, String lblBoton, String[] informacionCombo) {
-		this.lblCiudadActualFoto.show();
 		FrameDeEdificios fEdificios = new FrameDeEdificios(juego, lblInformacion, lblBoton, informacionCombo);
 		fEdificios.setVisible(true);
 	}
@@ -321,7 +292,6 @@ public class FrameJuego extends JFrame implements Observer {
 	}
 
 	public void mostrarGoogleMaps() {
-		this.lblCiudadActualFoto.hide();
 		if (hayConexion()){
 			getContentPane().add(browser.getView().getComponent(), "2, 4, 5, 13, fill, fill");
 			while (browser.isLoading()) {
@@ -344,11 +314,6 @@ public class FrameJuego extends JFrame implements Observer {
 		PanelMapa panel = new PanelMapa();
 		getContentPane().add(panel, "2, 4, 5, 13, fill, fill");
 		panel.setSize(Frame.MAXIMIZED_HORIZ, Frame.MAXIMIZED_VERT);
-	}
-
-	//TODO: Implementar esta clase!
-	public void ocultarGoogleMaps(){
-
 	}
 
 	protected void mostrarVentanaExpedientes() {
@@ -402,5 +367,9 @@ public class FrameJuego extends JFrame implements Observer {
 			super.paintComponent(g);
 			g.drawImage(bgimage, 1, 1, null);
 		}
+
 	}
+
+
+
 }

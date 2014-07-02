@@ -30,7 +30,7 @@ public class ControladorViaje implements ActionListener {
 		juego.viajar((String) combo.getSelectedItem());
 		viaje.dispose();
 		frameJuego.refrescarMarcadores();
-		frameJuego.setearImagenCiudad(juego.getCiudadActual());
+		frameJuego.mostrarFrameDeCiudad(juego.getCiudadActual());
 	}
 
 }
