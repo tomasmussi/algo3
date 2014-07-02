@@ -29,6 +29,7 @@ public class Ladron implements Observer {
 	private Ciudad ciudadActual;
 	private List<Ciudad> rutaEscape;
 	private Iterator<Ciudad> iterador;
+	private boolean refugiado;
 
 	/**
 	 * 
@@ -36,6 +37,7 @@ public class Ladron implements Observer {
 	 * */
 	public Ladron(CaracteristicaLadron caracteristicas) {
 		this.caracteristicas = caracteristicas;
+		refugiado = false;
 	}
 
 	/**
@@ -69,10 +71,13 @@ public class Ladron implements Observer {
 	}
 
 	private void refugiarseEnEdificio() {
+		if (refugiado){
+			return;
+		}
+		refugiado = true;
 		Edificio[] edificios = ciudadActual.getTodosLosEdificios();
 		Random rand = new Random();
-		int posicion = rand.nextInt(edificios.length -1);
-		// Solucion temporal para que podamos pasarle edificios como null en ViajeTest:
+		int posicion = rand.nextInt(edificios.length);
 		if (edificios[posicion] != null){
 			this.entrar(edificios[posicion]);
 		}

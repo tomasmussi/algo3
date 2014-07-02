@@ -1,14 +1,13 @@
 package algo3.vista;
 
 import java.util.Observable;
-import java.util.Observer;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 
 import algo3.modelo.tiempo.Reloj;
 
-public class VistaReloj implements Vista, Observer {
+public class VistaReloj implements Vista {
 
 	private JLabel lblReloj;
 

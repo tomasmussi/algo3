@@ -90,22 +90,5 @@ public class EdificioTest {
 		assertTrue(pista.startsWith(esperado));
 	}
 
-	//TODO MUY DINAMICA LA PRUEBA Y ROMPE CUANDO GASTA HORAS POR IR A DORMIR
-	//	@Test
-	//	public void testEntrarEdificiosCiudadesDistintasRestaUnaHora(){
-	//		policia.visitarEdificioYObtenerPista(policia.getCiudadActual().getTodosLosEdificios()[1]);
-	//		assertEquals("Lunes 08:00 horas", reloj.tiempoActual());
-	//		Ciudad siguiente = esteCaso.getMapa().getCiudadesPosibles(policia.getCiudadActual()).get(2);
-	//		//Calculo la distancia de horas que transcurren
-	//		int kilometros = policia.getCiudadActual().getDistanciaCon(siguiente);
-	//		int horas = policia.calcularKilometrosPorHora(kilometros) + 8;
-	//		policia.viajarA(siguiente);
-	//		assertEquals("Lunes " + horas + ":00 horas", reloj.tiempoActual());
-	//
-	//		policia.visitarEdificioYObtenerPista(policia.getCiudadActual().getTodosLosEdificios()[2]);
-	//		horas++; //Sumo una hora por visitar un edificio
-	//		assertEquals("Lunes " + horas + ":00 horas", reloj.tiempoActual());
-	//	}
-
 
 }

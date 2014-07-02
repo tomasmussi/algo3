@@ -73,9 +73,7 @@ public class Mapa {
 	}
 
 
-	//TODO:SE LLAMA DESDE EVENTO
-	// Hacer que el 4 (cantidad de opciones a ofrecer) sea una constante. ??
-	// Devuelve las posibles ciudades, donde siempre estaran de la que viene y a la que tiene que ir + otra(s) elegida(s) Randomly.
+	/** Devuelve las posibles ciudades, donde siempre estaran de la que viene y a la que tiene que ir + otra(s) elegida(s) Randomly.*/
 	public List<Ciudad> getCiudadesPosibles(String nombreOrigen) throws CiudadNoEncontradaException{
 		Ciudad ciudadOrigen = nombresDeCiudades.get(nombreOrigen);
 		if (ciudadOrigen == null){

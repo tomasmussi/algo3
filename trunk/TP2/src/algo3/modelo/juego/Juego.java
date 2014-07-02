@@ -19,6 +19,7 @@ import algo3.modelo.policia.Policia;
 import algo3.modelo.policia.grado.Grado;
 import algo3.modelo.tiempo.Reloj;
 import algo3.vista.Vista;
+import algo3.vista.VistaAtaque;
 import algo3.vista.VistaPolicia;
 import algo3.vista.VistaReloj;
 
@@ -36,6 +37,7 @@ public class Juego extends Observable implements Observer {
 		inicializarReloj(componenteReloj);
 		inicializarCiudadActual(componenteCiudadActual);
 		policia.setReloj(reloj);
+		policia.setVistaAtaque(new VistaAtaque());
 		iniciarCaso();
 	}
 
@@ -66,7 +68,6 @@ public class Juego extends Observable implements Observer {
 		reloj = new Reloj();
 		vistaReloj = new VistaReloj(componenteReloj);
 		reloj.setVista(vistaReloj);
-		//reloj.addObserver(this);
 		reloj.notificar();
 	}
 
@@ -89,11 +90,6 @@ public class Juego extends Observable implements Observer {
 		if (arg != null) {
 			// Fue un update proveniente de Policia
 			Boolean atrapado = (Boolean) arg;
-			if (atrapado) {
-				System.out.println("ATRAPADO");
-			} else {
-				System.out.println("SE ESCAPO");
-			}
 			finalizarCaso(atrapado ? "Ladron Atrapado" : "No se pudo atrapar ladron");
 		}
 	}

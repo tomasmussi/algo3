@@ -94,7 +94,7 @@ public class VentanaIngresarNombre extends JFrame {
 	}
 
 	private Policia obtenerJugador() {
-		return XMLParser.cargarPoliciaDeArchivo(path, txtNombrePolicia.getText());
+		return XMLParser.cargarPoliciaDeArchivo(path, txtNombrePolicia.getText().trim());
 	}
 
 	// Accion para cerrar ventana
