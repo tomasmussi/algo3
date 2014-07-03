@@ -1,7 +1,6 @@
 package algo3.modelo.mapa;
 
 import algo3.modelo.edificio.Edificio;
-import algo3.modelo.edificio.EdificioFactory;
 
 public class Ciudad {
 
@@ -14,6 +13,10 @@ public class Ciudad {
 	private String nombre;
 	private InformacionCiudad informacion;
 
+	/**
+	 * Construye una ciudad a partir de 3 edificios y la informacion propia de la ciudad
+	 * Almacena tambien la latitud y longitud de la misma
+	 * */
 	public Ciudad(Edificio edificio1, Edificio edificio2, Edificio edificio3, InformacionCiudad informacion) {
 		this.nombre = informacion.getNombreCiudad();
 		this.latitud = Float.valueOf(informacion.getLatitud());
@@ -24,17 +27,6 @@ public class Ciudad {
 		this.informacion = informacion;
 	}
 
-	public Ciudad(InformacionCiudad informacion) {
-		this.nombre = informacion.getNombreCiudad();
-		this.latitud = Float.valueOf(informacion.getLatitud());
-		this.longitud = Float.valueOf(informacion.getLongitud());
-		this.informacion = informacion;
-	}
-
-	public int calcularDistanciaCon(Ciudad estaCiudad) {
-		return (int) (Math.pow((Math.pow(this.latitud - estaCiudad.latitud, 2) + Math.pow(this.longitud - estaCiudad.longitud, 2)), 0.5));
-	}
-
 	public String getNombre() {
 		return nombre;
 	}
@@ -43,29 +35,14 @@ public class Ciudad {
 		return informacion.getInformacionViaje();
 	}
 
-	public String getMoneda() {
-		return informacion.getInformacionFinanciera();
-	}
-
-	public String getGobierno() {
-		return informacion.getGobierno();
-	}
-
 	public Edificio[] getTodosLosEdificios() {
 		Edificio[] edificios = { edificio1, edificio2, edificio3 };
 		return edificios;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Ciudad: " + this.nombre;
-	}
-
-	public void agregarInformacionProximaCiudad(InformacionCiudad infoCiudad) {
-		this.edificio1 = EdificioFactory.crearEdificioFinancieroConEntidad(infoCiudad);
-		this.edificio2 = EdificioFactory.crearEdificioCulturalConEntidad(infoCiudad);
-		this.edificio3 = EdificioFactory.crearEdificioDeViajeConEntidad(infoCiudad);
 	}
 
 	@Override
@@ -102,6 +79,10 @@ public class Ciudad {
 		return distFrom(latitud, longitud, ciudad.latitud, ciudad.longitud).intValue();
 	}
 
+	/**
+	 * Metodo que calcula la distancia entre dos ciudades a partir de sus latitudes y longitudes
+	 * @return distancia en kilometros que separa ambas ciudades recorridas por el globo
+	 * */
 	public static Float distFrom(float latitud1, float longitud1, float latitud2, float longitud2) {
 		double dLat = Math.toRadians(latitud2-latitud1);
 		double dLng = Math.toRadians(longitud2-longitud1);

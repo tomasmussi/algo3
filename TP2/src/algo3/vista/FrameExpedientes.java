@@ -41,6 +41,10 @@ public class FrameExpedientes extends JFrame {
 	JComboBox<String> cmbCaracteristicas;
 	JComboBox<String> cmbVehiculos;
 
+	/**
+	 * Carga una ventana con los expedientes disponibles
+	 * Carga las caracteristicas disponibles leidas de los archivos de configuracion cargados
+	 * */
 	public FrameExpedientes(Juego juego, Map<String, Set<String>> caracteristicas) {
 		this.caracteristicas = caracteristicas;
 

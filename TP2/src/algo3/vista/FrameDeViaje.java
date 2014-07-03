@@ -27,8 +27,13 @@ public class FrameDeViaje extends JFrame {
 	private JButton btnCancelar;
 
 
+	/**
+	 * Ventana de Viaje
+	 * Muestra los destinos posibles para que el usuario elija uno a viajar.
+	 * */
 	public FrameDeViaje(Juego juego, String lblInformacion, String lblBoton, String[] informacionCombo, FrameJuego frameJuego) {
 		setResizable(false);
+		setAlwaysOnTop(true);
 		setSize(250, 130);
 		setLocation(50, 50);
 

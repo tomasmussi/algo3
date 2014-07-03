@@ -24,6 +24,10 @@ public class FramePrincipal extends JFrame {
 	private JPanel imagenPrincipal;
 
 
+	/**
+	 * Ventana de inicio de juego y carga de jugador
+	 * Se encarga de tomar el jugador, leer configuracion si hay uno guardado o crear un nuevo jugador y comenzar el juego
+	 * */
 	public FramePrincipal(String path) {
 		ingresarInformacion = new VentanaIngresarNombre(this, path);
 		getContentPane().setLayout(
@@ -49,6 +53,10 @@ public class FramePrincipal extends JFrame {
 		ingresarInformacion.setVisible(true);
 	}
 
+	/**
+	 * Panel principal de la ventana.
+	 * Muestra la imagen de Carmen Sandiego
+	 * */
 	class JPanelPrincipal extends JPanel {
 
 		private static final long serialVersionUID = 1174752589700819501L;

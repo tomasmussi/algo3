@@ -4,6 +4,9 @@ import java.util.Observable;
 
 import javax.swing.JOptionPane;
 
+/**
+ * Mostrado cuando se origina un ataque al jugador
+ * */
 public class VistaAtaque implements Vista {
 
 	@Override

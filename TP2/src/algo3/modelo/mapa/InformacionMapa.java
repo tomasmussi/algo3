@@ -14,6 +14,7 @@ public class InformacionMapa {
 	private static InformacionMapa instance;
 
 	private InformacionMapa(){
+
 	}
 
 	public synchronized static InformacionMapa getInstance() {
@@ -24,6 +25,9 @@ public class InformacionMapa {
 		return instance;
 	}
 
+	/**
+	 * Carga la informacion de ciudades
+	 * */
 	private void refrescarInformacion(){
 		ciudadesDelMundo = new HashMap<String, InformacionCiudad>();
 		Iterator<InformacionCiudad> iter = XMLParser.cargarCiudades().iterator();
@@ -33,7 +37,12 @@ public class InformacionMapa {
 		}
 	}
 
+	/**
+	 * Devuelve una lista de ciudades posibles.
+	 * @return lista de ciudades
+	 * */
 	public List<InformacionCiudad> getListadoCiudades(){
+		// Devuelvo la informacion en otra coleccion para que no modifiquen las ciudades desde afuera
 		return new ArrayList<InformacionCiudad>(ciudadesDelMundo.values());
 	}
 
@@ -44,13 +53,5 @@ public class InformacionMapa {
 		return ciudadesDelMundo.get(ciudadOrigen);
 	}
 
-	public void cargarCiudades(List<InformacionCiudad> ciudades){
-		ciudadesDelMundo = new HashMap<String, InformacionCiudad>();
-		Iterator<InformacionCiudad> iter = ciudades.iterator();
-		while (iter.hasNext()){
-			InformacionCiudad info = iter.next();
-			ciudadesDelMundo.put(info.getNombreCiudad(), info);
-		}
-	}
 
 }

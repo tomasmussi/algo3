@@ -69,6 +69,14 @@ public class FrameJuego extends JFrame implements Observer {
 	private String path;
 	private static Map<String, String> casosEspeciales;
 
+	/**
+	 * Ventana de juego
+	 * Se desarrollaran todos los casos a traves de esta ventana
+	 * Se encarga de capturar todos los eventos del usuario a traves de los botones.
+	 * Los controladores toman esos pedidos y realizan cambios en el modelo
+	 * Estos cambios quedan notificados por el modelo y se actualizan las vistas que correspondan
+	 * 
+	 * */
 	public FrameJuego(final FramePrincipal framePrincipal, Policia policia, String path) {
 		this.framePrincipal = framePrincipal;
 		this.policia = policia;

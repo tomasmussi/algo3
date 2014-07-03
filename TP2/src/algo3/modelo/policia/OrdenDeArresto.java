@@ -6,6 +6,9 @@ public class OrdenDeArresto {
 
 	private CaracteristicaLadron caracteristicaLadron;
 
+	/**
+	 * Crea una orden de arresto de acuerdo a las caracteristicas del ladron
+	 * */
 	public OrdenDeArresto(CaracteristicaLadron caracteristica) {
 		this.caracteristicaLadron = caracteristica;
 	}

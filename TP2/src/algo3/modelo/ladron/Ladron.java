@@ -51,6 +51,11 @@ public class Ladron implements Observer {
 	}
 
 
+	/**
+	 * Elige la escapatoria de ciudades
+	 * De acuerdo a las ciudades que tiene cargadas el juego, CiudadFactory le provee una lista de ciudades
+	 * por la cual el ladron se escapara
+	 * */
 	private void elegirEscapatoria() throws CiudadNoEncontradaException {
 		rutaEscape = CiudadFactory.crearRecorridoDeCiudades(caracteristicas, objetoRobado.getCiudadOrigen(), objetoRobado.getCantidadDeCiudades());
 		iterador = rutaEscape.iterator();
@@ -62,6 +67,10 @@ public class Ladron implements Observer {
 		return ciudadActual;
 	}
 
+	/**
+	 * Mueve al ladron al siguiente pais cuando el policia viaja a la ciudad en la que esta el ladron
+	 * o en su defecto si esta en la ultima ciudad del recorrido se esconde en uno de los 3 edificios de la ciudad
+	 * */
 	public void moverAlSiguientePais() {
 		if (iterador.hasNext()){
 			ciudadActual = iterador.next();
@@ -70,6 +79,12 @@ public class Ladron implements Observer {
 		}
 	}
 
+	/**
+	 * Se refugia en un edificio
+	 * Si ya se habia refugiado en el caso, no lo vuelve a hacer.
+	 * Esta accion es porque el policia lo notifica que esta en la ciudad mas de una vez
+	 * porque el ladron observa todos los movimientos del jugador.
+	 * */
 	private void refugiarseEnEdificio() {
 		if (refugiado){
 			return;

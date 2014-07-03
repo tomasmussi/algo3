@@ -56,6 +56,10 @@ public class Caso{
 		return maximaCantidad != 1 ? rand.nextInt(maximaCantidad - 1) : 0;
 	}
 
+	/**
+	 * Genera una orden de arresto para las caracteristicas cargadas por el jugador
+	 * @return Lista de todos los sospechosos que coinciden con las caracteristicas
+	 * */
 	public List<CaracteristicaLadron> generarOrdenDeArresto(CaracteristicaLadron caracteristica){
 		List<CaracteristicaLadron> expedientes = EstacionDePolicia.getInstance().buscarExpediente(caracteristica);
 		if (expedientes.size() == 1){
@@ -82,18 +86,6 @@ public class Caso{
 		return ladron.getCiudadOrigen();
 	}
 
-	public boolean ultimoPaisLadron(Ciudad ciudadActual) {
-		return ciudadActual.equals(ladron.getCiudadActual());
-	}
-
-	/**
-	 * Notifica al caso el viaje del policia. Si el Ladron estaba en esa ciudad, se escapa.
-	 */
-	public void notificarViaje(Ciudad ciudadActual) {
-		if(ciudadActual.equals(ladron.getCiudadActual())){
-			ladron.moverAlSiguientePais();
-		}
-	}
 
 
 }

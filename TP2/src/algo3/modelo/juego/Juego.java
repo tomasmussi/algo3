@@ -31,6 +31,12 @@ public class Juego extends Observable implements Observer {
 	private Caso caso;
 	private Reloj reloj;
 
+	/**
+	 * Crea el juego.
+	 * @param policia: el jugador y su configuracion de dificultad
+	 * @param componenteReloj la vista en la que se actualizara el estado del reloj
+	 * @param componenteCiudadActual la vista que se actualizara con la ciudad actual del jugador
+	 * */
 	public Juego(Policia policia, JComponent componenteReloj, JComponent componenteCiudadActual) {
 		this.policia = policia;
 		policia.addObserver(this);
@@ -41,6 +47,9 @@ public class Juego extends Observable implements Observer {
 		iniciarCaso();
 	}
 
+	/**
+	 * Deja al juego en un estado valido para comenzar un juego nuevo
+	 * */
 	public void resetear() {
 		reloj.resetear();
 		reloj.notificar();
@@ -64,6 +73,9 @@ public class Juego extends Observable implements Observer {
 		}
 	}
 
+	/**
+	 * Inicializa el reloj y lo deja listo para comenzar el primer caso
+	 * */
 	private void inicializarReloj(JComponent componenteReloj) {
 		reloj = new Reloj();
 		vistaReloj = new VistaReloj(componenteReloj);
@@ -71,12 +83,18 @@ public class Juego extends Observable implements Observer {
 		reloj.notificar();
 	}
 
+	/**
+	 * Inicializa la vista de ciudad
+	 * */
 	private void inicializarCiudadActual(JComponent componenteCiudadActual) {
 		vistaCiudad = new VistaPolicia(componenteCiudadActual);
 		policia.setVista(vistaCiudad);
 		policia.addObserver(this);
 	}
 
+	/**
+	 * Cierra el caso y notifica a la vista para que tome las acciones correspondientes
+	 * */
 	private void finalizarCaso(String estado) {
 		setChanged();
 		notifyObservers(estado);
@@ -94,11 +112,18 @@ public class Juego extends Observable implements Observer {
 		}
 	}
 
+	/**
+	 * Guarda el estado del jugador hasta el momento
+	 * */
 	public boolean guardar(String path) {
 		return XMLParser.guardarPolicia(policia, path);
 	}
 
 
+	/**
+	 * Muestra las ciudades posibles a viajar a partir de la ciudad actual del jugador
+	 * @return un array de strings con las posibilidades
+	 * */
 	public String[] getCiudadesPosibles() {
 		List<Ciudad> ciudadesPosibles =  caso.getMapa().getCiudadesPosibles(policia.getCiudadActual());
 		String[] ciudades = new String[ciudadesPosibles.size()];
@@ -109,7 +134,10 @@ public class Juego extends Observable implements Observer {
 		return ciudades;
 	}
 
-
+	/**
+	 * Viaja a una determinada ciudad
+	 * @throws CiudadNoEncontradaException si la ciudad pasada por parametro no la genero el mapa y por lo tanto es desconocida
+	 * */
 	public void viajar(String ciudad) {
 		Iterator<Ciudad> ciudades = caso.getMapa().getCiudadesPosibles(policia.getCiudadActual()).iterator();
 		boolean encontrado = false;
@@ -125,6 +153,13 @@ public class Juego extends Observable implements Observer {
 		}
 	}
 
+	/**
+	 * Emite una orden de arresto dadas ciertas caracteristicas
+	 * @return array de strings correspondientes a los ladrones que coinciden.
+	 * Si devuelve un solo nombre, se emitio la orden
+	 * Si devuelve 0 o mas de 1, informa que por exceso o por defecto de caracteristicas
+	 * no se pudo emitir la orden
+	 * */
 	public String[] emitirOrdenDeArresto(List<String> caracteristicas) {
 		CaracteristicaLadron carac = new CaracteristicaLadron(null, caracteristicas.get(0),
 				caracteristicas.get(1), caracteristicas.get(2), caracteristicas.get(3), caracteristicas.get(4));
@@ -136,6 +171,9 @@ public class Juego extends Observable implements Observer {
 		return nombres;
 	}
 
+	/**
+	 * Informa los nombres de los edificios disponibles en la ciudad actual
+	 * */
 	public String[] getEdificios() {
 		Edificio[] edificios = policia.getCiudadActual().getTodosLosEdificios();
 		String[] nombres = new String[edificios.length];
@@ -145,22 +183,39 @@ public class Juego extends Observable implements Observer {
 		return nombres;
 	}
 
+	/**
+	 * Ingresa al edificio para obtener una pista
+	 * @param edificio indice de los 3 posibles edificios a ingresar
+	 * @return pista devuelve la pista que proporciona el edificio
+	 * */
 	public String buscarPista(int edificio) {
 		return policia.visitarEdificioYObtenerPista(policia.getCiudadActual().getTodosLosEdificios()[edificio]);
 	}
 
+	/**
+	 * Devuelve el sexo del ladron para informarlo al principio del caso
+	 * */
 	public String getSexoLadron() {
 		return caso.getLadron().getSexo();
 	}
 
+	/**
+	 * Devuelve el nombre de la ciudad de origen del objeto robado del caso
+	 * */
 	public String getCiudadOrigen() {
 		return caso.getCiudadOrigenDeObjeto().getNombre();
 	}
 
+	/**
+	 * Devuelve el nombre del objeto robado
+	 * */
 	public String getNombreObjeto() {
 		return caso.getLadron().getObjetoRobado().getNombre();
 	}
 
+	/**
+	 * Devuelve el nombre de la ciudad actual que esta el jugador
+	 * */
 	public String getCiudadActual() {
 		return policia.getCiudadActual().getNombre();
 	}

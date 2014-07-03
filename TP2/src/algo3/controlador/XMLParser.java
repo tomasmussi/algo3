@@ -177,6 +177,11 @@ public class XMLParser {
 		return pistas;
 	}
 
+	/**
+	 * Guarda el estado del juego en el directorio pasado por parametro
+	 * @return true si pudo guardar al policia exitosamente, false de lo contrario
+	 * 
+	 * */
 	public static boolean guardarPolicia(Policia policia, String path) {
 		try {
 			File archivo = null;
@@ -194,18 +199,11 @@ public class XMLParser {
 		return true;
 	}
 
-	public static Policia cargarPolicia() {
-		Policia policia = null;
-		try {
-			InputStream in = new FileInputStream(new File("C:\\Users\\EM\\Desktop\\objet.xml"));
-			policia = (Policia) xmlStream.fromXML(in);
-		} catch (Exception e) {
-			Logger.loguearError(e);
-			policia = new Policia();
-		}
-		return policia;
-	}
-
+	/**
+	 * Carga un policia de dicho path, si existe en la ruta pasada por parametro
+	 * Si no encuentra ningun archivo, genera un nuevo policia
+	 * @return el jugador guardado en el archivo y si no lo encuentra, devuelve un jugador nuevo
+	 * */
 	public static Policia cargarPoliciaDeArchivo(String path, String nombreJugador){
 		//Busco primero si existe el jugador
 		Policia policia = null;

@@ -13,13 +13,17 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
-public class FrameCiudad extends JFrame{
+public class FrameCiudad extends JFrame {
 
 	private static final String CIUDADES = "ciudades/";
 	private static final String EXTENSION_JPG = ".jpg";
 	private static final long serialVersionUID = 1L;
 
 
+	/**
+	 * Construye una ventana y muestra una imagen de la ciudad
+	 * @param nombreCiudad nombre de la ciudad a mostrar imagen
+	 * */
 	public FrameCiudad(String nombreCiudad) {
 		getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
@@ -37,6 +41,10 @@ public class FrameCiudad extends JFrame{
 	}
 
 
+	/**
+	 * Panel de la ventana
+	 * En el panel se dibujara la imagen de la ciudad
+	 * */
 	class JPanelPrincipal extends JPanel {
 
 		private static final long serialVersionUID = 1174752589700819501L;
