@@ -6,6 +6,10 @@ import algo3.modelo.objeto.Robable;
 import algo3.modelo.policia.Policia;
 import algo3.modelo.tiempo.Reloj;
 
+/**
+ * Representa el nivel del jugador y en base al mismo, que clase de pistas, cantidad de kilometros por hora que puede viajar,
+ * que tipo de ataque recibe por parte del ladron y cuando avanza al siguiente grado
+ * */
 public abstract class Grado {
 
 	public abstract String getPlaca();
@@ -24,7 +28,11 @@ public abstract class Grado {
 
 	protected abstract String getMensajeAtaque();
 
-	public void evaluarGrado(Policia policia) {
+	/**
+	 * Evalua el grado del policia en base a los arrestos actuales
+	 * Avanza de grado si llego al tope de arrestos de su categoria
+	 * */
+	public final void evaluarGrado(Policia policia) {
 		if (policia.getCantidadArrestos() == getTopeArrestos()) {
 			policia.setGrado(getGradoSiguiente());
 		}

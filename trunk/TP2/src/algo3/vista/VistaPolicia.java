@@ -7,6 +7,9 @@ import javax.swing.JLabel;
 
 import algo3.modelo.policia.Policia;
 
+/**
+ * Muestra la ciudad actual en la que esta el jugador
+ * */
 public class VistaPolicia implements Vista {
 
 

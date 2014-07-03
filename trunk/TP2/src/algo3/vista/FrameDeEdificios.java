@@ -29,6 +29,8 @@ public class FrameDeEdificios extends JFrame {
 
 	public FrameDeEdificios(Juego juego, String lblInformacion, String lblBoton, String[] informacionCombo) {
 		setResizable(false);
+		// Para que el usuario no abra muchas ventanas de edificios
+		setAlwaysOnTop(true);
 		setSize(250, 130);
 		setLocation(50, 50);
 

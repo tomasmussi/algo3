@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import algo3.modelo.excepcion.CiudadNoEncontradaException;
 import algo3.modelo.mapa.Ciudad;
 import algo3.modelo.mapa.CiudadFactory;
 import algo3.modelo.mapa.InformacionCiudad;
@@ -17,10 +16,14 @@ public class Mapa {
 
 	private static final int CANTIDAD_CIUDADES_POSIBLES = 4;
 
-	// Hash para tener las ciudades creadas y las posibles ciudades de destino
+	/**
+	 * Hash para tener las ciudades creadas y las posibles ciudades de destino
+	 */
 	private Map<Ciudad, List<Ciudad>> ciudadesUsadas;
 
-	// Hash para tener los nombres de ciudades que me fueron pidiendo y las ciudades creadas
+	/**
+	 * Hash para tener los nombres de ciudades que me fueron pidiendo y las ciudades creadas
+	 */
 	private Map<String, Ciudad> nombresDeCiudades;
 	private Map<String, InformacionCiudad> ciudadesLibres;
 
@@ -31,7 +34,7 @@ public class Mapa {
 	 * y ademas se encargara de crear ciudades de relleno en caso de que el jugador se equivoque
 	 * y elija mal caminos
 	 */
-	public Mapa (List<Ciudad> escapatoria) {
+	public Mapa(List<Ciudad> escapatoria) {
 		ciudadesUsadas = new HashMap<Ciudad, List<Ciudad>>();
 		nombresDeCiudades = new HashMap<String, Ciudad>();
 		ciudadesLibres = new HashMap<String, InformacionCiudad>();
@@ -51,6 +54,10 @@ public class Mapa {
 		}
 	}
 
+	/**
+	 * Relaciona una ciudad con sus anteriores y posteriores, si tiene
+	 * Solo utilizado por ciudades del recorrido
+	 * */
 	private void crearMapaDeRecorrido(List<Ciudad> escapatoria) {
 		for (int i = 0; i < escapatoria.size(); i++){
 			Ciudad unaCiudad = escapatoria.get(i);
@@ -73,15 +80,9 @@ public class Mapa {
 	}
 
 
-	/** Devuelve las posibles ciudades, donde siempre estaran de la que viene y a la que tiene que ir + otra(s) elegida(s) Randomly.*/
-	public List<Ciudad> getCiudadesPosibles(String nombreOrigen) throws CiudadNoEncontradaException{
-		Ciudad ciudadOrigen = nombresDeCiudades.get(nombreOrigen);
-		if (ciudadOrigen == null){
-			throw new CiudadNoEncontradaException("La ciudad " + nombreOrigen + " no se encuentra dentro de las ciudades posibles");
-		}
-		return getCiudadesPosibles(ciudadOrigen);
-	}
-
+	/**
+	 * Devuelve las posibles ciudades, donde siempre estaran de la que viene y a la que tiene que ir + otra(s) elegida(s) Randomly.
+	 */
 	public List<Ciudad> getCiudadesPosibles(Ciudad ciudadOrigen){
 
 		List<Ciudad> origenPosibles = ciudadesUsadas.get(ciudadOrigen);
@@ -103,10 +104,6 @@ public class Mapa {
 		return origenPosibles;
 	}
 
-	public boolean sonConsecutivas(Ciudad ciudadPrevia, Ciudad ciudadPosterior) {
-		List<Ciudad> ciudadesPosibles = ciudadesUsadas.get(ciudadPrevia);
-		return ciudadesPosibles.contains(ciudadPosterior);
-	}
 
 	/**
 	 * Llamado por ladron para encapsular su ruta de escape y tener la informacion de las ciudades

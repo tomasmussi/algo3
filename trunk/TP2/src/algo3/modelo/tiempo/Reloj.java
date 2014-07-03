@@ -13,6 +13,9 @@ public class Reloj extends Observable {
 	private int numeroDia;
 	private int horaDia;
 
+	/**
+	 * Crea el reloj del juego para llevar el tiempo transcurrido desde que comienza el caso hasta que termina
+	 * */
 	public Reloj() {
 		resetear();
 	}
@@ -21,10 +24,19 @@ public class Reloj extends Observable {
 		addObserver(vista);
 	}
 
+	/**
+	 * Imprime de una forma elegante el tiempo actual del caso.
+	 * */
 	public String tiempoActual() {
 		return dias[numeroDia] + " " + formato.format(horaDia) + ":00 horas";
 	}
 
+	/**
+	 * Transcurre una cantidad de horas que corresponda
+	 * Es recursivo dado que al transcurrir tiempo, puedo llegar al limite en el cual el jugador tiene que dormir,
+	 * entonces hay que llamar devuelta al transcurrir horas, pero no tiene que llamarse mas de una vez, por eso
+	 * @param todaviaNoDurmio para identificar si tiene que dormir o no si esta en el rango horario correspondiente
+	 * */
 	public void transcurrirRecursivo(int horas, boolean todaviaNoDurmio) {
 
 		int horaTotal = horaDia + horas;
@@ -66,6 +78,9 @@ public class Reloj extends Observable {
 		return tiempoActual();
 	}
 
+	/**
+	 * Deja al reloj en el estado de recien iniciado el caso
+	 * */
 	public void resetear() {
 		numeroDia = 0;
 		horaDia = 7;

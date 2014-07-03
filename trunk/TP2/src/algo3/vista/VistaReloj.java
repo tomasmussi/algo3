@@ -7,6 +7,9 @@ import javax.swing.JLabel;
 
 import algo3.modelo.tiempo.Reloj;
 
+/**
+ * Muestra la hora actual del caso
+ * */
 public class VistaReloj implements Vista {
 
 	private JLabel lblReloj;

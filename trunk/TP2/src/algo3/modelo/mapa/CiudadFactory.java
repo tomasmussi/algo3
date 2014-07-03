@@ -19,6 +19,10 @@ public class CiudadFactory {
 		return crearCiudadConEdificiosSiguienteCiudad(null, origen, destino);
 	}
 
+	/**
+	 * Crea una ciudad con informacion en sus edificios de la siguiente ciudad
+	 * @return ciudad con los edificios correctos
+	 * */
 	public static Ciudad crearCiudadConEdificiosSiguienteCiudad(CaracteristicaLadron caracteristicas,
 			InformacionCiudad origen, InformacionCiudad destino) {
 		Edificio edificio1 = EdificioFactory.crearEdificioCulturalConEntidad(caracteristicas, destino);
@@ -77,10 +81,6 @@ public class CiudadFactory {
 		}
 		recorrido.add(CiudadFactory.crearCiudadFinalRecorrido(ciudades.get(i)));
 		return recorrido;
-	}
-
-	public static List<Ciudad> crearRecorridoDeCiudades(String ciudadOrigen, int cantidadCiudades) throws CiudadNoEncontradaException {
-		return CiudadFactory.crearRecorridoDeCiudades(null, ciudadOrigen, cantidadCiudades);
 	}
 
 

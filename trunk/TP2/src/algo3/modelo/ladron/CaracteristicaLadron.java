@@ -29,6 +29,9 @@ public class CaracteristicaLadron implements Cloneable {
 	// Vehiculo: Descapotable - Limusina - Deportivo - Moto
 	private String vehiculo;
 
+	/**
+	 * Construye una caracteristica de un ladron del juego
+	 * */
 	public CaracteristicaLadron(String nombre, String sexo, String hobby, String colorCabello, String caracteristica, String vehiculo) {
 		this.nombre = nombre;
 		this.sexo = sexo;
@@ -39,6 +42,11 @@ public class CaracteristicaLadron implements Cloneable {
 
 	}
 
+	/**
+	 * Devuelve un mapa de las caracteristicas del ladron
+	 * Utilizado para informar al jugador las caracteristicas de los ladrones disponibles que tiene el juego
+	 * luego de haber cargado el archivo de configuracion
+	 * */
 	public Map<String, String> getCaracteristicasPorTipo(){
 		Map<String, String> caracteristicasPorTipo = new HashMap<String, String>();
 		caracteristicasPorTipo.put(SEXO, sexo);

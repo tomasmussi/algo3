@@ -152,11 +152,4 @@ public class JuegoConsola implements Observer {
 		return XMLParser.guardarPolicia(policia, path);
 	}
 
-	public Policia cargar() {
-		policia = XMLParser.cargarPolicia();
-		finalizarCaso();
-		inicializarReloj();
-		return policia;
-	}
-
 }

@@ -22,20 +22,6 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	private String latitud;
 	private String longitud;
 
-	@Override
-	public String toString() {
-		return nombreCiudad;
-	}
-
-	/**
-	 * Crea una Informacion completamente vacia
-	 * Hay que pasarle por parametro todas las propiedades
-	 * 
-	 */
-	public InformacionCiudad() {
-		super();
-	}
-
 	/** Crea una Informacion con los valores que le sean proporcionados */
 	public InformacionCiudad(String nombreCiudad, String coloresBandera, String moneda, String gobierno) {
 		super();
@@ -45,16 +31,12 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 		this.gobierno = gobierno;
 	}
 
-	/**
-	 * Devuelve informacion relevante para utilizar desde un
-	 * Aeropuerto, Puerto o algun otro edificio que utilice informacion
-	 * sobre bandera o moneda del pais
-	 * 
-	 */
+
 	@Override
 	public String getInformacionViaje() {
 		return coloresBandera;
 	}
+
 
 	@Override
 	public String getInformacionFinanciera() {
@@ -180,4 +162,10 @@ public class InformacionCiudad implements InformacionFinanciera, InformacionCult
 	public void setLongitud(String longitud) {
 		this.longitud = longitud;
 	}
+
+	@Override
+	public String toString() {
+		return nombreCiudad;
+	}
+
 }
