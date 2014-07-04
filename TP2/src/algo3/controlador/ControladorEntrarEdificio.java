@@ -1,34 +1,50 @@
 package algo3.controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JOptionPane;
 
 import algo3.modelo.edificio.Edificio;
 import algo3.modelo.juego.Juego;
-import algo3.vista.FrameDeEdificios;
 
-public class ControladorEntrarEdificio implements ActionListener {
+public class ControladorEntrarEdificio implements MouseListener {
 
 	private Juego juego;
-	private FrameDeEdificios frame;
+	private int edificio;
 
-	public ControladorEntrarEdificio(Juego juego, FrameDeEdificios frameDeEdificios) {
+	public ControladorEntrarEdificio(Juego juego, int edificio) {
 		this.juego = juego;
-		this.frame = frameDeEdificios;
+		this.edificio = edificio;
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		int edificio = frame.getEdificioSeleccionado();
+	public void mouseClicked(MouseEvent arg0) {
 		String pista = juego.buscarPista(edificio);
-		if (!Edificio.LADRON_ENCONTRADO.equals(pista)){
+		if (!Edificio.LADRON_ENCONTRADO.equals(pista)) {
 			JOptionPane.showMessageDialog(null, pista);
-			frame.setVisible(true);
-		} else {
-			frame.dispose();
 		}
+
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// Nada.
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// Nada.
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// Nada.
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// Nada.
 	}
 
 }
