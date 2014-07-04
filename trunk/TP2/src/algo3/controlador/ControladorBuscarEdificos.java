@@ -11,14 +11,13 @@ public class ControladorBuscarEdificos implements ActionListener {
 	private Juego juego;
 	private FrameJuego frame;
 
-
-	public ControladorBuscarEdificos(FrameJuego frameJuego,Juego juego) {
+	public ControladorBuscarEdificos(FrameJuego frameJuego, Juego juego) {
 		this.juego = juego;
 		this.frame = frameJuego;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		frame.mostarFrameDeEdificios("Entrar en:", "Buscar", juego.getEdificios());
+		frame.mostrarPanelEdificios(juego.getEdificios());
 	}
 }

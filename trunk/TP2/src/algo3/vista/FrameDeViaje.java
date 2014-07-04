@@ -26,7 +26,6 @@ public class FrameDeViaje extends JFrame {
 	private JButton btnAccion;
 	private JButton btnCancelar;
 
-
 	/**
 	 * Ventana de Viaje
 	 * Muestra los destinos posibles para que el usuario elija uno a viajar.
@@ -35,7 +34,7 @@ public class FrameDeViaje extends JFrame {
 		setResizable(false);
 		setAlwaysOnTop(true);
 		setSize(250, 130);
-		setLocation(50, 50);
+		setLocation(frameJuego.getViajarLocationForFrame(270, 50));
 
 		getContentPane().setLayout(
 				new FormLayout(new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), FormFactory.RELATED_GAP_COLSPEC, ColumnSpec.decode("default:grow"), }, new RowSpec[] { FormFactory.RELATED_GAP_ROWSPEC,
