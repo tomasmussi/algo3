@@ -21,7 +21,6 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Set;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -186,11 +185,20 @@ public class FrameJuego extends JFrame implements Observer {
 		// refrescar marcadores para la utilizacion del static google map.
 		refrescarMarcadores();
 
+		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
 		this.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent w) {
-				if (JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?", "Confirm exit.", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon("")) == 0) {
-					cerrarJuego();
+				int safe = JOptionPane.showConfirmDialog(null, "Esta seguro que desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
+
+				if(safe == JOptionPane.YES_OPTION){
+					setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
+				} else if (safe == JOptionPane.NO_OPTION) {
+					setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+				} else {
+					setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 				}
 			}
 		});
