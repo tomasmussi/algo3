@@ -185,7 +185,6 @@ public class FrameJuego extends JFrame implements Observer {
 		// refrescar marcadores para la utilizacion del static google map.
 		refrescarMarcadores();
 
-		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
 		this.addWindowListener(new WindowAdapter() {
 			@Override
@@ -193,12 +192,9 @@ public class FrameJuego extends JFrame implements Observer {
 				int safe = JOptionPane.showConfirmDialog(null, "Esta seguro que desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
 
 				if(safe == JOptionPane.YES_OPTION){
-					setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
-				} else if (safe == JOptionPane.NO_OPTION) {
+					cerrarJuego();
+				}else if (safe == JOptionPane.NO_OPTION) {
 					setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-				} else {
-					setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 				}
 			}
 		});
