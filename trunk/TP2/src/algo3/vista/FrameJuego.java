@@ -11,6 +11,8 @@ import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.HashMap;
@@ -19,6 +21,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Set;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -182,7 +185,17 @@ public class FrameJuego extends JFrame implements Observer {
 
 		// refrescar marcadores para la utilizacion del static google map.
 		refrescarMarcadores();
+
+		this.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent w) {
+				if (JOptionPane.showConfirmDialog(null, "Are you sure you want to quit?", "Confirm exit.", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon("")) == 0) {
+					cerrarJuego();
+				}
+			}
+		});
 	}
+
 
 	private void mostrarMensajeInicio() {
 		StringBuilder sb = new StringBuilder();
