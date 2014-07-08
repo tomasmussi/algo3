@@ -6,9 +6,12 @@ import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.jgoodies.forms.factories.FormFactory;
@@ -47,6 +50,19 @@ public class FramePrincipal extends JFrame {
 		getContentPane().add(btnEmpezarJuego, "2, 2, 1, 3, fill, fill");
 
 		requestFocusInWindow();
+		this.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent w) {
+				int safe = JOptionPane.showConfirmDialog(null, "Esta seguro que desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
+
+				if(safe == JOptionPane.YES_OPTION){
+					System.exit(0);
+				}else if (safe == JOptionPane.NO_OPTION) {
+					setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+				}
+			}
+		});
+
 	}
 
 	protected void mostrarVentanaIngresoNombre() {
