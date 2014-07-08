@@ -3,6 +3,8 @@ package algo3.vista;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -17,13 +19,14 @@ import javax.swing.SwingConstants;
 import algo3.controlador.XMLParser;
 import algo3.modelo.policia.Policia;
 
-public class VentanaIngresarNombre extends JFrame {
+public class VentanaIngresarNombre extends JFrame implements KeyListener{
 
 	private static final long serialVersionUID = 5114387229747868813L;
 
 	private JTextField txtNombrePolicia;
 	private FramePrincipal framePrincipal;
 	private String path;
+	private JButton bntAceptar;
 
 	public VentanaIngresarNombre(final FramePrincipal framePrincipal, String path) {
 		this.path = path;
@@ -34,22 +37,19 @@ public class VentanaIngresarNombre extends JFrame {
 		txtNombrePolicia = new JTextField();
 		txtNombrePolicia.setHorizontalAlignment(SwingConstants.CENTER);
 		txtNombrePolicia.setColumns(10);
+		txtNombrePolicia.addKeyListener(this);
 
 		JLabel lblInformacion = new JLabel("Policia al teclado, por favor identifiquese:");
 		lblInformacion.setFont(new Font("Calibri Light", Font.BOLD, 15));
 		lblInformacion.setHorizontalAlignment(SwingConstants.CENTER);
 
-		JButton bntAceptar = new JButton("Aceptar");
+		bntAceptar = new JButton("Aceptar");
+
 		bntAceptar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if ((txtNombrePolicia.getText() == null) || (txtNombrePolicia.getText().trim().isEmpty())) {
-					JOptionPane.showMessageDialog(null, "El nombre del policia no puede ser vacio.");
-				} else {
-					iniciarYMostrarFrameDeJuego();
-					framePrincipal.setVisible(false);
-					clearTextField();
-				}
+				ejecutarAccion();
+
 			}
 		});
 		bntAceptar.setFont(new Font("Calibri Light", Font.BOLD, 15));
@@ -97,6 +97,16 @@ public class VentanaIngresarNombre extends JFrame {
 		return XMLParser.cargarPoliciaDeArchivo(path, txtNombrePolicia.getText().trim());
 	}
 
+	private void ejecutarAccion(){
+		if ((txtNombrePolicia.getText() == null) || (txtNombrePolicia.getText().trim().isEmpty())) {
+			JOptionPane.showMessageDialog(null, "El nombre del policia no puede ser vacio.");
+		} else {
+			iniciarYMostrarFrameDeJuego();
+			framePrincipal.setVisible(false);
+			clearTextField();
+		}
+	}
+
 	// Accion para cerrar ventana
 	class volver implements ActionListener {
 		private VentanaIngresarNombre frame;
@@ -110,6 +120,27 @@ public class VentanaIngresarNombre extends JFrame {
 			frame.clearTextField();
 			frame.dispose();
 		}
+	}
+
+	@Override
+	public void keyPressed(KeyEvent evt) {
+		int key = evt.getKeyCode();
+
+		if (key == KeyEvent.VK_ENTER) {
+			ejecutarAccion();
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+
 	}
 
 }
