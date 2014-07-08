@@ -185,21 +185,19 @@ public class FrameJuego extends JFrame implements Observer {
 		// refrescar marcadores para la utilizacion del static google map.
 		refrescarMarcadores();
 
-
 		this.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent w) {
 				int safe = JOptionPane.showConfirmDialog(null, "Esta seguro que desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
 
-				if(safe == JOptionPane.YES_OPTION){
+				if (safe == JOptionPane.YES_OPTION) {
 					cerrarJuego();
-				}else if (safe == JOptionPane.NO_OPTION) {
+				} else if (safe == JOptionPane.NO_OPTION) {
 					setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 				}
 			}
 		});
 	}
-
 
 	private void mostrarMensajeInicio() {
 		StringBuilder sb = new StringBuilder();
@@ -426,8 +424,6 @@ public class FrameJuego extends JFrame implements Observer {
 		PanelEdificios panel = new PanelEdificios(juego, edificios);
 		panelPrincipal.add(panel);
 		revalidarPanelPrincial();
-		setSize(Frame.MAXIMIZED_HORIZ, Frame.MAXIMIZED_VERT);
-		setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
 
 }

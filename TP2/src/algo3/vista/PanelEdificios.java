@@ -2,9 +2,9 @@ package algo3.vista;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.MediaTracker;
 import java.awt.Toolkit;
 
 import javax.swing.JLabel;
@@ -51,20 +51,23 @@ public class PanelEdificios extends JPanel {
 		lblNewLabel.setFont(new Font("Calibri Light", Font.BOLD, 14));
 		lblNewLabel.setForeground(Color.WHITE);
 		add(lblNewLabel, "2, 4, 5, 1, fill, fill");
-
-		setSize(Frame.MAXIMIZED_HORIZ, Frame.MAXIMIZED_VERT);
-
-		requestFocus();
-		repaint();
 	}
 
 	private class ImagenPanel extends JPanel {
 
 		private static final long serialVersionUID = 1906591719910482990L;
 		private Image image;
+		private MediaTracker mt;
 
 		public ImagenPanel(String edificio) {
+			mt = new MediaTracker(this);
 			image = Toolkit.getDefaultToolkit().getImage(EDIFICIOS + edificio + EXTENSION_JPG);
+			mt.addImage(image, 0);
+			try {
+				mt.waitForAll();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 
 		@Override
