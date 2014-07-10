@@ -188,7 +188,7 @@ public class FrameJuego extends JFrame implements Observer {
 		this.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent w) {
-				int safe = JOptionPane.showConfirmDialog(null, "Esta seguro que desea salir?", "Salir", JOptionPane.YES_NO_OPTION);
+				int safe = JOptionPane.showConfirmDialog(null, "Esta seguro que desea salir?\nLa informacion no guardada se perdera.", "Salir", JOptionPane.YES_NO_OPTION);
 
 				if (safe == JOptionPane.YES_OPTION) {
 					cerrarJuego();
